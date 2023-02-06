@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+   
+
+    /* background color */
+    background-color: rgb(18, 106, 207);
+    /* height of the page */
+    height: 100vh;
+    /* font */
+    font-family: poppins;
+   
+}
+
+header {
+   /* put the container in the top middle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    background-color:#FFA400;
+    font-family: poppins;
+
+   
+}
+button {
+  /* put this image as a background of the button */
+    background-color: #FFA400;
+    border: none;
+    height: 150px;
+    width: 400px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+    margin: 10px;
+    
+}
+
+.container {
+    /* put the container in the top middle */
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(18, 106, 207);
+    font-family: poppins;
+}
+
+.basket {
+    background-image:url("basket.jpg");
+    background-size: cover;
+    background-position: 20% 30%;
+}
+
+
+.football{
+    background-image: url("football.jpg");
+    background-size: cover;
+    background-position: 20% 55%;
+}
+
+.tennis {
+    background-image: url("tennis.jpg");
+    background-size: cover;
+}
+
+.UFC {
+    background-image: url("4fb09.jpg");
+    background-size: cover;
+    background-position: 0% 25%;
+}
+
+.creer {
+    background-color: #FFA400;
+    border: none;
+    height: 50px;
+    width: 150px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+    margin: 10px;
+}
+

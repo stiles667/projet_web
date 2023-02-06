@@ -11,7 +11,7 @@
 
 <body>
     <header>
-        <h1>Quizzeo</h1>
+        <h1><a href="home.html">Quizzeo</a></h1>
         <div class="options">
             <a href="login.html">Connexion</a>
             <a href="inscription.html">Inscription</a>
@@ -20,21 +20,19 @@
     
     <div class="page">
         <div class="loginPage">
-            <form method="post" action="script.php">
-                <label for="pseudo">Pseudo</label>
-                <input type="text" name="pseudo" placeholder="Nom d'utilisateur" id="pseudo">
-        
-                <label for="role"> Choix rôle : </label>
-                <select name="role" id="card">
-                    <option value=""> -- Veuillez choisir votre rôle -- </option>
-                    <option value="utilisateur"> Utilisateur </option>
-                    <option value="quizzeur"> Quizzeur </option>
-                    <option value="admin"> Administrateur </option>
-                </select>
-        
-                <input class="submit" type="submit" value="Envoyer">
-        
-            </form>
+            <div class="imgLogin"></div>
+            <div class="login">
+                <form method="post" action="script.php">
+                    <label for="pseudo">Pseudo</label>
+                    <input type="text" name="pseudo" placeholder="Nom d'utilisateur" id="pseudo">
+                    <label for="role">Choix rôle</label>
+                    <select name="role" id="card">
+                        <option value="utilisateur">Utilisateur</option>
+                        <option value="quizzeur">Quizzeur</option>
+                    </select>
+                    <input class="submit" type="submit" value="Envoyer">
+                </form>
+            </div>
         </div>
     </div>
 
