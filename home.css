@@ -1,108 +1,89 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
 
-
-*{
+* {
     margin: 0;
     padding: 0;
+    text-decoration: none;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
-body{
-   
 
-    /* background color */
-    background-color: rgb(18, 106, 207);
-    /* height of the page */
-    height: 100vh;
-    /* font */
-    font-family: poppins;
-    ;
-   
+body {
+    background-color: #232528;
+    overflow-x: hidden;
 }
 
 header {
-   /* put the container in the top middle */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    height: 80px;
+    background-color: #f76d1d;
+    box-shadow: 0 0 10px 20px rgba(0, 0, 0, 0.2);
+
+}
+
+header a {
+    color: white;
+    margin-left: 20px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.search {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    height: auto;
     width: 100%;
-    background-color:#FFA400;
-    font-family: poppins;
-
-   
 }
-button {
-  /* put this image as a background of the button */
-    background-color: #FFA400;
+
+.searchBar {
+    width: 1200px;
+    height: 60px;
+    font-size: 30px;
+    background-color: #f1F1F1;
     border: none;
-    height: 150px;
-    width: 400px;
     border-radius: 10px;
-    cursor: pointer;
-    transition: 0.5s;
-    margin: 10px;
-    
+    margin-top: 50px;
+    padding-left: 20px;
 }
 
-.container {
-    /* put the container in the top middle */
-    margin: 20px;
-    height: 100vh;
-    width: 100%;
-    background-color: rgb(18, 106, 207);
-    font-family: poppins;
-}
-.sport{
-    background-image: url(https://thumbs.dreamstime.com/b/mat%C3%A9riel-de-sport-2-22802518.jpg);
-    background-size: cover;
-}
-.geo{
-    background-image: url(https://st.depositphotos.com/1003345/1883/i/600/depositphotos_18832325-stock-photo-magnifying-glass-and-map.jpg);
-    background-size: cover;
-}
-.cinema {
-    background-image: url(8b9aabc3524870c8821d00aa1190f858.jpg);
-    background-size: cover;
-}
-.music {
-    background-image: url(logo.jpg);
-    background-size: cover;
-}
-.hg{
-    background-image: url(hg.jpg);
-    background-size: cover;
-}
-.cg{
-    background-image: url(https://www.successcolaire.ca/blogue/wp-content/uploads/2020/03/culture-generale-examen-pratique-en-ligne-admission-secondaire-e1583165298977.png);
-    background-size: cover;
-    
-}
-button:hover {
-    transform: scale(1.1);
-}
-button:active {
-    transform: scale(0.9);
-}
-button:focus {
+input[type="search"] {
     outline: none;
 }
-button span {
-    color: #fff;
-    font-size: 30px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center;
-    line-height: 150px;
+
+.options {
+    display: flex;
+    align-items: center;
+    color: white;
+    user-select: none;
 }
-button span:after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background-color: #fff;
-    transition: 0.5s;
+
+.options a {
+    margin-right: 25px;
+    color: white;
+    cursor: pointer;
 }
-button:hover span:after {
+
+h2 {
+    color: white;
+    font-size: 20px;
+}
+
+.page {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    height: 700px;
     width: 100%;
+    color: white;
+    margin: 20px;
+}
+
+.categories {
+    background-color: #f76d1d;
+    border-radius: 15px;
 }
