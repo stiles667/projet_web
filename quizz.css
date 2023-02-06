@@ -85,4 +85,15 @@ button {
     transition: 0.5s;
     margin: 10px;
 }
+button:hover {
+    transform: scale(1.1);
+}
+button:active {
+    transform: scale(0.9);
+}   
+button:focus {
+    outline: none;
+}
+
+
 
