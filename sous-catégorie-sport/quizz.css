@@ -57,6 +57,7 @@ button {
     background-position: 20% 30%;
 }
 
+
 .football{
     background-image: url("football.jpg");
     background-size: cover;
@@ -73,3 +74,15 @@ button {
     background-size: cover;
     background-position: 0% 25%;
 }
+
+.creer {
+    background-color: #FFA400;
+    border: none;
+    height: 50px;
+    width: 150px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+    margin: 10px;
+}
+
