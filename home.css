@@ -51,4 +51,28 @@ button {
     background-color: rgb(18, 106, 207);
     font-family: poppins;
 }
-.cg{}
+.sport{
+    background-image: url(https://thumbs.dreamstime.com/b/mat%C3%A9riel-de-sport-2-22802518.jpg);
+    background-size: cover;
+}
+.geo{
+    background-image: url(https://st.depositphotos.com/1003345/1883/i/600/depositphotos_18832325-stock-photo-magnifying-glass-and-map.jpg);
+    background-size: cover;
+}
+.cinema {
+    background-image: url(8b9aabc3524870c8821d00aa1190f858.jpg);
+    background-size: cover;
+}
+.music {
+    background-image: url(logo.jpg);
+    background-size: cover;
+}
+.hg{
+    background-image: url(hg.jpg);
+    background-size: cover;
+}
+.cg{
+    background-image: url(https://www.successcolaire.ca/blogue/wp-content/uploads/2020/03/culture-generale-examen-pratique-en-ligne-admission-secondaire-e1583165298977.png);
+    background-size: cover;
+    
+}
