@@ -33,7 +33,6 @@ header {
 }
 button {
   /* put this image as a background of the button */
- 
     background-color: #FFA400;
     border: none;
     height: 150px;
@@ -42,6 +41,7 @@ button {
     cursor: pointer;
     transition: 0.5s;
     margin: 10px;
+    
 }
 
 .container {
