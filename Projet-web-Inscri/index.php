@@ -4,6 +4,9 @@
    <label for="pseudo">Pseudo :</label><br>
    <input type="text" name="pseudo" id="pseudo"><br>
 
+    <label for="mdp">Mot de passe :</label><br>
+    <input type="password" name="mdp" id="mdp"><br>
+
    <label for="role"> Choix rôle : </label><br>
         <select name="role" id="card">
             <option value=""> -- Veuillez choisir votre rôle -- </option>
