@@ -45,10 +45,31 @@ button {
 
 .container {
     /* put the container in the top middle */
-    
     height: 100vh;
     width: 100%;
     background-color: rgb(18, 106, 207);
     font-family: poppins;
 }
-.cg{}
+
+.basket {
+    background-image:url("basket.jpg");
+    background-size: cover;
+    background-position: 20% 30%;
+}
+
+.football{
+    background-image: url("football.jpg");
+    background-size: cover;
+    background-position: 20% 55%;
+}
+
+.tennis {
+    background-image: url("tennis.jpg");
+    background-size: cover;
+}
+
+.UFC {
+    background-image: url("4fb09.jpg");
+    background-size: cover;
+    background-position: 0% 25%;
+}
