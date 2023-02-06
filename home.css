@@ -1,7 +1,89 @@
-.test {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #232528;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    height: 80px;
+    background-color: #f76d1d;
+    box-shadow: 0 0 10px 20px rgba(0, 0, 0, 0.2);
+
+}
+
+header a {
+    color: white;
+    margin-left: 20px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+}
+
+.searchBar {
+    width: 1200px;
+    height: 60px;
+    font-size: 30px;
+    background-color: #f1F1F1;
+    border: none;
+    border-radius: 10px;
+    margin-top: 50px;
+    padding-left: 20px;
+}
+
+input[type="search"] {
+    outline: none;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    color: white;
+    user-select: none;
+}
+
+.options a {
+    margin-right: 25px;
+    color: white;
+    cursor: pointer;
+}
+
+h2 {
+    color: white;
+    font-size: 20px;
+}
+
+.page {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-gap: 10px;
-    grid-template-areas: "a b" "c d";
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    height: 700px;
+    width: 100%;
+    color: white;
+    margin: 20px;
+}
+
+.categories {
+    background-color: #f76d1d;
+    border-radius: 15px;
 }
