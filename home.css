@@ -15,6 +15,7 @@ body{
     height: 100vh;
     /* font */
     font-family: poppins;
+    ;
    
 }
 
@@ -45,7 +46,7 @@ button {
 
 .container {
     /* put the container in the top middle */
-    
+    margin: 20px;
     height: 100vh;
     width: 100%;
     background-color: rgb(18, 106, 207);
@@ -75,4 +76,33 @@ button {
     background-image: url(https://www.successcolaire.ca/blogue/wp-content/uploads/2020/03/culture-generale-examen-pratique-en-ligne-admission-secondaire-e1583165298977.png);
     background-size: cover;
     
+}
+button:hover {
+    transform: scale(1.1);
+}
+button:active {
+    transform: scale(0.9);
+}
+button:focus {
+    outline: none;
+}
+button span {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 150px;
+}
+button span:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: 0.5s;
+}
+button:hover span:after {
+    width: 100%;
 }
