@@ -72,7 +72,7 @@ h2 {
     font-size: 20px;
 }
 
-.page {
+.categories {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -80,10 +80,9 @@ h2 {
     height: 700px;
     width: 100%;
     color: white;
-    margin: 20px;
 }
 
-.categories {
+.imgCategorie {
     background-color: #f76d1d;
     border-radius: 15px;
 }
