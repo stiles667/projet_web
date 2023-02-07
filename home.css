@@ -10,11 +10,12 @@ body{
 
 
     /* / background color / */
-    background-color: rgb(18, 106, 207);
+    background-color: rgb(22, 26, 30);
     /* / height of the page / */
     height: 100vh;
     /* / font / */
     font-family: poppins;
+    color: black;
 
 }
 
@@ -27,6 +28,7 @@ header {
     width: 100%;
     background-color:#FFA400;
     font-family: poppins;
+    
 
 
 }
@@ -48,8 +50,21 @@ button {
 
     height: 100vh;
     width: 100%;
-    background-color: rgb(18, 106, 207);
+    background-color: rgb(22, 26, 30);
     font-family: poppins;
+    display: grid;
+    
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    font-weight: 600;
+
 }
 .sport{
 background-image: url(matériel-de-sport-2-22802518.jpg);
@@ -87,3 +102,16 @@ background-position: center;
     background-position: center;
 
 }
+button:hover {
+    transform: scale(1.1);
+}
+button:active {
+    transform: scale(0.9);
+}   
+button:focus {
+    outline: none;
+}
+
+
+
+
