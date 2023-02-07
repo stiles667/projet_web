@@ -6,44 +6,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="home.css">
+    <script src="script.js"></script>
+    <link href='https://css.gg/search.css' rel='stylesheet'>
     <title>Quizzeo</title>
 </head>
 
 <body>
     <header>
-        <h1><a href="home.html">Quizzeo</a></h1>
+        <h1><a href="home.html">Quiz<span>zeo</span></a></h1>
         <div class="options">
             <a href="login.html">Connexion</a>
-            <a href="inscription.html">Inscription</a>
+            <button><a href="inscription.html">Inscription</a></button>
         </div>
     </header>
 
     <div class="search">
-        <input class="searchBar" type="search">
+        <h2>Mettez vos connaissances à l'épreuve en jouant ou en créant des quizz captivants!</h2>
+        <input class="searchBar" type="search" placeholder="Rechercher">
     </div>
-    
-    <div class="page">
+
+    <div class="CategorieChoice">
         <h2>Catégories</h2>
+        <button>Nouveau</button>
+        <button>Récent</button>
+        <button>Populaire</button>
+        <button>Tout</button>
+    </div>
+
+    <div class="container">
         <div class="categories">
-            <div class="imgCategorie"></div>
-            <div class="imgCategorie"></div>
-            <div class="imgCategorie"></div>
-            <div class="imgCategorie"></div>
-            <div class="imgCategorie"></div>
-            <div class="imgCategorie"></div>
-            <div class="imgCategorie"></div>
-            <div class="imgCategorie"></div>
-            <div class="imgCategorie"></div>
-            <div class="imgCategorie"></div>
-            <div class="imgCategorie"></div>
-            <div class="imgCategorie"></div>
-            <div class="imgCategorie"></div>
+            <div class="imgCategorie">
+                <img src="https://cdn-icons-png.flaticon.com/512/536/536074.png" alt="Sport">
+            </div>
+            <div class="imgCategorie">
+                <img src="https://cdn-icons-png.flaticon.com/512/8853/8853905.png" alt="Cinéma">
+            </div>
+            <div class="imgCategorie">
+                <img src="https://cdn-icons-png.flaticon.com/512/1243/1243420.png" alt="Géographie">
+            </div>
+            <div class="imgCategorie">
+                <img src="https://cdn-icons-png.flaticon.com/512/3969/3969722.png" alt="Animal">
+            </div>
+            <div class="imgCategorie">
+                <img src="https://cdn-icons-png.flaticon.com/512/3655/3655618.png" alt="Maths">
+            </div>
+            <div class="imgCategorie">
+                <img src="https://cdn-icons-png.flaticon.com/512/5494/5494482.png" alt="Vocabulaire">
+            </div>
+            <div class="imgCategorie">
+                <img src="https://cdn-icons-png.flaticon.com/512/385/385102.png" alt="Nourriture">
+            </div>
+            <div class="imgCategorie">
+                <img src="https://cdn-icons-png.flaticon.com/512/4264/4264838.png" alt="Célébrité">
+            </div>
+            <div class="imgCategorie">
+                <img src="https://cdn-icons-png.flaticon.com/512/2784/2784623.png" alt="Arts">
+            </div>
+            <div class="imgCategorie">
+                <img src="https://cdn-icons-png.flaticon.com/512/9280/9280745.png" alt="Musique">
+            </div>
+            <div class="imgCategorie">
+                <img src="https://cdn-icons-png.flaticon.com/512/9626/9626676.png" alt="Culture générale">
+            </div>
+            <div class="imgCategorie">
+                <img src="https://cdn-icons-png.flaticon.com/512/2586/2586386.png" alt="Drapeau">
+            </div>
             <div class="textCategorie">
                 <h3>Titre</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
             </div>
         </div>
     </div>
+
+    <footer>
+        <p>&copy; Quizzeo 2023</p>
+        <ul>
+            <li><a href="#">À propos</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Conditions d'utilisation</a></li>
+        </ul>
+    </footer>
+
 
 </body>
 
