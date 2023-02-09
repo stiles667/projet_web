@@ -28,7 +28,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=sqldbquizz;charset=utf8', 'root', ''
             break;
         default:
             echo "Vous êtes inscrit !";
-            $req = $bdd->prepare('INSERT INTO utilisateur(pseudo, password, email, role) VALUES(:pseudo, :password, :email, :role)');
+            $req = $bdd->prepare('INSERT INTO utilisateur (pseudo, password, email, role) VALUES(:pseudo, :password, :email, :role)');
             $req->execute(array(
                 'pseudo' => $pseudo,
                 'password' => $password,
