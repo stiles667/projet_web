@@ -20,7 +20,9 @@
     </header>
     
     <div class="container">
-        <h2 id="slogan">Rejoignez la communauté de quizz en ligne pour tester vos connaissances !</h2>
+        <div class="slogan">
+            <h2>Rejoignez la communauté de quizz en ligne pour tester vos connaissances !</h2>
+        </div>
         <div class="loginPage">
             <div class="imgLogin">
                 <h2>Quiz<span>zeo.</span></h2>
@@ -28,9 +30,9 @@
             <div class="login">
                 <h2>Connexion</h2>
                 <form method="post" action="script.php">
-                    <input type="text" name="pseudo" placeholder="Nom d'utilisateur" id="pseudo">
-                    <input type="email" name="email" placeholder="E-mail" id="pseudo">
-                    <input type="password" name="password" placeholder="Mot de passe" id="password">
+                    <input type="text" name="pseudo" placeholder="Nom d'utilisateur" id="pseudo" required>
+                    <input type="email" name="email" placeholder="E-mail" id="pseudo" required>
+                    <input type="password" name="password" placeholder="Mot de passe" id="password" required>
                     <select name="role" id="card">
                         <option value="2">Utilisateur</option>
                         <option value="3">Quizzeur</option>
