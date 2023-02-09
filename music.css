@@ -47,7 +47,7 @@ button {
     /* put the container in the top middle */
     height: 100vh;
     width: 100%;
-    background-color: rgb(22, 26, 30);
+    background-color: rgb(22, 26, 30);;
     font-family: poppins;
     display: grid;
     grid-template-rows: repeat(2, 1fr);
@@ -55,33 +55,17 @@ button {
     padding: 10px;
     box-sizing: border-box;
     justify-content: center;
- 
-    
-}
-
-.basket {
-    background-image:url("basket.jpg");
-    background-size: cover;
-    background-position: 20% 30%;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    font-weight: 600;
 }
 
 
-.football{
-    background-image: url("football.jpg");
-    background-size: cover;
-    background-position: 20% 55%;
-}
 
-.tennis {
-    background-image: url("tennis.jpg");
-    background-size: cover;
-}
 
-.UFC {
-    background-image: url("4fb09.jpg");
-    background-size: cover;
-    background-position: 0% 25%;
-}
+
 
 .creer {
     background-color: #FFA400;
@@ -102,6 +86,20 @@ button:active {
 button:focus {
     outline: none;
 }
-
+.rap{
+    background-image: url("https://img.redbull.com/images/c_crop,w_1200,h_600,x_0,y_0,f_auto,q_auto/c_scale,w_1200/redbullcom/2021/1/12/yvj0nslti1bzocyibfhy/rap-francais-pantheon-rappeurs");
+    background-size: cover;
+    background-position: 20% 30%;
+}
+.pop{
+    background-image: url("http://store-images.s-microsoft.com/image/apps.37854.13935209865926328.412d2b3e-6876-407b-a53d-e47e3d32537c.1d72c587-5330-4900-ab96-10f2ed727cae");
+    background-size: cover;
+    background-position: 60% 60%;
+}
+.mc{
+    background-image: url("https://funkypearls.fr/upload/artistes/normal/62760f3c09a0b0.61776481.jpeg");
+    background-size: cover;
+    background-position: 60% 37%;
+}
 
 
