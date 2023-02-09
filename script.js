@@ -18,7 +18,6 @@
 //     });
 // });
 
-
 // const trash = document.querySelectorAll("#trash");
 // const myDiv = document.querySelector("#myDiv");
 
@@ -29,7 +28,7 @@
 //   });
 // });
 
-const trash = document.querySelectorAll('img, .trash')
+const trash = document.querySelectorAll("img, .trash");
 
 // $(trash).each((trash,buttonIndex)=>{
 //   $("img, #trash").click(function() {
@@ -51,36 +50,29 @@ const trash = document.querySelectorAll('img, .trash')
 //   })
 // })
 
-$("img, #edit").click(function() {
+$("img, #edit").click(function () {
   $("#myDiv").css("display", "block");
   console.log("Voulez-vous modifier ce quiz ?");
 });
-
 
 // $("img, #trash").click(function() {
 //   $(".imgCategorie").css("display", "none");
 //   console.log("Supprimer");
 // });
 
-
-
-$(".profile img").click(function() {
+$(".profile img").click(function () {
   $("#file-input").click();
 });
 
-$("#file-input").change(function() {
+$("#file-input").change(function () {
   if (this.files && this.files[0]) {
     var reader = new FileReader();
-    reader.onload = function(e) {
+    reader.onload = function (e) {
       $(".profile img").attr("src", e.target.result);
     };
     reader.readAsDataURL(this.files[0]);
   }
 });
-
-
-
-
 
 // var children = document.getElementsByClassName("imgCategorie");
 // for (var i = 0; i < children.length; i++) {
@@ -92,7 +84,6 @@ $("#file-input").change(function() {
 //   })(i));
 // }
 
-
 // $(document).ready(function() {
 //   $(".imgCategorie").each(function(index) {
 //     $(this).click(function() {
@@ -101,7 +92,6 @@ $("#file-input").change(function() {
 //     });
 //   });
 // });
-
 
 // $(document).ready(function() {
 //   $(".imgCategorie").each(function(index) {
@@ -121,23 +111,47 @@ $("#file-input").change(function() {
 //   });
 // });
 
-$('.imgCategorie h3').click(function(){
-  var newImgCategorie = $('<div class="imgCategorie"><img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png" alt="Supprimer"><img class="edit" src="https://img.icons8.com/external-febrian-hidayat-flat-febrian-hidayat/256/external-Edit-user-interface-febrian-hidayat-flat-febrian-hidayat.png" alt="Modifier"><h3 id="Name">Quizz n°5</h3><img class="Illustration" src="https://cdn-icons-png.flaticon.com/512/3655/3655618.png"></div>');
-  $(this).closest('.imgCategorie').after(newImgCategorie);
+// $('.imgCategorie h3').click(function(){
+//   var newImgCategorie = $('<div class="imgCategorie"><img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png" alt="Supprimer"><img class="edit" src="https://img.icons8.com/external-febrian-hidayat-flat-febrian-hidayat/256/external-Edit-user-interface-febrian-hidayat-flat-febrian-hidayat.png" alt="Modifier"><h3 id="Name">Quizz n°5</h3><img class="Illustration" src="https://cdn-icons-png.flaticon.com/512/3655/3655618.png"></div>');
+//   $(this).closest('.imgCategorie').after(newImgCategorie);
+// });
+
+$(".imgCategorie h3").click(function () {
+  var newImgCategorie = $(
+    '<div class="imgCategorie">' +
+      '<img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png" alt="Supprimer">' +
+      '<img class="edit" src="https://img.icons8.com/external-febrian-hidayat-flat-febrian-hidayat/256/external-Edit-user-interface-febrian-hidayat-flat-febrian-hidayat.png" alt="Modifier">' +
+      '<h3 id="Name">Quizz n°5</h3><img class="Illustration" src="https://cdn-icons-png.flaticon.com/512/3655/3655618.png">' +
+      "</div>"
+  );
+  $(this).closest(".imgCategorie").before(newImgCategorie);
 });
 
-$('.trash').click(function(){
-  $(this).closest('.imgCategorie').remove();
+$(".trash").click(function () {
+  $(this).closest(".imgCategorie").remove();
 });
 
-$('.edit').click(function(){
-  $(this).closest('.imgCategorie').remove();
+// $('.imgCategorie h3').click(function(){
+//   $(this).closest('.imgCategorie').append();
+// });
+
+$(".imgCategorie").appendTo("#categories");
+
+// $('.imgCategorie .trash').click(function(){
+//   if (confirm("Êtes-vous sûr de vouloir supprimer ce quizz ?")) {
+//     $(this).closest('.imgCategorie').remove();
+//   }
+// });
+
+$(".imgCategorie .trash").click(function () {
+  var result = confirm("Êtes-vous sûr de vouloir supprimer cet élément?");
+  if (result) {
+    $(this).closest(".imgCategorie").remove();
+  }
 });
 
-$('.imgCategorie h3').click(function(){
-  $(this).closest('.imgCategorie').append();
+$(".imgCategorie .trash").click(function () {
+  $("#popup1").popup();
 });
 
-$('.imgCategorie').appendTo('#categories');
-
-
+$("#popup1").popup();
