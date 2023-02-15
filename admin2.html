@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://img.icons8.com/sf-black/64/000000/search.png">
+    <link rel="stylesheet" href="admin2.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+        integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <link href='https://css.gg/search.css' rel='stylesheet'>
+    <title>Quizzeo</title>
+</head>
+
+<body>
+    <header>
+        <a class="home" href="accueil.html">
+            <span>Quiz</span><span>zeo.</span>
+        </a>
+        <div class="options">
+            <h2>Utilisateur</h2>
+            <a class="profile" href="panel.html">
+                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Photo de profile">
+                <input type="file" id="file-input" style="display: none;">
+            </a>
+            <a href="accueil.html">
+                <img id="deconnexion" src="https://img.icons8.com/fluency-systems-regular/256/login-rounded-right.png"
+                    alt="Se déconnecter">
+            </a>
+        </div>
+    </header>
+    <div class="container">
+        <!-- <div class="icons opacity">
+            <img src="https://cdn-icons-png.flaticon.com/512/4218/4218472.png" alt="Lettres">
+            <img src="https://cdn-icons-png.flaticon.com/512/4058/4058331.png" alt="Fruit">
+            <img src="https://cdn-icons-png.flaticon.com/512/4218/4218113.png" alt="Ballon de basket">
+            <img src="https://cdn-icons-png.flaticon.com/512/4218/4218478.png" alt="Couleurs">
+            <img src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png" alt="Crayon">
+            <img src="https://cdn-icons-png.flaticon.com/512/4218/4218493.png" alt="Loupe">
+            <img src="https://cdn-icons-png.flaticon.com/512/4218/4218484.png" alt="Globe terrestre">
+        </div> -->
+        <div class="onglets">
+            <div class="button active" data-onglet="onglet-1">
+                <img src="https://img.icons8.com/fluency-systems-regular/256/home.png" alt="Accueil">
+            </div>
+            <div class="button" data-onglet="onglet-2">
+                <img src="https://img.icons8.com/fluency-systems-regular/256/user.png" alt="Profil">
+            </div>
+            <div class="button" data-onglet="onglet-3">
+                <img src="https://img.icons8.com/fluency-systems-regular/256/plus-math.png" alt="Ajouter">
+            </div>
+            <div class="button" data-onglet="onglet-4">
+                <img src="https://img.icons8.com/fluency-systems-regular/256/security-user-male.png"
+                    alt="Administrateur">
+            </div>
+            <div class="button" data-onglet="onglet-5">
+                <img src="https://img.icons8.com/fluency-systems-regular/256/settings.png" alt="Paramètre">
+            </div>
+        </div>
+
+
+        <!-- <div class="tabs">
+                <ul class="tab-list">
+                    <li class="tab-item active" data-tab="tab-1">Onglet 1</li>
+                    <li class="tab-item" data-tab="tab-2">Onglet 2</li>
+                    <li class="tab-item" data-tab="tab-3">Onglet 3</li>
+                </ul>
+                <div class="tab-content active" id="tab-1">
+                    Contenu de l'onglet 1
+                </div>
+                <div class="tab-content" id="tab-2">
+                    Contenu de l'onglet 2
+                </div>
+                <div class="tab-content" id="tab-3">
+                    Contenu de l'onglet 3
+                </div>
+            </div> -->
+
+        <div class="container-onglet active" id="onglet-1">
+            <div class="info">
+                <div class="title">
+                    <h2>Bienvenue,</h2>
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/5197/5197842.png" alt="Crayon">
+                    </div>
+                </div>
+                <p>Pseudo</p>
+            </div>
+        </div>
+
+        <div class="container-onglet" id="onglet-2">
+            <div class="info">
+                <div class="info-title">
+                    <h2>Mon compte</h2>
+                    <p>Pseudo | 15 quiz</p>
+                </div>
+            </div>
+            <div class="profil">
+                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Photo de profile">
+            </div>
+            <div class="personal-info">
+                <input type="text" placeholder="Pseudo">
+                <input type="text" placeholder="Adresse mail">
+                <input type="text" placeholder="Mot de passe">
+                <input type="text" placeholder="Adresse mail">
+            </div>
+            <input class="button-save" type="submit" value="Enregistrer">
+        </div>
+
+        <div class="container-onglet" id="onglet-3">
+            <div class="info">
+                <div class="title">
+                    <h2>Création</h2>
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png" alt="Crayon">
+                    </div>
+                </div>
+                <p>Pseudo</p>
+            </div>
+            <!-- <div class="categories">
+                <div class="quiz">
+                    <h3 class="Name">Sport</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/512/4218/4218113.png" alt="Sport">
+                </div>
+                <div class="quiz">
+                    <h3 class="Name">Cinéma</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/512/5198/5198228.png" alt="Cinéma">
+                </div>
+                <div class="quiz">
+                    <h3 class="Name">Géographie</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/512/4218/4218484.png" alt="Géographie">
+                </div>
+                <div class="quiz">
+                    <h3 class="Name">Animal</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/512/8176/8176142.png" alt="Animal">
+                </div>
+                <div class="quiz">
+                    <h3 class="Name">Maths</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/512/5197/5197954.png" alt="Maths">
+                </div>
+                <div class="quiz">
+                    <h3 class="Name">Vocabulaire</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/512/4218/4218472.png" alt="Vocabulaire">
+                </div>
+                <div class="quiz">
+                    <h3 class="Name">Gastronomie</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/512/4058/4058331.png" alt="Gastronomie">
+                </div>
+                <div class="quiz">
+                    <h3 class="Name">Célébrité</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/512/5197/5197853.png" alt="Célébrité">
+                </div>
+                <div class="quiz">
+                    <h3 class="Name">Arts</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/512/4218/4218478.png" alt="Arts">
+                </div>
+                <div class="quiz">
+                    <h3 class="Name">Musique</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/512/5198/5198104.png" alt="Musique">
+                </div>
+                <div class="quiz">
+                    <h3 class="Name">Culture</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/512/3962/3962505.png" alt="Culture">
+                </div>
+                <div class="quiz">
+                    <h3 class="Name">Espace</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/512/4663/4663555.png" alt="Espace">
+                </div>
+            </div> -->
+        </div>
+
+        <div class="container-onglet" id="onglet-4">
+            <div class="info">
+                <div class="title">
+                    <h2>Administrateur</h2>
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/3962/3962402.png" alt="Crayon">
+                    </div>
+                </div>
+                <div id="status">
+                    <p>Quiz en ligne</p>
+                    <div id="online"></div>
+                </div>
+                <div class="search-container">
+                    <div id="search-icon">
+                        <img src="https://img.icons8.com/fluency-systems-regular/256/search.png" alt="Rechercher">
+                    </div>
+                    <input class="searchBar" type="search" placeholder="Rechercher">
+                </div>
+            </div>
+            <div id="categories">
+                <div class="imgCategorie">
+                    <div class="image">
+                        <img class="Illustration" src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png">
+                    </div>
+                    <h3>User 1</h3>
+                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png" alt="Supprimer">
+                </div>
+                <div class="imgCategorie">
+                    <div class="image">
+                        <img class="Illustration" src="https://cdn-icons-png.flaticon.com/512/4139/4139981.png">
+                    </div>
+                    <h3>User 2</h3>
+                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png" alt="Supprimer">
+                </div>
+                <div class="imgCategorie">
+                    <div class="image">
+                        <img class="Illustration" src="https://cdn-icons-png.flaticon.com/512/4140/4140062.png">
+                    </div>
+                    <h3>User 3</h3>
+                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png" alt="Supprimer">
+                </div>
+                <div class="imgCategorie">
+                    <div class="image">
+                        <img class="Illustration" src="https://cdn-icons-png.flaticon.com/512/4139/4139951.png">
+                    </div>
+                    <h3>User 4</h3>
+                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png" alt="Supprimer">
+                </div>
+                <div class="imgCategorie">
+                    <div class="image">
+                        <img class="Illustration" src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
+                    </div>
+                    <h3>User 5</h3>
+                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png" alt="Supprimer">
+                </div>
+                <div class="imgCategorie">
+                    <div class="image">
+                        <img class="Illustration" src="https://cdn-icons-png.flaticon.com/512/4140/4140059.png">
+                    </div>
+                    <h3>User 6</h3>
+                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png" alt="Supprimer">
+                </div>
+                <div class="imgCategorie">
+                    <div class="image">
+                        <img class="Illustration" src="https://cdn-icons-png.flaticon.com/512/4140/4140059.png">
+                    </div>
+                    <h3>User 6</h3>
+                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png" alt="Supprimer">
+                </div>
+                <div class="imgCategorie">
+                    <div class="image">
+                        <img class="Illustration" src="https://cdn-icons-png.flaticon.com/512/4140/4140059.png">
+                    </div>
+                    <h3>User 6</h3>
+                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png" alt="Supprimer">
+                </div>
+                <div class="imgCategorie">
+                    <div class="image">
+                        <img class="Illustration" src="https://cdn-icons-png.flaticon.com/512/4140/4140059.png">
+                    </div>
+                    <h3>User 6</h3>
+                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png" alt="Supprimer">
+                </div>
+                <div class="imgCategorie">
+                    <div class="image">
+                        <img class="Illustration" src="https://cdn-icons-png.flaticon.com/512/4140/4140059.png">
+                    </div>
+                    <h3>User 6</h3>
+                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png" alt="Supprimer">
+                </div>
+            </div>
+        </div>
+        <div class="container-onglet" id="onglet-5">
+            <div class="info">
+                <div class="info-title">
+                    <h2>Paramètre</h2>
+                    <p>Pseudo</p>
+                </div>
+            </div>
+            <div class="passwd">
+                <div>
+                    <label for="pseudo">Nom d'utilisateur</label>
+                    <input type="text" name="pseudo" placeholder="Ancien mot de passe">
+                </div>
+                <div>
+                    <label for="e-mail">E-mail</label>
+                    <input type="text" name="e-mail" placeholder="Ancien mot de passe">
+                </div>
+                <div>
+                    <label for="password">Mot de passe</label>
+                    <input type="text" name="password" placeholder="Ancien mot de passe">
+                    <input type="text" placeholder="Nouveau mot de passe">
+                    <input type="text" placeholder="Confirmer le mot de passe">
+                </div>
+                <input class="button-save" type="submit" value="Enregistrer">
+            </div>
+        </div>
+    </div>
+    <!-- <footer>
+        <ul>
+            <li><a href="#">À propos</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Conditions d'utilisation</a></li>
+        </ul>
+        <p>&copy; Quizzeo 2023</p>
+    </footer> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
