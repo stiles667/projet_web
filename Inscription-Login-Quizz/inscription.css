@@ -84,7 +84,7 @@ header a span {
 
 #slogan {
   color: white;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 900;
   margin-bottom: 50px;
 }
@@ -103,6 +103,7 @@ header a span {
 }
 
 .imgLogin {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,6 +129,14 @@ header a span {
   object-fit: cover;
 }
 
+.imgLogin p {
+  position: absolute;
+  font-size: 20px;
+  color: white;
+  width: 290px;
+  bottom: 70px;
+}
+
 .login {
   display: flex;
   flex-direction: column;
@@ -137,7 +146,7 @@ header a span {
 }
 
 .login h2 {
-  font-weight: 800;
+  font-weight: 600;
   font-size: 40px;
   margin-bottom: 20px;
   color: #333333;
@@ -214,4 +223,8 @@ footer ul a {
         box-shadow: transparent 0 0 0 30px;
 
     }
+}
+
+label {
+  color: black;
 }

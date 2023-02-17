@@ -84,7 +84,7 @@ header a span {
 
 #slogan {
   color: white;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 900;
   margin-bottom: 50px;
 }
@@ -214,4 +214,21 @@ footer ul a {
         box-shadow: transparent 0 0 0 30px;
 
     }
+}
+
+label {
+  color: black;
+}
+
+span {
+  color: black;
+}
+
+.erreur {
+  color: white;
+  background-color: rgba(255, 0, 0, 0.804);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 15px;
 }
