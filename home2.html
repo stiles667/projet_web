@@ -14,19 +14,26 @@
 </head>
 
 <body>
+    <audio id="myAudio" src="dwisk.mp3" autoplay></audio>
+    <script>
+    var x = document.getElementById("myAudio"); 
+    x.play();
+    </script>
+    
+      
     <header>
-        <a class="home" href="accueil.html">
+        <a class="home" href="home2.html">
             <span>Quiz</span><span>zeo.</span>
         </a>
         <div class="options">
             <h2>Utilisateur</h2>
-            <a id="profil" href="panel.html">
+            <a id="profil" href="admin2.html">
                 <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Photo de profil">
             </a>
             <a id="deconnexion" href="accueil.html">
-                <img src="https://img.icons8.com/fluency-systems-regular/256/login-rounded-right.png" alt="Se déconnecter">
+                <img src="https://img.icons8.com/fluency-systems-regular/256/login-rounded-right.png"
+                    alt="Se déconnecter">
             </a>
-        </div>
         </div>
     </header>
     <div class="container">
@@ -41,62 +48,62 @@
         </div> -->
         <div class="search">
             <h2>Mettez vos connaissances à l'épreuve en jouant ou en créant des quizz</h2>
-            <div class="search-container">
+            <div class="search-container2">
                 <div id="search-icon">
                     <img src="https://img.icons8.com/fluency-systems-regular/256/search.png" alt="Rechercher">
                 </div>
-                <input class="searchBar" type="search" placeholder="Rechercher">
+                <input id="search-box" class="searchBar" type="search" placeholder="Rechercher">
             </div>
         </div>
         <div class="categories">
-            <div class="imgCategorie">
+            <a href="quiz.html" class="imgCategorie" data-category="Sport">
                 <h3 class="Name">Sport</h3>
                 <img src="https://cdn-icons-png.flaticon.com/512/4218/4218113.png" alt="Sport">
-            </div>
-            <div class="imgCategorie">
+            </a>
+            <a href="quiz.html" class="imgCategorie" data-category="Cinéma">
                 <h3 class="Name">Cinéma</h3>
                 <img src="https://cdn-icons-png.flaticon.com/512/5198/5198228.png" alt="Cinéma">
-            </div>
-            <div class="imgCategorie">
+            </a>
+            <a href="quiz.html" class="imgCategorie" data-category="Géographie">
                 <h3 class="Name">Géographie</h3>
                 <img src="https://cdn-icons-png.flaticon.com/512/4218/4218484.png" alt="Géographie">
-            </div>
-            <div class="imgCategorie">
+            </a>
+            <a href="quiz.html" class="imgCategorie" data-category="Animal">
                 <h3 class="Name">Animal</h3>
                 <img src="https://cdn-icons-png.flaticon.com/512/8176/8176142.png" alt="Animal">
-            </div>
-            <div class="imgCategorie">
+            </a>
+            <a href="quiz.html" class="imgCategorie" data-category="Maths">
                 <h3 class="Name">Maths</h3>
                 <img src="https://cdn-icons-png.flaticon.com/512/5197/5197954.png" alt="Maths">
-            </div>
-            <div class="imgCategorie">
+            </a>
+            <a href="quiz.html" class="imgCategorie" data-category="Vocabulaire">
                 <h3 class="Name">Vocabulaire</h3>
                 <img src="https://cdn-icons-png.flaticon.com/512/4218/4218472.png" alt="Vocabulaire">
-            </div>
-            <div class="imgCategorie">
+            </a>
+            <a href="quiz.html" class="imgCategorie" data-category="Gastronomie">
                 <h3 class="Name">Gastronomie</h3>
                 <img src="https://cdn-icons-png.flaticon.com/512/4058/4058331.png" alt="Gastronomie">
-            </div>
-            <div class="imgCategorie">
+            </a>
+            <a href="quiz.html" class="imgCategorie" data-category="Célébrité">
                 <h3 class="Name">Célébrité</h3>
                 <img src="https://cdn-icons-png.flaticon.com/512/5197/5197853.png" alt="Célébrité">
-            </div>
-            <div class="imgCategorie">
+            </a>
+            <a href="quiz.html" class="imgCategorie" data-category="Arts">
                 <h3 class="Name">Arts</h3>
                 <img src="https://cdn-icons-png.flaticon.com/512/4218/4218478.png" alt="Arts">
-            </div>
-            <div class="imgCategorie">
+            </a>
+            <a href="quiz.html" class="imgCategorie" data-category="Musique">
                 <h3 class="Name">Musique</h3>
                 <img src="https://cdn-icons-png.flaticon.com/512/5198/5198104.png" alt="Musique">
-            </div>
-            <div class="imgCategorie">
+            </a>
+            <a href="quiz.html" class="imgCategorie" data-category="Culture">
                 <h3 class="Name">Culture</h3>
                 <img src="https://cdn-icons-png.flaticon.com/512/3962/3962505.png" alt="Culture">
-            </div>
-            <div class="imgCategorie">
+            </a>
+            <a href="quiz.html" class="imgCategorie" data-category="Espace">
                 <h3 class="Name">Espace</h3>
                 <img src="https://cdn-icons-png.flaticon.com/512/4663/4663555.png" alt="Espace">
-            </div>
+            </a>
         </div>
     </div>
     <!-- <footer>

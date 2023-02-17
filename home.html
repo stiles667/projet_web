@@ -25,11 +25,58 @@
         </div>
     </header>
 
-    <div class="search">
-        <h2>Mettez vos connaissances à l'épreuve en jouant ou en créant des quizz captivants</h2>
-        <input class="searchBar" type="search" placeholder="Rechercher">
-    </div>
+    <input type="text" id="search-box" placeholder="Recherche...">
+    <ul id="search-results">
+      <li data-title="Résultat 1"><div class="categories">
+        <div class="imgCategorie">
+            <h3 id="Name">Sport</h3>
+            <img src="https://cdn-icons-png.flaticon.com/512/536/536074.png" alt="Sport">
+        </div></li>
+      <li data-title="Résultat 2">    <div class="imgCategorie">
+        <h3 id="Name">Cinéma</h3>
+        <img src="https://cdn-icons-png.flaticon.com/512/8853/8853905.png" alt="Cinéma">
+    </div></li>
+      <li data-title="Résultat 3">
+        <div class="imgCategorie">
+            <h3 id="Name">Géographie</h3>
+            <img src="https://cdn-icons-png.flaticon.com/512/1243/1243420.png" alt="Géographie">
+        </div></li>
+      <li data-title="Résultat 4">   <div class="imgCategorie">
+        <h3 id="Name">Animal</h3>
+        <img src="https://cdn-icons-png.flaticon.com/512/3969/3969722.png" alt="Animal">
+    </div></li>
+      <li data-title="Résultat 5"> 
+        <div class="imgCategorie">
+            <h3 id="Name">Animal</h3>
+            <img src="https://cdn-icons-png.flaticon.com/512/3969/3969722.png" alt="Animal">
+        </div></li>
+    </ul>
+    
+    <script>
+      const searchBox = document.getElementById("search-box");
+      const searchResults = document.getElementById("search-results");
+      const resultItems = searchResults.getElementsByTagName("li");
+    
+      // Écoute les changements dans la barre de recherche
+      searchBox.addEventListener("input", function() {
+        const query = searchBox.value.toLowerCase();
+    
+        // Parcourt les éléments de résultat pour filtrer les résultats
+        Array.from(resultItems).forEach(function(item) {
+          const title = item.getAttribute("data-title").toLowerCase();
+          if (title.includes(query)) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      });
+    </script>
+    
+    
 
+
+  
     <div class="CategorieChoice">
         <button>Nouveau</button>
         <button>Populaire</button>
@@ -37,24 +84,9 @@
     </div>
 
     <div class="container">
-        <div class="categories">
-            <div class="imgCategorie">
-                <h3 id="Name">Sport</h3>
-                <img src="https://cdn-icons-png.flaticon.com/512/536/536074.png" alt="Sport">
-            </div>
-            <div class="imgCategorie">
-                <h3 id="Name">Cinéma</h3>
-                <img src="https://cdn-icons-png.flaticon.com/512/8853/8853905.png" alt="Cinéma">
-            </div>
-            <div class="imgCategorie">
-                <h3 id="Name">Géographie</h3>
-                <img src="https://cdn-icons-png.flaticon.com/512/1243/1243420.png" alt="Géographie">
-            </div>
-            <div class="imgCategorie">
-                <h3 id="Name">Animal</h3>
-                <img src="https://cdn-icons-png.flaticon.com/512/3969/3969722.png" alt="Animal">
-            </div>
-            <div class="imgCategorie">
+        
+       
+            <!-- <div class="imgCategorie">
                 <h3 id="Name">Maths</h3>
                 <img src="https://cdn-icons-png.flaticon.com/512/3655/3655618.png" alt="Maths">
             </div>
@@ -85,7 +117,7 @@
             <div class="imgCategorie">
                 <h3 id="Name">Drapeau</h3>
                 <img src="https://cdn-icons-png.flaticon.com/512/2586/2586386.png" alt="Drapeau">
-            </div>
+            </div> -->
             <div class="textCategorie">
                 <h3>Titre</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>

@@ -9,12 +9,12 @@
 }
 
 body {
-  background: rgb(15, 15, 15);
+  background: rgb(20, 20, 20);
   /* background: linear-gradient(0deg, rgba(15,15,15,1) 0%, rgba(24,24,24,1) 100%); */
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url("gradient.svg");
-  overflow-x: hidden;
+  overflow-y: hidden;
   transition: filter 0.4s ease;
   animation: fade 1s forwards;
 }
@@ -194,7 +194,7 @@ header a span:last-child {
   font-weight: 800;
 }
 
-.search-container {
+.search-container2 {
   display: flex;
   align-items: center;
   height: 60px;
@@ -205,7 +205,7 @@ header a span:last-child {
   box-shadow: 0 20px 20px 5px rgba(0, 0, 0, 0.1);
 }
 
-.search-container input[type="search"] {
+.search-container2 input[type="search"] {
   flex: 1;
   border: none;
   font-size: 20px;
@@ -246,9 +246,10 @@ header a span:last-child {
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(4, 220px);
   grid-gap: 20px;
-  height: 700px;
+  height: 570px;
   width: 100%;
   /* transform: translateX(-20px); */
+  overflow: hidden;
   color: white;
   padding: 25px;
 }
@@ -274,10 +275,12 @@ header a span:last-child {
 
 .imgCategorie:hover img {
   transform: scale(0.9);
+  rotate: 10deg;
 }
 
 .Name {
   position: absolute;
+  color: white;
   bottom: 10px;
   left: 20px;
   font-size: 25px;
@@ -329,3 +332,5 @@ footer ul a {
     opacity: 1;
   }
 }
+home2.css
+6 Ko
