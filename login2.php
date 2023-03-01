@@ -28,15 +28,15 @@ if (mysqli_num_rows($result) > 0) {
     switch ($role) {
         case '1':
             $role = "Utilisateur";
-            header('Location: panel.html');
+            header('Location: home2.html');
             break;
         case '2':
             $role = "Quizzeur";
-            header('Location: panel.html');
+            header('Location: home2.html');
             break;
         case '3':
             $role = "Administrateur";
-            header('Location: panel.html');
+            header('Location: admin2.html');
             break;
         default :
             echo "Erreur de connexion";
