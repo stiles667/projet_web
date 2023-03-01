@@ -41,8 +41,6 @@ if (mysqli_num_rows($result) > 0) {
         default :
             echo "Erreur de connexion";
             break;
-            
-            
     }
     
 
