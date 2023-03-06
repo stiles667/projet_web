@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://img.icons8.com/sf-black/64/000000/search.png">
+    <title>Quizzeo</title>
+</head>
+
+<body>
+    <header>
+        <h1><a href="home.html">Quiz<span>zeo.</span></a></h1>
+        <div class="options">
+            <a href="login.html">Connexion</a>
+            <button><a href="inscription.html">Inscription</a></button>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h2 id="slogan">Rejoignez la communauté de quizz en ligne pour tester vos connaissances !</h2>
+        <div class="loginPage">
+            <div class="imgLogin">
+                <h2>Quiz<span>zeo.</span></h2>
+            </div>
+            <div class="login">
+                <h2>Connexion</h2>
+                <form method="post" action="login.php">
+                    <label>Pseudo</label>
+                    <input type="text" name="pseudo" placeholder="Nom d'utilisateur" id="pseudo">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="E-mail" id="pseudo">
+                    <label>Mot de passe</label>
+                    <input type="password" name="password" placeholder="Mot de passe" id="password">
+                    <input class="submit" type="submit" value="Se connecter">
+                    <div class="other">
+                        <a href="inscription.html">Pas encore inscrit ?</a>
+                        <span>Créer un compte</span>
+                        <a href="inscription.html">Mot de passe oublié ?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- <footer>
+        <ul>
+            <li><a href="#">À propos</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Conditions d'utilisation</a></li>
+        </ul>
+        <p>&copy; Quizzeo 2023</p>
+    </footer> -->
+</body>
+
+</html>
