@@ -143,49 +143,49 @@ $(document).ready(function () {
   $(".add").click(function () {
     var numQuestions = $(".question").length;
     var newImgCategorie = $(
-    '<div id="pageCreate">' +
-      ' <div class="container-question">' + 
+      '<div id="pageCreate">' +
+        ' <div class="container-question">' +
         '<div class="question">' +
-          '<div class="number">' +
-          '<h3>' +
-            numQuestions +
-          '</h3>' +
-          '</div>' +
-          '<input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">' +
-          '<img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png" alt="Supprimer">' +
-        '</div>' +
+        '<div class="number">' +
+        "<h3>" +
+        numQuestions +
+        "</h3>" +
+        "</div>" +
+        '<input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">' +
+        '<img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png" alt="Supprimer">' +
+        "</div>" +
         '<div class="container-answer">' +
-          '<div class="answer">' +
-            '<div>' +
-              '<label for="answer1" class="letter">A</label>' +
-              '<input type="text" name="answer1">' +
-            '</div>' +
-            '<div>' +
-              '<label for="answer2" class="letter">B</label>' +
-              '<input type="text" name="answer2">' +
-            '</div>' +
-            '<div>' +
-              '<label for="answer3" class="letter">C</label>' +
-              '<input type="text" name="answer3">' +
-            '</div>' +
-            '<div>' +
-              '<label for="answer" class="letter">D</label>' +
-              '<input type="text" name="answer4">' +
-            '</div>' +
-            '<div class="check">' +
-              '<img src="https://img.icons8.com/fluency/256/checkmark.png">' +
-              '<label for="correctAnswer">Sélectionner la bonne réponse</label>' +
-              '<select name="correctAnswer" id="correctAnswer">' +
-                  '<option value="answer1">A</option>' +
-                  '<option value="answer2">B</option>' +
-                  '<option value="answer3">C</option>' +
-                  '<option value="answer4">D</option>' +
-              '</select>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
-      '</div>' +
-    '</div>'
+        '<div class="answer">' +
+        "<div>" +
+        '<label for="answer1" class="letter">A</label>' +
+        '<input type="text" name="answer1">' +
+        "</div>" +
+        "<div>" +
+        '<label for="answer2" class="letter">B</label>' +
+        '<input type="text" name="answer2">' +
+        "</div>" +
+        "<div>" +
+        '<label for="answer3" class="letter">C</label>' +
+        '<input type="text" name="answer3">' +
+        "</div>" +
+        "<div>" +
+        '<label for="answer" class="letter">D</label>' +
+        '<input type="text" name="answer4">' +
+        "</div>" +
+        '<div class="check">' +
+        '<img src="https://img.icons8.com/fluency/256/checkmark.png">' +
+        '<label for="correctAnswer">Sélectionner la bonne réponse</label>' +
+        '<select name="correctAnswer" id="correctAnswer">' +
+        '<option value="answer1">A</option>' +
+        '<option value="answer2">B</option>' +
+        '<option value="answer3">C</option>' +
+        '<option value="answer4">D</option>' +
+        "</select>" +
+        "</div>" +
+        "</div>" +
+        "</div>" +
+        "</div>" +
+        "</div>"
     );
     $(this).closest(".question").before(newImgCategorie);
   });
@@ -195,28 +195,15 @@ $(document).on("click", ".question:not(.add)", function () {
   if ($(".container-answer").height() > 0) {
     $(".container-answer").height(0);
   } else {
-    $(".container-answer").height($(".container-answer").prop("scrollHeight") + "px");
+    $(".container-answer").height(
+      $(".container-answer").prop("scrollHeight") + "px"
+    );
   }
 });
 
-//A SUPPRIMER ----------------------------------------------
+// Onglets
 
-$(".tab-item").click(function() {
-  // Retirer la classe "active" de tous les onglets
-  $(".tab-item").removeClass("active");
-  $(".tab-content").removeClass("active");
-
-  // Ajouter la classe "active" à l'onglet cliqué
-  $(this).addClass("active");
-  var tab = $(this).data("tab");
-  $("#" + tab).addClass("active");
-});
-
-//A SUPPRIMER ----------------------------------------------
-
-
-$(".button").click(function() {
-  // Retirer la classe "active" de tous les onglets
+$(".button").click(function () {
   $(".button").removeClass("active");
   $(".container-onglet").removeClass("active");
 
@@ -226,30 +213,68 @@ $(".button").click(function() {
   $("#" + tab).addClass("active");
 });
 
-
-
-
-// $('.imgCategorie h3').click(function(){
-//   $(this).closest('.imgCategorie').append();
-// });
+//Delete quiz quizzeur
 
 $(".imgCategorie").appendTo("#categories");
 
-// $('.imgCategorie .trash').click(function(){
-//   if (confirm("Êtes-vous sûr de vouloir supprimer ce quizz ?")) {
-//     $(this).closest('.imgCategorie').remove();
-//   }
-// });
-
-$(".imgCategorie .trash").click(function () {
+$(".user .trash, .quiz2 .trash2").click(function () {
   var result = confirm("Êtes-vous sûr de vouloir supprimer cet élément?");
   if (result) {
-    $(this).closest(".imgCategorie").remove();
+    $(this).closest(".user").remove();
+    $(this).closest(".quiz2").remove();
   }
   return console.log("ok");
 });
 
-$(".imgCategorie").click(function () {
-  console.log("ok");
-  $(".menu-deroulant").toggle();
+//Search bar
+
+$(document).ready(function () {
+  $('input[type="search"]').focus(function () {
+    $(".search-container").css("width", "400px");
+  });
+
+  $('input[type="search"]').blur(function () {
+    $(".search-container").css("width", "220px");
+  });
+
+  //Timer
+
+  var timeLeft = 60;
+  var countdown = setInterval(function () {
+    timeLeft--;
+    document.getElementById("countdown").innerHTML = timeLeft;
+    if (timeLeft <= 0) clearInterval(countdown);
+  }, 1000);
+
+  //Select green color
+
+  var boxes = document.querySelectorAll(".answer");
+
+  for (var i = 0; i < boxes.length; i++) {
+    boxes[i].addEventListener("click", function () {
+      for (var j = 0; j < boxes.length; j++) {
+        boxes[j].classList.remove("clicked");
+      }
+      if (!this.classList.contains("clicked")) {
+        this.classList.add("clicked");
+      }
+    });
+  }
+});
+
+const searchBox = document.getElementById("search-box");
+
+searchBox.addEventListener("input", function () {
+  const query = searchBox.value.toLowerCase();
+  const allCategories = document.querySelectorAll(".imgCategorie");
+
+  allCategories.forEach(function (category) {
+    const title = category.getAttribute("data-category").toLowerCase();
+
+    if (title.includes(query)) {
+      category.style.display = "flex";
+    } else {
+      category.style.display = "none";
+    }
+  });
 });
