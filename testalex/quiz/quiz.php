@@ -6,8 +6,7 @@ if(isset($_GET['id_quizz'])) {
     $id_quizz = $_GET['id_quizz'];
     $sql = "SELECT * FROM question WHERE Id_quizz = " . $id_quizz;
     $result = mysqli_query($conn, $sql);
-    $sql2 = "SELECT * FROM choix WHERE Id_question = " . $id_quizz;
-    $result2 = mysqli_query($conn, $sql2);
+    
 }
 
 ?>
@@ -56,16 +55,6 @@ if(isset($_GET['id_quizz'])) {
         </div>
     </header>
     <div class="container">
-
-        <!-- <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/4218/4218113.png" alt="Ballon de basket">
-            <img src="https://cdn-icons-png.flaticon.com/512/4218/4218472.png" alt="Lettres">
-            <img src="https://cdn-icons-png.flaticon.com/512/4218/4218484.png" alt="Globe terrestre">
-            <img src="https://cdn-icons-png.flaticon.com/512/4058/4058331.png" alt="Fruit">
-            <img src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png" alt="Crayon">
-            <img src="https://cdn-icons-png.flaticon.com/512/4218/4218478.png" alt="Couleurs">
-            <img src="https://cdn-icons-png.flaticon.com/512/4218/4218493.png" alt="Loupe">
-        </div> -->
         <div class="container-question">
             <div class="number-question">
                 <h2>
@@ -87,66 +76,75 @@ if(isset($_GET['id_quizz'])) {
             <div class="question">
                 <h3>
                     <?php
+                    $num_question = 1;
                     while($row=mysqli_fetch_assoc($result)) {
-                        echo $row['question'];
+                        $id_question = $row['Id_question'];
+                        $question = $row['question'];
+                        
+                        //affiche la premiere question
+                        echo "" .$num_question .". " .$question;
+                        $num_question++;
+                        if ($numquestion > 10) {
+                            $numquestion = 1;
+                        }
+
+                        $sql2 = "SELECT * FROM choix WHERE Id_question = " . $id_question;
+                        $result2 = mysqli_query($conn, $sql2);
+
+                        if (mysqli_num_rows($result2) > 0) {
+                            while($row2=mysqli_fetch_assoc($result2)) {
+                                $reponses = array(
+                                    'reponse1' => $row2['rep1'],
+                                    'reponse2' => $row2['rep2'],
+                                    'reponse3' => $row2['rep3'],
+                                    'Bonne_rep'=> $row2['Bonne_reponse']
+                                );
+
+                                shuffle($reponses);
+
+                                foreach ($reponses as $index => $reponse) {
+                            
+                                    echo '<label class="answer">
+                                    <input type="radio" name="option" value="'.$index.'">
+                                    '.$reponse.'
+                                    </label>';
+                                }
+                                
+                            } 
+                        }
+
+                        
                     }
                     ?>
                 </h3>
             </div>
-            <form action="#">
+            <!-- <form action="#">
                 <div class="answers">
-                    <?php
-                    if (mysqli_num_rows($result2) > 0) {
-                        while($row2=mysqli_fetch_assoc($result2)) {
-                            $reponses = array(
-                                'reponse1' => $row2['rep1'],
-                                'reponse2' => $row2['rep2'],
-                                'reponse3' => $row2['rep3'],
-                                'Bonne_rep'=> $row2['Bonne_reponse']
-                            );
+                    
+                    // $sql2 = "SELECT * FROM choix WHERE Id_question = " . $id_question;
+                    // $result2 = mysqli_query($conn, $sql2);
+                    // if (mysqli_num_rows($result2) > 0) {
+                    //     while($row2=mysqli_fetch_assoc($result2)) {
+                    //         $reponses = array(
+                    //             'reponse1' => $row2['rep1'],
+                    //             'reponse2' => $row2['rep2'],
+                    //             'reponse3' => $row2['rep3'],
+                    //             'Bonne_rep'=> $row2['Bonne_reponse']
+                    //         );
 
-                            shuffle($reponses);
+                    //         shuffle($reponses);
 
-                            foreach ($reponses as $index => $reponse) {
+                    //         foreach ($reponses as $index => $reponse) {
                         
-                                echo '<label class="answer">
-                                <input type="radio" name="option" value="'.$index.'">
-                                '.$reponse.'
-                                </label>';
-                            }
+                    //             echo '<label class="answer">
+                    //             <input type="radio" name="option" value="'.$index.'">
+                    //             '.$reponse.'
+                    //             </label>';
+                    //         }
                             
-                        } 
-                    }
+                    //     } 
+                    // }
                     ?>
-
-                    <!-- <label class="answer">
-                        <input type="radio" name="option" value="option1">
-                        Rouge
-                    </label>
-
-                    <label class="answer">
-                        <input type="radio" name="option" value="option2">
-                        Blanc
-                    </label>
-
-                    <label class="answer">
-                        <input type="radio" name="option" value="option3">
-                        Noir
-                    </label>
-
-                    <label class="answer">
-                        <input type="radio" name="option" value="option3">
-                        Vert
-                    </label> -->
-
-                    <!-- <input type="radio" name="answer" id="answer">
-                    <input type="radio" name="answer" id="answer">
-                    <input type="radio" name="answer" id="answer">
-                    <input type="radio" name="answer" id="answer"> -->
-                    <!-- <div class="answer">Rouge</div>
-                    <div class="answer">Blanc</div>
-                    <div class="answer">Noir</div>
-                    <div class="answer">Vert</div> -->
                 </div>
                 <button type="submit" id="submit">Valider</button>
             </form>
@@ -154,70 +152,7 @@ if(isset($_GET['id_quizz'])) {
     </div>
 
     <script>
-        // const countdown = document.getElementById('countdown');
-        // const submit = document.getElementById('submit');
-        // let time = 60;
-        // let timer = setInterval(function () {
-        //     time--;
-        //     countdown.innerHTML = time;
-        //     if (time == 0) {
-        //         clearInterval(timer);
-        //         submit.click();
-        //     }
-        // }, 1000);
-
-        submit.addEventListener('click', function () {
-            clearInterval(timer);
-            
-        });
-
-        //fonction pour afficher les questions 1 par 1
-        function showQuestion() {
-            const question = document.getElementById('question');
-            const answer = document.getElementById('answer');
-            const submit = document.getElementById('submit');
-        
-            let time = 60;
-            let timer = setInterval(function () {
-                time--;
-                countdown.innerHTML = time;
-                if (time == 0) {
-                    clearInterval(timer);
-                    submit.click();
-                }
-            }, 1000);
-        
-            submit.addEventListener('click', function () {
-                clearInterval(timer);
-                question.style.display = 'none';
-                answer.style.display = 'none';
-                submit.style.display = 'none';
-                showQuestion();
-            });
-        }
-
-        showQuestion();
-
-
-
-
-
-        // const audio = document.querySelector('#audio');
-        // audio.play();
-
-        // document.addEventListener('DOMContentLoaded', () => {
-        //   const audio = document.querySelector('#audio');
-        //   audio.play();
-        // });
-
-        
-
-
-
-
-
-
 
     </script>
-        <!-- <footer>
+    
        
