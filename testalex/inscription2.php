@@ -1,6 +1,6 @@
 
 
-    <?php 
+<?php 
 require ('bdconnexion.php');
 $submit=isset($_POST['submit']);
 $pseudo=($_POST['pseudo']);
@@ -41,7 +41,7 @@ $expression2 = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-z]{2,4}$/';
             $result = mysqli_query($conn, $query);
             if($result){
                 echo "Vous êtes inscrit !";
-                header('Location: login.html');
+                header('Location: login2.html');
                 
             }else{
                 echo "Erreur d'inscription";}

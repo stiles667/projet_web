@@ -5,6 +5,7 @@ require('bdconnexion.php');
 $pseudo = $_POST['pseudo'];
 $password = $_POST['password'];
 $email = $_POST['email'];
+$role = "";
 
 
 // Check connection
@@ -14,14 +15,35 @@ if (!$conn) {
     echo "Connection successful!";}
 
 // Check if pseudo, password and email are in the database
-$sql = "SELECT * FROM utilisateur WHERE pseudo = '$pseudo' AND mdp = '$password' AND email = '$email'";
+$sql = "SELECT * FROM utilisateur WHERE pseudo = '$pseudo' AND password = '$password' AND email = '$email'";
 $result = mysqli_query($conn, $sql);
+$sql2 = "SELECT role_utilisateur FROM utilisateur WHERE pseudo = '$pseudo' AND password = '$password' AND email = '$email'";
+$result2 = mysqli_query($conn, $sql2);
 
 // If the user is in the database, redirect to the home page
 if (mysqli_num_rows($result) > 0) {
-    echo "You are logged in!";
-    header('Location: home.html');
+    echo "Vous êtes connecté !";
+    $row = mysqli_fetch_assoc($result2);
+    $role = $row['role_utilisateur'];
+    switch ($role) {
+        case '1':
+            $role = "Utilisateur";
+            header('Location: home2.html');
+            break;
+        case '2':
+            $role = "Quizzeur";
+            header('Location: home2.html');
+            break;
+        case '3':
+            $role = "Administrateur";
+            header('Location: admin2.html');
+            break;
+        default :
+            echo "Erreur de connexion";
+            break;
+    }
     
+
 } else {
     // NE PAS OUBLIER DE FAIRE LE MESSAGE D'ERREUR LORS DE MAUVAIS PSEUDO, MDP, EMAIL.
     $errorMessage = 'Nom d\'utilisateur ou mot de passe incorrect';
@@ -36,4 +58,4 @@ mysqli_close($conn);
      header('Location: loginerreur.html');
  }
 
-?> -->
+?>
