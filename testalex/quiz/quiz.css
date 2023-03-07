@@ -14,8 +14,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url("gradient.svg");
-  overflow-y: hidden;
-  overflow-x: hidden;
+  /* overflow-y: hidden;
+  overflow-x: hidden; */
   transition: filter 0.4s ease;
   animation: fade 1s forwards;
 }
