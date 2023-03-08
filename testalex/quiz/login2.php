@@ -33,7 +33,7 @@ if (mysqli_num_rows($result) > 0) {
     switch ($role) {
         case '1':
             $role = "Utilisateur";
-            header('Location: home.php');
+            header('Location: home.php?role='.$role.'&user='.$id_user.'');
             break;
         case '2':
             $role = "Quizzeur";
