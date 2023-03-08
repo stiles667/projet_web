@@ -14,7 +14,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url("gradient.svg");
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   transition: filter 0.4s ease;
   animation: fade 1s forwards;
 }
@@ -332,3 +332,4 @@ footer ul a {
     opacity: 1;
   }
 }
+

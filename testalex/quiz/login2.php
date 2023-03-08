@@ -5,7 +5,7 @@ require('bdconnexion.php');
 $pseudo = $_POST['pseudo'];
 $password = $_POST['password'];
 $email = $_POST['email'];
-$role = "";
+// $role = "";
 
 
 // Check connection
@@ -19,26 +19,31 @@ $sql = "SELECT * FROM utilisateur WHERE pseudo = '$pseudo' AND password = '$pass
 $result = mysqli_query($conn, $sql);
 $sql2 = "SELECT role_utilisateur FROM utilisateur WHERE pseudo = '$pseudo' AND password = '$password' AND email = '$email'";
 $result2 = mysqli_query($conn, $sql2);
+$sql3 = "SELECT Id_utilisateur FROM utilisateur WHERE pseudo = '$pseudo' AND password = '$password' AND email = '$email'";
+$result3 = mysqli_query($conn, $sql3);
+
 
 // If the user is in the database, redirect to the home page
 if (mysqli_num_rows($result) > 0) {
     echo "Vous êtes connecté !";
     $row = mysqli_fetch_assoc($result2);
     $role = $row['role_utilisateur'];
+    $row2 = mysqli_fetch_assoc($result3);
+    $id_user = $row2['Id_utilisateur'];
     switch ($role) {
         case '1':
             $role = "Utilisateur";
-            header('Location: home2.html');
+            header('Location: home.php');
             break;
         case '2':
             $role = "Quizzeur";
-            header('Location: home2.html');
+            header('Location: dashboard.php?role='.$role.'&user='.$id_user.'');
             break;
         case '3':
             $role = "Administrateur";
-            header('Location: home2.html');
+            header('Location: dashboard.php?role='.$role.'&user='.$id_user.'');
             break;
-        default :
+        default :   
             echo "Erreur de connexion";
             break;
     }
