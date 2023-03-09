@@ -393,6 +393,8 @@ if(isset($_GET['role'])) {
                                     $sqlupdate = "UPDATE utilisateur SET pseudo = '$pseudo', email = '$email', password = '$newpassword' WHERE Id_utilisateur = '$id'";
                                     $resultupdate = mysqli_query($conn, $sqlupdate);
                                     echo "<script>alert('Modification réussie')</script>";
+                                } else {
+                                    echo "<script>alert('Mot de passe incorrect')</script>";
                                 }
                             }
                         }
