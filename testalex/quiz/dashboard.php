@@ -353,21 +353,52 @@ if(isset($_GET['role'])) {
                 <p>Modifier vos informations</p>
             </div>
             <div class="passwd">
+            <form method='post' class='UpdateUser'>
                 <div>
                     <label for="pseudo">Nom d'utilisateur</label>
-                    <input type="text" name="pseudo" placeholder="Nom d'utilisateur">
+                    <input type="text" name="pseudo" placeholder="Nom d'utilisateur" value="<?php echo $pseudo?>">
                 </div>
                 <div>
-                    <label for="e-mail">E-mail</label>
-                    <input type="text" name="e-mail" placeholder="Email">
+                    <label for="e-mail">Email</label>
+                    <input type="text" name="e-mail" placeholder="Email" value="<?php echo $email?>">
                 </div>
                 <div>
                     <label for="password">Mot de passe</label>
                     <input type="password" name="password" placeholder="Ancien mot de passe">
-                    <input type="password" placeholder="Nouveau mot de passe">
-                    <input type="password" placeholder="Confirmer le mot de passe">
+                    <input type="password" name="Newpassword" placeholder="Nouveau mot de passe">
+                    <input type="password" name="Confirmpassword" placeholder="Confirmer le mot de passe">
                 </div>
-                <input class="button-save" type="submit" value="Modifier">
+                <input type="submit" class="button-save" name="updateuser" type="submit" value="Modifier">
+
+
+                <?php 
+                    if(isset($_POST['updateuser'])) {
+                        $pseudo = $_POST["pseudo"];
+                        $email = $_POST["e-mail"];
+                        $password = $_POST["password"];
+                        $newpassword = $_POST["Newpassword"];
+                        $confirmpassword = $_POST["Confirmpassword"];
+
+                        $sqlmodif = "SELECT * FROM utilisateur WHERE pseudo = '$pseudo' AND email = '$email' AND password = '$password'";
+                        $resultmodif = mysqli_query($conn, $sqlmodif);
+
+                        if (mysqli_num_rows($resultmodif) > 0) {
+                            while ($rowmodif = mysqli_fetch_assoc($resultmodif)) {
+                                $id = $rowmodif["Id_utilisateur"];
+                                $pseudobd = $rowmodif["pseudo"];
+                                $emailbd = $rowmodif["email"];
+                                $passwordbd = $rowmodif["password"];
+
+                                if ($passwordbd = $password) {
+                                    $sqlupdate = "UPDATE utilisateur SET pseudo = '$pseudo', email = '$email', password = '$newpassword' WHERE Id_utilisateur = '$id'";
+                                    $resultupdate = mysqli_query($conn, $sqlupdate);
+                                    echo "<script>alert('Modification réussie')</script>";
+                                }
+                            }
+                        }
+
+                    }
+                ?>
             </div>
         </div>
     </div>
