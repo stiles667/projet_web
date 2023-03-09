@@ -82,6 +82,14 @@ header a span:last-child {
   object-fit: cover;
 }
 
+#deconnexion {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+  filter: invert(100%) brightness(200%);
+}
+
 .container {
   display: flex;
   height: 100%;

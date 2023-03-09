@@ -47,11 +47,13 @@ if(isset($_GET['role'])) {
                 echo "<h2>$pseudo</h2>";
                 echo "<a id='profil' href='dashboard.php?role=$role&user=$id_user'>";
                 echo "<img src='https://cdn-icons-png.flaticon.com/512/149/149071.png' alt='Photo de profil'>";
-                echo "<a id='deconnexion' href='accueil.html'>";
-                echo "<img src='https://img.icons8.com/fluency-systems-regular/256/login-rounded-right.png' alt='Se déconnecter'>";
                 echo "</a>";
     
             ?>
+
+                <a id='deconnexion' href='accueil.html'>
+                <img src='https://img.icons8.com/fluency-systems-regular/256/login-rounded-right.png' alt='Se déconnecter'>
+                </a>
         </div>
     </header>
     <div class="container">
