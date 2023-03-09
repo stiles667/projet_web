@@ -50,10 +50,6 @@ if(isset($_GET['role'])) {
                 echo "</a>";
     
             ?>
-
-                <a id='deconnexion' href='accueil.html'>
-                <img src='https://img.icons8.com/fluency-systems-regular/256/login-rounded-right.png' alt='Se déconnecter'>
-                </a>
         </div>
     </header>
     <div class="container">
