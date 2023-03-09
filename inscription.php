@@ -1,6 +1,5 @@
+<?php 
 
-
-    <?php 
 require ('bdconnexion.php');
 $submit=isset($_POST['submit']);
 $pseudo=($_POST['pseudo']);
