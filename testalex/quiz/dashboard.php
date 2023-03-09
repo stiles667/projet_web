@@ -30,8 +30,11 @@ if(isset($_GET['role'])) {
 
 <body>
     <header>
-        <a class="home" href="home.html">
-            <span>Quiz</span><span>zeo.</span>
+        <?php
+            echo "<a class='home' href='home.php?role=$role&user=$id_user'>";
+            echo "<span>Quiz</span><span>zeo.</span>";
+            echo "</a>";
+        ?>
         </a>
         <div class="options">
         <?php 
