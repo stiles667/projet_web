@@ -30,18 +30,43 @@ if(isset($_GET['role'])) {
 
 <body>
     <header>
-        <a class="home" href="home.html">
+        <?php
+            echo "<a class='home' href='home.php?role=$role&user=$id_user'>";
+            echo "<span>Quiz</span><span>zeo.</span>";
+            echo "</a>";
+        ?>
+        
+        <!-- <a class="home" href="home.php">
             <span>Quiz</span><span>zeo.</span>
-        </a>
+        </a> -->
         <div class="options">
-            <h2>Utilisateur</h2>
-            <a id="profil" href="dashboard.html">
-                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Photo de profil">
-            </a>
-            <a href="accueil.html">
-                <img id="deconnexion" src="https://img.icons8.com/fluency-systems-regular/256/login-rounded-right.png"
-                    alt="Se déconnecter">
-            </a>
+        <?php 
+                $sqlutilisateur = "SELECT * FROM utilisateur WHERE Id_utilisateur = '$id_user'";
+                $resultutilisateur = mysqli_query($conn, $sqlutilisateur);
+
+                $row = mysqli_fetch_assoc($resultutilisateur);
+                $role_user = $row['role_utilisateur'];
+                $pseudo = $row['pseudo'];
+                $email = $row['email'];
+                $id_utilisateur = $row['Id_utilisateur'];
+
+                // if(isset($_GET['user'])) {
+                //     $id_user = $_GET['user'];
+                // }
+                
+                // if(isset($_GET['role'])) {
+                //     $role = $_GET['role'];
+                // }
+
+                echo "<h2>$pseudo</h2>";
+                echo "<a id='profil' href='dashboard.php?role=$role&user=$id_user'>";
+                echo "<img src='https://cdn-icons-png.flaticon.com/512/149/149071.png' alt='Photo de profil'>";
+                echo "</a>";
+                echo "<a id='deconnexion' href='accueil.html'>";
+                echo "<img src='https://img.icons8.com/fluency-systems-regular/256/login-rounded-right.png' alt='Se déconnecter'>";
+                echo "</a>";
+
+            ?>
         </div>
     </header>
     <div class="container">
@@ -149,13 +174,20 @@ if(isset($_GET['role'])) {
                 ?>
                 
                 <div class="quiz2">
-                    <a href="create.html">
+                    <?php 
+                        echo "<a href='create2.php?role=$role&user=$id_user'>";
+                        echo "<img class='trash' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
+                        echo "<img class='edit' src='https://cdn-icons-png.flaticon.com/512/5204/5204758.png' alt='Modifier'>";
+                        echo "<img id='add' src='https://img.icons8.com/fluency-systems-regular/256/plus-math.png' alt='Ajouter'>";
+                        echo "</a>";
+                    ?>
+                    <!-- <a href="create2.php?role=$role">
                         <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
                             alt="Supprimer">
                         <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png" alt="Modifier">
                         <img id="add" src="https://img.icons8.com/fluency-systems-regular/256/plus-math.png"
                             alt="Ajouter">
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </div>
