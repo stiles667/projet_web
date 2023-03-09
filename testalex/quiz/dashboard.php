@@ -353,7 +353,7 @@ if(isset($_GET['role'])) {
                 <p>Modifier vos informations</p>
             </div>
             <div class="passwd">
-            <form method='post' class='UpdateUser'>
+            <form action='' method='post' class='UpdateUser'>
                 <div>
                     <label for="pseudo">Nom d'utilisateur</label>
                     <input type="text" name="pseudo" placeholder="Nom d'utilisateur" value="<?php echo $pseudo?>">
