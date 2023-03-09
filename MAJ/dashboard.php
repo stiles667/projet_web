@@ -338,7 +338,7 @@ if(isset($_GET['role'])) {
                         $result2utilisateur = mysqli_query($conn, $sql2utilisateur);
 
                         while($row2utilisateur = mysqli_fetch_assoc($result2utilisateur)) {
-                            $id_user = $row2utilisateur['Id_utilisateur'];
+                            $id_utilisateur = $row2utilisateur['Id_utilisateur'];
                             $pseudo_user = $row2utilisateur['pseudo'];
                             $email_user = $row2utilisateur['email'];
                             $password_user = $row2utilisateur['password'];

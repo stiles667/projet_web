@@ -143,7 +143,7 @@ if(isset($_GET['role'])) {
                             $date_quizz = $row['date_creation'];
 
                             echo "<div class='quiz2'";
-                            echo "<img class='trash2' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
+                            echo "<img class='trash' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
                             echo "<h3 class='Name'>$nom_quiz</h3>";
                             switch ($categorie_quizz) {
                                 case 'Sport':
