@@ -10,6 +10,14 @@ if(isset($_GET['role'])) {
     $role = $_GET['role'];
 }
 
+if(isset($_GET['updateId'])) {
+    $updateId = $_GET['updateId'];
+}
+
+if(isset($_GET['updateRole'])) {
+    $updateRole = $_GET['updateRole'];
+}
+
 ?>
 
 <DOCTYPE html>
@@ -22,15 +30,15 @@ if(isset($_GET['role'])) {
         <body>
             <?php 
 
-                if(isset($_GET['user'])) {
-                    $id_user = $_GET['user'];
+                if(isset($_GET['updateId'])) {
+                    $id_utilisateur = $_GET['updateId'];
                 }
 
-                if(isset($_GET['role'])) {
-                    $role = $_GET['role'];
+                if(isset($_GET['updateRole'])) {
+                    $role = $_GET['updateRole'];
                 }
 
-                $sqlutilisateur = "SELECT * FROM utilisateur WHERE Id_utilisateur = '$id_user'";
+                $sqlutilisateur = "SELECT * FROM utilisateur WHERE Id_utilisateur = '$updateId'";
                 $resultutilisateur = mysqli_query($conn, $sqlutilisateur);
                 
                 while($row = mysqli_fetch_assoc($resultutilisateur)) {
@@ -72,10 +80,10 @@ if(isset($_GET['role'])) {
                 $pseudo = $_POST['pseudo'];
                 $email = $_POST['email'];
                 $role = $_POST['role'];
-                $sql = "UPDATE utilisateur SET pseudo = '$pseudo', email = '$email', role_utilisateur = '$role' WHERE Id_utilisateur = '$id_user'";
+                $sql = "UPDATE utilisateur SET pseudo = '$pseudo', email = '$email', role_utilisateur = '$role' WHERE Id_utilisateur = '$updateId'";
                 $result = mysqli_query($conn, $sql);
                 if($result) {
-                    header('Location: dashboard.php?role='.$role.'&user='.$id_user.'');
+                    header('Location: dashboard.php?role='.$role_user.'&user='.$id_user.'');
                 } else {
                     echo "Erreur lors de la modification de l'utilisateur";
                 }
