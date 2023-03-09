@@ -171,13 +171,14 @@ if(isset($_GET['role'])) {
                 ?>
                 
                 <div class="quiz2">
-                    <a href="create.html">
-                        <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                            alt="Supprimer">
-                        <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png" alt="Modifier">
-                        <img id="add" src="https://img.icons8.com/fluency-systems-regular/256/plus-math.png"
-                            alt="Ajouter">
-                    </a>
+                    <?php 
+                        echo "<a href='create2.php?role=$role&user=$id_user'>";
+                        echo "<img class='trash' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
+                        echo "<img class='edit' src='https://cdn-icons-png.flaticon.com/512/5204/5204758.png' alt='Modifier'>";
+                        echo "<img id='add' src='https://img.icons8.com/fluency-systems-regular/256/plus-math.png' alt='Ajouter'>";
+                        echo "</a>";
+
+                    ?>
                 </div>
             </div>
         </div>
