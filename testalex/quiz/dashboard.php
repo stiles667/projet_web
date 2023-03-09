@@ -326,7 +326,7 @@ if(isset($_GET['role'])) {
                             echo "<td>$email_user</td>";
                             echo "<td>$password_user</td>";
                             echo "<td>";
-                            echo "<a href='modif.php?role=$role_user&user=$id_utilisateur'>";
+                            echo "<a href='updateuser.php?role=$role_user&user=$id_utilisateur'>";
                             echo "<img class='edit' src='https://cdn-icons-png.flaticon.com/512/5204/5204758.png' alt='Modifier'>";
                             echo "</a>";
                             echo "<img class='trash' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
