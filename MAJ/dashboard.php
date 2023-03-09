@@ -316,8 +316,14 @@ if(isset($_GET['role'])) {
                         <input class="searchBar" type="search" placeholder="Rechercher">
                     </div>
                     <div class="buttons">
-                        <input class="button-save" type="submit" value="Enregistrer">
-                        <input class="button-cancel" type="submit" value="Annuler">
+                        <?php
+                            echo "
+                            <a href='create.php?role=$role_user&user=$id_user'>
+                            <input class='button-save' type='submit' value='+ Ajouter'>
+                            </a>
+                            ";
+                        ?>
+                        <!-- <input class="button-cancel" type="submit" value="Annuler"> -->
                     </div>
                 </div>
             </div>
