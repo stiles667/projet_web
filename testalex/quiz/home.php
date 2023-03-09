@@ -40,9 +40,11 @@ if(isset($_GET['role'])) {
         });
       </script>
     <header>
-        <a class="home" href="home.html">
-            <span>Quiz</span><span>zeo.</span>
-        </a>
+        <?php
+            echo "<a class='home' href='home.php?role=$role&user=$id_user'>";
+            echo "<span>Quiz</span><span>zeo.</span>";
+            echo "</a>";
+        ?>
         <div class="options">
             <?php 
                 $sqlutilisateur = "SELECT * FROM utilisateur WHERE Id_utilisateur = '$id_user'";
