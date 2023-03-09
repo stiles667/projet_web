@@ -377,7 +377,7 @@ if(isset($_GET['role'])) {
                             echo "</td>";
                             
                             echo "<td>";
-                            echo "<a href='#'";
+                            echo "<a href='detele.php?role=$role_user&user=$id_utilisateur'";
                             echo "<img class='trash' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
                             echo "</a>";
                             echo "</td>";
