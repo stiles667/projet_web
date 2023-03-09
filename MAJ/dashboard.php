@@ -47,7 +47,10 @@ if(isset($_GET['role'])) {
                 echo "<h2>$pseudo</h2>";
                 echo "<a id='profil' href='dashboard.php?role=$role&user=$id_user'>";
                 echo "<img src='https://cdn-icons-png.flaticon.com/512/149/149071.png' alt='Photo de profil'>";
+                echo "<a id='deconnexion' href='accueil.html'>";
+                echo "<img src='https://img.icons8.com/fluency-systems-regular/256/login-rounded-right.png' alt='Se déconnecter'>";
                 echo "</a>";
+    
             ?>
         </div>
     </header>
@@ -330,7 +333,7 @@ if(isset($_GET['role'])) {
             <div id="list-user">
                 <table>
                     <tr>
-                        <th id="id">id</th>
+                        <th id="id">Id</th>
                         <th>Utilisateur</th>
                         <th>Rôle</th>
                         <th>E-mail</th>
@@ -363,7 +366,7 @@ if(isset($_GET['role'])) {
                             }
 
                             echo "<tr>";
-                            echo "<td>$id_user</td>";
+                            echo "<td>$id_utilisateur</td>";
                             echo "<td>$pseudo_user</td>";
                             echo "<td>$role_user</td>";
                             echo "<td>$email_user</td>";
