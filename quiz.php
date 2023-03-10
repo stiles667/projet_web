@@ -87,7 +87,6 @@ if(isset($_GET['role'])) {
                     <h2 id="countdown">60</h2>
                 </div>
             </div>
-            <input id="submit" type="submit" value="Valider">
         </div>
         <div class="container-answer">
             <div class="question">
@@ -129,6 +128,7 @@ if(isset($_GET['role'])) {
                                 
                             } 
                         }
+
                         
                     }
                     ?>
