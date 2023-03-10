@@ -45,6 +45,7 @@ if(isset($_GET['updateRole'])) {
                     $id_utilisateur = $row['Id_utilisateur'];
                     $pseudo_utilisateur = $row['pseudo'];
                     $email_utilisateur = $row['email'];
+                    $password_utilisateur = $row['password'];
                     $role_utilisateur = $row['role_utilisateur'];
                 }
             ?>
@@ -58,6 +59,10 @@ if(isset($_GET['updateRole'])) {
                 <div class='form-example'>
                     <label for='Email'>Email</label>
                     <input type='email' name='email' id='email' value='<?php echo $email_utilisateur?>' required>
+                </div>
+                <div class='form-example'>
+                    <label for='password'>Mot de passe</label>
+                    <input type='email' name='email' id='email' value='<?php echo $password_utilisateur?>' required>
                 </div>
                 <div class='form-example'>
                     <label for='role'>Role</label>
