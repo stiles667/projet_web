@@ -133,7 +133,7 @@ if (mysqli_num_rows($result) > 0) {
             <div class="question" id="question">
                     
                 </div>
-                <div class="answers" id=answers>
+                <div class="answers" id="answers">
 
                     
                     </div>
