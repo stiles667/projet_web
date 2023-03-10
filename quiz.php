@@ -228,51 +228,6 @@ if(isset($_GET['id_quizz'])) {
 
 
                     ?>
-                    <script>
-                        const _quest = document.getElementById('question');
-                        const _answers = document.querySelector('.answers');
-
-
-                        
-                        
-
-                        var questions = <?php echo json_encode($questions) ?>;
-                        // console.log(questions);
-                        
-                        var reponses = <?php echo json_encode($rep) ?>;
-                        // console.log(reponses);
-
-                        var numquestion = 1;
-                        var quizzarray = 0;
-                        
-                        var quizz = [questions, reponses];
-                        console.log(quizz);
-
-
-
-                        function AfficherQuizz() {
-                            for (var i = 0; i < quizz[0].length; i++) {
-                            var question = quizz[0][i];
-                            var reponse = quizz[1][i];
-                            var questionString = JSON.stringify(question);
-                            var reponseString = JSON.stringify(reponse);
-                            console.log("Question " + (i+1) + ": " + questionString);
-                            console.log("Réponse " + (i+1) + ": " + reponseString);
-                            
-                            console.log(question);
-                            _quest.innerHTML = question;
-                            
-
-                        }
-
-                        }
-
-                        AfficherQuizz();
-
-                        
-
-                    </script>
-
                 </h3>
             </div>
             
@@ -307,10 +262,48 @@ if(isset($_GET['id_quizz'])) {
                 <button type="submit" id="submit">Valider</button>
             </form>
         </div>
-    </div>
+    </div> -->
+        <script>
+            const _quest = document.getElementById('question');
+            const _answers = document.querySelector('.answers');
 
-    <script>
 
-    </script>
+            
+            
+
+            var questions = <?php echo json_encode($questions) ?>;
+            // console.log(questions);
+            
+            var reponses = <?php echo json_encode($rep) ?>;
+            // console.log(reponses);
+
+            var numquestion = 1;
+            var quizzarray = 0;
+            
+            var quizz = [questions, reponses];
+            console.log(quizz);
+
+
+
+            function AfficherQuizz() {
+                for (var i = 0; i < quizz[0].length; i++) {
+                var question = quizz[0][i];
+                var reponse = quizz[1][i];
+                var questionString = JSON.stringify(question);
+                var reponseString = JSON.stringify(reponse);
+                console.log("Question " + (i+1) + ": " + questionString);
+                console.log("Réponse " + (i+1) + ": " + reponseString);
+                
+                console.log(question);
+                _quest.innerHTML = question;
+                
+
+            }
+
+            }
+
+            AfficherQuizz();
+        </script>
+    </body>
+    </html>
     
-       
