@@ -47,10 +47,7 @@ if(isset($_GET['id_quizz'])) {
             <a id="profil" href="dashboard.html">
                 <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Photo de profil">
             </a>
-            <a id="deconnexion" href="accueil.html">
-                <img src="https://img.icons8.com/fluency-systems-regular/256/login-rounded-right.png"
-                    alt="Se déconnecter">
-            </a>
+           
         </div>
         </div>
     </header>
