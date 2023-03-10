@@ -32,6 +32,7 @@ if(isset($_GET['id_quizz'])) {
         Your browser does not support the audio element.
       </audio>
       
+      
       <script>
         document.addEventListener('DOMContentLoaded', () => {
           const audio = document.querySelector('#audio');
