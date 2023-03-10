@@ -1,3 +1,17 @@
+<?php
+
+require ('bdconnexion.php');
+
+if(isset($_GET['user'])) {
+    $id_user = $_GET['user'];
+}
+
+if(isset($_GET['role'])) {
+    $role = $_GET['role'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +23,7 @@
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
         integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <link href='https://css.gg/search.css' rel='stylesheet'>
     <title>Quizzeo</title>
 </head>
 
@@ -25,18 +40,25 @@
         });
       </script>
     <header>
-        <a class="home" href="home.html">
-            <span>Quiz</span><span>zeo.</span>
-        </a>
+        <?php
+            echo "<a class='home' href='home.php?role=$role&user=$id_user'>";
+            echo "<span>Quiz</span><span>zeo.</span>";
+            echo "</a>";
+        ?>
         <div class="options">
-            <h2>Utilisateur</h2>
-            <a id="profil" href="dashboard.html">
-                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Photo de profil">
-            </a>
-            <a id="deconnexion" href="accueil.html">
-                <img src="https://img.icons8.com/fluency-systems-regular/256/login-rounded-right.png"
-                    alt="Se déconnecter">
-            </a>
+            <?php 
+                $sqlutilisateur = "SELECT * FROM utilisateur WHERE Id_utilisateur = '$id_user'";
+                $resultutilisateur = mysqli_query($conn, $sqlutilisateur);
+
+                $row = mysqli_fetch_assoc($resultutilisateur);
+                $role_user = $row['role_utilisateur'];
+                $pseudo = $row['pseudo'];
+
+                echo "<h2>$pseudo</h2>";
+                echo "<a id='profil' href='dashboard.php?role=$role&user=$id_user'>";
+                echo "<img src='https://cdn-icons-png.flaticon.com/512/149/149071.png' alt='Photo de profil'>";
+                echo "</a>";
+            ?>
         </div>
     </header>
     <div class="container">
@@ -50,7 +72,7 @@
             <img src="https://cdn-icons-png.flaticon.com/512/4218/4218493.png" alt="Loupe">
         </div> -->
         <div class="search">
-            <h2>Mettez vos connaissances à l'épreuve en jouant ou en créant des quiz</h2>
+            <h2>Mettez vos connaissances à l'épreuve en jouant ou en créant des quizz</h2>
             <div class="search-container2">
                 <div id="search-icon">
                     <img src="https://img.icons8.com/fluency-systems-regular/256/search.png" alt="Rechercher">
@@ -58,17 +80,65 @@
                 <input id="search-box" class="searchBar" type="search" placeholder="Rechercher">
             </div>
         </div>
-        <div id="no-result-text">
-            <h3>Aucun résultat</h3>
-            <img id="no-result" src="https://cdn-icons-png.flaticon.com/512/2184/2184379.png" alt="Aucun">
-        </div>
         <div class="categories">
-            <a href="quiz.html" class="imgCategorie" data-category="Sport">
+        <?php 
+        
+        require ('bdconnexion.php');
+
+        
+
+        $sql = "SELECT * FROM quizz";
+        $resultquizz = mysqli_query($conn, $sql);
+
+        while($row=mysqli_fetch_assoc($resultquizz)) {
+            $quizz_title = $row["Titre"];
+            $id_quizz = $row["Id_quizz"];
+            $quizz_category = $row["Categorie"];
+
+            echo "<a href='quiz.php?role=$role&user=$id_user&id_quizz=$id_quizz' class='imgCategorie' data-category='$quizz_title' id='$id_quizz'>";
+            echo "<h3 class='Name'>$quizz_title</h3>";
+            switch ($quizz_category) {
+                case "Sport":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4218/4218113.png' alt='Sport'>";
+                    break;
+                case "Cinema":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/5198/5198228.png' alt='Cinéma'>";
+                    break;
+                case "Geographie":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4218/4218484.png' alt='Géographie'>";
+                    break;
+                case "Histoire":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4058/4058331.png' alt='Histoire'>";
+                    break;
+                case "Musique":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/5204/5204758.png' alt='Musique'>";
+                    break;
+                case "Sciences":
+                    echo "<img src='https://icones8.fr/icon/0lUc5aQ86S3o/articles-de-laboratoire' alt='Sciences'>";
+                    break;
+                case "Art":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4218/4218478.png' alt='Art'>";
+                    break;
+                case "Animal":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/8176/8176142.png' alt='Animal'>";
+                    break;
+                case "Anime":
+                    echo "<img src='https://icones8.fr/icon/eWXAiv3hnUkS/adn-anime' alt='Anime'>";
+                    break;
+                default:
+                    echo "<img src='https://icones8.fr/icon/ibngCF4waBaR/quiz' alt='Default'>";
+                    break;
+            }
+            echo "</a>";
+        }
+        ?>
+            <!-- <a href="" class="imgCategorie" data-category="Sport" >
                 <h3 class="Name">Sport</h3>
                 <img src="https://cdn-icons-png.flaticon.com/512/4218/4218113.png" alt="Sport">
             </a>
-            <a href="quiz.html" class="imgCategorie" data-category="Cinéma">
+            <a href="quiz.html" class="imgCategorie" data-category="Cinéma" id="2">
                 <h3 class="Name">Cinéma</h3>
+                
                 <img src="https://cdn-icons-png.flaticon.com/512/5198/5198228.png" alt="Cinéma">
             </a>
             <a href="quiz.html" class="imgCategorie" data-category="Géographie">
@@ -110,8 +180,25 @@
             <a href="quiz.html" class="imgCategorie" data-category="Espace">
                 <h3 class="Name">Espace</h3>
                 <img src="https://cdn-icons-png.flaticon.com/512/4663/4663555.png" alt="Espace">
-            </a>
+            </a> -->
         </div>
+        <script>
+            // Récupération de tous les éléments avec la classe "imgCategorie"
+            const elements = document.querySelectorAll('.imgCategorie');
+            
+            // Parcours de chaque élément
+            elements.forEach(element => {
+                // Récupération de la valeur de l'attribut "data-category"
+                const categorie = element.getAttribute('data-category');
+                const id = element.getAttribute('id');
+                console.log(id);
+                console.log(categorie);
+            });
+
+
+
+
+        </script>
     </div>
     <!-- <footer>
         <ul>

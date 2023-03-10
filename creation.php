@@ -1,3 +1,17 @@
+<?php 
+require('bdconnexion.php');
+
+if(isset($_GET['user'])) {
+    $id_user = $_GET['user'];
+}
+
+if(isset($_GET['role'])) {
+    $role = $_GET['role'];
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,31 +19,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="create.css">
+    <link rel="icon" href="https://img.icons8.com/sf-black/64/000000/search.png">
+    <link rel="stylesheet" href="creation.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+        integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <title>Quizzeo</title>
 </head>
 
 <body>
     <header>
-        <h1><a href="home.html">Quiz<span>zeo.</span></a></h1>
+        <?php
+            echo "<a class='home' href='home.php?role=$role&user=$id_user'>";
+            echo "<span>Quiz</span><span>zeo.</span>";
+            echo "</a>";
+        ?>
         <div class="options">
-            <h2>Utilisateur</h2>
-            <a class="profile" href="panel.html">
-                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Photo de profile">
-                <input type="file" id="file-input" style="display: none;">
+        <?php 
+                $sqlutilisateur = "SELECT * FROM utilisateur WHERE Id_utilisateur = '$id_user'";
+                $resultutilisateur = mysqli_query($conn, $sqlutilisateur);
+
+                $row = mysqli_fetch_assoc($resultutilisateur);
+                $role_user = $row['role_utilisateur'];
+                $pseudo = $row['pseudo'];
+                $email = $row['email'];
+                $id_utilisateur = $row['Id_utilisateur'];
+
+                // if(isset($_GET['user'])) {
+                //     $id_user = $_GET['user'];
+                // }
+                
+                // if(isset($_GET['role'])) {
+                //     $role = $_GET['role'];
+                // }
+
+                echo "<h2>$pseudo</h2>";
+                echo "<a id='profil' href='dashboard.php?role=$role&user=$id_user'>";
+                echo "<img src='https://cdn-icons-png.flaticon.com/512/149/149071.png' alt='Photo de profil'>";
+                echo "</a>";
+
+            ?>
+            <!-- <h2>Utilisateur</h2>
+            <a id="profil" href="dashboard.html">
+                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Photo de profil">
             </a>
-            <img id="deconnexion" src="https://img.icons8.com/fluency-systems-regular/256/login-rounded-right.png"
-                alt="Se déconnecter">
+            <a id="deconnexion" href="accueil.html">
+                <img src="https://img.icons8.com/fluency-systems-regular/256/login-rounded-right.png"
+                    alt="Se déconnecter">
+            </a> -->
         </div>
     </header>
     <div class="container">
         <div class="info">
-            <div class="info2">
-                <h3>Création de quiz</h3>
-                <img src="https://img.icons8.com/color/256/add-folder.png">
-            </div>
-            <input type="text" placeholder="Titre">
+            <h3>Créer votre propre quiz</h3>
+            <img src="https://img.icons8.com/color/256/add-folder.png">
         </div>
+        <input id="input-title" type="text" placeholder="Nom du quiz">
         <div id="pageCreate">
             <form action="test.php" method="post">
                 <div class="container-question">
@@ -79,15 +123,14 @@
             </form>
         </div>
     </div>
-
-    <footer>
+    <!-- <footer>
         <ul>
             <li><a href="#">À propos</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">Conditions d'utilisation</a></li>
         </ul>
         <p>&copy; Quizzeo 2023</p>
-    </footer>
+    </footer> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>

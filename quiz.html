@@ -26,35 +26,20 @@
         });
       </script>
     <header>
-        <a class="home" href="accueil.html">
+        <a class="home" href="home.php">
             <span>Quiz</span><span>zeo.</span>
         </a>
         <div class="options">
             <h2>Utilisateur</h2>
-            <a id="profil" href="dashboard.html">
+            <a id="profil" href="dashboard.php">
                 <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Photo de profil">
             </a>
-            <a id="deconnexion" href="accueil.html">
-                <img src="https://img.icons8.com/fluency-systems-regular/256/login-rounded-right.png"
-                    alt="Se déconnecter">
-            </a>
-        </div>
         </div>
     </header>
     <div class="container">
-
-        <!-- <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/4218/4218113.png" alt="Ballon de basket">
-            <img src="https://cdn-icons-png.flaticon.com/512/4218/4218472.png" alt="Lettres">
-            <img src="https://cdn-icons-png.flaticon.com/512/4218/4218484.png" alt="Globe terrestre">
-            <img src="https://cdn-icons-png.flaticon.com/512/4058/4058331.png" alt="Fruit">
-            <img src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png" alt="Crayon">
-            <img src="https://cdn-icons-png.flaticon.com/512/4218/4218478.png" alt="Couleurs">
-            <img src="https://cdn-icons-png.flaticon.com/512/4218/4218493.png" alt="Loupe">
-        </div> -->
         <div class="container-question">
             <div class="number-question">
-                <h2>Question 1/20</h2>
+                <h2>Question 1/10</h2>
                 <div class="container-countdown">
                     <h2 id="countdown">60</h2>
                 </div>
@@ -62,53 +47,33 @@
         </div>
         <div class="container-answer">
             <div class="question">
-                <h3>De quel couleur est le cheval blanc d'Henri IV ?</h3>
+                <h3>De couleur est le cheval blanc d'Henri IV</h3>
             </div>
             <form action="#">
                 <div class="answers">
-
-                    <label class="answer">
-                        <input type="radio" name="option" value="option1">
-                        Rouge
-                    </label>
-
-                    <label class="answer">
-                        <input type="radio" name="option" value="option2">
-                        Blanc
-                    </label>
-
-                    <label class="answer">
-                        <input type="radio" name="option" value="option3">
-                        Noir
-                    </label>
-
-                    <label class="answer">
-                        <input type="radio" name="option" value="option3">
-                        Vert
-                    </label>
-
-                    <!-- <input type="radio" name="answer" id="answer">
-                    <input type="radio" name="answer" id="answer">
-                    <input type="radio" name="answer" id="answer">
-                    <input type="radio" name="answer" id="answer"> -->
-                    <!-- <div class="answer">Rouge</div>
-                    <div class="answer">Blanc</div>
-                    <div class="answer">Noir</div>
-                    <div class="answer">Vert</div> -->
+					<label class="answer">
+						<input type="radio" name="option" value="'.$index.'">
+						Marron
+					</label>
+					<label class="answer">
+						<input type="radio" name="option" value="'.$index.'">
+						Blanc
+					</label>
+					<label class="answer">
+						<input type="radio" name="option" value="'.$index.'">
+						Noir
+					</label>
+					<label class="answer">
+						<input type="radio" name="option" value="'.$index.'">
+						Rouge
+					</label>
                 </div>
                 <button type="submit" id="submit">Valider</button>
             </form>
         </div>
-        <!-- <footer>
-        <ul>
-            <li><a href="#">À propos</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Conditions d'utilisation</a></li>
-        </ul>
-        <p>&copy; Quizzeo 2023</p>
-    </footer> -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        <script src="script.js"></script>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="script.js"></script>
 </body>
-
-</html>
+    
+       

@@ -14,7 +14,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url("gradient.svg");
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   transition: filter 0.4s ease;
   animation: fade 1s forwards;
 }
@@ -49,48 +49,36 @@ header a span:last-child {
 .options {
   display: flex;
   align-items: center;
-  height: 50px;
-  width: auto;
   color: white;
   user-select: none;
-}
-
-.options h2,
-#profil,
-#deconnexion {
-  margin-right: 30px;
 }
 
 .options h2 {
   font-size: 18px;
   font-weight: 500;
+  margin-right: 20px;
+}
+
+.options a {
+  cursor: pointer;
+  transition: all 0.5s ease;
 }
 
 #profil {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
+  border: 2px solid #ff5f45;
   border-radius: 100%;
-  border: #ff5f45 2px solid;
+  margin-right: 25px;
 }
 
 #profil img {
   width: 85%;
   height: 85%;
   object-fit: cover;
-}
-
-#deconnexion {
-  height: 100%;
-  width: auto;
-}
-
-#deconnexion img {
-  height: 100%;
-  width: 100%;
-  filter: invert(100%) brightness(200%);
 }
 
 .container {
@@ -192,7 +180,6 @@ header a span:last-child {
   color: white;
   font-size: 38px;
   font-weight: 800;
-  animation: title 1s forwards;
 }
 
 .search-container2 {
@@ -334,13 +321,3 @@ footer ul a {
   }
 }
 
-@keyframes title {
-  from {
-    transform: translateY(50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}

@@ -22,10 +22,6 @@
             <a id="profil" href="dashboard.html">
                 <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Photo de profil">
             </a>
-            <a href="accueil.html">
-                <img id="deconnexion" src="https://img.icons8.com/fluency-systems-regular/256/login-rounded-right.png"
-                    alt="Se déconnecter">
-            </a>
         </div>
     </header>
     <div class="container">
@@ -39,21 +35,31 @@
             <img src="https://cdn-icons-png.flaticon.com/512/4218/4218484.png" alt="Globe terrestre">
         </div> -->
         <div class="onglets">
-            <div class="button active" data-onglet="onglet-1">
-                <img src="https://img.icons8.com/fluency-systems-regular/256/home.png" alt="Accueil">
+            <div>
+                <div class="button active" data-onglet="onglet-1">
+                    <img src="https://img.icons8.com/fluency-systems-regular/256/home.png" alt="home">
+                </div>
+                <div class="button" data-onglet="onglet-2">
+                    <img src="https://img.icons8.com/fluency-systems-regular/256/plus-math.png" alt="add">
+                </div>
+                <div class="button" data-onglet="onglet-3">
+                    <img src="https://img.icons8.com/fluency-systems-regular/256/test.png" alt="quiz">
+                </div>
+                <div class="button" data-onglet="onglet-4">
+                    <img src="https://img.icons8.com/fluency-systems-regular/256/security-user-male.png"
+                        alt="admin">
+                </div>
             </div>
-            <div class="button" data-onglet="onglet-2">
-                <img src="https://img.icons8.com/fluency-systems-regular/256/plus-math.png" alt="Ajouter">
-            </div>
-            <div class="button" data-onglet="onglet-3">
-                <img src="https://img.icons8.com/fluency-systems-regular/256/test.png" alt="Quiz">
-            </div>
-            <div class="button" data-onglet="onglet-4">
-                <img src="https://img.icons8.com/fluency-systems-regular/256/security-user-male.png"
-                    alt="Administrateur">
-            </div>
-            <div class="button" data-onglet="onglet-5">
-                <img src="https://img.icons8.com/fluency-systems-regular/256/settings.png" alt="Paramètre">
+            <div>
+                <div class="button" data-onglet="onglet-5">
+                    <img src="https://img.icons8.com/fluency-systems-regular/256/settings.png" alt="settings">
+                </div>
+                <div class="button">
+                    <a href="accueil.html">
+                        <img src="https://img.icons8.com/fluency-systems-regular/256/logout-rounded-left.png"
+                            alt="deconnexion">
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -65,16 +71,37 @@
                         <img src="https://cdn-icons-png.flaticon.com/512/5197/5197842.png" alt="Pouce en l'air">
                     </div>
                 </div>
-
-                <details>
-                    <summary>I have keys but no doors. I have space but no room. You can enter but can’t leave. What am
-                        I?</summary>
-                    <p>Question 1</p>
-                    <p>Question 2</p>
-                    <p>Question 3</p>
-                </details>
+                <p>Pseudo</p>
             </div>
-
+            <div id="statistics">
+                <div id="box">
+                    <h3>Dernier quiz</h3>
+                    <p>Sport</p>
+                    <h3>Difficulté 3</h3>
+                </div>
+                <div id="box">
+                    <h3>Total quiz</h3>
+                    <p>23</p>
+                    <h3>quiz</h3>
+                </div>
+                <div id="box">
+                    <h3>Nombre de quiz</h3>
+                    <p>15</p>
+                    <h3>quiz</h3>
+                </div>
+                <div id="box">
+                    <h3>Photo de profil</h3>
+                    <p>Changer</p>
+                    <h3>Changer</h3>
+                </div>
+                <div id="box">
+                    <h3>Membre depuis</h3>
+                    <p>03/10/2023</p>
+                    <div>
+                        <img class="icons2" src="https://cdn-icons-png.flaticon.com/512/2773/2773319.png" alt="calendar">
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="container-onglet" id="onglet-2">
@@ -188,7 +215,7 @@
                             <th>Titre</th>
                             <th>Difficulté</th>
                             <th>Date</th>
-                            <th>Actions</th>
+                            <th></th>
                         </tr>
                         <tr>
                             <td>User1</td>
@@ -197,10 +224,12 @@
                                 </tdid>★</td>
                             <td>10/12/2022</td>
                             <td>
-                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                    alt="Modifier">
-                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                    alt="Supprimer">
+                                <div class="icons">
+                                    <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                        alt="Modifier">
+                                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                        alt="Supprimer">
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -209,10 +238,12 @@
                             <td id="star">★ ★</td>
                             <td>10/12/2022</td>
                             <td>
-                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                    alt="Modifier">
-                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                    alt="Supprimer">
+                                <div class="icons">
+                                    <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                        alt="Modifier">
+                                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                        alt="Supprimer">
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -221,10 +252,12 @@
                             <td id="star">★ ★ ★</td>
                             <td>10/12/2022</td>
                             <td>
-                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                    alt="Modifier">
-                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                    alt="Supprimer">
+                                <div class="icons">
+                                    <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                        alt="Modifier">
+                                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                        alt="Supprimer">
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -234,10 +267,12 @@
                                 </tdid>★</td>
                             <td>10/12/2022</td>
                             <td>
-                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                    alt="Modifier">
-                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                    alt="Supprimer">
+                                <div class="icons">
+                                    <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                        alt="Modifier">
+                                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                        alt="Supprimer">
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -246,10 +281,12 @@
                             <td id="star">★ ★</td>
                             <td>10/12/2022</td>
                             <td>
-                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                    alt="Modifier">
-                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                    alt="Supprimer">
+                                <div class="icons">
+                                    <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                        alt="Modifier">
+                                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                        alt="Supprimer">
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -258,10 +295,12 @@
                             <td id="star">★ ★ ★</td>
                             <td>10/12/2022</td>
                             <td>
-                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                    alt="Modifier">
-                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                    alt="Supprimer">
+                                <div class="icons">
+                                    <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                        alt="Modifier">
+                                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                        alt="Supprimer">
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -271,10 +310,12 @@
                                 </tdid>★</td>
                             <td>10/12/2022</td>
                             <td>
-                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                    alt="Modifier">
-                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                    alt="Supprimer">
+                                <div class="icons">
+                                    <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                        alt="Modifier">
+                                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                        alt="Supprimer">
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -283,10 +324,12 @@
                             <td id="star">★ ★</td>
                             <td>10/12/2022</td>
                             <td>
-                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                    alt="Modifier">
-                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                    alt="Supprimer">
+                                <div class="icons">
+                                    <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                        alt="Modifier">
+                                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                        alt="Supprimer">
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -295,10 +338,12 @@
                             <td id="star">★ ★ ★</td>
                             <td>10/12/2022</td>
                             <td>
-                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                    alt="Modifier">
-                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                    alt="Supprimer">
+                                <div class="icons">
+                                    <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                        alt="Modifier">
+                                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                        alt="Supprimer">
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -308,10 +353,12 @@
                                 </tdid>★</td>
                             <td>10/12/2022</td>
                             <td>
-                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                    alt="Modifier">
-                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                    alt="Supprimer">
+                                <div class="icons">
+                                    <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                        alt="Modifier">
+                                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                        alt="Supprimer">
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -320,10 +367,12 @@
                             <td id="star">★ ★</td>
                             <td>10/12/2022</td>
                             <td>
-                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                    alt="Modifier">
-                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                    alt="Supprimer">
+                                <div class="icons">
+                                    <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                        alt="Modifier">
+                                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                        alt="Supprimer">
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -332,10 +381,12 @@
                             <td id="star">★ ★ ★</td>
                             <td>10/12/2022</td>
                             <td>
-                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                    alt="Modifier">
-                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                    alt="Supprimer">
+                                <div class="icons">
+                                    <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                        alt="Modifier">
+                                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                        alt="Supprimer">
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -345,10 +396,12 @@
                                 </tdid>★</td>
                             <td>10/12/2022</td>
                             <td>
-                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                    alt="Modifier">
-                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                    alt="Supprimer">
+                                <div class="icons">
+                                    <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                        alt="Modifier">
+                                    <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                        alt="Supprimer">
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -412,7 +465,7 @@
                         <th>Rôle</th>
                         <th>E-mail</th>
                         <th>Mot de passe</th>
-                        <th>Actions</th>
+                        <th></th>
                     </tr>
                     <tr>
                         <td>User1</td>
@@ -420,10 +473,12 @@
                         <td>user@gmail.com</td>
                         <td>*********</td>
                         <td>
-                            <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                alt="Modifier">
-                            <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                alt="Supprimer">
+                            <div class="icons">
+                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                    alt="Modifier">
+                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                    alt="Supprimer">
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -432,10 +487,12 @@
                         <td>user@gmail.com</td>
                         <td>*****</td>
                         <td>
-                            <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                alt="Modifier">
-                            <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                alt="Supprimer">
+                            <div class="icons">
+                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                    alt="Modifier">
+                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                    alt="Supprimer">
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -444,10 +501,12 @@
                         <td>user@gmail.com</td>
                         <td>*********</td>
                         <td>
-                            <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                alt="Modifier">
-                            <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                alt="Supprimer">
+                            <div class="icons">
+                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                    alt="Modifier">
+                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                    alt="Supprimer">
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -456,10 +515,12 @@
                         <td>user@gmail.com</td>
                         <td>*****</td>
                         <td>
-                            <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                alt="Modifier">
-                            <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                alt="Supprimer">
+                            <div class="icons">
+                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                    alt="Modifier">
+                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                    alt="Supprimer">
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -468,10 +529,12 @@
                         <td>user@gmail.com</td>
                         <td>*****</td>
                         <td>
-                            <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                alt="Modifier">
-                            <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                alt="Supprimer">
+                            <div class="icons">
+                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                    alt="Modifier">
+                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                    alt="Supprimer">
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -480,10 +543,12 @@
                         <td>user@gmail.com</td>
                         <td>*******</td>
                         <td>
-                            <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                alt="Modifier">
-                            <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                alt="Supprimer">
+                            <div class="icons">
+                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                    alt="Modifier">
+                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                    alt="Supprimer">
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -492,10 +557,12 @@
                         <td>user@gmail.com</td>
                         <td>*********</td>
                         <td>
-                            <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                alt="Modifier">
-                            <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                alt="Supprimer">
+                            <div class="icons">
+                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                    alt="Modifier">
+                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                    alt="Supprimer">
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -504,10 +571,12 @@
                         <td>user@gmail.com</td>
                         <td>*****</td>
                         <td>
-                            <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                alt="Modifier">
-                            <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                alt="Supprimer">
+                            <div class="icons">
+                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                    alt="Modifier">
+                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                    alt="Supprimer">
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -516,10 +585,12 @@
                         <td>user@gmail.com</td>
                         <td>*********</td>
                         <td>
-                            <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                alt="Modifier">
-                            <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                alt="Supprimer">
+                            <div class="icons">
+                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                    alt="Modifier">
+                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                    alt="Supprimer">
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -528,10 +599,12 @@
                         <td>user@gmail.com</td>
                         <td>*****</td>
                         <td>
-                            <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                alt="Modifier">
-                            <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                alt="Supprimer">
+                            <div class="icons">
+                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                    alt="Modifier">
+                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                    alt="Supprimer">
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -540,10 +613,12 @@
                         <td>user@gmail.com</td>
                         <td>*****</td>
                         <td>
-                            <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                alt="Modifier">
-                            <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                alt="Supprimer">
+                            <div class="icons">
+                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                    alt="Modifier">
+                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                    alt="Supprimer">
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -552,10 +627,12 @@
                         <td>user@gmail.com</td>
                         <td>*******</td>
                         <td>
-                            <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                alt="Modifier">
-                            <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                alt="Supprimer">
+                            <div class="icons">
+                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                    alt="Modifier">
+                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                    alt="Supprimer">
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -564,10 +641,12 @@
                         <td>user@gmail.com</td>
                         <td>*********</td>
                         <td>
-                            <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
-                                alt="Modifier">
-                            <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
-                                alt="Supprimer">
+                            <div class="icons">
+                                <img class="edit" src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png"
+                                    alt="Modifier">
+                                <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                                    alt="Supprimer">
+                            </div>
                         </td>
                     </tr>
                     <tr>
