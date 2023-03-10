@@ -88,7 +88,7 @@ if (mysqli_num_rows($result) > 0) {
     <audio id="audio" preload="auto" loop>
         <source src="quiz-show-timer-30-sec-music-for-content-creator.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
-      </audio>
+    </audio>
       
       <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -96,6 +96,12 @@ if (mysqli_num_rows($result) > 0) {
           audio.play();
         });
       </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const audio = document.querySelector('#audio');
+        audio.play();
+    });
+    </script>
     <header>
         <a class="home" href="accueil.html">
             <span>Quiz</span><span>zeo.</span>
