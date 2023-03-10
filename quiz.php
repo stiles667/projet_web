@@ -32,6 +32,7 @@ if(isset($_GET['id_quizz'])) {
         Your browser does not support the audio element.
       </audio>
       
+
       <script>
         document.addEventListener('DOMContentLoaded', () => {
           const audio = document.querySelector('#audio');
@@ -46,10 +47,6 @@ if(isset($_GET['id_quizz'])) {
             <h2>Utilisateur</h2>
             <a id="profil" href="dashboard.html">
                 <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Photo de profil">
-            </a>
-            <a id="deconnexion" href="accueil.html">
-                <img src="https://img.icons8.com/fluency-systems-regular/256/login-rounded-right.png"
-                    alt="Se déconnecter">
             </a>
         </div>
         </div>
@@ -228,51 +225,6 @@ if(isset($_GET['id_quizz'])) {
 
 
                     ?>
-                    <script>
-                        const _quest = document.getElementById('question');
-                        const _answers = document.querySelector('.answers');
-
-
-                        
-                        
-
-                        var questions = <?php echo json_encode($questions) ?>;
-                        // console.log(questions);
-                        
-                        var reponses = <?php echo json_encode($rep) ?>;
-                        // console.log(reponses);
-
-                        var numquestion = 1;
-                        var quizzarray = 0;
-                        
-                        var quizz = [questions, reponses];
-                        console.log(quizz);
-
-
-
-                        function AfficherQuizz() {
-                            for (var i = 0; i < quizz[0].length; i++) {
-                            var question = quizz[0][i];
-                            var reponse = quizz[1][i];
-                            var questionString = JSON.stringify(question);
-                            var reponseString = JSON.stringify(reponse);
-                            console.log("Question " + (i+1) + ": " + questionString);
-                            console.log("Réponse " + (i+1) + ": " + reponseString);
-                            
-                            console.log(question);
-                            _quest.innerHTML = question;
-                            
-
-                        }
-
-                        }
-
-                        AfficherQuizz();
-
-                        
-
-                    </script>
-
                 </h3>
             </div>
             
@@ -307,10 +259,40 @@ if(isset($_GET['id_quizz'])) {
                 <button type="submit" id="submit">Valider</button>
             </form>
         </div>
-    </div>
-
+    </div> -->
     <script>
+        const _quest = document.getElementById('question');
+        const _answers = document.querySelector('.answers');
+        var questions = <?php echo json_encode($questions) ?>;
+        // console.log(questions);
+        
+        var reponses = <?php echo json_encode($rep) ?>;
+        // console.log(reponses);
 
+        var numquestion = 1;
+        var quizzarray = 0;
+        
+        var quizz = [questions, reponses];
+        console.log(quizz);
+
+        function AfficherQuizz() {
+            for (var i = 0; i < quizz[0].length; i++) {
+                var question = quizz[0][i];
+                var reponse = quizz[1][i];
+                var questionString = JSON.stringify(question);
+                var reponseString = JSON.stringify(reponse);
+                console.log("Question " + (i+1) + ": " + questionString);
+                console.log("Réponse " + (i+1) + ": " + reponseString);
+                
+                console.log(question);
+                _quest.innerHTML = question;
+            }
+        }
+
+        AfficherQuizz();
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
     
-       
