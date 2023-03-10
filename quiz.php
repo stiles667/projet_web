@@ -32,7 +32,7 @@ if(isset($_GET['id_quizz'])) {
         Your browser does not support the audio element.
       </audio>
       
-      
+
       <script>
         document.addEventListener('DOMContentLoaded', () => {
           const audio = document.querySelector('#audio');
@@ -47,10 +47,6 @@ if(isset($_GET['id_quizz'])) {
             <h2>Utilisateur</h2>
             <a id="profil" href="dashboard.html">
                 <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Photo de profil">
-            </a>
-            <a id="deconnexion" href="accueil.html">
-                <img src="https://img.icons8.com/fluency-systems-regular/256/login-rounded-right.png"
-                    alt="Se déconnecter">
             </a>
         </div>
         </div>
