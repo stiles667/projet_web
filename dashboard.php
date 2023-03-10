@@ -100,7 +100,7 @@ if(isset($_GET['role'])) {
                         <img src="https://cdn-icons-png.flaticon.com/512/5197/5197842.png" alt="Pouce en l'air">
                     </div>
                 </div>
-                <p>Pseudo</p>
+                <p><?php echo $pseudo?></p>
             </div>
             <div id="statistics">
                 <div id="box">
