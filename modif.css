@@ -10,7 +10,10 @@
 
 body {
   background: rgb(20, 20, 20);
+<<<<<<< HEAD
   /* background: linear-gradient(0deg, rgba(15,15,15,1) 0%, rgba(24,24,24,1) 100%); */
+=======
+>>>>>>> 7a8f7c31260fefd30c9790a7886a76a646a781dd
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url("gradient.svg");
