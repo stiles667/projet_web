@@ -103,15 +103,28 @@ if (mysqli_num_rows($result) > 0) {
     });
     </script>
     <header>
-        <a class="home" href="accueil.html">
-            <span>Quiz</span><span>zeo.</span>
-        </a>
+        <?php
+            echo "<a class='home' href='home.php?role=$role&user=$id_user'>";
+            echo "<span>Quiz</span><span>zeo.</span>";
+            echo "</a>";
+        ?>
         <div class="options">
-            <h2>Utilisateur</h2>
-            <a id="profil" href="dashboard.html">
-                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Photo de profil">
-            </a>
-        </div>
+        <?php 
+                $sqlutilisateur = "SELECT * FROM utilisateur WHERE Id_utilisateur = '$id_user'";
+                $resultutilisateur = mysqli_query($conn, $sqlutilisateur);
+
+                $row = mysqli_fetch_assoc($resultutilisateur);
+                $role_user = $row['role_utilisateur'];
+                $pseudo = $row['pseudo'];
+                $email = $row['email'];
+                $id_utilisateur = $row['Id_utilisateur'];
+
+                echo "<h2>$pseudo</h2>";
+                echo "<a id='profil' href='dashboard.php?role=$role&user=$id_user'>";
+                echo "<img src='https://cdn-icons-png.flaticon.com/512/149/149071.png' alt='Photo de profil'>";
+                echo "</a>";
+    
+            ?>
         </div>
     </header>
     <div class="container">
