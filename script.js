@@ -180,7 +180,7 @@ $(document).ready(function () {
 
   //Select green color
 
-  var boxes = document.querySelectorAll(".answer");
+  var boxes = document.querySelectorAll("a");
 
   for (var i = 0; i < boxes.length; i++) {
     boxes[i].addEventListener("click", function () {
@@ -189,6 +189,7 @@ $(document).ready(function () {
       }
       if (!this.classList.contains("clicked")) {
         this.classList.add("clicked");
+        console.log("clicked");
       }
     });
   }

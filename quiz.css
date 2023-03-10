@@ -164,7 +164,7 @@ form {
   user-select: none;
 }
 
-.answer.clicked {
+a .clicked {
   color: white;
   background-color: #37aa59;
 }
