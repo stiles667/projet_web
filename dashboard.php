@@ -459,7 +459,7 @@ if(isset($_GET['role'])) {
             $('#onglet-3, #onglet-4, .button[data-onglet="onglet-3"], .button[data-onglet="onglet-4"],hr').remove();
         }
 
-        if ('<?php echo $role ?>' !== '2' || '<?php echo $role ?>' !== '3') {
+        if ('<?php echo $role ?>' !== 'Administrateur' && '<?php echo $role ?>' !== 'Quizzeur') {
             $('.button[data-onglet="onglet-2"]').remove();
         }
     </script>

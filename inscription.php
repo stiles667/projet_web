@@ -14,7 +14,7 @@ $verifpseudo = mysqli_query($conn, "SELECT * FROM utilisateur WHERE pseudo = '$p
 $verifmail = mysqli_query($conn, "SELECT * FROM utilisateur WHERE email = '$email'");
 
 
-$expression2 = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-z]{2,4}$/';
+$expression = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-z]{2,4}$/';
 
 
 switch (true) {
@@ -33,7 +33,7 @@ switch (true) {
     case (strlen($pseudo) < 3):
         echo "Votre pseudo est trop court.";
         break;
-    case (!preg_match($expression2, $email)):
+    case (!preg_match($expression, $email)):
         echo "L'email n'est pas valide. ";
         break;
     default:
@@ -41,9 +41,7 @@ switch (true) {
     $query = "INSERT INTO `utilisateur`(`pseudo`, `email`, `password`, `role_utilisateur`) VALUES ('$pseudo','$email','$mdp','$role')";
     $result = mysqli_query($conn, $query);
     if($result){
-        echo "Vous êtes inscrit !";
         header('Location: login.html');
-        
     }else{
         echo "Erreur d'inscription";}
     break;
