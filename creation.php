@@ -77,7 +77,7 @@ if(isset($_GET['role'])) {
         <div id="pageCreate">
             <form action="test.php" method="post">
                 <div class="container-question">
-                    <div class="question">
+                    <div class="question" id = "question">
                         <div class="number">
                             <h3>1</h3>
                         </div>
@@ -88,22 +88,22 @@ if(isset($_GET['role'])) {
                             alt="Supprimer">
                     </div>
                     <div class="container-answer">
-                        <div class="answer">
+                        <div class="answer" id="answers">
                             <div>
                                 <label for="answer1" class="letter">A</label>
-                                <input type="text" name="answer1">
+                                <input type="text" name="answer1" id="a1">
                             </div>
                             <div>
                                 <label for="answer2" class="letter">B</label>
-                                <input type="text" name="answer2">
+                                <input type="text" name="answer2" id="a2">
                             </div>
                             <div>
                                 <label for="answer3" class="letter">C</label>
-                                <input type="text" name="answer3">
+                                <input type="text" name="answer3" id="a3">
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="answer4">
+                                <input type="text" name="answer4" id="a4">
                             </div>
                             <div class="check">
                                 <img src="https://img.icons8.com/fluency/256/checkmark.png">
