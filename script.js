@@ -1,54 +1,4 @@
-// const fileInput = document.getElementById("fileInput");
-// const imageContainer = document.getElementById("imgUser");
-// const image = document.getElementById("image");
-
-// fileInput.addEventListener("change", () => {
-//   const reader = new FileReader();
-//   reader.onload = () => {
-//     image.src = reader.result;
-//   };
-//   reader.readAsDataURL(fileInput.files[0]);
-// });
-
-// console.log(fileInput);
-
-// $(document).ready(function () {
-//     $("#fileInput").change(function () {
-//         console.log("test");
-//     });
-// });
-
-// const trash = document.querySelectorAll("#trash");
-// const myDiv = document.querySelector("#myDiv");
-
-// trash.forEach(item => {
-//   item.addEventListener('click', () => {
-//     myDiv.style.display = "block";
-//     console.log("ok");
-//   });
-// });
-
 const trash = document.querySelectorAll("img, .trash");
-
-// $(trash).each((trash,buttonIndex)=>{
-//   $("img, #trash").click(function() {
-//     $(".Illustration").css("display", "none");
-//     console.log("Voulez-vous supprimer ce quiz ?");
-//   });
-// });
-
-// $(trash).click(function() {
-//   console.log($(trash).index(this));
-// });
-
-// index = []
-
-// trash.forEach((button,buttonIndex)=>{
-//   button.addEventListener('click', () => {
-//     index.addNewElementToTheUserSequence(buttonIndex)
-//     console.log("==>>",index)
-//   })
-// })
 
 $("img, #edit").click(function () {
   $("#myDiv").css("display", "block");
@@ -211,28 +161,3 @@ searchBox.addEventListener("input", function () {
     }
   });
 });
-
-//number question Question 1/10
-
-// $(document).ready(function () {
-//   let count = 1;
-
-//   function incrementNumber() { 
-//     const questionNumber = document.getElementById("submit"); 
-//     count++; 
-//     questionNumber.textContent = `Question ${count}/10`;
-//   }
-
-//   incrementNumber();
-// });
-
-// $(document).ready(function () {
-//   let count = 1;
-//   const questionNumber = document.getElementById("#submit");
-
-//   $(questionNumber).click(function () {
-//     count++; 
-//     questionNumber.textContent = `Question ${count}/10`;
-//     print("GOOD");
-//   });
-// });
