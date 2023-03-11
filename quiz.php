@@ -118,7 +118,6 @@
             <div class="container-countdown" id="container-countdown">
                 <h2 id="countdown">60</h2>
             </div>
-            <h2 id="score"></h2>
         </div>
         <div class="container-answer">
             <div class="question" id="question"></div>
@@ -139,7 +138,6 @@
 		const _answers = document.querySelector('.answers');
 		const _submit = document.getElementById('valider');
         const _nbquestion = document.getElementById('number-question');
-        const _score = document.getElementById('score');
         const _countdown = document.getElementById('container-countdown');
         const _home = document.getElementById('home');
         const _retry = document.getElementById('retry');
@@ -151,11 +149,8 @@
         var role = <?php echo json_encode($role) ?>;
 		var quizz = [];
 
-
         _home.style.display = "none";
         _retry.style.display = "none";
-
-        
 
 		for (let i = 0; i < questions.length; i++) {
 			let quiz = {
@@ -179,31 +174,28 @@
 
         _nbquestion.innerHTML = "Question " + numberquestion + "/10";
 		_quest.innerHTML = "<h1>" + quizz[numquestion].question + "</h1>";
-        _score.innerHTML = "Votre score : " + score + "/10";
         
-
 		for (let i = 0; i < quizz[numquestion].options.length; i++) {
 
             _answers.innerHTML = "<label class='answer'>" + "<input type='radio' name='option' value='option1'>" + quizz[numquestion].options[0] + "</label>" + "<label class='answer'>" + "<input type='radio' name='option' value='option3'>" + quizz[numquestion].options[1] + "</label>" + "<label class='answer'>" + "<input type='radio' name='option' value='option3'>" + quizz[numquestion].options[2] + "</label>" + "<label class='answer'>" + "<input type='radio' name='option' value='option3'>" + quizz[numquestion].options[3] + "</label>"
 
 		}
 
-        
         displayQuestion(numquestion);
 
         function displayQuestion(num) {
-        _nbquestion.innerHTML = 'Question ' + numberquestion + '/' + quizz.length;
-        _quest.innerHTML = '<h1>' + quizz[num].question + '</h1>';
+            _nbquestion.innerHTML = 'Question ' + numberquestion + '/' + quizz.length;
+            _quest.innerHTML = '<h1>' + quizz[num].question + '</h1>';
 
-        let optionsHtml = '';
-        for (let i = 0; i < quizz[num].options.length; i++) {
-            optionsHtml += '<label class="answer">';
-            optionsHtml += '<input type="radio" name="option" value="' + quizz[num].options[i] + '">';
-            optionsHtml += quizz[num].options[i];
-            optionsHtml += '</label>';
-        }
+            let optionsHtml = '';
+            for (let i = 0; i < quizz[num].options.length; i++) {
+                optionsHtml += '<label class="answer">';
+                optionsHtml += '<input type="radio" name="option" value="' + quizz[num].options[i] + '">';
+                optionsHtml += quizz[num].options[i];
+                optionsHtml += '</label>';
+            }
 
-        _answers.innerHTML = optionsHtml;
+            _answers.innerHTML = optionsHtml;
         }
 
         _submit.addEventListener('click', () => {
@@ -215,44 +207,39 @@
 
         let answer = selectedOption.value;
         if (answer == quizz[numquestion].correct) {
-
             score++;
-            _score.innerHTML = "Votre score : " + score + "/10";
         }
 
-         selectedOption.checked = false;
+        selectedOption.checked = false;
 
         numquestion++;
         numberquestion++;
 
         if (numquestion < quizz.length) {
-        displayQuestion(numquestion);
+            displayQuestion(numquestion);
         } else {
-        _quest.innerHTML = "<h1>Vous avez terminé le quizz !</h1>";
-        _answers.innerHTML = "<h2>Votre score est de " + score + " sur " + quizz.length + "</h2>";
-        _submit.style.display = 'none';
-        _nbquestion.style.display = 'none';
-        _countdown.style.display = 'none';
-        _score.style.display = 'none';
+            _quest.innerHTML = "<h1>Vous avez terminé le quizz !</h1>";
+            _answers.innerHTML = "<h2>Votre score est de " + score + " sur " + quizz.length + "</h2>";
+            _submit.style.display = 'none';
+            _nbquestion.style.display = 'none';
+            _countdown.style.display = 'none';
 
-        _home.style.display = "block";
-        _retry.style.display = "block";
+            _home.style.display = "block";
+            _retry.style.display = "block";
 
-        var xhr = new XMLHttpRequest();
-        var url = 'score.php';
-        var data = 'score=' + score + '&user=' + user + '&idquizz=' + idquizz;; // score est la variable que vous souhaitez envoyer
+            var xhr = new XMLHttpRequest();
+            var url = 'score.php';
+            var data = 'score=' + score + '&user=' + user + '&idquizz=' + idquizz;; // score est la variable que vous souhaitez envoyer
 
-        xhr.open('POST', url, true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                console.log(xhr.responseText); // Affiche la réponse du script PHP
-                }
-            
-            
-            };
-            xhr.send(data);
-        }
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log(xhr.responseText); // Affiche la réponse du script PHP
+                    }
+                };
+                xhr.send(data);
+            }
         }); 
 
     
@@ -265,36 +252,38 @@
         });
 
         var timeleft = 60;
-        var downloadTimer = setInterval(function(){
-        if(timeleft <= 0){
-            clearInterval(downloadTimer);
-            document.getElementById("countdown").innerHTML = "Temps écoulé !";
-            _quest.innerHTML = "<h1>Vous avez terminé le quizz !</h1>";
-            _answers.innerHTML = "<h2>Votre score est de " + score + " sur " + quizz.length + "</h2>";
-            _submit.style.display = 'none';
-            _nbquestion.style.display = 'none';
-            _countdown.style.display = 'none';
-            _score.style.display = 'none';
+        var downloadTimer = setInterval(function() {
 
-            _home.style.display = "block";
-            _retry.style.display = "block";
+            if(timeleft <= 0){
+                clearInterval(downloadTimer);
+                document.getElementById("countdown").innerHTML = "Temps écoulé !";
+                _quest.innerHTML = "<h1>Vous avez terminé le quizz !</h1>";
+                _answers.innerHTML = "<h2>Votre score est de " + score + " sur " + quizz.length + "</h2>";
+                _submit.style.display = 'none';
+                _nbquestion.style.display = 'none';
+                _countdown.style.display = 'none';
 
-            var xhr = new XMLHttpRequest();
-            var url = 'score.php';
-            var data = 'score=' + score + '&user=' + user + '&idquizz=' + idquizz;; // score est la variable que vous souhaitez envoyer
+                _home.style.display = "block";
+                _retry.style.display = "block";
 
-            xhr.open('POST', url, true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function() {
-                        if (xhr.readyState === 4 && xhr.status === 200) {
-                                    console.log(xhr.responseText); // Affiche la réponse du script PHP
-                        }
-            };
-            xhr.send(data);
-        } else {
-            document.getElementById("countdown").innerHTML = timeleft;
-        }
-        timeleft -= 1;
+                var xhr = new XMLHttpRequest();
+                var url = 'score.php';
+                var data = 'score=' + score + '&user=' + user + '&idquizz=' + idquizz;; // score est la variable que vous souhaitez envoyer
+
+                xhr.open('POST', url, true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                                console.log(xhr.responseText); // Affiche la réponse du script PHP
+                    }
+                };
+                xhr.send(data);
+            } else {
+                document.getElementById("countdown").innerHTML = timeleft;
+            }
+
+            timeleft -= 1;
+
         }, 1000);
 	</script>
 
