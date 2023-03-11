@@ -95,12 +95,12 @@ if(isset($_GET['role'])) {
         <div class="container-onglet active" id="onglet-1">
             <div class="info">
                 <div class="title">
-                    <h2>Bienvenue <?php echo $role ?></h2>
+                    <h2>Bienvenue, <?php echo $pseudo?></h2>
                     <div>
                         <img src="https://cdn-icons-png.flaticon.com/512/5197/5197842.png" alt="Pouce en l'air">
                     </div>
                 </div>
-                <p><?php echo $pseudo?></p>
+                <p><?php echo $role ?></p>
             </div>
             <div id="statistics">
                 <div id="box">
