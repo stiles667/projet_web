@@ -95,7 +95,7 @@ if(isset($_GET['role'])) {
         <div class="container-onglet active" id="onglet-1">
             <div class="info">
                 <div class="title">
-                    <h2>Bienvenue</h2>
+                    <h2>Bienvenue <?php echo $role ?></h2>
                     <div>
                         <img src="https://cdn-icons-png.flaticon.com/512/5197/5197842.png" alt="Pouce en l'air">
                     </div>
@@ -114,8 +114,8 @@ if(isset($_GET['role'])) {
                     <h3>quiz</h3>
                 </div>
                 <div id="box">
-                    <h3>Total quiz</h3>
-                    <p class="number">53</p>
+                    <h3>Score</h3>
+                    <p class="number">86</p>
                     <h3>quiz</h3>
                 </div>
                 <div id="box">
@@ -145,6 +145,8 @@ if(isset($_GET['role'])) {
                 <?php 
                     $sqlcreation = "SELECT * FROM creer WHERE Id_utilisateur = '$id_user'";
                     $resultcreation = mysqli_query($conn, $sqlcreation);
+
+                    $sqlcreation2 = "SELECT * FROM jouer WHERE Id_utilisateur = '$id_user' AND Id_quizz = '$id_quiz' AND Score = '$score'";
 
                     while($rowcreation = mysqli_fetch_assoc($resultcreation)) {
                         $id_quiz = $rowcreation['Id_quizz'];
@@ -455,6 +457,10 @@ if(isset($_GET['role'])) {
     <script>
         if ('<?php echo $id_user ?>' !== '1') {
             $('#onglet-3, #onglet-4, .button[data-onglet="onglet-3"], .button[data-onglet="onglet-4"],hr').remove();
+        }
+
+        if ('<?php echo $role ?>' !== '2' || '<?php echo $role ?>' !== '3') {
+            $('.button[data-onglet="onglet-2"]').remove();
         }
     </script>
 </body>
