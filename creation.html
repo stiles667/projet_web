@@ -32,9 +32,9 @@
         <div id="pageCreate">
             <form action="test.php" method="post">
                 <div class="info-container">
-                    <input class="input-quiz" type="text" placeholder="Titre">
+                    <input class="input-quiz" type="text" placeholder="Titre" maxlength="20" required oninvalid="this.style.border='2px solid #ff5f45';">
                     <h2>Difficulté</h2>
-                    <select name="role" class="input-quiz difficulty" placeholder="aze">
+                    <select name="role" class="input-quiz difficulty" placeholder="aze" required>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -81,6 +81,385 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="container-question">
+                    <div class="question">
+                        <div class="number">
+                            <h3>2</h3>
+                        </div>
+                        <!-- <h3>Question</h3> -->
+                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                            alt="Supprimer">
+                    </div>
+                    <div class="container-answer">
+                        <div class="answer">
+                            <div>
+                                <label for="answer1" class="letter">A</label>
+                                <input type="text" name="answer1">
+                            </div>
+                            <div>
+                                <label for="answer2" class="letter">B</label>
+                                <input type="text" name="answer2">
+                            </div>
+                            <div>
+                                <label for="answer3" class="letter">C</label>
+                                <input type="text" name="answer3">
+                            </div>
+                            <div>
+                                <label for="answer4" class="letter">D</label>
+                                <input type="text" name="answer4">
+                            </div>
+                            <div class="check">
+                                <img src="https://img.icons8.com/fluency/256/checkmark.png">
+                                <label for="correctAnswer">Sélectionner la bonne réponse</label>
+                                <select name="correctAnswer" id="correctAnswer">
+                                    <option value="answer1">A</option>
+                                    <option value="answer2">B</option>
+                                    <option value="answer3">C</option>
+                                    <option value="answer4">D</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-question">
+                    <div class="question">
+                        <div class="number">
+                            <h3>3</h3>
+                        </div>
+                        <!-- <h3>Question</h3> -->
+                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                            alt="Supprimer">
+                    </div>
+                    <div class="container-answer">
+                        <div class="answer">
+                            <div>
+                                <label for="answer1" class="letter">A</label>
+                                <input type="text" name="answer1">
+                            </div>
+                            <div>
+                                <label for="answer2" class="letter">B</label>
+                                <input type="text" name="answer2">
+                            </div>
+                            <div>
+                                <label for="answer3" class="letter">C</label>
+                                <input type="text" name="answer3">
+                            </div>
+                            <div>
+                                <label for="answer4" class="letter">D</label>
+                                <input type="text" name="answer4">
+                            </div>
+                            <div class="check">
+                                <img src="https://img.icons8.com/fluency/256/checkmark.png">
+                                <label for="correctAnswer">Sélectionner la bonne réponse</label>
+                                <select name="correctAnswer" id="correctAnswer">
+                                    <option value="answer1">A</option>
+                                    <option value="answer2">B</option>
+                                    <option value="answer3">C</option>
+                                    <option value="answer4">D</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-question">
+                    <div class="question">
+                        <div class="number">
+                            <h3>4</h3>
+                        </div>
+                        <!-- <h3>Question</h3> -->
+                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                            alt="Supprimer">
+                    </div>
+                    <div class="container-answer">
+                        <div class="answer">
+                            <div>
+                                <label for="answer1" class="letter">A</label>
+                                <input type="text" name="answer1">
+                            </div>
+                            <div>
+                                <label for="answer2" class="letter">B</label>
+                                <input type="text" name="answer2">
+                            </div>
+                            <div>
+                                <label for="answer3" class="letter">C</label>
+                                <input type="text" name="answer3">
+                            </div>
+                            <div>
+                                <label for="answer4" class="letter">D</label>
+                                <input type="text" name="answer4">
+                            </div>
+                            <div class="check">
+                                <img src="https://img.icons8.com/fluency/256/checkmark.png">
+                                <label for="correctAnswer">Sélectionner la bonne réponse</label>
+                                <select name="correctAnswer" id="correctAnswer">
+                                    <option value="answer1">A</option>
+                                    <option value="answer2">B</option>
+                                    <option value="answer3">C</option>
+                                    <option value="answer4">D</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-question">
+                    <div class="question">
+                        <div class="number">
+                            <h3>5</h3>
+                        </div>
+                        <!-- <h3>Question</h3> -->
+                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                            alt="Supprimer">
+                    </div>
+                    <div class="container-answer">
+                        <div class="answer">
+                            <div>
+                                <label for="answer1" class="letter">A</label>
+                                <input type="text" name="answer1">
+                            </div>
+                            <div>
+                                <label for="answer2" class="letter">B</label>
+                                <input type="text" name="answer2">
+                            </div>
+                            <div>
+                                <label for="answer3" class="letter">C</label>
+                                <input type="text" name="answer3">
+                            </div>
+                            <div>
+                                <label for="answer4" class="letter">D</label>
+                                <input type="text" name="answer4">
+                            </div>
+                            <div class="check">
+                                <img src="https://img.icons8.com/fluency/256/checkmark.png">
+                                <label for="correctAnswer">Sélectionner la bonne réponse</label>
+                                <select name="correctAnswer" id="correctAnswer">
+                                    <option value="answer1">A</option>
+                                    <option value="answer2">B</option>
+                                    <option value="answer3">C</option>
+                                    <option value="answer4">D</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-question">
+                    <div class="question">
+                        <div class="number">
+                            <h3>6</h3>
+                        </div>
+                        <!-- <h3>Question</h3> -->
+                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                            alt="Supprimer">
+                    </div>
+                    <div class="container-answer">
+                        <div class="answer">
+                            <div>
+                                <label for="answer1" class="letter">A</label>
+                                <input type="text" name="answer1">
+                            </div>
+                            <div>
+                                <label for="answer2" class="letter">B</label>
+                                <input type="text" name="answer2">
+                            </div>
+                            <div>
+                                <label for="answer3" class="letter">C</label>
+                                <input type="text" name="answer3">
+                            </div>
+                            <div>
+                                <label for="answer4" class="letter">D</label>
+                                <input type="text" name="answer4">
+                            </div>
+                            <div class="check">
+                                <img src="https://img.icons8.com/fluency/256/checkmark.png">
+                                <label for="correctAnswer">Sélectionner la bonne réponse</label>
+                                <select name="correctAnswer" id="correctAnswer">
+                                    <option value="answer1">A</option>
+                                    <option value="answer2">B</option>
+                                    <option value="answer3">C</option>
+                                    <option value="answer4">D</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-question">
+                    <div class="question">
+                        <div class="number">
+                            <h3>7</h3>
+                        </div>
+                        <!-- <h3>Question</h3> -->
+                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                            alt="Supprimer">
+                    </div>
+                    <div class="container-answer">
+                        <div class="answer">
+                            <div>
+                                <label for="answer1" class="letter">A</label>
+                                <input type="text" name="answer1">
+                            </div>
+                            <div>
+                                <label for="answer2" class="letter">B</label>
+                                <input type="text" name="answer2">
+                            </div>
+                            <div>
+                                <label for="answer3" class="letter">C</label>
+                                <input type="text" name="answer3">
+                            </div>
+                            <div>
+                                <label for="answer4" class="letter">D</label>
+                                <input type="text" name="answer4">
+                            </div>
+                            <div class="check">
+                                <img src="https://img.icons8.com/fluency/256/checkmark.png">
+                                <label for="correctAnswer">Sélectionner la bonne réponse</label>
+                                <select name="correctAnswer" id="correctAnswer">
+                                    <option value="answer1">A</option>
+                                    <option value="answer2">B</option>
+                                    <option value="answer3">C</option>
+                                    <option value="answer4">D</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-question">
+                    <div class="question">
+                        <div class="number">
+                            <h3>8</h3>
+                        </div>
+                        <!-- <h3>Question</h3> -->
+                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                            alt="Supprimer">
+                    </div>
+                    <div class="container-answer">
+                        <div class="answer">
+                            <div>
+                                <label for="answer1" class="letter">A</label>
+                                <input type="text" name="answer1">
+                            </div>
+                            <div>
+                                <label for="answer2" class="letter">B</label>
+                                <input type="text" name="answer2">
+                            </div>
+                            <div>
+                                <label for="answer3" class="letter">C</label>
+                                <input type="text" name="answer3">
+                            </div>
+                            <div>
+                                <label for="answer4" class="letter">D</label>
+                                <input type="text" name="answer4">
+                            </div>
+                            <div class="check">
+                                <img src="https://img.icons8.com/fluency/256/checkmark.png">
+                                <label for="correctAnswer">Sélectionner la bonne réponse</label>
+                                <select name="correctAnswer" id="correctAnswer">
+                                    <option value="answer1">A</option>
+                                    <option value="answer2">B</option>
+                                    <option value="answer3">C</option>
+                                    <option value="answer4">D</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-question">
+                    <div class="question">
+                        <div class="number">
+                            <h3>9</h3>
+                        </div>
+                        <!-- <h3>Question</h3> -->
+                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                            alt="Supprimer">
+                    </div>
+                    <div class="container-answer">
+                        <div class="answer">
+                            <div>
+                                <label for="answer1" class="letter">A</label>
+                                <input type="text" name="answer1">
+                            </div>
+                            <div>
+                                <label for="answer2" class="letter">B</label>
+                                <input type="text" name="answer2">
+                            </div>
+                            <div>
+                                <label for="answer3" class="letter">C</label>
+                                <input type="text" name="answer3">
+                            </div>
+                            <div>
+                                <label for="answer4" class="letter">D</label>
+                                <input type="text" name="answer4">
+                            </div>
+                            <div class="check">
+                                <img src="https://img.icons8.com/fluency/256/checkmark.png">
+                                <label for="correctAnswer">Sélectionner la bonne réponse</label>
+                                <select name="correctAnswer" id="correctAnswer">
+                                    <option value="answer1">A</option>
+                                    <option value="answer2">B</option>
+                                    <option value="answer3">C</option>
+                                    <option value="answer4">D</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-question">
+                    <div class="question">
+                        <div class="number">
+                            <h3>10</h3>
+                        </div>
+                        <!-- <h3>Question</h3> -->
+                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
+                            alt="Supprimer">
+                    </div>
+                    <div class="container-answer">
+                        <div class="answer">
+                            <div>
+                                <label for="answer1" class="letter">A</label>
+                                <input type="text" name="answer1">
+                            </div>
+                            <div>
+                                <label for="answer2" class="letter">B</label>
+                                <input type="text" name="answer2">
+                            </div>
+                            <div>
+                                <label for="answer3" class="letter">C</label>
+                                <input type="text" name="answer3">
+                            </div>
+                            <div>
+                                <label for="answer4" class="letter">D</label>
+                                <input type="text" name="answer4">
+                            </div>
+                            <div class="check">
+                                <img src="https://img.icons8.com/fluency/256/checkmark.png">
+                                <label for="correctAnswer">Sélectionner la bonne réponse</label>
+                                <select name="correctAnswer" id="correctAnswer">
+                                    <option value="answer1">A</option>
+                                    <option value="answer2">B</option>
+                                    <option value="answer3">C</option>
+                                    <option value="answer4">D</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- <div class="question add">+</div> -->
                 <input id="button-submit" type="submit" value="Créer">
             </form>
