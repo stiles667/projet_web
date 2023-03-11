@@ -10,7 +10,6 @@
 
 body {
   background: rgb(20, 20, 20);
-  /* background: linear-gradient(0deg, rgba(15,15,15,1) 0%, rgba(24,24,24,1) 100%); */
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url("gradient.svg");
@@ -25,7 +24,6 @@ header {
   justify-content: space-between;
   color: white;
   height: 100px;
-  /* box-shadow: 0 0 40px 40px rgba(0, 0, 0, 0.2); */
 }
 
 .home {
