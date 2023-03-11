@@ -11,17 +11,9 @@ $('#submit').on('click', ()=> {
 
 $(document).on("click", ".trash", function () {
   $(this).closest(".container-question").remove();
-  // Mettre à jour les numéros des questions restantes
-  $(".question .number h3").each(function (index) {
-    $(this).text(index + 1);
-  });
 });
 
 $(document).ready(function () {
-  $(".question .number h3").each(function (index) {
-    $(this).text(index + 1);
-  });
-
   $(".add").click(function () {
     var numQuestions = $(".question").length;
     var newImgCategorie = $(
@@ -161,3 +153,10 @@ searchBox.addEventListener("input", function () {
     }
   });
 });
+
+// function validateForm() {
+//   var form = document.getElementById('form');
+//   if (!form.checkValidity()) {
+//     document.querySelector("input[type='text']").classList.add("invalid");
+//   }
+// }
