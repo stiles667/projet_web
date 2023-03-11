@@ -62,7 +62,7 @@ if(isset($_GET['updateRole'])) {
                 </div>
                 <div class='form-example'>
                     <label for='password'>Mot de passe</label>
-                    <input type='email' name='email' id='email' value='<?php echo $password_utilisateur?>' required>
+                    <input type='password' name='password' id='password' value='<?php echo $password_utilisateur?>' required>
                 </div>
                 <div class='form-example'>
                     <label for='role'>Role</label>
