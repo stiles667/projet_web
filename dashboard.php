@@ -146,7 +146,7 @@ if(isset($_GET['role'])) {
                     $sqlcreation = "SELECT * FROM creer WHERE Id_utilisateur = '$id_user'";
                     $resultcreation = mysqli_query($conn, $sqlcreation);
 
-                    $sqlcreation2 = "SELECT * FROM jouer WHERE Id_utilisateur = '$id_user' AND Id_quizz = '$id_quiz' AND Score = '$score'";
+                    // $sqlcreation2 = "SELECT * FROM jouer WHERE Id_utilisateur = '$id_user' AND Id_quizz = '$id_quiz' AND Score = '$score'";
 
                     while($rowcreation = mysqli_fetch_assoc($resultcreation)) {
                         $id_quiz = $rowcreation['Id_quizz'];
