@@ -25,21 +25,28 @@
         </div>
     </header>
     <div class="container">
-        <div class="info">
-            <h3>Création de quiz</h3>
+        <div class="info-container">
+            <h1>Création de quiz</h1>
             <img src="https://img.icons8.com/color/256/add-folder.png">
         </div>
         <div id="pageCreate">
             <form action="test.php" method="post">
-                <input id="input-title" type="text" placeholder="Titre">
+                <div class="info-container">
+                    <input class="input-quiz" type="text" placeholder="Titre">
+                    <h2>Difficulté</h2>
+                    <select name="role" class="input-quiz difficulty" placeholder="aze">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
                 <div class="container-question">
                     <div class="question">
                         <div class="number">
                             <h3>1</h3>
                         </div>
                         <!-- <h3>Question</h3> -->
-                        <input type="text" id="textarea"
-                            placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         <img class="trash" src="https://cdn-icons-png.flaticon.com/512/7641/7641678.png"
                             alt="Supprimer">
                     </div>
