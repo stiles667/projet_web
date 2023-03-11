@@ -97,10 +97,3 @@ searchBox.addEventListener("input", function () {
     }
   });
 });
-
-// function validateForm() {
-//   var form = document.getElementById('form');
-//   if (!form.checkValidity()) {
-//     document.querySelector("input[type='text']").classList.add("invalid");
-//   }
-// }
