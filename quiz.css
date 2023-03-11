@@ -88,7 +88,7 @@ header a span:last-child {
   width: 100%;
 }
 
-.number-question {
+.container-question {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,13 +98,12 @@ header a span:last-child {
   margin: 65px 0 25px 0;
 }
 
-.number-question h2:not(:last-child) {
+#number-question {
   font-size: 20px;
   font-weight: 500;
   background-color: #ff5f45;
   padding: 15px 30px 15px 30px;
   border-radius: 35px;
-  margin-right: 20px;
 }
 
 .container-countdown {
@@ -117,6 +116,7 @@ header a span:last-child {
   border: #ff5f45 5px solid;
   background-color: #f1f1f1;
   border-radius: 100%;
+  margin: 0 20px 0 20px;
   animation: pulse s infinite;
 }
 

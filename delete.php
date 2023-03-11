@@ -34,8 +34,6 @@ if (isset($_GET['user']) && isset($_GET['role']) && isset($_GET['deleteId'])) {
 
             echo $id_quizz;
             echo "<br>";
-
-
         }
     } else {
         echo "0 results";

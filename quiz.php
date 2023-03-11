@@ -1,73 +1,71 @@
 <?php
 
+    require ('bdconnexion.php');
 
-require ('bdconnexion.php');
-
-if(isset($_GET['id_quizz'])) {
-    $id_quizz = $_GET['id_quizz'];
-    $sql = "SELECT * FROM question WHERE Id_quizz = " . $id_quizz;
-    $result = mysqli_query($conn, $sql);
-    
-}
-
-if(isset($_GET['user'])) {
-    $id_user = $_GET['user'];
-}
-
-if(isset($_GET['role'])) {
-    $role = $_GET['role'];
-}
-
-
-$questions = array();
-                    
-if (mysqli_num_rows($result) > 0) {
-    while($row1 = mysqli_fetch_assoc($result)) {
-        $id_question = $row1['Id_question'];
-        $question = $row1['question'];
-                            
-        $sql2 = "SELECT * FROM choix WHERE Id_question = " . $id_question;
-        $result2 = mysqli_query($conn, $sql2);
-        $reponsesjs = array();
-        if (mysqli_num_rows($result2) > 0) {
-            while($row2=mysqli_fetch_assoc($result2)) {
-                // $idquest = $row2['Id_question'];
-
-                $reponses = array(
-                    // 'idquestion ' => $row2['Id_question'],
-                    'reponse1' => $row2['rep1'],
-                    'reponse2' => $row2['rep2'],
-                    'reponse3' => $row2['rep3'],
-                    'Bonne_rep'=> $row2['Bonne_reponse']
-                );
-
-                $rep1 = $row2['rep1'];
-                $rep2 = $row2['rep2'];
-                $rep3 = $row2['rep3'];
-                $bonnerep = $row2['Bonne_reponse'];
-
-                $reponsesjs[] = $reponses;
-            }
-        }
-                            
-        $questions[] = array(
-            // 'id' => $id_question,
-            'question' => $question
-            // 'reponses' => $reponsesjs
-        );
-
-        $rep[] = array(
-            // 'idquestion' => $id_question,
-            'reponse1' => $rep1,
-            'reponse2' => $rep2,
-            'reponse3' => $rep3,
-            'Bonne_rep' => $bonnerep
-        );
+    if(isset($_GET['id_quizz'])) {
+        $id_quizz = $_GET['id_quizz'];
+        $sql = "SELECT * FROM question WHERE Id_quizz = " . $id_quizz;
+        $result = mysqli_query($conn, $sql);
+        
     }
-}
+
+    if(isset($_GET['user'])) {
+        $id_user = $_GET['user'];
+    }
+
+    if(isset($_GET['role'])) {
+        $role = $_GET['role'];
+    }
+
+
+    $questions = array();
+                        
+    if (mysqli_num_rows($result) > 0) {
+        while($row1 = mysqli_fetch_assoc($result)) {
+            $id_question = $row1['Id_question'];
+            $question = $row1['question'];
+                                
+            $sql2 = "SELECT * FROM choix WHERE Id_question = " . $id_question;
+            $result2 = mysqli_query($conn, $sql2);
+            $reponsesjs = array();
+            if (mysqli_num_rows($result2) > 0) {
+                while($row2=mysqli_fetch_assoc($result2)) {
+                    // $idquest = $row2['Id_question'];
+
+                    $reponses = array(
+                        // 'idquestion ' => $row2['Id_question'],
+                        'reponse1' => $row2['rep1'],
+                        'reponse2' => $row2['rep2'],
+                        'reponse3' => $row2['rep3'],
+                        'Bonne_rep'=> $row2['Bonne_reponse']
+                    );
+
+                    $rep1 = $row2['rep1'];
+                    $rep2 = $row2['rep2'];
+                    $rep3 = $row2['rep3'];
+                    $bonnerep = $row2['Bonne_reponse'];
+
+                    $reponsesjs[] = $reponses;
+                }
+            }
+                                
+            $questions[] = array(
+                // 'id' => $id_question,
+                'question' => $question
+                // 'reponses' => $reponsesjs
+            );
+
+            $rep[] = array(
+                // 'idquestion' => $id_question,
+                'reponse1' => $rep1,
+                'reponse2' => $rep2,
+                'reponse3' => $rep3,
+                'Bonne_rep' => $bonnerep
+            );
+        }
+    }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -89,19 +87,7 @@ if (mysqli_num_rows($result) > 0) {
         <source src="quiz-show-timer-30-sec-music-for-content-creator.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-      
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          const audio = document.querySelector('#audio');
-          audio.play();
-        });
-      </script>
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const audio = document.querySelector('#audio');
-        audio.play();
-    });
-    </script>
+
     <header>
         <?php
             echo "<a class='home' href='home.php?role=$role&user=$id_user'>";
@@ -109,7 +95,7 @@ if (mysqli_num_rows($result) > 0) {
             echo "</a>";
         ?>
         <div class="options">
-        <?php 
+            <?php
                 $sqlutilisateur = "SELECT * FROM utilisateur WHERE Id_utilisateur = '$id_user'";
                 $resultutilisateur = mysqli_query($conn, $sqlutilisateur);
 
@@ -123,37 +109,32 @@ if (mysqli_num_rows($result) > 0) {
                 echo "<a id='profil' href='dashboard.php?role=$role&user=$id_user'>";
                 echo "<img src='https://cdn-icons-png.flaticon.com/512/149/149071.png' alt='Photo de profil'>";
                 echo "</a>";
-    
             ?>
         </div>
     </header>
     <div class="container">
-<body>
-    <div class="container-question">
-            <div class="number-question">
-                <h2 id="number-question"></h2>
-            
-                <div class="container-countdown" id="container-countdown">
-                    <h2 id="countdown">60</h2>
-                </div>
-                <h2 id="score"></h2>
+        <div class="container-question">
+            <h2 id="number-question"></h2>
+            <div class="container-countdown" id="container-countdown">
+                <h2 id="countdown">60</h2>
             </div>
-            <div class="container-answer">
-                <div class="question" id="question">
-                        
-                    </div>
-                    <div class="answers" id="answers">
-
-                        
-                        </div>
-                    <button type="submit" id="valider">Valider</button>
-                    <button type="submit" id="home">Accueil</button>
-                    <button type="submit" id="retry">Recommencer</button>
-                </form>
-            </div>
+            <h2 id="score"></h2>
+        </div>
+        <div class="container-answer">
+            <div class="question" id="question"></div>
+            <div class="answers" id="answers"></div>
+            <button type="submit" id="valider">Valider</button>
+            <button type="submit" id="home">Accueil</button>
+            <button type="submit" id="retry">Recommencer</button>
         </div>
     </div>
-	<script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const audio = document.querySelector('#audio');
+          audio.play();
+        });
+        
 		const _quest = document.getElementById('question');
 		const _answers = document.querySelector('.answers');
 		const _submit = document.getElementById('valider');
@@ -316,9 +297,9 @@ if (mysqli_num_rows($result) > 0) {
         timeleft -= 1;
         }, 1000);
 	</script>
+
 </body>
+
 </html>
-
-
 
 
