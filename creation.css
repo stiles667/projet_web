@@ -151,7 +151,7 @@ header a span:last-child {
   overflow: hidden;
 }
 
-.test {
+.bar {
   height: 100%;
   width: 4px;
   background-color: #ff5f45;
@@ -170,7 +170,7 @@ header a span:last-child {
   border-radius: 100%;
   border: 2px solid white;
   margin-left: 10px;
-  margin: 0 10px 0 10px;
+  margin: 0 10px 0 15px;
 }
 
 .question h3 {
@@ -280,6 +280,7 @@ label {
   border-radius: 35px;
   float: right;
   cursor: pointer;
+  margin-bottom: 20px;
 }
 
 @keyframes fade {
@@ -309,4 +310,21 @@ label {
   to {
     rotate: 0deg;
   }
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #1f1f1fbe;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #444444;
+  border-radius: 10px;
+  background-clip: content-box;
 }

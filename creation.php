@@ -66,10 +66,11 @@ if(isset($_GET['role'])) {
             <img src="https://img.icons8.com/color/256/add-folder.png">
         </div>
         <div id="pageCreate">
-            <form action="test.php" method="post">
+            <form action="#" method="post">
                 <div class="info-container">
-                    <input class="input-quiz" type="text" placeholder="Titre" maxlength="20" required
-                        oninvalid="this.style.border='2px solid #ff5f45';">
+                    <input class="input-quiz" type="text" placeholder="Titre" maxlength="20" required>
+                    <!-- <input class="input-quiz" type="text" placeholder="Titre" maxlength="20" required
+                        oninvalid="this.style.border='2px solid #ff5f45';"> -->
                     <h2>Difficulté</h2>
                     <select name="role" class="input-quiz difficulty" placeholder="aze" required>
                         <option value="1">1</option>
@@ -79,7 +80,7 @@ if(isset($_GET['role'])) {
                 </div>
                 <div class="container-question">
                     <div class="question">
-                        <div class="test"></div>
+                        <div class="bar"></div>
                         <div class="number">
                             <h3>1</h3>
                         </div>
@@ -120,6 +121,7 @@ if(isset($_GET['role'])) {
 
                 <div class="container-question">
                     <div class="question">
+                        <div class="bar"></div>
                         <div class="number">
                             <h3>2</h3>
                         </div>
@@ -160,6 +162,7 @@ if(isset($_GET['role'])) {
 
                 <div class="container-question">
                     <div class="question">
+                        <div class="bar"></div>
                         <div class="number">
                             <h3>3</h3>
                         </div>
@@ -200,6 +203,7 @@ if(isset($_GET['role'])) {
 
                 <div class="container-question">
                     <div class="question">
+                        <div class="bar"></div>
                         <div class="number">
                             <h3>4</h3>
                         </div>
@@ -240,6 +244,7 @@ if(isset($_GET['role'])) {
 
                 <div class="container-question">
                     <div class="question">
+                        <div class="bar"></div>
                         <div class="number">
                             <h3>5</h3>
                         </div>
@@ -280,6 +285,7 @@ if(isset($_GET['role'])) {
 
                 <div class="container-question">
                     <div class="question">
+                        <div class="bar"></div>
                         <div class="number">
                             <h3>6</h3>
                         </div>
@@ -320,6 +326,7 @@ if(isset($_GET['role'])) {
 
                 <div class="container-question">
                     <div class="question">
+                        <div class="bar"></div>
                         <div class="number">
                             <h3>7</h3>
                         </div>
@@ -360,6 +367,7 @@ if(isset($_GET['role'])) {
 
                 <div class="container-question">
                     <div class="question">
+                        <div class="bar"></div>
                         <div class="number">
                             <h3>8</h3>
                         </div>
@@ -400,6 +408,7 @@ if(isset($_GET['role'])) {
 
                 <div class="container-question">
                     <div class="question">
+                        <div class="bar"></div>
                         <div class="number">
                             <h3>9</h3>
                         </div>
@@ -440,6 +449,7 @@ if(isset($_GET['role'])) {
 
                 <div class="container-question">
                     <div class="question">
+                        <div class="bar"></div>
                         <div class="number">
                             <h3>10</h3>
                         </div>
