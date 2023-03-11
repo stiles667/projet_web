@@ -78,8 +78,8 @@
     <link rel="stylesheet" href="quiz.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
         integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-    <link href='https://css.gg/search.css' rel='stylesheet'>
     <title>Quizzeo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -133,7 +133,11 @@
           const audio = document.querySelector('#audio');
           audio.play();
         });
-        
+
+        $(".answer").click(function () {
+            console.log("clicked");
+        });
+
 		const _quest = document.getElementById('question');
 		const _answers = document.querySelector('.answers');
 		const _submit = document.getElementById('valider');
@@ -201,7 +205,11 @@
         _submit.addEventListener('click', () => {
             let selectedOption = document.querySelector('input[type=radio]:checked');
             if (!selectedOption) {
-            alert('Veuillez sélectionner une réponse.');
+                $('#valider').addClass('shake');
+                setTimeout(function(){
+                    $(".shake").removeClass("shake");
+                }, 500)
+                // alert('Veuillez sélectionner une réponse.');
             return;
             }
 
@@ -285,6 +293,20 @@
             timeleft -= 1;
 
         }, 1000);
+
+        var boxes = document.querySelectorAll(".answer");
+
+        for (var i = 0; i < boxes.length; i++) {
+            boxes[i].addEventListener("click", function () {
+                for (var j = 0; j < boxes.length; j++) {
+                boxes[j].classList.remove("clicked");
+                }
+                if (!this.classList.contains("clicked")) {
+                this.classList.add("clicked");
+                console.log("clicked");
+                }
+            });
+        }
 	</script>
 
 </body>
