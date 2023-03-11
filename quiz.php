@@ -129,34 +129,30 @@ if (mysqli_num_rows($result) > 0) {
     </header>
     <div class="container">
 <body>
-<div class="container-question">
+    <div class="container-question">
             <div class="number-question">
                 <h2 id="number-question"></h2>
             
                 <div class="container-countdown" id="container-countdown">
                     <h2 id="countdown">60</h2>
                 </div>
+                <h2 id="score"></h2>
+            </div>
+            <div class="container-answer">
+                <div class="question" id="question">
+                        
+                    </div>
+                    <div class="answers" id="answers">
 
-                <div class="score">
-                    <h2 id="score">Votre score : 1/10</h2>
-                </div>
+                        
+                        </div>
+                    <button type="submit" id="valider">Valider</button>
+                    <button type="submit" id="home">Accueil</button>
+                    <button type="submit" id="retry">Recommencer</button>
+                </form>
             </div>
         </div>
-        <div class="container-answer">
-            <div class="question" id="question">
-                    
-                </div>
-                <div class="answers" id="answers">
-
-                    
-                    </div>
-                <button type="submit" id="valider">Valider</button>
-                <button type="submit" id="home">Acceuil</button>
-                <button type="submit" id="retry">Recommencer</button>
-            </form>
-        </div>
     </div>
-
 	<script>
 		const _quest = document.getElementById('question');
 		const _answers = document.querySelector('.answers');
@@ -279,51 +275,46 @@ if (mysqli_num_rows($result) > 0) {
         }); 
 
     
-            _home.addEventListener('click', () => {
-                window.location.href = "home.php?user=" + user + "&role=" + role;
-            });
-    
-            _retry.addEventListener('click', () => {
-                window.location.href = "quiz.php?id_quizz=" + idquizz + "&user=" + user + "&role=" + role;
-            });
-    
-            var timeleft = 60;
-            var downloadTimer = setInterval(function(){
-            if(timeleft <= 0){
-                clearInterval(downloadTimer);
-                document.getElementById("countdown").innerHTML = "Temps écoulé !";
-                _quest.innerHTML = "<h1>Vous avez terminé le quizz !</h1>";
-                _answers.innerHTML = "<h2>Votre score est de " + score + " sur " + quizz.length + "</h2>";
-                _submit.style.display = 'none';
-                _nbquestion.style.display = 'none';
-                _countdown.style.display = 'none';
-                _score.style.display = 'none';
-    
-                _home.style.display = "block";
-                _retry.style.display = "block";
-    
-                var xhr = new XMLHttpRequest();
-                var url = 'score.php';
-                var data = 'score=' + score + '&user=' + user + '&idquizz=' + idquizz;; // score est la variable que vous souhaitez envoyer
-    
-                xhr.open('POST', url, true);
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xhr.onreadystatechange = function() {
-                            if (xhr.readyState === 4 && xhr.status === 200) {
-                                        console.log(xhr.responseText); // Affiche la réponse du script PHP
-                            }
-                };
-                xhr.send(data);
-            } else {
-                document.getElementById("countdown").innerHTML = timeleft;
-            }
-            timeleft -= 1;
-            }, 1000);
+        _home.addEventListener('click', () => {
+            window.location.href = "home.php?user=" + user + "&role=" + role;
+        });
 
-        
+        _retry.addEventListener('click', () => {
+            window.location.href = "quiz.php?id_quizz=" + idquizz + "&user=" + user + "&role=" + role;
+        });
 
+        var timeleft = 60;
+        var downloadTimer = setInterval(function(){
+        if(timeleft <= 0){
+            clearInterval(downloadTimer);
+            document.getElementById("countdown").innerHTML = "Temps écoulé !";
+            _quest.innerHTML = "<h1>Vous avez terminé le quizz !</h1>";
+            _answers.innerHTML = "<h2>Votre score est de " + score + " sur " + quizz.length + "</h2>";
+            _submit.style.display = 'none';
+            _nbquestion.style.display = 'none';
+            _countdown.style.display = 'none';
+            _score.style.display = 'none';
 
+            _home.style.display = "block";
+            _retry.style.display = "block";
 
+            var xhr = new XMLHttpRequest();
+            var url = 'score.php';
+            var data = 'score=' + score + '&user=' + user + '&idquizz=' + idquizz;; // score est la variable que vous souhaitez envoyer
+
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                                    console.log(xhr.responseText); // Affiche la réponse du script PHP
+                        }
+            };
+            xhr.send(data);
+        } else {
+            document.getElementById("countdown").innerHTML = timeleft;
+        }
+        timeleft -= 1;
+        }, 1000);
 	</script>
 </body>
 </html>
