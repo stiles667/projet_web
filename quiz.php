@@ -127,141 +127,70 @@
             <button type="submit" id="retry">Recommencer</button>
         </div>
     </div>
+</body>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          const audio = document.querySelector('#audio');
-          audio.play();
-        });
+</html>
 
-        $(".answer").click(function () {
-            console.log("clicked");
-        });
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const audio = document.querySelector('#audio');
+        audio.play();
+    });
 
-		const _quest = document.getElementById('question');
-		const _answers = document.querySelector('.answers');
-		const _submit = document.getElementById('valider');
-        const _nbquestion = document.getElementById('number-question');
-        const _countdown = document.getElementById('container-countdown');
-        const _home = document.getElementById('home');
-        const _retry = document.getElementById('retry');
+    $(".answer").click(function () {
+        console.log("clicked");
+    });
 
-		var questions = <?php echo json_encode($questions) ?>;
-		var reponses = <?php echo json_encode($rep) ?>;
-        var user = <?php echo json_encode($id_user) ?>;
-        var idquizz = <?php echo json_encode($id_quizz) ?>;
-        var role = <?php echo json_encode($role) ?>;
-		var quizz = [];
+    const _quest = document.getElementById('question');
+    const _answers = document.querySelector('.answers');
+    const _submit = document.getElementById('valider');
+    const _nbquestion = document.getElementById('number-question');
+    const _countdown = document.getElementById('container-countdown');
+    const _home = document.getElementById('home');
+    const _retry = document.getElementById('retry');
 
-        _home.style.display = "none";
-        _retry.style.display = "none";
+    var questions = <?php echo json_encode($questions) ?>;
+    var reponses = <?php echo json_encode($rep) ?>;
+    var user = <?php echo json_encode($id_user) ?>;
+    var idquizz = <?php echo json_encode($id_quizz) ?>;
+    var role = <?php echo json_encode($role) ?>;
+    var quizz = [];
 
-		for (let i = 0; i < questions.length; i++) {
-			let quiz = {
-				question: questions[i].question,
-				options: [
-					reponses[i].reponse1,
-					reponses[i].reponse2,
-					reponses[i].reponse3,
-					reponses[i].Bonne_rep
-				],
-				correct: reponses[i].Bonne_rep
-			};
+    _home.style.display = "none";
+    _retry.style.display = "none";
 
-			quizz.push(quiz);
-		}
+    for (let i = 0; i < questions.length; i++) {
+        let quiz = {
+            question: questions[i].question,
+            options: [
+                reponses[i].reponse1,
+                reponses[i].reponse2,
+                reponses[i].reponse3,
+                reponses[i].Bonne_rep
+            ],
+            correct: reponses[i].Bonne_rep
+        };
+        quizz.push(quiz);
+    }
 
-        var numberquestion = 1;
-		var numquestion = 0;
-		var score = 0;
-		var isanswered = false;
-
-        _nbquestion.innerHTML = "Question " + numberquestion + "/10";
-		_quest.innerHTML = "<h1>" + quizz[numquestion].question + "</h1>";
-        
-		for (let i = 0; i < quizz[numquestion].options.length; i++) {
-
-            _answers.innerHTML = "<label class='answer'>" + "<input type='radio' name='option' value='option1'>" + quizz[numquestion].options[0] + "</label>" + "<label class='answer'>" + "<input type='radio' name='option' value='option3'>" + quizz[numquestion].options[1] + "</label>" + "<label class='answer'>" + "<input type='radio' name='option' value='option3'>" + quizz[numquestion].options[2] + "</label>" + "<label class='answer'>" + "<input type='radio' name='option' value='option3'>" + quizz[numquestion].options[3] + "</label>"
-
-		}
-
-        displayQuestion(numquestion);
-
-        function displayQuestion(num) {
-            _nbquestion.innerHTML = 'Question ' + numberquestion + '/' + quizz.length;
-            _quest.innerHTML = '<h1>' + quizz[num].question + '</h1>';
-
-            let optionsHtml = '';
-            for (let i = 0; i < quizz[num].options.length; i++) {
-                optionsHtml += '<label class="answer">';
-                optionsHtml += '<input type="radio" name="option" value="' + quizz[num].options[i] + '">';
-                optionsHtml += quizz[num].options[i];
-                optionsHtml += '</label>';
-            }
-
-            _answers.innerHTML = optionsHtml;
-        }
-
-        _submit.addEventListener('click', () => {
-            let selectedOption = document.querySelector('input[type=radio]:checked');
-            if (!selectedOption) {
-                $('#valider').addClass('shake');
-                setTimeout(function(){
-                    $(".shake").removeClass("shake");
-                }, 500)
-                // alert('Veuillez sélectionner une réponse.');
-            return;
-            }
-
-        let answer = selectedOption.value;
-        if (answer == quizz[numquestion].correct) {
-            score++;
-        }
-
-        selectedOption.checked = false;
-
-        numquestion++;
-        numberquestion++;
-
-        if (numquestion < quizz.length) {
-            displayQuestion(numquestion);
-        } else {
-            _quest.innerHTML = "<h1>Vous avez terminé le quizz !</h1>";
-            _answers.innerHTML = "<h2>Votre score est de " + score + " sur " + quizz.length + "</h2>";
-            _submit.style.display = 'none';
-            _nbquestion.style.display = 'none';
-            _countdown.style.display = 'none';
-
-            _home.style.display = "block";
-            _retry.style.display = "block";
-
-            var xhr = new XMLHttpRequest();
-            var url = 'score.php';
-            var data = 'score=' + score + '&user=' + user + '&idquizz=' + idquizz;; // score est la variable que vous souhaitez envoyer
-
-            xhr.open('POST', url, true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    console.log(xhr.responseText); // Affiche la réponse du script PHP
-                    }
-                };
-                xhr.send(data);
-            }
-        }); 
+    var numberquestion = 1;
+    var numquestion = 0;
+    var score = 0;
+    var isanswered = false;
 
     
-        _home.addEventListener('click', () => {
-            window.location.href = "home.php?user=" + user + "&role=" + role;
-        });
+    for (let i = 0; i < quizz[numquestion].options.length; i++) {
+        _answers.innerHTML = "<label class='answer'>" + "<input type='radio' name='option' value='option1'>" + quizz[numquestion].options[0] + "</label>" + "<label class='answer'>" + "<input type='radio' name='option' value='option3'>" + quizz[numquestion].options[1] + "</label>" + "<label class='answer'>" + "<input type='radio' name='option' value='option3'>" + quizz[numquestion].options[2] + "</label>" + "<label class='answer'>" + "<input type='radio' name='option' value='option3'>" + quizz[numquestion].options[3] + "</label>";
+    }
 
-        _retry.addEventListener('click', () => {
-            window.location.href = "quiz.php?id_quizz=" + idquizz + "&user=" + user + "&role=" + role;
-        });
+    displayQuestion(numquestion);  
 
-        var timeleft = 60;
-        var downloadTimer = setInterval(function() {
+    let downloadTimer = null;
 
+    function timer() {
+        let timeleft = 60;
+
+        downloadTimer = setInterval(function() {
             if(timeleft <= 0){
                 clearInterval(downloadTimer);
                 document.getElementById("countdown").innerHTML = "Temps écoulé !";
@@ -276,41 +205,96 @@
 
                 var xhr = new XMLHttpRequest();
                 var url = 'score.php';
-                var data = 'score=' + score + '&user=' + user + '&idquizz=' + idquizz;; // score est la variable que vous souhaitez envoyer
+                var data = 'score=' + score + '&user=' + user + '&idquizz=' + idquizz;
 
                 xhr.open('POST', url, true);
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState === 4 && xhr.status === 200) {
-                                console.log(xhr.responseText); // Affiche la réponse du script PHP
+                        console.log(xhr.responseText);
                     }
                 };
                 xhr.send(data);
             } else {
                 document.getElementById("countdown").innerHTML = timeleft;
             }
-
-            timeleft -= 1;
-
+            timeleft -=1;
         }, 1000);
+    }
 
-        var boxes = document.querySelectorAll(".answer");
+    timer();
 
-        for (var i = 0; i < boxes.length; i++) {
-            boxes[i].addEventListener("click", function () {
-                for (var j = 0; j < boxes.length; j++) {
-                boxes[j].classList.remove("clicked");
-                }
-                if (!this.classList.contains("clicked")) {
-                this.classList.add("clicked");
-                console.log("clicked");
-                }
-            });
+    function reset() {
+        clearInterval(downloadTimer);
+        timer();
+    }
+
+    
+    function displayQuestion(num) {
+        _nbquestion.innerHTML = 'Question ' + numberquestion + '/' + quizz.length;
+        _quest.innerHTML = '<h1>' + quizz[num].question + '</h1>';
+        
+        let optionsHtml = '';
+        for (let i = 0; i < quizz[num].options.length; i++) {
+            optionsHtml += '<label class="answer">';
+            optionsHtml += '<input type="radio" name="option" value="' + quizz[num].options[i] + '">';
+            optionsHtml += quizz[num].options[i];
+            optionsHtml += '</label>';
         }
-	</script>
+        
+        _answers.innerHTML = optionsHtml;
+    }
+    
+    _submit.addEventListener('click', () => {
+        let selectedOption = document.querySelector('input[type=radio]:checked');
+        if (!selectedOption) {
+            $('#valider').addClass('shake');
+            setTimeout(function(){
+                $(".shake").removeClass("shake");
+            }, 500)
+            // alert('Veuillez sélectionner une réponse.');
+            return;
+        }
+        
+        let answer = selectedOption.value;
+        if (answer == quizz[numquestion].correct) {
+            score++;
+        }
+        
+        selectedOption.checked = false;
+        
+        numquestion++;
+        numberquestion++;
+        
+        if (numquestion < quizz.length) {
+            displayQuestion(numquestion);
+            reset();
+        } else {
+            timer();
+        };
+    });
 
-</body>
+    _home.addEventListener('click', () => {
+        window.location.href = "home.php?user=" + user + "&role=" + role;
+    });
 
-</html>
+    _retry.addEventListener('click', () => {
+        window.location.href = "quiz.php?id_quizz=" + idquizz + "&user=" + user + "&role=" + role;
+    });
+
+    var boxes = document.querySelectorAll(".answer");
+
+    for (var i = 0; i < boxes.length; i++) {
+        boxes[i].addEventListener("click", function () {
+            for (var j = 0; j < boxes.length; j++) {
+            boxes[j].classList.remove("clicked");
+            }
+            if (!this.classList.contains("clicked")) {
+            this.classList.add("clicked");
+            console.log("clicked");
+            }
+        });
+    }
+</script>
 
 

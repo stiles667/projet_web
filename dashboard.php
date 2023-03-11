@@ -450,16 +450,13 @@ if(isset($_GET['role'])) {
             </div>
         </div>
     </div>
-    <!-- <footer>
-        <ul>
-            <li><a href="#">À propos</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Conditions d'utilisation</a></li>
-        </ul>
-        <p>&copy; Quizzeo 2023</p>
-    </footer> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        if ('<?php echo $id_user ?>' !== '1') {
+            $('#onglet-3, #onglet-4, .button[data-onglet="onglet-3"], .button[data-onglet="onglet-4"],hr').remove();
+        }
+    </script>
 </body>
 
 </html>
