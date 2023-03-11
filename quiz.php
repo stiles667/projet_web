@@ -234,41 +234,41 @@ if (mysqli_num_rows($result) > 0) {
         _answers.innerHTML = optionsHtml;
         }
 
-        // _submit.addEventListener('click', function() {
-        // if (isanswered === false) {
-        //     var options = document.getElementsByName('option');
-        //     var selectedOption = '';
-        //     for (let i = 0; i < options.length; i++) {
-        //         if (options[i].checked) {
-        //             selectedOption = options[i].value;
-        //             break;
-        //         }
-        //     }
-        //     if (selectedOption === '') {
-        //         alert('Veuillez sélectionner une réponse.');
-        //         return;
-        //     }
-        //     isanswered = true;
-        //     if (selectedOption === quizz[numquestion].correct) {
-        //         score++;
-        //     }
-        //     numquestion++;
-        //     numberquestion++;
-        //     if (numquestion < quizz.length) {
-        //         _nbquestion.innerHTML = "Question " + numberquestion + "/10";
-        //         _quest.innerHTML = "<h1>" + quizz[numquestion].question + "</h1>";
-        //         _answers.innerHTML = '';
-        //         for (let i = 0; i < quizz[numquestion].options.length; i++) {
-        //             _answers.innerHTML += "<label class='answer'>" + "<input type='radio' name='option' value='" + quizz[numquestion].options[i] + "'>" + quizz[numquestion].options[i] + "</label>";
-        //         }
-        //     } else {
-        //         _nbquestion.innerHTML = '';
-        //         _quest.innerHTML = "<h1>Le quizz est terminé !</h1>";
-        //         _answers.innerHTML = "<p>Votre score est de " + score + " sur " + quizz.length + ".</p>";
-        //         _submit.style.display = 'none';
-        //     }
-        //     }
-        //     });
+        _submit.addEventListener('click', function() {
+        if (isanswered === false) {
+            var options = document.getElementsByName('option');
+            var selectedOption = '';
+            for (let i = 0; i < options.length; i++) {
+                if (options[i].checked) {
+                    selectedOption = options[i].value;
+                    break;
+                }
+            }
+            if (selectedOption === '') {
+                alert('Veuillez sélectionner une réponse.');
+                return;
+            }
+            isanswered = true;
+            if (selectedOption === quizz[numquestion].correct) {
+                score++;
+            }
+            numquestion++;
+            numberquestion++;
+            if (numquestion < quizz.length) {
+                _nbquestion.innerHTML = "Question " + numberquestion + "/10";
+                _quest.innerHTML = "<h1>" + quizz[numquestion].question + "</h1>";
+                _answers.innerHTML = '';
+                for (let i = 0; i < quizz[numquestion].options.length; i++) {
+                    _answers.innerHTML += "<label class='answer'>" + "<input type='radio' name='option' value='" + quizz[numquestion].options[i] + "'>" + quizz[numquestion].options[i] + "</label>";
+                }
+            } else {
+                _nbquestion.innerHTML = '';
+                _quest.innerHTML = "<h1>Le quizz est terminé !</h1>";
+                _answers.innerHTML = "<p>Votre score est de " + score + " sur " + quizz.length + ".</p>";
+                _submit.style.display = 'none';
+            }
+            }
+            });
 </script>
 
 
