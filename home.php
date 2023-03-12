@@ -134,14 +134,14 @@ if(isset($_GET['role'])) {
         ?>
         </div>
         <script>
-            const elements = document.querySelectorAll('.imgCategorie');
+            // const elements = document.querySelectorAll('.imgCategorie');
 
-            elements.forEach(element => {
-                const categorie = element.getAttribute('data-category');
-                const id = element.getAttribute('id');
-                console.log(id);
-                console.log(categorie);
-            });
+            // elements.forEach(element => {
+            //     const categorie = element.getAttribute('data-category');
+            //     const id = element.getAttribute('id');
+            //     console.log(id);
+            //     console.log(categorie);
+            // });
         </script>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
