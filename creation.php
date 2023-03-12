@@ -44,14 +44,6 @@ if(isset($_GET['role'])) {
                 $email = $row['email'];
                 $id_utilisateur = $row['Id_utilisateur'];
 
-                // if(isset($_GET['user'])) {
-                //     $id_user = $_GET['user'];
-                // }
-                
-                // if(isset($_GET['role'])) {
-                //     $role = $_GET['role'];
-                // }
-
                 echo "<h2>$pseudo</h2>";
                 echo "<a id='profil' href='dashboard.php?role=$role&user=$id_user'>";
                 echo "<img src='https://cdn-icons-png.flaticon.com/512/149/149071.png' alt='Photo de profil'>";
@@ -91,19 +83,19 @@ if(isset($_GET['role'])) {
                         <div class="answer">
                             <div>
                                 <label for="answer1" class="letter">A</label>
-                                <input type="text" name="answer1">
+                                <input type="text" name="answer1" required>
                             </div>
                             <div>
                                 <label for="answer2" class="letter">B</label>
-                                <input type="text" name="answer2">
+                                <input type="text" name="answer2" required>
                             </div>
                             <div>
                                 <label for="answer3" class="letter">C</label>
-                                <input type="text" name="answer3">
+                                <input type="text" name="answer3" required>
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="answer4">
+                                <input type="text" name="answer4" required>
                             </div>
                             <div class="check">
                                 <img src="https://img.icons8.com/fluency/256/checkmark.png">
@@ -132,19 +124,19 @@ if(isset($_GET['role'])) {
                         <div class="answer">
                             <div>
                                 <label for="answer1" class="letter">A</label>
-                                <input type="text" name="answer1">
+                                <input type="text" name="answer1" required>
                             </div>
                             <div>
                                 <label for="answer2" class="letter">B</label>
-                                <input type="text" name="answer2">
+                                <input type="text" name="answer2" required>
                             </div>
                             <div>
                                 <label for="answer3" class="letter">C</label>
-                                <input type="text" name="answer3">
+                                <input type="text" name="answer3" required>
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="answer4">
+                                <input type="text" name="answer4" required>
                             </div>
                             <div class="check">
                                 <img src="https://img.icons8.com/fluency/256/checkmark.png">
@@ -173,19 +165,19 @@ if(isset($_GET['role'])) {
                         <div class="answer">
                             <div>
                                 <label for="answer1" class="letter">A</label>
-                                <input type="text" name="answer1">
+                                <input type="text" name="answer1" required>
                             </div>
                             <div>
                                 <label for="answer2" class="letter">B</label>
-                                <input type="text" name="answer2">
+                                <input type="text" name="answer2" required>
                             </div>
                             <div>
                                 <label for="answer3" class="letter">C</label>
-                                <input type="text" name="answer3">
+                                <input type="text" name="answer3" required>
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="answer4">
+                                <input type="text" name="answer4" required>
                             </div>
                             <div class="check">
                                 <img src="https://img.icons8.com/fluency/256/checkmark.png">
@@ -214,19 +206,19 @@ if(isset($_GET['role'])) {
                         <div class="answer">
                             <div>
                                 <label for="answer1" class="letter">A</label>
-                                <input type="text" name="answer1">
+                                <input type="text" name="answer1" required>
                             </div>
                             <div>
                                 <label for="answer2" class="letter">B</label>
-                                <input type="text" name="answer2">
+                                <input type="text" name="answer2" required>
                             </div>
                             <div>
                                 <label for="answer3" class="letter">C</label>
-                                <input type="text" name="answer3">
+                                <input type="text" name="answer3" required>
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="answer4">
+                                <input type="text" name="answer4" required>
                             </div>
                             <div class="check">
                                 <img src="https://img.icons8.com/fluency/256/checkmark.png">
@@ -255,19 +247,19 @@ if(isset($_GET['role'])) {
                         <div class="answer">
                             <div>
                                 <label for="answer1" class="letter">A</label>
-                                <input type="text" name="answer1">
+                                <input type="text" name="answer1" required>
                             </div>
                             <div>
                                 <label for="answer2" class="letter">B</label>
-                                <input type="text" name="answer2">
+                                <input type="text" name="answer2" required>
                             </div>
                             <div>
                                 <label for="answer3" class="letter">C</label>
-                                <input type="text" name="answer3">
+                                <input type="text" name="answer3" required>
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="answer4">
+                                <input type="text" name="answer4" required>
                             </div>
                             <div class="check">
                                 <img src="https://img.icons8.com/fluency/256/checkmark.png">
@@ -296,19 +288,19 @@ if(isset($_GET['role'])) {
                         <div class="answer">
                             <div>
                                 <label for="answer1" class="letter">A</label>
-                                <input type="text" name="answer1">
+                                <input type="text" name="answer1" required>
                             </div>
                             <div>
                                 <label for="answer2" class="letter">B</label>
-                                <input type="text" name="answer2">
+                                <input type="text" name="answer2" required>
                             </div>
                             <div>
                                 <label for="answer3" class="letter">C</label>
-                                <input type="text" name="answer3">
+                                <input type="text" name="answer3" required>
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="answer4">
+                                <input type="text" name="answer4" required>
                             </div>
                             <div class="check">
                                 <img src="https://img.icons8.com/fluency/256/checkmark.png">
@@ -337,19 +329,19 @@ if(isset($_GET['role'])) {
                         <div class="answer">
                             <div>
                                 <label for="answer1" class="letter">A</label>
-                                <input type="text" name="answer1">
+                                <input type="text" name="answer1" required>
                             </div>
                             <div>
                                 <label for="answer2" class="letter">B</label>
-                                <input type="text" name="answer2">
+                                <input type="text" name="answer2" required>
                             </div>
                             <div>
                                 <label for="answer3" class="letter">C</label>
-                                <input type="text" name="answer3">
+                                <input type="text" name="answer3" required>
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="answer4">
+                                <input type="text" name="answer4" required>
                             </div>
                             <div class="check">
                                 <img src="https://img.icons8.com/fluency/256/checkmark.png">
@@ -378,19 +370,19 @@ if(isset($_GET['role'])) {
                         <div class="answer">
                             <div>
                                 <label for="answer1" class="letter">A</label>
-                                <input type="text" name="answer1">
+                                <input type="text" name="answer1" required>
                             </div>
                             <div>
                                 <label for="answer2" class="letter">B</label>
-                                <input type="text" name="answer2">
+                                <input type="text" name="answer2" required>
                             </div>
                             <div>
                                 <label for="answer3" class="letter">C</label>
-                                <input type="text" name="answer3">
+                                <input type="text" name="answer3" required>
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="answer4">
+                                <input type="text" name="answer4" required>
                             </div>
                             <div class="check">
                                 <img src="https://img.icons8.com/fluency/256/checkmark.png">
@@ -419,19 +411,19 @@ if(isset($_GET['role'])) {
                         <div class="answer">
                             <div>
                                 <label for="answer1" class="letter">A</label>
-                                <input type="text" name="answer1">
+                                <input type="text" name="answer1" required>
                             </div>
                             <div>
                                 <label for="answer2" class="letter">B</label>
-                                <input type="text" name="answer2">
+                                <input type="text" name="answer2" required>
                             </div>
                             <div>
                                 <label for="answer3" class="letter">C</label>
-                                <input type="text" name="answer3">
+                                <input type="text" name="answer3" required>
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="answer4">
+                                <input type="text" name="answer4" required>
                             </div>
                             <div class="check">
                                 <img src="https://img.icons8.com/fluency/256/checkmark.png">
@@ -460,19 +452,19 @@ if(isset($_GET['role'])) {
                         <div class="answer">
                             <div>
                                 <label for="answer1" class="letter">A</label>
-                                <input type="text" name="answer1">
+                                <input type="text" name="answer1" required>
                             </div>
                             <div>
                                 <label for="answer2" class="letter">B</label>
-                                <input type="text" name="answer2">
+                                <input type="text" name="answer2" required>
                             </div>
                             <div>
                                 <label for="answer3" class="letter">C</label>
-                                <input type="text" name="answer3">
+                                <input type="text" name="answer3" required>
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="answer4">
+                                <input type="text" name="answer4" required>
                             </div>
                             <div class="check">
                                 <img src="https://img.icons8.com/fluency/256/checkmark.png">
