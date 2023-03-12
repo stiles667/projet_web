@@ -235,8 +235,7 @@ if(isset($_GET['role'])) {
 
                             $sqlcreation = "SELECT * FROM creer";
                             $resultcreation = mysqli_query($conn, $sqlcreation);
-
-
+                            
                             while($row=mysqli_fetch_assoc($resultcreation)) {
                                 $id_utilisateur = $row['Id_utilisateur'];
                                 $id_quiz = $row['Id_quizz'];
@@ -269,7 +268,6 @@ if(isset($_GET['role'])) {
                                 echo "<td>" .$difficulte_quizz ."</td>";
                                 echo "<td>" .$date_quizz ."</td>";
 
-                                
                                 echo "<td>";
                                 echo "<a href='#'>";
                                 echo "<img class='edit' src='https://cdn-icons-png.flaticon.com/512/5204/5204758.png' alt='Modifier'>";
@@ -277,17 +275,10 @@ if(isset($_GET['role'])) {
                                 echo "</td>";
                                 
                                 echo "<td>";
-                                echo "<a href='#'>";
+                                echo "<a href='delete_quiz.php?role=$role&user=$id_user&deleteId=$id_utilisateur'>";
                                 echo "<img class='trash' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
                                 echo "</a>";
                                 echo "</td>";
-                                
-                                // echo "<td>";
-                                // echo "<div class='icons'>";
-                                // echo "<img class='edit' src='https://cdn-icons-png.flaticon.com/512/5204/5204758.png' alt='Modifier'>";
-                                // echo "<img class='trash' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
-                                // echo "</div>";
-                                // echo "</td>";
 
                                 echo "</tr>";
                             }
