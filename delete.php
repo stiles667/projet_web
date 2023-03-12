@@ -78,18 +78,10 @@ if (isset($_GET['user']) && isset($_GET['role']) && isset($_GET['deleteId'])) {
             } else {
                 echo "0 results";
             }
-
-
-
-           
-
         }
     } else {
         echo "0 results";
     }
-
-
-    
 
     $sqldeletequestion = "DELETE FROM question WHERE `Id_quizz` = '$id_quizz'";
     $resultdeletequestion = mysqli_query($conn, $sqldeletequestion);

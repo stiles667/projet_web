@@ -9,15 +9,22 @@ $('#submit').on('click', ()=> {
   console.log('Vous avez cliqué');
 });
 
-$(document).on("click", ".question", function () {
-  if ($(".container-answer").height() > 0) {
-    $(".container-answer").height(0);
+$(".question").click(function () {
+  var $containerAnswer = $(this).closest(".container-question").find(".container-answer");
+  var $containerBar = $(this).closest(".container-question").find(".bar");
+  if ($containerAnswer.height() > 0) {
+    $containerAnswer.height(0);
+    $containerBar.height(60);
   } else {
-    $(".container-answer").height(
-      $(".container-answer").prop("scrollHeight") + "px"
+    $containerAnswer.height(
+      $containerAnswer.prop("scrollHeight") + "px"
+    );
+    $containerBar.height(
+      $containerBar.prop("scrollHeight") + "px"
     );
   }
 });
+
 
 // Onglets
 
@@ -35,14 +42,14 @@ $(".button").click(function () {
 
 $(".imgCategorie").appendTo("#categories");
 
-$(".user .trash, .quiz2 .trash2").click(function () {
-  var result = confirm("Êtes-vous sûr de vouloir supprimer cet élément?");
-  if (result) {
-    $(this).closest(".user").remove();
-    $(this).closest(".quiz2").remove();
-  }
-  return console.log("ok");
-});
+// $(".user .trash, .quiz2 .trash2").click(function () {
+//   var result = confirm("Êtes-vous sûr de vouloir supprimer cet élément?");
+//   if (result) {
+//     $(this).closest(".user").remove();
+//     $(this).closest(".quiz2").remove();
+//   }
+//   return console.log("ok");
+// });
 
 //Search bar
 

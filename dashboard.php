@@ -103,27 +103,27 @@ if(isset($_GET['role'])) {
                 <p><?php echo $role ?></p>
             </div>
             <div id="statistics">
-                <div id="box">
+                <div class="box">
                     <h3>Dernier quiz</h3>
                     <p>Sport</p>
                     <h3>Difficulté 3</h3>
                 </div>
-                <div id="box">
+                <div class="box">
                     <h3>Total quiz</h3>
                     <p class="number">23</p>
                     <h3>quiz</h3>
                 </div>
-                <div id="box">
+                <div class="box">
                     <h3>Score</h3>
                     <p class="number">86</p>
                     <h3>quiz</h3>
                 </div>
-                <div id="box">
+                <div class="box">
                     <h3>Photo de profil</h3>
                     <p>Changer</p>
                     <h3>Changer</h3>
                 </div>
-                <div id="box">
+                <div class="box">
                     <h3>Membre depuis</h3>
                     <p id="date">03/10/2023</p>
                     <h3>Date</h3>
@@ -146,6 +146,7 @@ if(isset($_GET['role'])) {
                     $sqlcreation = "SELECT * FROM creer WHERE Id_utilisateur = '$id_user'";
                     $resultcreation = mysqli_query($conn, $sqlcreation);
 
+                    //POUR POUVOIR AFFICHER LE SCORE SUR LE TABLEAU DE BORD
                     // $sqlcreation2 = "SELECT * FROM jouer WHERE Id_utilisateur = '$id_user' AND Id_quizz = '$id_quiz' AND Score = '$score'";
 
                     while($rowcreation = mysqli_fetch_assoc($resultcreation)) {
@@ -161,13 +162,13 @@ if(isset($_GET['role'])) {
                         $date_quizz = $row['date_creation'];
 
                         echo "<div class='quiz2'>";
+                        echo "<a href='delete.php?role=$role&user=$id_user&deleteId=$id_utilisateur'>";
                         echo "<img class='trash2' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
+                        echo "</a>";
                         echo "<h3 class='Name'>$nom_quiz</h3>";
                         
                         switch ($categorie_quizz) {
                             case 'Sport':
-                                echo "<img class='trash2' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
-
                                 echo "<img src='https://cdn-icons-png.flaticon.com/512/4218/4218113.png' alt='Sport'>";
                                 break;
                             case 'Cinema':
@@ -188,10 +189,8 @@ if(isset($_GET['role'])) {
                 ?>
 
                 <div class="quiz2">
-                    <?php 
+                    <?php
                         echo "<a href='creation.php?role=$role&user=$id_user'>";
-                        echo "<img class='trash' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
-                        echo "<img class='edit' src='https://cdn-icons-png.flaticon.com/512/5204/5204758.png' alt='Modifier'>";
                         echo "<img id='add' src='https://img.icons8.com/fluency-systems-regular/256/plus-math.png' alt='Ajouter'>";
                         echo "</a>";
                     ?>
@@ -327,7 +326,6 @@ if(isset($_GET['role'])) {
                             </a>
                             ";
                         ?>
-                        <!-- <input class="button-cancel" type="submit" value="Annuler"> -->
                     </div>
                 </div>
             </div>
@@ -403,7 +401,8 @@ if(isset($_GET['role'])) {
                 <p>Modifier vos informations</p>
             </div>
             <div class="passwd">
-                <form method="post" action="" class="UpdateUser">
+
+                <form method="post" action="" class="update-user">
                     <div>
                         <label for="pseudo">Nom d'utilisateur</label>
                         <input type="text" name="pseudo" placeholder="Nom d'utilisateur" value="<?php echo $pseudo?>">
@@ -415,39 +414,44 @@ if(isset($_GET['role'])) {
                     <div>
                         <label for="password">Mot de passe</label>
                         <input type="password" name="password" placeholder="Ancien mot de passe">
-                        <input type="password" name="Newpassword" placeholder="Nouveau mot de passe">
-                        <input type="password" name="Confirmpassword" placeholder="Confirmer le mot de passe">
+                        <input type="password" name="new-password" placeholder="Nouveau mot de passe">
+                        <input type="password" name="confirm-password" placeholder="Confirmer le mot de passe">
                     </div>
-                    <input type="submit" class="button-save" name="updateuser" type="submit" value="Modifier">
+                    <input type="submit" class="button-save" name="update-user" value="Modifier">
 
                     <?php 
-
-                        if(isset($_POST['updateuser'])) {
+                        if(isset($_POST['update-user'])) {
                             $pseudo = $_POST["pseudo"];
                             $email = $_POST["e-mail"];
                             $password = $_POST["password"];
-                            $newpassword = $_POST["Newpassword"];
-                            $confirmpassword = $_POST["Confirmpassword"];
+                            $new_password = $_POST["new-password"];
+                            $confirm_password = $_POST["confirm-password"];
+
                             $sqlmodif = "SELECT * FROM utilisateur WHERE pseudo = '$pseudo' AND email = '$email' AND password = '$password'";
                             $resultmodif = mysqli_query($conn, $sqlmodif);
+
                             if (mysqli_num_rows($resultmodif) > 0) {
-                                while ($rowmodif = mysqli_fetch_assoc($resultmodif)) {
-                                    $id = $rowmodif["Id_utilisateur"];
-                                    $pseudobd = $rowmodif["pseudo"];
-                                    $emailbd = $rowmodif["email"];
-                                    $passwordbd = $rowmodif["password"];
-                                    if ($passwordbd = $password) {
-                                        $sqlupdate = "UPDATE utilisateur SET pseudo = '$pseudo', email = '$email', password = '$newpassword' WHERE Id_utilisateur = '$id'";
+                                $rowmodif = mysqli_fetch_assoc($resultmodif);
+                                $id = $rowmodif["Id_utilisateur"];
+                                $pseudobd = $rowmodif["pseudo"];
+                                $emailbd = $rowmodif["email"];
+                                $passwordbd = $rowmodif["password"];
+
+                                if ($passwordbd === $password) {
+                                    if ($new_password === $confirm_password) {
+                                        $sqlupdate = "UPDATE utilisateur SET pseudo = '$pseudo', email = '$email', password = '$new_password' WHERE Id_utilisateur = '$id'";
                                         $resultupdate = mysqli_query($conn, $sqlupdate);
                                         echo "<script>alert('Modification réussie')</script>";
                                     } else {
-                                        echo "<script>alert('Mot de passe incorrect')</script>";
+                                        echo "<script>alert('Les mots de passe ne correspondent pas.')</script>"; 
                                     }
+                                } else {
+                                    echo "<script>alert('Mot de passe incorrect')</script>";
                                 }
                             }
                         }
-                    
                     ?>
+
                 </form>
             </div>
         </div>

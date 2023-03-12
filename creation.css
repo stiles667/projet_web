@@ -181,7 +181,7 @@ header a span:last-child {
 .question input {
   font-size: 16px;
   font-weight: 500;
-  color: white;
+  color: #757575;
   width: 500px;
   padding-left: 8px;
   background-color: transparent;
@@ -199,8 +199,7 @@ header a span:last-child {
   height: 0;
   background-color: #242424;
   overflow: hidden;
-  margin-top: -30px;
-  margin-bottom: 48px;
+  margin-bottom: 25px;
   border-radius: 0 0 14px 14px;
   transition: height 0.5s ease;
 }
@@ -208,7 +207,7 @@ header a span:last-child {
 .answer {
   color: white;
   background: #1c1c1c;
-  padding: 40px 20px 20px 60px;
+  padding: 20px;
   user-select: none;
 }
 
@@ -232,9 +231,9 @@ label {
 }
 
 .container-answer input {
-  height: 35px;
+  height: 40px;
   width: 400px;
-  font-size: 12px;
+  font-size: 15px;
   color: white;
   background-color: #242424;
   border: none;
