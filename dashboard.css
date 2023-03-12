@@ -309,6 +309,11 @@ label {
   animation: pulsante 0.8s forwards;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+}
+
 #status {
   display: flex;
   align-items: center;

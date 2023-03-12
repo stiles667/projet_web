@@ -354,7 +354,7 @@ if(isset($_GET['role'])) {
                                     $role_user = "Administrateur";
                                     break;
                             }
-
+                            // echo "<form action='' method='post'";
                             echo "<tr>";
                             echo "<td>$id_utilisateur</td>";
                             echo "<td>$pseudo_user</td>";
@@ -372,9 +372,15 @@ if(isset($_GET['role'])) {
                             echo "<a href='delete.php?role=$role&user=$id_user&deleteId=$id_utilisateur'>";
                             echo "<img class='trash' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
                             echo "</a>";
+
+                            // echo "<button type='submit' id='test'>";
+                            // echo "<img class='edit' src='https://cdn-icons-png.flaticon.com/512/5204/5204758.png' alt='Modifier'>'";
+                            // echo "</button>";
+
                             echo "</td>";
 
                             echo "</tr>";
+                            // echo "</form>";
 
                         }
                     ?>
