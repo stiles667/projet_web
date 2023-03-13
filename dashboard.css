@@ -103,11 +103,12 @@ header a span:last-child {
 
 .categories {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(6, 1fr);
   grid-gap: 18px;
   color: white;
   overflow-y: scroll;
 }
+
 .quiz2 {
   position: relative;
   display: flex;
@@ -119,11 +120,6 @@ header a span:last-child {
   border-radius: 15px;
   cursor: pointer;
   user-select: none;
-  /* background-image: url(https://cdn-icons-png.flaticon.com/512/4218/4218113.png);
-  background-size: 50% 50%;
-  background-repeat: no-repeat;
-  background-position: center; */
-  /* padding: 40px 40px 60px 40px; */
 }
 
 /* .quiz2 {
@@ -267,10 +263,14 @@ header a span:last-child {
   height: 16vw;
   background-color: #1f1f1fbe;
   aspect-ratio: 1 / 1;
-  padding: 8px;
+  padding: 20px;
   margin: 15px;
   border-radius: 20px;
   flex-grow: 1;
+}
+
+.box:first-child p {
+  font-size: 1.5vw;
 }
 
 .box:last-child {
@@ -281,7 +281,6 @@ header a span:last-child {
   color: #8c8c8c;
   font-size: 20px;
   font-weight: 400;
-  margin: 20px 0 0 20px;
 }
 
 .box .number {
@@ -296,12 +295,10 @@ header a span:last-child {
   color: white;
   font-size: 50px;
   font-weight: 500;
-  margin: 0 0 0 20px;
 }
 
 .box h3:last-child {
   color: #ff5f45;
-  margin: 0 0 20px 20px;
 }
 
 .passwd div {
