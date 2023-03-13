@@ -286,7 +286,7 @@ if(isset($_GET['role'])) {
                 <div id="list-user">
                     <table>
                         <tr>
-                            <th id="id">id</th>
+                            <th id="id">Id</th>
                             <th>Utilisateur</th>
                             <th>Titre</th>
                             <th>Difficulté</th>
