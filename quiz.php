@@ -267,6 +267,19 @@
                 _submit.style.display = 'none';
                 _countdown.style.display = 'none';
 
+                var xhr = new XMLHttpRequest();
+                var url = 'score.php';
+                var data = 'score=' + score + '&user=' + user + '&idquizz=' + idquizz;; // score est la variable que vous souhaitez envoyer
+
+                xhr.open('POST', url, true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function() {
+                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                        console.log(xhr.responseText); // Affiche la réponse du script PHP
+                            }
+                };
+                xhr.send(data);
+
             
             }
             isanswered = false;
