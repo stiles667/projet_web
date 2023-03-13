@@ -224,6 +224,7 @@
             numquestion++;
             numberquestion++;
             if (numquestion < quizz.length) {
+                resetTimer();
                 _nbquestion.innerHTML = "Question " + numberquestion + "/10";
                 _quest.innerHTML = "<h1>" + quizz[numquestion].question + "</h1>";
                 _answers.innerHTML = '';
@@ -305,6 +306,45 @@
  
             timeleft -= 1;
             }, 1000);
+
+            function resetTimer() {
+                clearInterval(downloadTimer);
+                timeleft = 60;
+                 downloadTimer = setInterval(function() {
+                    if(timeleft <= 0) {
+                        clearInterval(downloadTimer);
+                        document.getElementById("countdown").innerHTML = "Temps écoulé !";
+                        _quest.innerHTML = "<h1>Vous avez terminé le quizz !</h1>";
+                        _answers.innerHTML = "<h2>Votre score est de " + score + " sur " + quizz.length + "</h2>";
+                        _submit.style.display = 'none';
+                        _nbquestion.style.display = 'none';
+                        _countdown.style.display = 'none';
+
+                        _home.style.display = 'block';
+                        _retry.style.display = 'block';
+
+
+                        var xhr = new XMLHttpRequest();
+                        var url = 'score.php';
+                        var data = 'score=' + score + '&user=' + user + '&idquizz=' + idquizz;; // score est la variable que vous souhaitez envoyer
+
+                        xhr.open('POST', url, true);
+                        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                        xhr.onreadystatechange = function() {
+                                    if (xhr.readyState === 4 && xhr.status === 200) {
+                                                        console.log(xhr.responseText); // Affiche la réponse du script PHP
+                                    }
+                        };
+                        xhr.send(data);
+                    } else {
+                        document.getElementById("countdown").innerHTML = timeleft;
+                    }
+
+        timeleft -= 1;
+    }, 1000);
+}
+
+            
         
 </script>
 
