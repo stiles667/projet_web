@@ -171,16 +171,7 @@
                 correct: reponses[i].Bonne_rep
             };
 
-			// let quiz = {
-			// 	question: questions[i].question,
-			// 	options: [
-			// 		reponses[i].reponse1,
-			// 		reponses[i].reponse2,
-			// 		reponses[i].reponse3,
-			// 		reponses[i].Bonne_rep
-			// 	],
-			// 	correct: reponses[i].Bonne_rep
-			// };
+
 			quizz.push(quiz);
 		}
 
@@ -188,13 +179,7 @@
 		var numquestion = 0;
 		var score = 0;
 		var isanswered = false;
-        // _nbquestion.innerHTML = "Question " + numberquestion + "/10";
-		// _quest.innerHTML = "<h1>" + quizz[numquestion].question + "</h1>";
 
-        
-		// for (let i = 0; i < quizz[numquestion].options.length; i++) {
-        //     _answers.innerHTML = "<label class='answer'>" + "<input type='radio' name='option' value='option1'>" + quizz[numquestion].options[0] + "</label>" + "<label class='answer'>" + "<input type='radio' name='option' value='option3'>" + quizz[numquestion].options[1] + "</label>" + "<label class='answer'>" + "<input type='radio' name='option' value='option3'>" + quizz[numquestion].options[2] + "</label>" + "<label class='answer'>" + "<input type='radio' name='option' value='option3'>" + quizz[numquestion].options[3] + "</label>"
-		// }
 
         displayQuestion(numquestion);
             
