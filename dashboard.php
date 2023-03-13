@@ -24,6 +24,7 @@ if(isset($_GET['role'])) {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
         integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <title>Quizzeo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -453,7 +454,6 @@ if(isset($_GET['role'])) {
             </div>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="script.js"></script>
     <script>
         if ('<?php echo $id_user ?>' !== '1') {
@@ -463,6 +463,25 @@ if(isset($_GET['role'])) {
         if ('<?php echo $role ?>' !== 'Administrateur' && '<?php echo $role ?>' !== 'Quizzeur') {
             $('.button[data-onglet="onglet-2"]').remove();
         }
+
+        $(".button").click(function () {
+            $(".button").removeClass("active");
+            $(".container-onglet").removeClass("active");
+
+            $(this).addClass("active");
+            var tab = $(this).data("onglet");
+            $("#" + tab).addClass("active");
+        });
+
+        $(document).ready(function () {
+            $('input[type="search"]').focus(function () {
+                $(".search-container").css("width", "400px");
+            });
+
+            $('input[type="search"]').blur(function () {
+                $(".search-container").css("width", "220px");
+            });
+        });
     </script>
 </body>
 
