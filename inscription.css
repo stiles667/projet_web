@@ -62,39 +62,32 @@ header a span:last-child {
 .container-login {
   height: 100%;
   width: auto;
-  padding-left: 185px;
+  padding-left: 150px;
 }
 
 .container-login h2 {
   color: rgb(255, 83, 83);
-  font-size: 1.5vw;
+  font-size: 0.8vw;
   font-weight: 400;
   margin-bottom: 20px;
 }
 
 .imgLogin h1 {
-  font-size: 200px;
+  font-size: 8vw;
   color: white;
-}
-
-.imgLogin span {
-  font-size: 150px;
-  color: white;
-}
+} 
 
 form {
   display: flex;
   flex-direction: column;
-  width: auto;
 }
 
 form input:not([type="submit"]),
 select {
   color: white;
   background-color: #1f1f1f;
-  /* background-image: linear-gradient(to left, rgb(15, 15, 15), rgb(24, 24, 24)); */
-  /* background-color: rgb(22, 22, 22); */
-  width: 400px;
+  height: 3vw;
+  width: 25vw;
   padding: 15px;
   font-size: 16px;
   margin-bottom: 20px;
@@ -112,7 +105,7 @@ form input:invalid:not([type="submit"]) {
 }
 
 input[type="submit"] {
-  height: 55px;
+  height: 3vw;
   width: 175px;
   font-size: 18px;
   color: white;
@@ -155,10 +148,10 @@ input[type="submit"] {
 }
 
 .icons img:nth-child(1) {
-  height: 140px;
-  width: 140px;
-  top: 0;
-  left: 90px;
+  height: 120px;
+  width: 120px;
+  top: -30px;
+  left: 80px;
   rotate: 19deg;
 }
 

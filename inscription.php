@@ -1,5 +1,3 @@
-
-
 <?php 
 
 require ('bdconnexion.php');
@@ -44,7 +42,13 @@ require ('bdconnexion.php');
             if(isset($_POST['submit'])) {
                 $pseudo = $_POST["pseudo"];
                 $email = $_POST["email"];
+
                 $password = $_POST["password"];
+                $uppercase = preg_match('@[A-Z]@', $password);
+                $lowercase = preg_match('@[a-z]@', $password);
+                $number = preg_match('@[0-9]@', $password);
+                $special = preg_match('@[^\w]@', $password);
+
                 $confirm_password = $_POST["confirm-password"];
                 $role = $_POST["role"];
 
@@ -54,9 +58,15 @@ require ('bdconnexion.php');
 
                 $expression = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-z]{2,4}$/';
 
-                switch (true) { 
+                switch (true) {
+                    case (strlen($pseudo) < 3):
+                        echo "<h2>Votre pseudo est trop court</h2>";
+                        break; 
                     case (mysqli_num_rows($verifpseudo)):
                         echo "<h2>Ce pseudo est déjà utilisé</h2>";
+                        break;
+                    case (!preg_match($expression, $email)):
+                        echo "<h2>L'email n'est pas valide</h2>";
                         break;
                     case (mysqli_num_rows($verifmail)):
                         echo "<h2>Cet email est déjà utilisé</h2>";
@@ -64,11 +74,8 @@ require ('bdconnexion.php');
                     case ($password != $confirm_password):
                         echo "<h2>Les mots de passe ne correspondent pas</h2>";
                         break;
-                    case (strlen($pseudo) < 3):
-                        echo "<h2>Votre pseudo est trop court</h2>";
-                        break;
-                    case (!preg_match($expression, $email)):
-                        echo "<h2>L'email n'est pas valide</h2>";
+                    case (!$uppercase || !$lowercase || !$number || !$special || strlen($password) < 8):
+                        echo "<h2>Votre mot de passe doit comporter au moins huit caractères, avec au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial</h2>";
                         break;
                     default:
                         
@@ -83,10 +90,10 @@ require ('bdconnexion.php');
             }
             ?>
             <form method="post" action="">
-                <input type="text" name="pseudo" placeholder="Nom d'utilisateur" id="pseudo" required>
-                <input type="email" name="email" placeholder="E-mail" id="pseudo" required>
-                <input type="password" name="password" placeholder="Mot de passe" id="password" required>
-                <input type="password" name="confirm-password" placeholder="Confirmer le mot de passe" id="password" required>
+                <input type="text" name="pseudo" placeholder="Nom d'utilisateur" required>
+                <input type="email" name="email" placeholder="E-mail" required>
+                <input type="password" name="password" placeholder="Mot de passe" required>
+                <input type="password" name="confirm-password" placeholder="Confirmer le mot de passe" required>
                 <select name="role" id="role">
                     <option value="1">Utilisateur</option>
                     <option value="2">Quizzeur</option>
