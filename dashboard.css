@@ -280,21 +280,17 @@ header a span:last-child {
 
 .box h3 {
   color: #8c8c8c;
-  font-size: 20px;
+  font-size: 1vw;
   font-weight: 400;
 }
 
 .box .number {
-  font-size: 80px;
-}
-
-.box #date {
-  font-size: 40px;
+  font-size: 5vw;
 }
 
 .box p {
   color: white;
-  font-size: 50px;
+  font-size: 1.5vw;
   font-weight: 500;
 }
 

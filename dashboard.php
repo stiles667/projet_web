@@ -126,7 +126,7 @@ if(isset($_GET['role'])) {
                             $sqlscore = "SELECT SUM(Score) AS total FROM jouer WHERE Id_utilisateur = '$id_user'";
                             $resultscore = mysqli_query($conn, $sqlscore);
                             $row = mysqli_fetch_assoc($resultscore);
-                            $score = $row['total'];
+                            $score = !empty($row['total']) ? $row['total'] : 0;
                             echo $score;
                         ?>
                     </p>
@@ -237,7 +237,7 @@ if(isset($_GET['role'])) {
                 <div id="list-user">
                     <table>
                         <tr>
-                            <th id="id">id</th>
+                            <th id="id">Id</th>
                             <th>Utilisateur</th>
                             <th>Titre</th>
                             <th>Difficulté</th>

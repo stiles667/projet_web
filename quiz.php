@@ -180,21 +180,21 @@
 		}
 
         displayQuestion(numquestion);
+            
+        // function displayQuestion(num) {
+        //     _nbquestion.innerHTML = 'Question ' + numberquestion + '/' + quizz.length;
+        //     _quest.innerHTML = '<h1>' + quizz[num].question + '</h1>';
 
-        function displayQuestion(num) {
-        _nbquestion.innerHTML = 'Question ' + numberquestion + '/' + quizz.length;
-        _quest.innerHTML = '<h1>' + quizz[num].question + '</h1>';
+        //     let optionsHtml = '';
+        //     for (let i = 0; i < quizz[num].options.length; i++) {
+        //         optionsHtml += '<label class="answer">';
+        //         optionsHtml += '<input type="radio" name="option" value="' + quizz[num].options[i] + '">';
+        //         optionsHtml += quizz[num].options[i];
+        //         optionsHtml += '</label>';
+        //     }
 
-        let optionsHtml = '';
-        for (let i = 0; i < quizz[num].options.length; i++) {
-            optionsHtml += '<label class="answer">';
-            optionsHtml += '<input type="radio" name="option" value="' + quizz[num].options[i] + '">';
-            optionsHtml += quizz[num].options[i];
-            optionsHtml += '</label>';
-        }
-
-        _answers.innerHTML = optionsHtml;
-        }
+        //     _answers.innerHTML = optionsHtml;
+        // }
 
 
         function displayQuestion(num) {
@@ -236,10 +236,10 @@
                     break;
                 }
             }
-            if (selectedOption === '') {
-                alert('Veuillez sélectionner une réponse.');
-                return;
-            }
+            // if (selectedOption === '') {
+            //     alert('Veuillez sélectionner une réponse.');
+            //     return;
+            // }
             isanswered = true;
             if (selectedOption === quizz[numquestion].correct) {
                 score++;
@@ -250,12 +250,12 @@
                 _nbquestion.innerHTML = "Question " + numberquestion + "/10";
                 _quest.innerHTML = "<h1>" + quizz[numquestion].question + "</h1>";
                 _answers.innerHTML = '';
+
                 for (let i = 0; i < quizz[numquestion].options.length; i++) {
                     _answers.innerHTML += "<label class='answer'>" + "<input type='radio' name='option' value='" + quizz[numquestion].options[i] + "'>" + quizz[numquestion].options[i] + "</label>";
                 }
+
             } else {
-                // _nbquestion.innerHTML = '';
-                
                 _quest.innerHTML = "<h1>Le quizz est terminé !</h1>";
                 _answers.innerHTML = "<p>Votre score est de " + score + " sur " + quizz.length + ".</p>";
 
@@ -274,9 +274,10 @@
                 xhr.open('POST', url, true);
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xhr.onreadystatechange = function() {
-                            if (xhr.readyState === 4 && xhr.status === 200) {
-                                        console.log(xhr.responseText); // Affiche la réponse du script PHP
-                            }
+
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log(xhr.responseText); // Affiche la réponse du script PHP
+                }
                 };
                 xhr.send(data);
 
