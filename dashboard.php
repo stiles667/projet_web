@@ -105,7 +105,15 @@ if(isset($_GET['role'])) {
                 </div>
                 <div class="box">
                     <h3>Score</h3>
-                    <p class="number">86</p>
+                    <p class="number">
+                        <?php 
+                            $sqlscore = "SELECT SUM(Score) AS total FROM jouer WHERE Id_utilisateur = '$id_user'";
+                            $resultscore = mysqli_query($conn, $sqlscore);
+                            $row = mysqli_fetch_assoc($resultscore);
+                            $score = $row['total'];
+                            echo $score;
+                        ?>
+                    </p>
                     <h3>quiz</h3>
                 </div>
                 <div class="box">
@@ -175,54 +183,6 @@ if(isset($_GET['role'])) {
                         }
                         echo "</div>";
 
-                        echo "<div class='quiz2'>";
-                        echo "<a href='delete.php?role=$role&user=$id_user&deleteId=$id_utilisateur'>";
-                        echo "<img class='trash2' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
-                        echo "</a>";
-                        echo "<h3 class='Name'>$nom_quiz</h3>";
-                        
-                        switch ($categorie_quizz) {
-                            case 'Sport':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4218/4218113.png' alt='Sport'>";
-                                break;
-                            case 'Cinema':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/5198/5198228.png' alt='Cinéma'>";
-                                break;
-                            case 'Musique':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/5198/5198104.png' alt='Musique'>";
-                                break;
-                            case 'Geographie':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4218/4218484.png' alt='Géographie'>";
-                                break;
-                            case 'Animal':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/8176/8176142.png' alt='Animal'>";
-                        }
-                        echo "</div>";
-
-
-                        echo "<div class='quiz2'>";
-                        echo "<a href='delete.php?role=$role&user=$id_user&deleteId=$id_utilisateur'>";
-                        echo "<img class='trash2' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
-                        echo "</a>";
-                        echo "<h3 class='Name'>$nom_quiz</h3>";
-                        
-                        switch ($categorie_quizz) {
-                            case 'Sport':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4218/4218113.png' alt='Sport'>";
-                                break;
-                            case 'Cinema':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/5198/5198228.png' alt='Cinéma'>";
-                                break;
-                            case 'Musique':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/5198/5198104.png' alt='Musique'>";
-                                break;
-                            case 'Geographie':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4218/4218484.png' alt='Géographie'>";
-                                break;
-                            case 'Animal':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/8176/8176142.png' alt='Animal'>";
-                        }
-                        echo "</div>";
                     }
                     
                 ?>
