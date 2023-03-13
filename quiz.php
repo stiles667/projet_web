@@ -181,20 +181,6 @@
 
         displayQuestion(numquestion);
 
-        function displayQuestion(num) {
-        _nbquestion.innerHTML = 'Question ' + numberquestion + '/' + quizz.length;
-        _quest.innerHTML = '<h1>' + quizz[num].question + '</h1>';
-
-        let optionsHtml = '';
-        for (let i = 0; i < quizz[num].options.length; i++) {
-            optionsHtml += '<label class="answer">';
-            optionsHtml += '<input type="radio" name="option" value="' + quizz[num].options[i] + '">';
-            optionsHtml += quizz[num].options[i];
-            optionsHtml += '</label>';
-        }
-
-        _answers.innerHTML = optionsHtml;
-        }
 
 
         function displayQuestion(num) {
