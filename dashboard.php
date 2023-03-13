@@ -142,6 +142,7 @@ if(isset($_GET['role'])) {
                     while($rowcreation = mysqli_fetch_assoc($resultcreation)) {
                         $id_quiz = $rowcreation['Id_quizz'];
 
+
                         $sqlquiz = "SELECT * FROM quizz WHERE Id_quizz = '$id_quiz'";
                         $resultquiz = mysqli_query($conn, $sqlquiz);
 
@@ -152,7 +153,7 @@ if(isset($_GET['role'])) {
                         $date_quizz = $row['date_creation'];
 
                         echo "<div class='quiz2'>";
-                        echo "<a href='delete.php?role=$role&user=$id_user&deleteId=$id_utilisateur'>";
+                        echo "<a href='deletequiz.php?role=$role&user=$id_user&deletequizz=$id_quiz'>";
                         echo "<img class='trash2' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
                         echo "</a>";
                         echo "<h3 class='Name'>$nom_quiz</h3>";
@@ -175,54 +176,54 @@ if(isset($_GET['role'])) {
                         }
                         echo "</div>";
 
-                        echo "<div class='quiz2'>";
-                        echo "<a href='delete.php?role=$role&user=$id_user&deleteId=$id_utilisateur'>";
-                        echo "<img class='trash2' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
-                        echo "</a>";
-                        echo "<h3 class='Name'>$nom_quiz</h3>";
+                        // echo "<div class='quiz2'>";
+                        // echo "<a href='delete.php?role=$role&user=$id_user&deleteId=$id_utilisateur'>";
+                        // echo "<img class='trash2' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
+                        // echo "</a>";
+                        // echo "<h3 class='Name'>$nom_quiz</h3>";
                         
-                        switch ($categorie_quizz) {
-                            case 'Sport':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4218/4218113.png' alt='Sport'>";
-                                break;
-                            case 'Cinema':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/5198/5198228.png' alt='Cinéma'>";
-                                break;
-                            case 'Musique':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/5198/5198104.png' alt='Musique'>";
-                                break;
-                            case 'Geographie':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4218/4218484.png' alt='Géographie'>";
-                                break;
-                            case 'Animal':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/8176/8176142.png' alt='Animal'>";
-                        }
-                        echo "</div>";
+                        // switch ($categorie_quizz) {
+                        //     case 'Sport':
+                        //         echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4218/4218113.png' alt='Sport'>";
+                        //         break;
+                        //     case 'Cinema':
+                        //         echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/5198/5198228.png' alt='Cinéma'>";
+                        //         break;
+                        //     case 'Musique':
+                        //         echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/5198/5198104.png' alt='Musique'>";
+                        //         break;
+                        //     case 'Geographie':
+                        //         echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4218/4218484.png' alt='Géographie'>";
+                        //         break;
+                        //     case 'Animal':
+                        //         echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/8176/8176142.png' alt='Animal'>";
+                        // }
+                        // echo "</div>";
 
 
-                        echo "<div class='quiz2'>";
-                        echo "<a href='delete.php?role=$role&user=$id_user&deleteId=$id_utilisateur'>";
-                        echo "<img class='trash2' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
-                        echo "</a>";
-                        echo "<h3 class='Name'>$nom_quiz</h3>";
+                        // echo "<div class='quiz2'>";
+                        // echo "<a href='delete.php?role=$role&user=$id_user&deleteId=$id_utilisateur'>";
+                        // echo "<img class='trash2' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
+                        // echo "</a>";
+                        // echo "<h3 class='Name'>$nom_quiz</h3>";
                         
-                        switch ($categorie_quizz) {
-                            case 'Sport':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4218/4218113.png' alt='Sport'>";
-                                break;
-                            case 'Cinema':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/5198/5198228.png' alt='Cinéma'>";
-                                break;
-                            case 'Musique':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/5198/5198104.png' alt='Musique'>";
-                                break;
-                            case 'Geographie':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4218/4218484.png' alt='Géographie'>";
-                                break;
-                            case 'Animal':
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/8176/8176142.png' alt='Animal'>";
-                        }
-                        echo "</div>";
+                        // switch ($categorie_quizz) {
+                        //     case 'Sport':
+                        //         echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4218/4218113.png' alt='Sport'>";
+                        //         break;
+                        //     case 'Cinema':
+                        //         echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/5198/5198228.png' alt='Cinéma'>";
+                        //         break;
+                        //     case 'Musique':
+                        //         echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/5198/5198104.png' alt='Musique'>";
+                        //         break;
+                        //     case 'Geographie':
+                        //         echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4218/4218484.png' alt='Géographie'>";
+                        //         break;
+                        //     case 'Animal':
+                        //         echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/8176/8176142.png' alt='Animal'>";
+                        // }
+                        // echo "</div>";
                     }
                     
                 ?>
@@ -314,7 +315,7 @@ if(isset($_GET['role'])) {
                                 echo "</td>";
                                 
                                 echo "<td>";
-                                echo "<a href='delete_quiz.php?role=$role&user=$id_user&deleteId=$id_utilisateur'>";
+                                echo "<a href='deletequiz.php?role=$role&user=$id_user&deletequizz=$id_quiz'>";
                                 echo "<img class='trash' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
                                 echo "</a>";
                                 echo "</td>";
