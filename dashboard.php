@@ -133,13 +133,13 @@ if(isset($_GET['role'])) {
                     <h3>quiz</h3>
                 </div>
                 <div class="box">
-                    <h3>Photo de profil</h3>
-                    <p>Changer</p>
+                    <h3>Heure</h3>
+                    <p id="time"></p>
                     <h3>Changer</h3>
                 </div>
                 <div class="box">
-                    <h3>Membre depuis</h3>
-                    <p id="date">03/10/2023</p>
+                    <h3>Date</h3>
+                    <p id="date"><?php echo date("d/m/Y"); ?></p>
                     <h3>Date</h3>
                 </div>
             </div>
@@ -496,6 +496,25 @@ if(isset($_GET['role'])) {
                 $(".search-container").css("width", "220px");
             });
         });
+
+        function updateTime() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            
+            if (hours < 10) { 
+                hours = "0" + hours; 
+            }
+            if (minutes < 10) { 
+                minutes = "0" + minutes; 
+            }
+            if (seconds < 10) { 
+                seconds = "0" + seconds; 
+            }
+            document.getElementById("time").textContent = hours + ":" + minutes + ":" + seconds;
+        }
+        setInterval(updateTime, 1000);
     </script>
 </body>
 
