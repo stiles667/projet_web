@@ -53,20 +53,4 @@ $(document).ready(function () {
     document.getElementById("countdown").innerHTML = timeLeft;
     if (timeLeft <= 0) clearInterval(countdown);
   }, 1000);
-
-  //Select green color
-
-  var boxes = document.querySelectorAll("a");
-
-  for (var i = 0; i < boxes.length; i++) {
-    boxes[i].addEventListener("click", function () {
-      for (var j = 0; j < boxes.length; j++) {
-        boxes[j].classList.remove("clicked");
-      }
-      if (!this.classList.contains("clicked")) {
-        this.classList.add("clicked");
-        console.log("clicked");
-      }
-    });
-  }
 });

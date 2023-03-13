@@ -281,20 +281,17 @@
     _retry.addEventListener('click', () => {
         window.location.href = "quiz.php?id_quizz=" + idquizz + "&user=" + user + "&role=" + role;
     });
+    
 
-    var boxes = document.querySelectorAll(".answer");
+    $(".answer").click(function () {
+        $(".answer").removeClass("clicked");
+        
+        if (!$(this).hasClass("clicked")) {
+            $(this).addClass("clicked");
+            console.log("clicked2");
+        }
+    });
 
-    for (var i = 0; i < boxes.length; i++) {
-        boxes[i].addEventListener("click", function () {
-            for (var j = 0; j < boxes.length; j++) {
-            boxes[j].classList.remove("clicked");
-            }
-            if (!this.classList.contains("clicked")) {
-            this.classList.add("clicked");
-            console.log("clicked");
-            }
-        });
-    }
 </script>
 
 
