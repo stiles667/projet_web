@@ -76,7 +76,7 @@ if (isset($_GET['user']) && isset($_GET['role']) && isset($_GET['deletequizz']))
         echo "Error deleting record: " . mysqli_error($conn);
     }
 
-    $sqldeletequizz = "DELETE FROM quizz WHERE `Id_quizz` = '$id_quizz'";
+    $sqldeletequizz = "DELETE FROM quizz WHERE `Id_quizz` = '$delete_quizz'";
     $resultdeletequizz = mysqli_query($conn, $sqldeletequizz);
 
     if ($resultdeletequizz) {
@@ -85,11 +85,12 @@ if (isset($_GET['user']) && isset($_GET['role']) && isset($_GET['deletequizz']))
         echo "Error deleting record: " . mysqli_error($conn);
     }
 
-    $sqldeletecreate = "DELETE FROM creer WHERE `Id_utilisateur` = '$id_quizz'";
+    $sqldeletecreate = "DELETE FROM creer WHERE `Id_quizz` = '$delete_quizz'";
     $resultdeletecreate = mysqli_query($conn, $sqldeletecreate);
 
     if ($resultdeletecreate) {
         header('Location:dashboard.php?role='.$role_user.'&user='.$id_user.'');
+        
     } else {
         echo "Error deleting record: " . mysqli_error($conn);
     }
