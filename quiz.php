@@ -153,16 +153,34 @@
 
 
 		for (let i = 0; i < questions.length; i++) {
-			let quiz = {
-				question: questions[i].question,
-				options: [
-					reponses[i].reponse1,
-					reponses[i].reponse2,
-					reponses[i].reponse3,
-					reponses[i].Bonne_rep
-				],
-				correct: reponses[i].Bonne_rep
-			};
+            let options = [
+                reponses[i].reponse1,
+                reponses[i].reponse2,
+                reponses[i].reponse3,
+                reponses[i].Bonne_rep
+            ];
+
+            for (let j = options.length - 1 ; j > 0 ; j--) {
+                const k = Math.floor(Math.random() * (j + 1));
+                [options[j], options[k]] = [options[k], options[j]];
+            }
+
+            let quiz = {
+                question: questions[i].question,
+                options: options,
+                correct: reponses[i].Bonne_rep
+            };
+
+			// let quiz = {
+			// 	question: questions[i].question,
+			// 	options: [
+			// 		reponses[i].reponse1,
+			// 		reponses[i].reponse2,
+			// 		reponses[i].reponse3,
+			// 		reponses[i].Bonne_rep
+			// 	],
+			// 	correct: reponses[i].Bonne_rep
+			// };
 			quizz.push(quiz);
 		}
 
@@ -340,9 +358,9 @@
                         document.getElementById("countdown").innerHTML = timeleft;
                     }
 
-        timeleft -= 1;
-    }, 1000);
-}
+                    timeleft -= 1;
+                }, 1000);
+            }
 
             
         
