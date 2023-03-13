@@ -286,6 +286,9 @@
                 _nbquestion.style.display = 'none';
                 _countdown.style.display = 'none';
 
+                _home.style.display = 'block';
+                _retry.style.display = 'block';
+
 
                 var xhr = new XMLHttpRequest();
                 var url = 'score.php';
