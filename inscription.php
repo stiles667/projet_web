@@ -26,7 +26,7 @@ require ('bdconnexion.php');
     <div class="container">
         <div class="icons">
             <img src="https://cdn-icons-png.flaticon.com/512/4218/4218472.png" alt="Lettres">
-            <img src="https://cdn-icons-png.flaticon.com/512/4058/4058331.png" alt="Fruit">
+            <img src="https://cdn-icons-png.flaticon.com/512/4058/4058331.png" alt="Fruit">S
             <img src="https://cdn-icons-png.flaticon.com/512/4218/4218113.png" alt="Ballon de basket">
             <img src="https://cdn-icons-png.flaticon.com/512/4218/4218478.png" alt="Couleurs">
             <img src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png" alt="Crayon">
@@ -82,7 +82,7 @@ require ('bdconnexion.php');
                     $query = "INSERT INTO `utilisateur`(`pseudo`, `email`, `password`, `role_utilisateur`) VALUES ('$pseudo','$email','$password','$role')";
                     $result = mysqli_query($conn, $query);
                     if($result){
-                        header('Location: login.html');
+                        header('Location: login.php');
                     }else{
                         echo "Erreur d'inscription";}
                     break;
@@ -102,7 +102,7 @@ require ('bdconnexion.php');
                 <div class="other">
                     <div>
                         <span>Tu as déjà un compte ?</span>
-                        <a href="login.html">Se connecter</a>
+                        <a href="login.php">Se connecter</a>
                     </div>
                 </div>
             </form>
