@@ -78,11 +78,7 @@ if(isset($_GET['role'])) {
             </div>
         </div>
         <div class="categories">
-        <?php 
-        
-        require ('bdconnexion.php');
-
-        
+        <?php
 
         $sql = "SELECT * FROM quizz";
         $resultquizz = mysqli_query($conn, $sql);
@@ -144,19 +140,15 @@ if(isset($_GET['role'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="script.js"></script>
     <script>
-        const searchBox = document.getElementById("search-box");
-
-        searchBox.addEventListener("input", function () {
-            const query = searchBox.value.toLowerCase();
-            const allCategories = document.querySelectorAll(".imgCategorie");
-
-            allCategories.forEach(function (category) {
-                const title = category.getAttribute("data-category").toLowerCase();
+        $("#search-box").on("input", function () {
+            const query = $(this).val().toLowerCase();
+            $(".imgCategorie").each(function() {
+                const title = $(this).data("category").toLowerCase();
 
                 if (title.includes(query)) {
-                    category.style.display = "flex";
+                    $(this).css("display", "flex");
                 } else {
-                    category.style.display = "none";
+                    $(this).css("display", "none");
                 }
             });
         });

@@ -23,7 +23,6 @@ if (isset($_GET['user']) && isset($_GET['role']) && isset($_GET['deletequizz']))
         echo "0 results";
     }
 
-
     $sqlquizz = "SELECT * FROM quizz WHERE Id_quizz = '$id_quizz'";
     $resultquizz = mysqli_query($conn, $sqlquizz);
 

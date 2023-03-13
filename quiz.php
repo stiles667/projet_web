@@ -166,7 +166,6 @@
 			quizz.push(quiz);
 		}
 
-
         var numberquestion = 1;
 		var numquestion = 0;
 		var score = 0;
@@ -180,37 +179,32 @@
 		// }
 
         displayQuestion(numquestion);
-
-
-
+            
         function displayQuestion(num) {
-        _nbquestion.innerHTML = 'Question ' + numberquestion + '/' + quizz.length;
-        _quest.innerHTML = '<h1>' + quizz[num].question + '</h1>';
-        var xhr = new XMLHttpRequest();
-        var url = 'score.php';
-        var data = 'score=' + score + '&user=' + user + '&idquizz=' + idquizz;; // score est la variable que vous souhaitez envoyer
+            _nbquestion.innerHTML = 'Question ' + numberquestion + '/' + quizz.length;
+            _quest.innerHTML = '<h1>' + quizz[num].question + '</h1>';
+            var xhr = new XMLHttpRequest();
+            var url = 'score.php';
+            var data = 'score=' + score + '&user=' + user + '&idquizz=' + idquizz;; // score est la variable que vous souhaitez envoyer
 
-        let optionsHtml = '';
-        for (let i = 0; i < quizz[num].options.length; i++) {
-            optionsHtml += '<label class="answer">';
-            optionsHtml += '<input type="radio" name="option" value="' + quizz[num].options[i] + '">';
-            optionsHtml += quizz[num].options[i];
-            optionsHtml += '</label>';
-        }
+            let optionsHtml = '';
+            for (let i = 0; i < quizz[num].options.length; i++) {
+                optionsHtml += '<label class="answer">';
+                optionsHtml += '<input type="radio" name="option" value="' + quizz[num].options[i] + '" required>';
+                optionsHtml += quizz[num].options[i];
+                optionsHtml += '</label>';
+            }
 
-        _answers.innerHTML = optionsHtml;
-        xhr.open('POST', url, true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function() {
+            _answers.innerHTML = optionsHtml;
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                console.log(xhr.responseText); // Affiche la réponse du script PHP
+                    console.log(xhr.responseText); // Affiche la réponse du script PHP
                 }
-
-
             };
             xhr.send(data);
         }
- 
 
         _submit.addEventListener('click', function() {
         if (isanswered === false) {
@@ -222,10 +216,7 @@
                     break;
                 }
             }
-            if (selectedOption === '') {
-                alert('Veuillez sélectionner une réponse.');
-                return;
-            }
+
             isanswered = true;
             if (selectedOption === quizz[numquestion].correct) {
                 score++;
@@ -236,19 +227,18 @@
                 _nbquestion.innerHTML = "Question " + numberquestion + "/10";
                 _quest.innerHTML = "<h1>" + quizz[numquestion].question + "</h1>";
                 _answers.innerHTML = '';
+
                 for (let i = 0; i < quizz[numquestion].options.length; i++) {
-                    _answers.innerHTML += "<label class='answer'>" + "<input type='radio' name='option' value='" + quizz[numquestion].options[i] + "'>" + quizz[numquestion].options[i] + "</label>";
+                    _answers.innerHTML += "<label class='answer'>" + "<input type='radio' name='option' value='" + quizz[numquestion].options[i] + "'required>" + quizz[numquestion].options[i] + "</label>";
                 }
+
             } else {
-                // _nbquestion.innerHTML = '';
-                
                 _quest.innerHTML = "<h1>Le quizz est terminé !</h1>";
                 _answers.innerHTML = "<p>Votre score est de " + score + " sur " + quizz.length + ".</p>";
 
                 _home.style.display = 'block';
                 _retry.style.display = 'block';
 
-                
                 _nbquestion.style.display = 'none';
                 _submit.style.display = 'none';
                 _countdown.style.display = 'none';
@@ -260,9 +250,10 @@
                 xhr.open('POST', url, true);
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xhr.onreadystatechange = function() {
-                            if (xhr.readyState === 4 && xhr.status === 200) {
-                                        console.log(xhr.responseText); // Affiche la réponse du script PHP
-                            }
+
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log(xhr.responseText); // Affiche la réponse du script PHP
+                }
                 };
                 xhr.send(data);
 
