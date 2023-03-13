@@ -103,6 +103,7 @@ header a span:last-child {
 
 .categories {
   display: grid;
+  height: 600px;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 18px;
   color: white;
@@ -498,8 +499,8 @@ hr {
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(10, 70px);
   grid-gap: 18px; */
+  height: 600px;
   color: white;
-  height: 65vh;
   width: 100%;
   overflow-y: scroll;
   padding-right: 15px;
