@@ -75,9 +75,7 @@ if(isset($_GET['updateRole'])) {
                 <div class='form-example'>
                     <input type='submit' name='Usersubmit' value="Modifier l'utilisateur <?php echo $pseudo_utilisateur?>">
                 </div>
-            </div>
-
-                
+            </form>
         
             <?php
 

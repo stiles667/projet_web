@@ -21,9 +21,6 @@ if(isset($_GET['role'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://img.icons8.com/sf-black/64/000000/search.png">
     <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
-        integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-    <link href='https://css.gg/search.css' rel='stylesheet'>
     <title>Quizzeo</title>
 </head>
 
@@ -132,84 +129,38 @@ if(isset($_GET['role'])) {
             echo "</a>";
         }
         ?>
-            <!-- <a href="" class="imgCategorie" data-category="Sport" >
-                <h3 class="Name">Sport</h3>
-                <img src="https://cdn-icons-png.flaticon.com/512/4218/4218113.png" alt="Sport">
-            </a>
-            <a href="quiz.html" class="imgCategorie" data-category="Cinéma" id="2">
-                <h3 class="Name">Cinéma</h3>
-                
-                <img src="https://cdn-icons-png.flaticon.com/512/5198/5198228.png" alt="Cinéma">
-            </a>
-            <a href="quiz.html" class="imgCategorie" data-category="Géographie">
-                <h3 class="Name">Géographie</h3>
-                <img src="https://cdn-icons-png.flaticon.com/512/4218/4218484.png" alt="Géographie">
-            </a>
-            <a href="quiz.html" class="imgCategorie" data-category="Animal">
-                <h3 class="Name">Animal</h3>
-                <img src="https://cdn-icons-png.flaticon.com/512/8176/8176142.png" alt="Animal">
-            </a>
-            <a href="quiz.html" class="imgCategorie" data-category="Maths">
-                <h3 class="Name">Maths</h3>
-                <img src="https://cdn-icons-png.flaticon.com/512/5197/5197954.png" alt="Maths">
-            </a>
-            <a href="quiz.html" class="imgCategorie" data-category="Vocabulaire">
-                <h3 class="Name">Vocabulaire</h3>
-                <img src="https://cdn-icons-png.flaticon.com/512/4218/4218472.png" alt="Vocabulaire">
-            </a>
-            <a href="quiz.html" class="imgCategorie" data-category="Gastronomie">
-                <h3 class="Name">Gastronomie</h3>
-                <img src="https://cdn-icons-png.flaticon.com/512/4058/4058331.png" alt="Gastronomie">
-            </a>
-            <a href="quiz.html" class="imgCategorie" data-category="Célébrité">
-                <h3 class="Name">Célébrité</h3>
-                <img src="https://cdn-icons-png.flaticon.com/512/5197/5197853.png" alt="Célébrité">
-            </a>
-            <a href="quiz.html" class="imgCategorie" data-category="Arts">
-                <h3 class="Name">Arts</h3>
-                <img src="https://cdn-icons-png.flaticon.com/512/4218/4218478.png" alt="Arts">
-            </a>
-            <a href="quiz.html" class="imgCategorie" data-category="Musique">
-                <h3 class="Name">Musique</h3>
-                <img src="https://cdn-icons-png.flaticon.com/512/5198/5198104.png" alt="Musique">
-            </a>
-            <a href="quiz.html" class="imgCategorie" data-category="Culture">
-                <h3 class="Name">Culture</h3>
-                <img src="https://cdn-icons-png.flaticon.com/512/3962/3962505.png" alt="Culture">
-            </a>
-            <a href="quiz.html" class="imgCategorie" data-category="Espace">
-                <h3 class="Name">Espace</h3>
-                <img src="https://cdn-icons-png.flaticon.com/512/4663/4663555.png" alt="Espace">
-            </a> -->
         </div>
         <script>
-            // Récupération de tous les éléments avec la classe "imgCategorie"
-            const elements = document.querySelectorAll('.imgCategorie');
-            
-            // Parcours de chaque élément
-            elements.forEach(element => {
-                // Récupération de la valeur de l'attribut "data-category"
-                const categorie = element.getAttribute('data-category');
-                const id = element.getAttribute('id');
-                console.log(id);
-                console.log(categorie);
-            });
+            // const elements = document.querySelectorAll('.imgCategorie');
 
-
-
-
+            // elements.forEach(element => {
+            //     const categorie = element.getAttribute('data-category');
+            //     const id = element.getAttribute('id');
+            //     console.log(id);
+            //     console.log(categorie);
+            // });
         </script>
     </div>
-    <!-- <footer>
-        <ul>
-            <li><a href="#">À propos</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Conditions d'utilisation</a></li>
-        </ul>
-        <p>&copy; Quizzeo 2023</p>
-    </footer> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        const searchBox = document.getElementById("search-box");
+
+        searchBox.addEventListener("input", function () {
+            const query = searchBox.value.toLowerCase();
+            const allCategories = document.querySelectorAll(".imgCategorie");
+
+            allCategories.forEach(function (category) {
+                const title = category.getAttribute("data-category").toLowerCase();
+
+                if (title.includes(query)) {
+                    category.style.display = "flex";
+                } else {
+                    category.style.display = "none";
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
