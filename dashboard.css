@@ -169,14 +169,6 @@ header a span:last-child {
   background-color: transparent;
 }
 
-/* .quiz2:last-child a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-} */
-
 .quiz2:last-child img:last-child {
   rotate: 0deg;
   filter: invert(100%) brightness(200%);
