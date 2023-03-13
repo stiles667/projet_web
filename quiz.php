@@ -181,22 +181,6 @@
 
         displayQuestion(numquestion);
             
-        // function displayQuestion(num) {
-        //     _nbquestion.innerHTML = 'Question ' + numberquestion + '/' + quizz.length;
-        //     _quest.innerHTML = '<h1>' + quizz[num].question + '</h1>';
-
-        //     let optionsHtml = '';
-        //     for (let i = 0; i < quizz[num].options.length; i++) {
-        //         optionsHtml += '<label class="answer">';
-        //         optionsHtml += '<input type="radio" name="option" value="' + quizz[num].options[i] + '">';
-        //         optionsHtml += quizz[num].options[i];
-        //         optionsHtml += '</label>';
-        //     }
-
-        //     _answers.innerHTML = optionsHtml;
-        // }
-
-
         function displayQuestion(num) {
         _nbquestion.innerHTML = 'Question ' + numberquestion + '/' + quizz.length;
         _quest.innerHTML = '<h1>' + quizz[num].question + '</h1>';
@@ -217,10 +201,8 @@
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                console.log(xhr.responseText); // Affiche la réponse du script PHP
+                    console.log(xhr.responseText); // Affiche la réponse du script PHP
                 }
-
-
             };
             xhr.send(data);
         }
@@ -236,10 +218,7 @@
                     break;
                 }
             }
-            // if (selectedOption === '') {
-            //     alert('Veuillez sélectionner une réponse.');
-            //     return;
-            // }
+
             isanswered = true;
             if (selectedOption === quizz[numquestion].correct) {
                 score++;
