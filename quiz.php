@@ -132,65 +132,160 @@
 </html>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const audio = document.querySelector('#audio');
-        audio.play();
-    });
+        const _quest = document.getElementById('question');
+		const _answers = document.querySelector('.answers');
+		const _submit = document.getElementById('valider');
+        const _nbquestion = document.getElementById('number-question');
 
-    $(".answer").click(function () {
-        console.log("clicked");
-    });
+        const _countdown = document.getElementById('container-countdown');
+        const _home = document.getElementById('home');
+        const _retry = document.getElementById('retry');
 
-    const _quest = document.getElementById('question');
-    const _answers = document.querySelector('.answers');
-    const _submit = document.getElementById('valider');
-    const _nbquestion = document.getElementById('number-question');
-    const _countdown = document.getElementById('container-countdown');
-    const _home = document.getElementById('home');
-    const _retry = document.getElementById('retry');
+		var questions = <?php echo json_encode($questions) ?>;
+		var reponses = <?php echo json_encode($rep) ?>;
+        var user = <?php echo json_encode($id_user) ?>;
+        var idquizz = <?php echo json_encode($id_quizz) ?>;
+        var role = <?php echo json_encode($role) ?>;
+		var quizz = [];
 
-    var questions = <?php echo json_encode($questions) ?>;
-    var reponses = <?php echo json_encode($rep) ?>;
-    var user = <?php echo json_encode($id_user) ?>;
-    var idquizz = <?php echo json_encode($id_quizz) ?>;
-    var role = <?php echo json_encode($role) ?>;
-    var quizz = [];
 
-    _home.style.display = "none";
-    _retry.style.display = "none";
+        _home.style.display = "none";
+        _retry.style.display = "none";
 
-    for (let i = 0; i < questions.length; i++) {
-        let quiz = {
-            question: questions[i].question,
-            options: [
-                reponses[i].reponse1,
-                reponses[i].reponse2,
-                reponses[i].reponse3,
-                reponses[i].Bonne_rep
-            ],
-            correct: reponses[i].Bonne_rep
-        };
-        quizz.push(quiz);
-    }
 
-    var numberquestion = 1;
-    var numquestion = 0;
-    var score = 0;
-    var isanswered = false;
 
-    
-    for (let i = 0; i < quizz[numquestion].options.length; i++) {
-        _answers.innerHTML = "<label class='answer'>" + "<input type='radio' name='option' value='option1'>" + quizz[numquestion].options[0] + "</label>" + "<label class='answer'>" + "<input type='radio' name='option' value='option3'>" + quizz[numquestion].options[1] + "</label>" + "<label class='answer'>" + "<input type='radio' name='option' value='option3'>" + quizz[numquestion].options[2] + "</label>" + "<label class='answer'>" + "<input type='radio' name='option' value='option3'>" + quizz[numquestion].options[3] + "</label>";
-    }
+		for (let i = 0; i < questions.length; i++) {
+			let quiz = {
+				question: questions[i].question,
+				options: [
+					reponses[i].reponse1,
+					reponses[i].reponse2,
+					reponses[i].reponse3,
+					reponses[i].Bonne_rep
+				],
+				correct: reponses[i].Bonne_rep
+			};
+			quizz.push(quiz);
+		}
 
-    displayQuestion(numquestion);  
 
-    let downloadTimer = null;
+        var numberquestion = 1;
+		var numquestion = 0;
+		var score = 0;
+		var isanswered = false;
+        _nbquestion.innerHTML = "Question " + numberquestion + "/10";
+		_quest.innerHTML = "<h1>" + quizz[numquestion].question + "</h1>";
 
-    function timer() {
-        let timeleft = 60;
+        
+		for (let i = 0; i < quizz[numquestion].options.length; i++) {
+            _answers.innerHTML = "<label class='answer'>" + "<input type='radio' name='option' value='option1'>" + quizz[numquestion].options[0] + "</label>" + "<label class='answer'>" + "<input type='radio' name='option' value='option3'>" + quizz[numquestion].options[1] + "</label>" + "<label class='answer'>" + "<input type='radio' name='option' value='option3'>" + quizz[numquestion].options[2] + "</label>" + "<label class='answer'>" + "<input type='radio' name='option' value='option3'>" + quizz[numquestion].options[3] + "</label>"
+		}
 
-        downloadTimer = setInterval(function() {
+        displayQuestion(numquestion);
+
+        function displayQuestion(num) {
+        _nbquestion.innerHTML = 'Question ' + numberquestion + '/' + quizz.length;
+        _quest.innerHTML = '<h1>' + quizz[num].question + '</h1>';
+
+        let optionsHtml = '';
+        for (let i = 0; i < quizz[num].options.length; i++) {
+            optionsHtml += '<label class="answer">';
+            optionsHtml += '<input type="radio" name="option" value="' + quizz[num].options[i] + '">';
+            optionsHtml += quizz[num].options[i];
+            optionsHtml += '</label>';
+        }
+
+        _answers.innerHTML = optionsHtml;
+        }
+
+
+        function displayQuestion(num) {
+        _nbquestion.innerHTML = 'Question ' + numberquestion + '/' + quizz.length;
+        _quest.innerHTML = '<h1>' + quizz[num].question + '</h1>';
+        var xhr = new XMLHttpRequest();
+        var url = 'score.php';
+        var data = 'score=' + score + '&user=' + user + '&idquizz=' + idquizz;; // score est la variable que vous souhaitez envoyer
+
+        let optionsHtml = '';
+        for (let i = 0; i < quizz[num].options.length; i++) {
+            optionsHtml += '<label class="answer">';
+            optionsHtml += '<input type="radio" name="option" value="' + quizz[num].options[i] + '">';
+            optionsHtml += quizz[num].options[i];
+            optionsHtml += '</label>';
+        }
+
+        _answers.innerHTML = optionsHtml;
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(xhr.responseText); // Affiche la réponse du script PHP
+                }
+
+
+            };
+            xhr.send(data);
+        }
+ 
+
+        _submit.addEventListener('click', function() {
+        if (isanswered === false) {
+            var options = document.getElementsByName('option');
+            var selectedOption = '';
+            for (let i = 0; i < options.length; i++) {
+                if (options[i].checked) {
+                    selectedOption = options[i].value;
+                    break;
+                }
+            }
+            if (selectedOption === '') {
+                alert('Veuillez sélectionner une réponse.');
+                return;
+            }
+            isanswered = true;
+            if (selectedOption === quizz[numquestion].correct) {
+                score++;
+            }
+            numquestion++;
+            numberquestion++;
+            if (numquestion < quizz.length) {
+                _nbquestion.innerHTML = "Question " + numberquestion + "/10";
+                _quest.innerHTML = "<h1>" + quizz[numquestion].question + "</h1>";
+                _answers.innerHTML = '';
+                for (let i = 0; i < quizz[numquestion].options.length; i++) {
+                    _answers.innerHTML += "<label class='answer'>" + "<input type='radio' name='option' value='" + quizz[numquestion].options[i] + "'>" + quizz[numquestion].options[i] + "</label>";
+                }
+            } else {
+                // _nbquestion.innerHTML = '';
+                
+                _quest.innerHTML = "<h1>Le quizz est terminé !</h1>";
+                _answers.innerHTML = "<p>Votre score est de " + score + " sur " + quizz.length + ".</p>";
+
+                _home.style.display = 'block';
+                _retry.style.display = 'block';
+
+                
+                _nbquestion.style.display = 'none';
+                _submit.style.display = 'none';
+                _countdown.style.display = 'none';
+
+            
+            }
+            isanswered = false;
+        }
+        });
+
+
+            _home.addEventListener('click', () => {
+                window.location.href = "home.php?user=" + user + "&role=" + role;
+            });
+
+            _retry.addEventListener('click', () => {
+                window.location.href = "quiz.php?id_quizz=" + idquizz + "&user=" + user + "&role=" + role;
+            });
+
+            var timeleft = 60;
+            var downloadTimer = setInterval(function(){
             if(timeleft <= 0){
                 clearInterval(downloadTimer);
                 document.getElementById("countdown").innerHTML = "Temps écoulé !";
@@ -200,101 +295,26 @@
                 _nbquestion.style.display = 'none';
                 _countdown.style.display = 'none';
 
-                _home.style.display = "block";
-                _retry.style.display = "block";
 
                 var xhr = new XMLHttpRequest();
                 var url = 'score.php';
-                var data = 'score=' + score + '&user=' + user + '&idquizz=' + idquizz;
+                var data = 'score=' + score + '&user=' + user + '&idquizz=' + idquizz;; // score est la variable que vous souhaitez envoyer
 
                 xhr.open('POST', url, true);
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xhr.onreadystatechange = function() {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-                        console.log(xhr.responseText);
-                    }
+                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                        console.log(xhr.responseText); // Affiche la réponse du script PHP
+                            }
                 };
                 xhr.send(data);
             } else {
                 document.getElementById("countdown").innerHTML = timeleft;
             }
-            timeleft -=1;
-        }, 1000);
-    }
-
-    timer();
-
-    function reset() {
-        clearInterval(downloadTimer);
-        timer();
-    }
-
-    
-    function displayQuestion(num) {
-        _nbquestion.innerHTML = 'Question ' + numberquestion + '/' + quizz.length;
-        _quest.innerHTML = '<h1>' + quizz[num].question + '</h1>';
+ 
+            timeleft -= 1;
+            }, 1000);
         
-        let optionsHtml = '';
-        for (let i = 0; i < quizz[num].options.length; i++) {
-            optionsHtml += '<label class="answer">';
-            optionsHtml += '<input type="radio" name="option" value="' + quizz[num].options[i] + '">';
-            optionsHtml += quizz[num].options[i];
-            optionsHtml += '</label>';
-        }
-        
-        _answers.innerHTML = optionsHtml;
-    }
-    
-    _submit.addEventListener('click', () => {
-        let selectedOption = document.querySelector('input[type=radio]:checked');
-        if (!selectedOption) {
-            $('#valider').addClass('shake');
-            setTimeout(function(){
-                $(".shake").removeClass("shake");
-            }, 500)
-            // alert('Veuillez sélectionner une réponse.');
-            return;
-        }
-        
-        let answer = selectedOption.value;
-        if (answer == quizz[numquestion].correct) {
-            score++;
-        }
-        
-        selectedOption.checked = false;
-        
-        numquestion++;
-        numberquestion++;
-        
-        if (numquestion < quizz.length) {
-            displayQuestion(numquestion);
-            reset();
-        } else {
-            timer();
-        };
-    });
-
-    _home.addEventListener('click', () => {
-        window.location.href = "home.php?user=" + user + "&role=" + role;
-    });
-
-    _retry.addEventListener('click', () => {
-        window.location.href = "quiz.php?id_quizz=" + idquizz + "&user=" + user + "&role=" + role;
-    });
-
-    var boxes = document.querySelectorAll(".answer");
-
-    for (var i = 0; i < boxes.length; i++) {
-        boxes[i].addEventListener("click", function () {
-            for (var j = 0; j < boxes.length; j++) {
-            boxes[j].classList.remove("clicked");
-            }
-            if (!this.classList.contains("clicked")) {
-            this.classList.add("clicked");
-            console.log("clicked");
-            }
-        });
-    }
 </script>
 
 
