@@ -24,6 +24,7 @@ if(isset($_GET['role'])) {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
         integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <title>Quizzeo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -58,9 +59,9 @@ if(isset($_GET['role'])) {
             <img src="https://img.icons8.com/color/256/add-folder.png">
         </div>
         <div id="pageCreate">
-            <form action="#" method="post">
+            <form action="" method="post">
                 <div class="info-container">
-                    <input class="input-quiz" type="text" placeholder="Titre" maxlength="20" required>
+                    <input class="input-quiz" type="text" placeholder="Titre" maxlength="15" required>
                     <!-- <input class="input-quiz" type="text" placeholder="Titre" maxlength="20" required
                         oninvalid="this.style.border='2px solid #ff5f45';"> -->
                     <h2>Difficulté</h2>
@@ -73,11 +74,16 @@ if(isset($_GET['role'])) {
                 <div class="container-question">
                     <div class="question">
                         <div class="bar"></div>
-                        <div class="number">
-                            <h3>1</h3>
+                        <div class="question2">
+                            <div class="number">
+                                <h3>1</h3>
+                            </div>
+                            <h3>Question</h3>
+                            <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
-                        <h3>Question</h3>
-                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <div class="arrow">
+                            <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
+                        </div>
                     </div>
                     <div class="container-answer">
                         <div class="answer">
@@ -112,13 +118,18 @@ if(isset($_GET['role'])) {
                 </div>
 
                 <div class="container-question">
-                    <div class="question">
+                <div class="question">
                         <div class="bar"></div>
-                        <div class="number">
-                            <h3>2</h3>
+                        <div class="question2">
+                            <div class="number">
+                                <h3>2</h3>
+                            </div>
+                            <h3>Question</h3>
+                            <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
-                        <h3>Question</h3>
-                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <div class="arrow">
+                            <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
+                        </div>
                     </div>
                     <div class="container-answer">
                         <div class="answer">
@@ -153,13 +164,18 @@ if(isset($_GET['role'])) {
                 </div>
 
                 <div class="container-question">
-                    <div class="question">
+                <div class="question">
                         <div class="bar"></div>
-                        <div class="number">
-                            <h3>3</h3>
+                        <div class="question2">
+                            <div class="number">
+                                <h3>3</h3>
+                            </div>
+                            <h3>Question</h3>
+                            <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
-                        <h3>Question</h3>
-                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <div class="arrow">
+                            <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
+                        </div>
                     </div>
                     <div class="container-answer">
                         <div class="answer">
@@ -194,13 +210,18 @@ if(isset($_GET['role'])) {
                 </div>
 
                 <div class="container-question">
-                    <div class="question">
+                <div class="question">
                         <div class="bar"></div>
-                        <div class="number">
-                            <h3>4</h3>
+                        <div class="question2">
+                            <div class="number">
+                                <h3>4</h3>
+                            </div>
+                            <h3>Question</h3>
+                            <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
-                        <h3>Question</h3>
-                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <div class="arrow">
+                            <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
+                        </div>
                     </div>
                     <div class="container-answer">
                         <div class="answer">
@@ -235,13 +256,18 @@ if(isset($_GET['role'])) {
                 </div>
 
                 <div class="container-question">
-                    <div class="question">
+                <div class="question">
                         <div class="bar"></div>
-                        <div class="number">
-                            <h3>5</h3>
+                        <div class="question2">
+                            <div class="number">
+                                <h3>5</h3>
+                            </div>
+                            <h3>Question</h3>
+                            <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
-                        <h3>Question</h3>
-                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <div class="arrow">
+                            <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
+                        </div>
                     </div>
                     <div class="container-answer">
                         <div class="answer">
@@ -276,13 +302,18 @@ if(isset($_GET['role'])) {
                 </div>
 
                 <div class="container-question">
-                    <div class="question">
+                <div class="question">
                         <div class="bar"></div>
-                        <div class="number">
-                            <h3>6</h3>
+                        <div class="question2">
+                            <div class="number">
+                                <h3>6</h3>
+                            </div>
+                            <h3>Question</h3>
+                            <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
-                        <h3>Question</h3>
-                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <div class="arrow">
+                            <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
+                        </div>
                     </div>
                     <div class="container-answer">
                         <div class="answer">
@@ -317,13 +348,18 @@ if(isset($_GET['role'])) {
                 </div>
 
                 <div class="container-question">
-                    <div class="question">
+                <div class="question">
                         <div class="bar"></div>
-                        <div class="number">
-                            <h3>7</h3>
+                        <div class="question2">
+                            <div class="number">
+                                <h3>7</h3>
+                            </div>
+                            <h3>Question</h3>
+                            <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
-                        <h3>Question</h3>
-                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <div class="arrow">
+                            <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
+                        </div>
                     </div>
                     <div class="container-answer">
                         <div class="answer">
@@ -358,13 +394,18 @@ if(isset($_GET['role'])) {
                 </div>
 
                 <div class="container-question">
-                    <div class="question">
+                <div class="question">
                         <div class="bar"></div>
-                        <div class="number">
-                            <h3>8</h3>
+                        <div class="question2">
+                            <div class="number">
+                                <h3>8</h3>
+                            </div>
+                            <h3>Question</h3>
+                            <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
-                        <h3>Question</h3>
-                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <div class="arrow">
+                            <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
+                        </div>
                     </div>
                     <div class="container-answer">
                         <div class="answer">
@@ -399,13 +440,18 @@ if(isset($_GET['role'])) {
                 </div>
 
                 <div class="container-question">
-                    <div class="question">
+                <div class="question">
                         <div class="bar"></div>
-                        <div class="number">
-                            <h3>9</h3>
+                        <div class="question2">
+                            <div class="number">
+                                <h3>9</h3>
+                            </div>
+                            <h3>Question</h3>
+                            <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
-                        <h3>Question</h3>
-                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <div class="arrow">
+                            <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
+                        </div>
                     </div>
                     <div class="container-answer">
                         <div class="answer">
@@ -440,13 +486,18 @@ if(isset($_GET['role'])) {
                 </div>
 
                 <div class="container-question">
-                    <div class="question">
+                <div class="question">
                         <div class="bar"></div>
-                        <div class="number">
-                            <h3>10</h3>
+                        <div class="question2">
+                            <div class="number">
+                                <h3>10</h3>
+                            </div>
+                            <h3>Question</h3>
+                            <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
-                        <h3>Question</h3>
-                        <input type="text" id="textarea" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                        <div class="arrow">
+                            <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
+                        </div>
                     </div>
                     <div class="container-answer">
                         <div class="answer">
@@ -483,8 +534,30 @@ if(isset($_GET['role'])) {
             </form>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        $(".arrow").click(function () {
+
+        var $containerAnswer = $(this).closest(".container-question").find(".container-answer");
+        var $containerBar = $(this).closest(".container-question").find(".bar");
+        
+        if ($containerAnswer.height() > 0) {
+            $containerAnswer.height(0);
+            $containerBar.height(60);
+        } else {
+            $containerAnswer.height(
+                $containerAnswer.prop("scrollHeight") + "px"
+            );
+            $containerBar.height(
+                $containerBar.prop("scrollHeight") + "px"
+            );
+        }
+        });
+
+        $(".arrow").click(function () {
+            $(this).toggleClass("rotate");
+        });
+    </script>
 </body>
 
 </html>

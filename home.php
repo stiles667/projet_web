@@ -23,7 +23,6 @@ if(isset($_GET['role'])) {
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
         integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-    <link href='https://css.gg/search.css' rel='stylesheet'>
     <title>Quizzeo</title>
 </head>
 
@@ -146,6 +145,24 @@ if(isset($_GET['role'])) {
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        const searchBox = document.getElementById("search-box");
+
+        searchBox.addEventListener("input", function () {
+            const query = searchBox.value.toLowerCase();
+            const allCategories = document.querySelectorAll(".imgCategorie");
+
+            allCategories.forEach(function (category) {
+                const title = category.getAttribute("data-category").toLowerCase();
+
+                if (title.includes(query)) {
+                    category.style.display = "flex";
+                } else {
+                    category.style.display = "none";
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

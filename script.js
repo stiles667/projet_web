@@ -9,23 +9,6 @@ $('#submit').on('click', ()=> {
   console.log('Vous avez cliqué');
 });
 
-$(".question").click(function () {
-  var $containerAnswer = $(this).closest(".container-question").find(".container-answer");
-  var $containerBar = $(this).closest(".container-question").find(".bar");
-  if ($containerAnswer.height() > 0) {
-    $containerAnswer.height(0);
-    $containerBar.height(60);
-  } else {
-    $containerAnswer.height(
-      $containerAnswer.prop("scrollHeight") + "px"
-    );
-    $containerBar.height(
-      $containerBar.prop("scrollHeight") + "px"
-    );
-  }
-});
-
-
 // Onglets
 
 $(".button").click(function () {
@@ -86,21 +69,4 @@ $(document).ready(function () {
       }
     });
   }
-});
-
-const searchBox = document.getElementById("search-box");
-
-searchBox.addEventListener("input", function () {
-  const query = searchBox.value.toLowerCase();
-  const allCategories = document.querySelectorAll(".imgCategorie");
-
-  allCategories.forEach(function (category) {
-    const title = category.getAttribute("data-category").toLowerCase();
-
-    if (title.includes(query)) {
-      category.style.display = "flex";
-    } else {
-      category.style.display = "none";
-    }
-  });
 });

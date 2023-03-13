@@ -192,16 +192,16 @@ header a span:last-child {
   user-select: none;
 }
 
-.info h2 {
-  font-size: 45px;
-  font-weight: 900;
-  margin-right: 15px;
-}
-
 .title {
   display: flex;
   align-items: center;
   animation: title 0.8s ease forwards;
+}
+
+.title h2 {
+  font-size: 45px;
+  font-weight: 900;
+  margin-right: 15px;
 }
 
 .title div {
