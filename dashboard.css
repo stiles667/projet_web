@@ -162,7 +162,7 @@ header a span:last-child {
 }
 
 .quiz2:hover .illustration:not(.trash2, .edit2) {
-  transform: translate(-50%, -50%) rotate(10deg) scale(0.9);
+  transform: translate(-50%, -60%) rotate(10deg) scale(0.9);
 }
 
 .quiz2:last-child {
