@@ -95,12 +95,28 @@ if(isset($_GET['role'])) {
             <div id="statistics">
                 <div class="box">
                     <h3>Dernier quiz</h3>
-                    <p>Sport</p>
+                    <p>
+                        <?php
+                            $sql = "SELECT * FROM quizz ORDER BY Id_quizz DESC LIMIT 1";
+                            $result = mysqli_query($conn, $sql);
+                            $row = mysqli_fetch_assoc($result);
+                            $nom = $row['Titre'];
+                            echo $nom;
+                        ?>
+                    </p>
                     <h3>Difficulté 3</h3>
                 </div>
                 <div class="box">
                     <h3>Total quiz</h3>
-                    <p class="number">23</p>
+                    <p class="number">
+                        <?php 
+                            $sqltotal = "SELECT COUNT(*) AS total FROM jouer WHERE Id_utilisateur = '$id_user'";
+                            $resulttotal = mysqli_query($conn, $sqltotal);
+                            $row = mysqli_fetch_assoc($resulttotal);
+                            $total = $row['total'];
+                            echo $total;
+                        ?>
+                    </p>
                     <h3>quiz</h3>
                 </div>
                 <div class="box">
