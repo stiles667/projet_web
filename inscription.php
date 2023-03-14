@@ -26,7 +26,7 @@ require ('bdconnexion.php');
     <div class="container">
         <div class="icons">
             <img src="https://cdn-icons-png.flaticon.com/512/4218/4218472.png" alt="Lettres">
-            <img src="https://cdn-icons-png.flaticon.com/512/4058/4058331.png" alt="Fruit">S
+            <img src="https://cdn-icons-png.flaticon.com/512/4058/4058331.png" alt="Fruit">
             <img src="https://cdn-icons-png.flaticon.com/512/4218/4218113.png" alt="Ballon de basket">
             <img src="https://cdn-icons-png.flaticon.com/512/4218/4218478.png" alt="Couleurs">
             <img src="https://cdn-icons-png.flaticon.com/512/5204/5204758.png" alt="Crayon">

@@ -250,10 +250,11 @@ header a span:last-child {
 
 #statistics > .box {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  width: 16vw;
-  height: 16vw;
+  width: 15vw;
+  height: 15vw;
   background-color: #1f1f1fbe;
   aspect-ratio: 1 / 1;
   padding: 20px;
@@ -263,10 +264,19 @@ header a span:last-child {
   /* flex-grow: 1; */
 }
 
+:not(:first-child)
+
 .update-user {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  height: 100%;
+}
+
+.container-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
 }
 
@@ -292,10 +302,6 @@ header a span:last-child {
   color: white;
   font-size: 1.5vw;
   font-weight: 500;
-}
-
-.box h3:last-child {
-  color: #ff5f45;
 }
 
 .passwd div {
@@ -458,12 +464,12 @@ button {
 
 hr {
   margin: 10px;
-  border: 1px solid #808080;
+  border: 2px solid #ff5f45;
+  border-radius: 10px;
 }
 
 .button:not(.active):hover img {
   filter: invert(100%) brightness(200%);
-  transition: all 1s ease;
 }
 
 .button.active img {
@@ -472,7 +478,7 @@ hr {
 
 .button img:active {
   transform: scale(0.8);
-  transition: all 0.1s ease;
+  transition: all 0.5s ease;
 }
 
 .button img {
@@ -480,6 +486,7 @@ hr {
   width: 100%;
   filter: invert(100%) brightness(50%);
   object-fit: cover;
+  transition: all 0.3s ease;
 }
 
 .container-list {
