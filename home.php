@@ -123,6 +123,146 @@ if(isset($_GET['role'])) {
                     break;
             }
             echo "</a>";
+            echo "<a href='quiz.php?role=$role&user=$id_user&id_quizz=$id_quizz' class='imgCategorie' data-category='$quizz_title' id='$id_quizz'>";
+            echo "<h3 class='Name'>$quizz_title</h3>";
+            switch ($quizz_category) {
+                case "Sport":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4218/4218113.png' alt='Sport'>";
+                    break;
+                case "Cinema":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/5198/5198228.png' alt='Cinéma'>";
+                    break;
+                case "Geographie":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4218/4218484.png' alt='Géographie'>";
+                    break;
+                case "Histoire":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4058/4058331.png' alt='Histoire'>";
+                    break;
+                case "Musique":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/5204/5204758.png' alt='Musique'>";
+                    break;
+                case "Sciences":
+                    echo "<img src='https://icones8.fr/icon/0lUc5aQ86S3o/articles-de-laboratoire' alt='Sciences'>";
+                    break;
+                case "Art":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4218/4218478.png' alt='Art'>";
+                    break;
+                case "Animal":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/8176/8176142.png' alt='Animal'>";
+                    break;
+                case "Anime":
+                    echo "<img src='https://icones8.fr/icon/eWXAiv3hnUkS/adn-anime' alt='Anime'>";
+                    break;
+                default:
+                    echo "<img src='https://icones8.fr/icon/ibngCF4waBaR/quiz' alt='Default'>";
+                    break;
+            }
+            echo "</a>";
+            echo "<a href='quiz.php?role=$role&user=$id_user&id_quizz=$id_quizz' class='imgCategorie' data-category='$quizz_title' id='$id_quizz'>";
+            echo "<h3 class='Name'>$quizz_title</h3>";
+            switch ($quizz_category) {
+                case "Sport":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4218/4218113.png' alt='Sport'>";
+                    break;
+                case "Cinema":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/5198/5198228.png' alt='Cinéma'>";
+                    break;
+                case "Geographie":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4218/4218484.png' alt='Géographie'>";
+                    break;
+                case "Histoire":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4058/4058331.png' alt='Histoire'>";
+                    break;
+                case "Musique":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/5204/5204758.png' alt='Musique'>";
+                    break;
+                case "Sciences":
+                    echo "<img src='https://icones8.fr/icon/0lUc5aQ86S3o/articles-de-laboratoire' alt='Sciences'>";
+                    break;
+                case "Art":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4218/4218478.png' alt='Art'>";
+                    break;
+                case "Animal":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/8176/8176142.png' alt='Animal'>";
+                    break;
+                case "Anime":
+                    echo "<img src='https://icones8.fr/icon/eWXAiv3hnUkS/adn-anime' alt='Anime'>";
+                    break;
+                default:
+                    echo "<img src='https://icones8.fr/icon/ibngCF4waBaR/quiz' alt='Default'>";
+                    break;
+            }
+            echo "</a>";
+            echo "<a href='quiz.php?role=$role&user=$id_user&id_quizz=$id_quizz' class='imgCategorie' data-category='$quizz_title' id='$id_quizz'>";
+            echo "<h3 class='Name'>$quizz_title</h3>";
+            switch ($quizz_category) {
+                case "Sport":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4218/4218113.png' alt='Sport'>";
+                    break;
+                case "Cinema":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/5198/5198228.png' alt='Cinéma'>";
+                    break;
+                case "Geographie":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4218/4218484.png' alt='Géographie'>";
+                    break;
+                case "Histoire":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4058/4058331.png' alt='Histoire'>";
+                    break;
+                case "Musique":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/5204/5204758.png' alt='Musique'>";
+                    break;
+                case "Sciences":
+                    echo "<img src='https://icones8.fr/icon/0lUc5aQ86S3o/articles-de-laboratoire' alt='Sciences'>";
+                    break;
+                case "Art":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4218/4218478.png' alt='Art'>";
+                    break;
+                case "Animal":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/8176/8176142.png' alt='Animal'>";
+                    break;
+                case "Anime":
+                    echo "<img src='https://icones8.fr/icon/eWXAiv3hnUkS/adn-anime' alt='Anime'>";
+                    break;
+                default:
+                    echo "<img src='https://icones8.fr/icon/ibngCF4waBaR/quiz' alt='Default'>";
+                    break;
+            }
+            echo "</a>";
+            echo "<a href='quiz.php?role=$role&user=$id_user&id_quizz=$id_quizz' class='imgCategorie' data-category='$quizz_title' id='$id_quizz'>";
+            echo "<h3 class='Name'>$quizz_title</h3>";
+            switch ($quizz_category) {
+                case "Sport":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4218/4218113.png' alt='Sport'>";
+                    break;
+                case "Cinema":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/5198/5198228.png' alt='Cinéma'>";
+                    break;
+                case "Geographie":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4218/4218484.png' alt='Géographie'>";
+                    break;
+                case "Histoire":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4058/4058331.png' alt='Histoire'>";
+                    break;
+                case "Musique":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/5204/5204758.png' alt='Musique'>";
+                    break;
+                case "Sciences":
+                    echo "<img src='https://icones8.fr/icon/0lUc5aQ86S3o/articles-de-laboratoire' alt='Sciences'>";
+                    break;
+                case "Art":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/4218/4218478.png' alt='Art'>";
+                    break;
+                case "Animal":
+                    echo "<img src='https://cdn-icons-png.flaticon.com/512/8176/8176142.png' alt='Animal'>";
+                    break;
+                case "Anime":
+                    echo "<img src='https://icones8.fr/icon/eWXAiv3hnUkS/adn-anime' alt='Anime'>";
+                    break;
+                default:
+                    echo "<img src='https://icones8.fr/icon/ibngCF4waBaR/quiz' alt='Default'>";
+                    break;
+            }
+            echo "</a>";
         }
         ?>
         </div>
