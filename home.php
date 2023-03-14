@@ -27,12 +27,12 @@ if(isset($_GET['role'])) {
 </head>
 
 <body>
-    <audio id="audio" preload="auto" loop>
+    <audio id="audio" preload="auto" loop>             
         <source src="ilyass (1).mp3" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
       
-      <script>
+      <script>         //play audio home
         document.addEventListener('DOMContentLoaded', () => {
           const audio = document.querySelector('#audio');
           audio.play();
@@ -72,10 +72,10 @@ if(isset($_GET['role'])) {
         </div>
         <div class="categories">
         <?php
-            $sql = "SELECT * FROM quizz";
+            $sql = "SELECT * FROM quizz";           // Select all quizz
             $resultquizz = mysqli_query($conn, $sql);
 
-            while($row=mysqli_fetch_assoc($resultquizz)) {
+            while($row=mysqli_fetch_assoc($resultquizz)) {    // For each quizz, create a link to the quiz page
                 $quizz_title = $row["Titre"];
                 $id_quizz = $row["Id_quizz"];
                 $quizz_category = $row["Categorie"];
@@ -83,7 +83,7 @@ if(isset($_GET['role'])) {
                 echo "<a href='quiz.php?role=$role&user=$id_user&id_quizz=$id_quizz' class='imgCategorie' data-category='$quizz_title' id='$id_quizz'>";
                 echo "<h3 class='Name'>$quizz_title</h3>";
 
-                switch ($quizz_category) {
+                switch ($quizz_category) {    // Display the category icon
                     case "Sport":
                         echo "<img src='https://cdn-icons-png.flaticon.com/512/4218/4218113.png' alt='Sport'>";
                         break;

@@ -2,38 +2,36 @@
 
     require ('bdconnexion.php');
 
-    if(isset($_GET['id_quizz'])) {
+    if(isset($_GET['id_quizz'])) {          //Get id_quizz from the url
         $id_quizz = $_GET['id_quizz'];
         $sql = "SELECT * FROM question WHERE Id_quizz = " . $id_quizz;
         $result = mysqli_query($conn, $sql);
         
     }
 
-    if(isset($_GET['user'])) {
+    if(isset($_GET['user'])) {        //Get user id from the url
         $id_user = $_GET['user'];
     }
 
-    if(isset($_GET['role'])) {
+    if(isset($_GET['role'])) {      //Get user role from the url
         $role = $_GET['role'];
     }
 
 
-    $questions = array();
+    $questions = array();       //Create an array to store questions
                         
-    if (mysqli_num_rows($result) > 0) {
-        while($row1 = mysqli_fetch_assoc($result)) {
-            $id_question = $row1['Id_question'];
-            $question = $row1['question'];
+    if (mysqli_num_rows($result) > 0) {         //If questions exist
+        while($row1 = mysqli_fetch_assoc($result)) {        
+            $id_question = $row1['Id_question'];        //Get the question id
+            $question = $row1['question'];      //Get the question
                                 
-            $sql2 = "SELECT * FROM choix WHERE Id_question = " . $id_question;
+            $sql2 = "SELECT * FROM choix WHERE Id_question = " . $id_question;      //Get the answers for each question
             $result2 = mysqli_query($conn, $sql2);
-            $reponsesjs = array();
-            if (mysqli_num_rows($result2) > 0) {
-                while($row2=mysqli_fetch_assoc($result2)) {
-                    // $idquest = $row2['Id_question'];
+            $reponsesjs = array();    //Create an array to store answers
+            if (mysqli_num_rows($result2) > 0) {    //If answers exist
+                while($row2=mysqli_fetch_assoc($result2)) {         
 
-                    $reponses = array(
-                        // 'idquestion ' => $row2['Id_question'],
+                    $reponses = array(      //Create an array to store answers
                         'reponse1' => $row2['rep1'],
                         'reponse2' => $row2['rep2'],
                         'reponse3' => $row2['rep3'],
@@ -49,14 +47,11 @@
                 }
             }
                                 
-            $questions[] = array(
-                // 'id' => $id_question,
+            $questions[] = array(       //Create an array to store questions
                 'question' => $question
-                // 'reponses' => $reponsesjs
             );
 
-            $rep[] = array(
-                // 'idquestion' => $id_question,
+            $rep[] = array(     //Create an array to store answers
                 'reponse1' => $rep1,
                 'reponse2' => $rep2,
                 'reponse3' => $rep3,
@@ -86,7 +81,7 @@
         Your browser does not support the audio element.
       </audio>
       
-      <script>
+      <script>          //play audio quizz
         document.addEventListener('DOMContentLoaded', () => {
           const audio = document.querySelector('#audio');
           audio.play();

@@ -417,26 +417,26 @@ if(isset($_GET['role'])) {          // Get the user role from the url
                     <input type="submit" class="button-save" name="update-user" value="Modifier">
 
                     <?php 
-                        if(isset($_POST['update-user'])) {
-                            $pseudo = $_POST["pseudo"];
+                        if(isset($_POST['update-user'])) {      // If the user click on the button update user
+                            $pseudo = $_POST["pseudo"];         
                             $email = $_POST["e-mail"];
                             $password = $_POST["password"];
                             $new_password = $_POST["new-password"];
                             $confirm_password = $_POST["confirm-password"];
 
-                            $sqlmodif = "SELECT * FROM utilisateur WHERE pseudo = '$pseudo' AND email = '$email' AND password = '$password'";
+                            $sqlmodif = "SELECT * FROM utilisateur WHERE pseudo = '$pseudo' AND email = '$email' AND password = '$password'";    // Get the user
                             $resultmodif = mysqli_query($conn, $sqlmodif);
 
                             if (mysqli_num_rows($resultmodif) > 0) {
-                                $rowmodif = mysqli_fetch_assoc($resultmodif);
+                                $rowmodif = mysqli_fetch_assoc($resultmodif);   
                                 $id = $rowmodif["Id_utilisateur"];
                                 $pseudobd = $rowmodif["pseudo"];
                                 $emailbd = $rowmodif["email"];
                                 $passwordbd = $rowmodif["password"];
 
-                                if ($passwordbd === $password) {
-                                    if ($new_password === $confirm_password) {
-                                        $sqlupdate = "UPDATE utilisateur SET pseudo = '$pseudo', email = '$email', password = '$new_password' WHERE Id_utilisateur = '$id'";
+                                if ($passwordbd === $password) {        // If the password is correct
+                                    if ($new_password === $confirm_password) {   // If the new password is the same as the confirm password
+                                        $sqlupdate = "UPDATE utilisateur SET pseudo = '$pseudo', email = '$email', password = '$new_password' WHERE Id_utilisateur = '$id'";    // Update the user
                                         $resultupdate = mysqli_query($conn, $sqlupdate);
                                         echo "<script>alert('Modification réussie')</script>";
                                     } else {

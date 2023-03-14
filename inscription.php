@@ -39,12 +39,12 @@ require ('bdconnexion.php');
             </div>
             <?php
 
-            if(isset($_POST['submit'])) {
-                $pseudo = $_POST["pseudo"];
+            if(isset($_POST['submit'])) {           //Get the values from the form
+                $pseudo = $_POST["pseudo"];     
                 $email = $_POST["email"];
 
                 $password = $_POST["password"];
-                $uppercase = preg_match('@[A-Z]@', $password);
+                $uppercase = preg_match('@[A-Z]@', $password);  
                 $lowercase = preg_match('@[a-z]@', $password);
                 $number = preg_match('@[0-9]@', $password);
                 $special = preg_match('@[^\w]@', $password);
@@ -52,38 +52,39 @@ require ('bdconnexion.php');
                 $confirm_password = $_POST["confirm-password"];
                 $role = $_POST["role"];
 
-                $verifpseudo = mysqli_query($conn, "SELECT * FROM utilisateur WHERE pseudo = '$pseudo'");
-                $verifmail = mysqli_query($conn, "SELECT * FROM utilisateur WHERE email = '$email'");
+                $verifpseudo = mysqli_query($conn, "SELECT * FROM utilisateur WHERE pseudo = '$pseudo'");    //Check if the pseudo is already used
+                $verifmail = mysqli_query($conn, "SELECT * FROM utilisateur WHERE email = '$email'");   //Check if the email is already used
 
 
-                $expression = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-z]{2,4}$/';
+                $expression = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-z]{2,4}$/';        //Check if the email is valid
 
                 switch (true) {
-                    case (strlen($pseudo) < 3):
+                    case (strlen($pseudo) < 3):         //Check if the pseudo is valid
                         echo "<h2>Votre pseudo est trop court</h2>";
                         break; 
-                    case (mysqli_num_rows($verifpseudo)):
+                    case (mysqli_num_rows($verifpseudo)):       //Check if the pseudo is already used
                         echo "<h2>Ce pseudo est déjà utilisé</h2>";
                         break;
-                    case (!preg_match($expression, $email)):
+                    case (!preg_match($expression, $email)):        //Check if the email is valid
                         echo "<h2>L'email n'est pas valide</h2>";
                         break;
-                    case (mysqli_num_rows($verifmail)):
+                    case (mysqli_num_rows($verifmail)):     //Check if the email is already used
                         echo "<h2>Cet email est déjà utilisé</h2>";
                         break;
-                    case ($password != $confirm_password):
+                    case ($password != $confirm_password):      //Check if the password and the confirm password are the same
                         echo "<h2>Les mots de passe ne correspondent pas</h2>";
                         break;
-                    case (!$uppercase || !$lowercase || !$number || !$special || strlen($password) < 8):
+                    case (!$uppercase || !$lowercase || !$number || !$special || strlen($password) < 8):    //Check if the password is valid
                         echo "<h2>Votre mot de passe doit comporter au moins huit caractères, avec au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial</h2>";
                         break;
                     default:
                         
+                    //Insert the user in the database
                     $query = "INSERT INTO `utilisateur`(`pseudo`, `email`, `password`, `role_utilisateur`) VALUES ('$pseudo','$email','$password','$role')";
                     $result = mysqli_query($conn, $query);
-                    if($result){
-                        header('Location: login.php');
-                    }else{
+                    if($result){        //If the user is inserted in the database, redirect to the login page
+                        header('Location: login.php');  
+                    }else{      //If the user is not inserted in the database, display an error message
                         echo "Erreur d'inscription";}
                     break;
                 }

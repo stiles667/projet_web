@@ -38,26 +38,26 @@ require('bdconnexion.php');
             </div>
 
             <?php
-                if(isset($_POST['submit'])) {
-                    $pseudo = $_POST['pseudo'];
+                if(isset($_POST['submit'])) {           //Check if form was submitted
+                    $pseudo = $_POST['pseudo'];         
                     $password = $_POST['password'];
                     $email = $_POST['email'];
 
-                    $sql = "SELECT * FROM utilisateur WHERE pseudo = '$pseudo' AND password = '$password' AND email = '$email'";
+                    $sql = "SELECT * FROM utilisateur WHERE pseudo = '$pseudo' AND password = '$password' AND email = '$email'";    //Check if user exists
                     $result = mysqli_query($conn, $sql);
-                    $sql2 = "SELECT role_utilisateur FROM utilisateur WHERE pseudo = '$pseudo' AND password = '$password' AND email = '$email'";
+                    $sql2 = "SELECT role_utilisateur FROM utilisateur WHERE pseudo = '$pseudo' AND password = '$password' AND email = '$email'";    //Check if user exists
                     $result2 = mysqli_query($conn, $sql2);
-                    $sql3 = "SELECT Id_utilisateur FROM utilisateur WHERE pseudo = '$pseudo' AND password = '$password' AND email = '$email'";
+                    $sql3 = "SELECT Id_utilisateur FROM utilisateur WHERE pseudo = '$pseudo' AND password = '$password' AND email = '$email'";      //Check if user exists
                     $result3 = mysqli_query($conn, $sql3);
 
 
-                    if (mysqli_num_rows($result) > 0) {
+                    if (mysqli_num_rows($result) > 0) {     //If user exists
                         $row = mysqli_fetch_assoc($result2);
-                        $role = $row['role_utilisateur'];
+                        $role = $row['role_utilisateur'];       //Get user role
                         $row2 = mysqli_fetch_assoc($result3);
-                        $id_user = $row2['Id_utilisateur'];
+                        $id_user = $row2['Id_utilisateur'];     //Get user id
 
-                        switch ($role) {
+                        switch ($role) {        //Redirect to the right page depending on the user role
                             case '1':
                                 $role = "Utilisateur";
                                 header('Location: home.php?role='.$role.'&user='.$id_user.'');
@@ -75,11 +75,11 @@ require('bdconnexion.php');
                                 break;
                         }
                         
-                    } else {
-                        $error = 'Nom d\'utilisateur ou mot de passe incorrect</h2>';
+                    } else {        //If user doesn't exist
+                        $error = 'Nom d\'utilisateur ou mot de passe incorrect</h2>';       //Display error message
 
-                        $errors = array();
-                        $sql = "SELECT * FROM utilisateur WHERE pseudo = '$pseudo'";
+                        $errors = array();      //Display error message depending on the error
+                        $sql = "SELECT * FROM utilisateur WHERE pseudo = '$pseudo'";        
                         $result = mysqli_query($conn, $sql);
                         if (mysqli_num_rows($result) == 0) {
                             $errors[] = 'Nom d\'utilisateur incorrect';
