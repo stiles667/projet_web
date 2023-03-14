@@ -196,9 +196,9 @@ if(isset($_GET['role'])) {          // Get the user role from the url
                     
                 ?>
 
-                <?php
-                    echo "<a href='creation.php?role=$role&user=$id_user'>";
-                        echo "<div class='quiz2'>";
+                <?php       // Bouton for creating a quiz
+                    echo "<a href='creation.php?role=$role&user=$id_user'>";    // Link to the creation page     
+                        echo "<div class='quiz2'>";     
                         echo "<img id='add' src='https://img.icons8.com/fluency-systems-regular/256/plus-math.png' alt='Ajouter'>";
                         echo "</div>";
                     echo "</a>";
@@ -241,49 +241,47 @@ if(isset($_GET['role'])) {          // Get the user role from the url
 
                         <?php
 
-                            $sqlcreation = "SELECT * FROM creer";
+                            $sqlcreation = "SELECT * FROM creer";           // Get the quiz created by the user
                             $resultcreation = mysqli_query($conn, $sqlcreation);
                             
-                            while($row=mysqli_fetch_assoc($resultcreation)) {
-                                $id_utilisateur = $row['Id_utilisateur'];
-                                $id_quiz = $row['Id_quizz'];
+                            while($row=mysqli_fetch_assoc($resultcreation)) {       // Get the result
+                                $id_utilisateur = $row['Id_utilisateur'];       // Get the user id
+                                $id_quiz = $row['Id_quizz'];            // Get the quiz id
 
-                                $sqlquizz = "SELECT * FROM quizz WHERE Id_quizz = '$id_quiz'";                                                                
+                                $sqlquizz = "SELECT * FROM quizz WHERE Id_quizz = '$id_quiz'";          // Get the quiz from the quiz id                                                         
                                 $resultquizz = mysqli_query($conn, $sqlquizz);
 
                                 $rowquizz = mysqli_fetch_assoc($resultquizz);
                                 
-                                $nom_quizz = $rowquizz['Titre'];
-                                $categorie_quizz = $rowquizz['Categorie'];
-                                $date_quizz = $rowquizz['date_creation'];
-                                $difficulte_quizz = $rowquizz['difficulte'];
+                                $nom_quizz = $rowquizz['Titre'];        // Get the title
+                                $categorie_quizz = $rowquizz['Categorie'];      // Get the category
+                                $date_quizz = $rowquizz['date_creation'];       // Get the date of creation
+                                $difficulte_quizz = $rowquizz['difficulte'];        // Get the difficulty
                                 
 
-                                $sqlutilisateur = "SELECT * FROM utilisateur WHERE Id_utilisateur = '$id_utilisateur'";
-                                $resultutilisateur = mysqli_query($conn, $sqlutilisateur);
+                                $sqlutilisateur = "SELECT * FROM utilisateur WHERE Id_utilisateur = '$id_utilisateur'";       // Get the user from the user id
+                                $resultutilisateur = mysqli_query($conn, $sqlutilisateur);      
                                 
-                                $rowutilisateur = mysqli_fetch_assoc($resultutilisateur);
+                                $rowutilisateur = mysqli_fetch_assoc($resultutilisateur);       
                                 
-                                $pseudo_utilisateur = $rowutilisateur['pseudo'];
+                                $pseudo_utilisateur = $rowutilisateur['pseudo'];        // Get the pseudo
 
-                                
-                                // echo "L'utilisateur " .$id_utilisateur ." a créé le quiz " .$id_quiz ."<br>";
-                                echo "<tr>";
+                                echo "<tr>";        
 
-                                echo "<td>" .$id_quiz ."</td>";
-                                echo "<td>" .$pseudo_utilisateur ."</td>";
-                                echo "<td>" .$nom_quizz ."</td>";
-                                echo "<td>" .$difficulte_quizz ."</td>";
-                                echo "<td>" .$date_quizz ."</td>";
+                                echo "<td>" .$id_quiz ."</td>";     // Display the quiz id
+                                echo "<td>" .$pseudo_utilisateur ."</td>";      // Display the pseudo
+                                echo "<td>" .$nom_quizz ."</td>";       // Display the title
+                                echo "<td>" .$difficulte_quizz ."</td>";        // Display the difficulty
+                                echo "<td>" .$date_quizz ."</td>";          // Display the date of creation
 
-                                echo "<td>";
-                                echo "<a href='updatequizz.php?role=$role&user=$id_user&updatequizz=$id_quiz'>";
+                                echo "<td>";        // Display the edit button
+                                echo "<a href='updatequizz.php?role=$role&user=$id_user&updatequizz=$id_quiz'>";        // Link to the update page
                                 echo "<img class='edit' src='https://cdn-icons-png.flaticon.com/512/5204/5204758.png' alt='Modifier'>";
                                 echo "</a>";
                                 echo "</td>";
                                 
-                                echo "<td>";
-                                echo "<a href='deletequiz.php?role=$role&user=$id_user&deletequizz=$id_quiz'>";
+                                echo "<td>";        // Display the delete button
+                                echo "<a href='deletequiz.php?role=$role&user=$id_user&deletequizz=$id_quiz'>";     // Link to the delete page
                                 echo "<img class='trash' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
                                 echo "</a>";
                                 echo "</td>";
@@ -318,9 +316,9 @@ if(isset($_GET['role'])) {          // Get the user role from the url
                         <input class="searchBar" type="search" placeholder="Rechercher">
                     </div>
                     <div class="buttons">
-                        <?php
-                            echo "
-                            <a href='create.php?role=$role_user&user=$id_user'>
+                        <?php           //Bouton pour ajouter un utilisateur
+                            echo "          
+                            <a href='create.php?role=$role_user&user=$id_user'>     
                             <input class='button-save' type='submit' value='+ Ajouter'>
                             </a>
                             ";
@@ -340,18 +338,18 @@ if(isset($_GET['role'])) {          // Get the user role from the url
                         <th>Supprimer</th>
                     </tr>
 
-                    <?php 
-                        $sql2utilisateur = "SELECT * FROM utilisateur";
+                    <?php       
+                        $sql2utilisateur = "SELECT * FROM utilisateur";     // Get all the users
                         $result2utilisateur = mysqli_query($conn, $sql2utilisateur);
 
-                        while($row2utilisateur = mysqli_fetch_assoc($result2utilisateur)) {
-                            $id_utilisateur = $row2utilisateur['Id_utilisateur'];
-                            $pseudo_user = $row2utilisateur['pseudo'];
-                            $email_user = $row2utilisateur['email'];
-                            $password_user = $row2utilisateur['password'];
-                            $role_user = $row2utilisateur['role_utilisateur'];
+                        while($row2utilisateur = mysqli_fetch_assoc($result2utilisateur)) {     
+                            $id_utilisateur = $row2utilisateur['Id_utilisateur'];       // Get the user id
+                            $pseudo_user = $row2utilisateur['pseudo'];    // Get the pseudo     
+                            $email_user = $row2utilisateur['email'];        // Get the email
+                            $password_user = $row2utilisateur['password'];      // Get the password
+                            $role_user = $row2utilisateur['role_utilisateur'];      // Get the role
 
-                            switch ($role_user) {
+                            switch ($role_user) {       //Switch to display the role
                                 case 1:
                                     $role_user = "Utilisateur";
                                     break;
@@ -362,29 +360,28 @@ if(isset($_GET['role'])) {          // Get the user role from the url
                                     $role_user = "Administrateur";
                                     break;
                             }
-                            // echo "<form action='' method='post'";
-                            echo "<tr>";
-                            echo "<td>$id_utilisateur</td>";
-                            echo "<td>$pseudo_user</td>";
-                            echo "<td>$role_user</td>";
-                            echo "<td>$email_user</td>";
-                            echo "<td>$password_user</td>";
+        
+                            echo "<tr>";    
+                            echo "<td>$id_utilisateur</td>";        // Display the user id
+                            echo "<td>$pseudo_user</td>";       // Display the pseudo
+                            echo "<td>$role_user</td>";     // Display the role
+                            echo "<td>$email_user</td>";        // Display the email
+                            echo "<td>$password_user</td>";     // Display the password
                             
                             echo "<td>";
-                            echo "<a href='updateuser.php?role=$role&user=$id_user&updateId=$id_utilisateur&updateRole=$role_user'>";
+                            echo "<a href='updateuser.php?role=$role&user=$id_user&updateId=$id_utilisateur&updateRole=$role_user'>";   // Link to the update user page
                             echo "<img class='edit' src='https://cdn-icons-png.flaticon.com/512/5204/5204758.png' alt='Modifier'>";
                             echo "</a>";
                             echo "</td>";
                             
                             echo "<td>";
-                            echo "<a href='delete.php?role=$role&user=$id_user&deleteId=$id_utilisateur'>";
+                            echo "<a href='delete.php?role=$role&user=$id_user&deleteId=$id_utilisateur'>";    // Link to the delete user page
                             echo "<img class='trash' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
                             echo "</a>";
 
                             echo "</td>";
 
                             echo "</tr>";
-                            // echo "</form>";
 
                         }
                     ?>
