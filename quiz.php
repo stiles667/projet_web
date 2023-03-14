@@ -81,10 +81,17 @@
 </head>
 
 <body>
-    <audio id="audio" preload="auto" loop>
-        <source src="quiz-show-timer-30-sec-music-for-content-creator.mp3" type="audio/mpeg">
+<audio id="audio" preload="auto" loop>
+        <source src="quizz.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
-    </audio>
+      </audio>
+      
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const audio = document.querySelector('#audio');
+          audio.play();
+        });
+      </script>
 
     <header>
         <?php
