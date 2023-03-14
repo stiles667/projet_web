@@ -206,17 +206,250 @@ $q10rep3 = $questions[9]["reponses"][0]["rep3"];
 $q10bonnerep = $questions[9]["reponses"][0]["bonne_reponse"];
 $q10id = $questions[9]["id"];
 
-
-
-
-//------------------------------------------------------------------------------------------------------------------------------
-
-
-    //------------------------------------------------------------------------------------------------------------------------------
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $titrequizz = $_POST["titre"];
+    $difficulte = $_POST["difficulte"];
+    $categorie = $_POST["categorie"];
     
+    $question1 = $_POST["question1"];
+    $q1rep1 = $_POST["q1rep1"];
+    $q1rep2 = $_POST["q1rep2"];
+    $q1rep3 = $_POST["q1rep3"];
+    $q1bonnerep = $_POST["q1bonnerep"];
+
+
+    $question2 = $_POST["question2"];
+    $q2rep1 = $_POST["q2rep1"];
+    $q2rep2 = $_POST["q2rep2"];
+    $q2rep3 = $_POST["q2rep3"];
+    $q2bonnerep = $_POST["q2bonnerep"];
+
+
+    $question3 = $_POST["question3"];
+    $q3rep1 = $_POST["q3rep1"];
+    $q3rep2 = $_POST["q3rep2"];
+    $q3rep3 = $_POST["q3rep3"];
+    $q3bonnerep = $_POST["q3bonnerep"];
+
+
+    $question4 = $_POST["question4"];
+    $q4rep1 = $_POST["q4rep1"];
+    $q4rep2 = $_POST["q4rep2"];
+    $q4rep3 = $_POST["q4rep3"];
+    $q4bonnerep = $_POST["q4bonnerep"];
+        
+
+    $question5 = $_POST["question5"];
+    $q5rep1 = $_POST["q5rep1"];
+    $q5rep2 = $_POST["q5rep2"];
+    $q5rep3 = $_POST["q5rep3"];
+    $q5bonnerep = $_POST["q5bonnerep"];
+
+
+    $question6 = $_POST["question6"];
+    $q6rep1 = $_POST["q6rep1"];
+    $q6rep2 = $_POST["q6rep2"];
+    $q6rep3 = $_POST["q6rep3"];
+    $q6bonnerep = $_POST["q6bonnerep"];
+
+
+    $question7 = $_POST["question7"];
+    $q7rep1 = $_POST["q7rep1"];
+    $q7rep2 = $_POST["q7rep2"];
+    $q7rep3 = $_POST["q7rep3"];
+    $q7bonnerep = $_POST["q7bonnerep"];
+
+
+    $question8 = $_POST["question8"];
+    $q8rep1 = $_POST["q8rep1"];
+    $q8rep2 = $_POST["q8rep2"];
+    $q8rep3 = $_POST["q8rep3"];
+    $q8bonnerep = $_POST["q8bonnerep"];
+
+
+    $question9 = $_POST["question9"];
+    $q9rep1 = $_POST["q9rep1"];
+    $q9rep2 = $_POST["q9rep2"];
+    $q9rep3 = $_POST["q9rep3"];
+    $q9bonnerep = $_POST["q9bonnerep"];
+
     
+    $question10 = $_POST["question10"];
+    $q10rep1 = $_POST["q10rep1"];
+    $q10rep2 = $_POST["q10rep2"];
+    $q10rep3 = $_POST["q10rep3"];
+    $q10bonnerep = $_POST["q10bonnerep"];
 
 
+    do {
+
+        $sqlupdatequizz = "UPDATE quizz SET Titre = '$titrequizz', difficulte = '$difficulte', Categorie = '$categorie' WHERE Id_quizz = '$id_quizz'";
+        $resultupdatequizz = mysqli_query($conn, $sqlupdatequizz);
+
+        if (!$resultupdatequizz) {
+            echo "Error: " . $sqlupdatequizz . "<br>" . mysqli_error($conn);
+        }
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
+        $sqlupdatequestion1 = "UPDATE question SET question = '$question1' WHERE Id_question = '$q1id'";
+        $resultupdatequestion1 = mysqli_query($conn, $sqlupdatequestion1);
+
+        if (!$resultupdatequestion1) {
+            echo "Error: " . $sqlupdatequestion1 . "<br>" . mysqli_error($conn);
+        }
+
+        $sqlupdaterep1 = "UPDATE choix SET rep1 = '$q1rep1', rep2 ='$q1rep2', rep3 = '$q1rep3', Bonne_reponse = '$q1bonnerep' WHERE Id_question = '$q1id'";
+        $resultupdaterep1 = mysqli_query($conn, $sqlupdaterep1);
+
+        if (!$resultupdaterep1) {
+            echo "Error: " . $sqlupdaterep1 . "<br>" . mysqli_error($conn);
+        }
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
+        $sqlupdatequestion2 = "UPDATE question SET question = '$question2' WHERE Id_question = '$q2id'";
+        $resultupdatequestion2 = mysqli_query($conn, $sqlupdatequestion2);
+
+        if (!$resultupdatequestion2) {
+            echo "Error: " . $sqlupdatequestion2 . "<br>" . mysqli_error($conn);
+        }
+
+        $sqlupdaterep2 = "UPDATE choix SET rep1 = '$q2rep1', rep2 ='$q2rep2', rep3 = '$q2rep3', Bonne_reponse = '$q2bonnerep' WHERE Id_question = '$q2id'";
+        $resultupdaterep2 = mysqli_query($conn, $sqlupdaterep2);
+
+        if (!$resultupdaterep2) {
+            echo "Error: " . $sqlupdaterep2 . "<br>" . mysqli_error($conn);
+        }
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
+        $sqlupdatequestion3 = "UPDATE question SET question = '$question3' WHERE Id_question = '$q3id'";
+        $resultupdatequestion3 = mysqli_query($conn, $sqlupdatequestion3);
+
+        if (!$resultupdatequestion3) {
+            echo "Error: " . $sqlupdatequestion3 . "<br>" . mysqli_error($conn);
+        }
+
+        $sqlupdaterep3 = "UPDATE choix SET rep1 = '$q3rep1', rep2 ='$q3rep2', rep3 = '$q3rep3', Bonne_reponse = '$q3bonnerep' WHERE Id_question = '$q3id'";
+        $resultupdaterep3 = mysqli_query($conn, $sqlupdaterep3);
+
+        if (!$resultupdaterep3) {
+            echo "Error: " . $sqlupdaterep3 . "<br>" . mysqli_error($conn);
+        }
+    
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
+        $sqlupdatequestion4 = "UPDATE question SET question = '$question4' WHERE Id_question = '$q4id'";
+        $resultupdatequestion4 = mysqli_query($conn, $sqlupdatequestion4);
+
+        if (!$resultupdatequestion4) {
+            echo "Error: " . $sqlupdatequestion4 . "<br>" . mysqli_error($conn);
+        }
+
+        $sqlupdaterep4 = "UPDATE choix SET rep1 = '$q4rep1', rep2 ='$q4rep2', rep3 = '$q4rep3', Bonne_reponse = '$q4bonnerep' WHERE Id_question = '$q4id'";
+        $resultupdaterep4 = mysqli_query($conn, $sqlupdaterep4);
+
+        if (!$resultupdaterep4) {
+            echo "Error: " . $sqlupdaterep4 . "<br>" . mysqli_error($conn);
+        }
+    
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
+        $sqlupdatequestion5 = "UPDATE question SET question = '$question5' WHERE Id_question = '$q5id'";
+        $resultupdatequestion5 = mysqli_query($conn, $sqlupdatequestion5);
+
+        if (!$resultupdatequestion5) {
+            echo "Error: " . $sqlupdatequestion5 . "<br>" . mysqli_error($conn);
+        }
+
+        $sqlupdaterep5 = "UPDATE choix SET rep1 = '$q5rep1', rep2 ='$q5rep2', rep3 = '$q5rep3', Bonne_reponse = '$q5bonnerep' WHERE Id_question = '$q5id'";
+        $resultupdaterep5 = mysqli_query($conn, $sqlupdaterep5);
+
+        if (!$resultupdaterep5) {
+            echo "Error: " . $sqlupdaterep5 . "<br>" . mysqli_error($conn);
+        }
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+        $sqlupdatequestion6 = "UPDATE question SET question = '$question6' WHERE Id_question = '$q6id'";
+        $resultupdatequestion6 = mysqli_query($conn, $sqlupdatequestion6);
+
+        if (!$resultupdatequestion6) {
+            echo "Error: " . $sqlupdatequestion6 . "<br>" . mysqli_error($conn);
+        }
+
+        $sqlupdaterep6 = "UPDATE choix SET rep1 = '$q6rep1', rep2 ='$q6rep2', rep3 = '$q6rep3', Bonne_reponse = '$q6bonnerep' WHERE Id_question = '$q6id'";
+        $resultupdaterep6 = mysqli_query($conn, $sqlupdaterep6);
+
+        if (!$resultupdaterep6) {
+            echo "Error: " . $sqlupdaterep6 . "<br>" . mysqli_error($conn);
+        }
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+        $sqlupdatequestion7 = "UPDATE question SET question = '$question7' WHERE Id_question = '$q7id'";
+        $resultupdatequestion7 = mysqli_query($conn, $sqlupdatequestion7);
+
+        if (!$resultupdatequestion7) {
+            echo "Error: " . $sqlupdatequestion7 . "<br>" . mysqli_error($conn);
+        }
+
+        $sqlupdaterep7 = "UPDATE choix SET rep1 = '$q7rep1', rep2 ='$q7rep2', rep3 = '$q7rep3', Bonne_reponse = '$q7bonnerep' WHERE Id_question = '$q7id'";
+        $resultupdaterep7 = mysqli_query($conn, $sqlupdaterep7);
+
+        if (!$resultupdaterep7) {
+            echo "Error: " . $sqlupdaterep7 . "<br>" . mysqli_error($conn);
+        }
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+        $sqlupdatequestion8 = "UPDATE question SET question = '$question8' WHERE Id_question = '$q8id'";
+        $resultupdatequestion8 = mysqli_query($conn, $sqlupdatequestion8);
+
+        if (!$resultupdatequestion8) {
+            echo "Error: " . $sqlupdatequestion8 . "<br>" . mysqli_error($conn);
+        }
+
+        $sqlupdaterep8 = "UPDATE choix SET rep1 = '$q8rep1', rep2 ='$q8rep2', rep3 = '$q8rep3', Bonne_reponse = '$q8bonnerep' WHERE Id_question = '$q8id'";
+        $resultupdaterep8 = mysqli_query($conn, $sqlupdaterep8);
+
+        if (!$resultupdaterep8) {
+            echo "Error: " . $sqlupdaterep8 . "<br>" . mysqli_error($conn);
+        }
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+        $sqlupdatequestion9 = "UPDATE question SET question = '$question9' WHERE Id_question = '$q9id'";
+        $resultupdatequestion9 = mysqli_query($conn, $sqlupdatequestion9);
+
+        if (!$resultupdatequestion9) {
+            echo "Error: " . $sqlupdatequestion9 . "<br>" . mysqli_error($conn);
+        }
+
+
+        $sqlupdaterep9 = "UPDATE choix SET rep1 = '$q9rep1', rep2 ='$q9rep2', rep3 = '$q9rep3', Bonne_reponse = '$q9bonnerep' WHERE Id_question = '$q9id'";
+        $resultupdaterep9 = mysqli_query($conn, $sqlupdaterep9);
+
+        if (!$resultupdaterep9) {
+            echo "Error: " . $sqlupdaterep9 . "<br>" . mysqli_error($conn);
+        }
+    
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
+        $sqlupdatequestion10 = "UPDATE question SET question = '$question10' WHERE Id_question = '$q10id'";
+        $resultupdatequestion10 = mysqli_query($conn, $sqlupdatequestion10);
+
+        if (!$resultupdatequestion10) {
+            echo "Error: " . $sqlupdatequestion10 . "<br>" . mysqli_error($conn);
+        }
+
+        $sqlupdaterep10 = "UPDATE choix SET rep1 = '$q10rep1', rep2 ='$q10rep2', rep3 = '$q10rep3', Bonne_reponse = '$q10bonnerep' WHERE Id_question = '$q10id'";
+        $resultupdaterep10 = mysqli_query($conn, $sqlupdaterep10);
+
+        if (!$resultupdaterep10) {
+            echo "Error: " . $sqlupdaterep10 . "<br>" . mysqli_error($conn);
+        }
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+    header("Location: dashboard.php?role=$role&user=$id_user");
+    } while (false);
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -254,7 +487,6 @@ $q10id = $questions[9]["id"];
                 echo "<a id='profil' href='dashboard.php?role=$role&user=$id_user'>";
                 echo "<img src='https://cdn-icons-png.flaticon.com/512/149/149071.png' alt='Photo de profil'>";
                 echo "</a>";
-
             ?>
         </div>
     </header>
@@ -266,16 +498,16 @@ $q10id = $questions[9]["id"];
         <div id="pageCreate">
             <form  method="post">
                 <div class="info-container">
-                    <input class="input-quiz" type="text" placeholder="Titre" name="titre" id="titre" value="<?php echo $titrequizz ?>" maxlength="15" required>
+                    <input class="input-quiz" type="text" placeholder="Titre" name="titre" id="titre" value="<?php echo $titrequizz?>" maxlength="15" required>
                     <!-- <input class="input-quiz" type="text" placeholder="Titre" maxlength="20" required
                         oninvalid="this.style.border='2px solid #ff5f45';"> -->
                     <h2>Difficulté</h2>
-                    <select name="difficulte" class="input-quiz difficulty" id="difficulte" value="<?php echo $difficulte ?>" placeholder="aze" required>
+                    <select name="difficulte" class="input-quiz difficulty" id="difficulte" value="<?php echo $difficulte?>" placeholder="aze" required>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                     </select>
-                    <input class="input-quiz" type="text" placeholder="Catégorie" name="categorie" id="categorie" value="<?php echo $categorie ?>" maxlength="15" required>
+                    <input class="input-quiz" type="text" placeholder="Catégorie" name="categorie" id="categorie" value="<?php echo $categorie?>" maxlength="15" required>
                 </div>
                 <div class="container-question">
                     <div class="question">
@@ -310,6 +542,7 @@ $q10id = $questions[9]["id"];
                                 <input type="text" name="q1bonnerep" id="q1bonnerep" value="<?php echo $q1bonnerep?>" required>
                             </div>
                             <div class="check">
+
                             </div>
                         </div>
                     </div>
@@ -670,256 +903,7 @@ $q10id = $questions[9]["id"];
             </form>
         </div>
     </div>
-<?php 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $titrequizz = $_POST["titre"];
-            $difficulte = $_POST["difficulte"];
-            $categorie = $_POST["categorie"];
-            
-            $question1 = $_POST["question1"];
-            $q1rep1 = $_POST["q1rep1"];
-            $q1rep2 = $_POST["q1rep2"];
-            $q1rep3 = $_POST["q1rep3"];
-            $q1bonnerep = $_POST["q1bonnerep"];
-        
-        
-            $question2 = $_POST["question2"];
-            $q2rep1 = $_POST["q2rep1"];
-            $q2rep2 = $_POST["q2rep2"];
-            $q2rep3 = $_POST["q2rep3"];
-            $q2bonnerep = $_POST["q2bonnerep"];
-        
-        
-            $question3 = $_POST["question3"];
-            $q3rep1 = $_POST["q3rep1"];
-            $q3rep2 = $_POST["q3rep2"];
-            $q3rep3 = $_POST["q3rep3"];
-            $q3bonnerep = $_POST["q3bonnerep"];
-        
-        
-            $question4 = $_POST["question4"];
-            $q4rep1 = $_POST["q4rep1"];
-            $q4rep2 = $_POST["q4rep2"];
-            $q4rep3 = $_POST["q4rep3"];
-            $q4bonnerep = $_POST["q4bonnerep"];
-                
-        
-            $question5 = $_POST["question5"];
-            $q5rep1 = $_POST["q5rep1"];
-            $q5rep2 = $_POST["q5rep2"];
-            $q5rep3 = $_POST["q5rep3"];
-            $q5bonnerep = $_POST["q5bonnerep"];
-        
-        
-            $question6 = $_POST["question6"];
-            $q6rep1 = $_POST["q6rep1"];
-            $q6rep2 = $_POST["q6rep2"];
-            $q6rep3 = $_POST["q6rep3"];
-            $q6bonnerep = $_POST["q6bonnerep"];
-        
-        
-            $question7 = $_POST["question7"];
-            $q7rep1 = $_POST["q7rep1"];
-            $q7rep2 = $_POST["q7rep2"];
-            $q7rep3 = $_POST["q7rep3"];
-            $q7bonnerep = $_POST["q7bonnerep"];
-        
-        
-            $question8 = $_POST["question8"];
-            $q8rep1 = $_POST["q8rep1"];
-            $q8rep2 = $_POST["q8rep2"];
-            $q8rep3 = $_POST["q8rep3"];
-            $q8bonnerep = $_POST["q8bonnerep"];
-        
-        
-            $question9 = $_POST["question9"];
-            $q9rep1 = $_POST["q9rep1"];
-            $q9rep2 = $_POST["q9rep2"];
-            $q9rep3 = $_POST["q9rep3"];
-            $q9bonnerep = $_POST["q9bonnerep"];
-        
-            
-            $question10 = $_POST["question10"];
-            $q10rep1 = $_POST["q10rep1"];
-            $q10rep2 = $_POST["q10rep2"];
-            $q10rep3 = $_POST["q10rep3"];
-            $q10bonnerep = $_POST["q10bonnerep"];
-        
-        
-            do {
 
-                $sqlupdatequizz = "UPDATE quizz SET Titre = '$titrequizz', difficulte = '$difficulte', Categorie = '$categorie' WHERE Id_quizz = '$id_quizz'";
-                $resultupdatequizz = mysqli_query($conn, $sqlupdatequizz);
-
-                if (!$resultupdatequizz) {
-                    echo "Error: " . $sqlupdatequizz . "<br>" . mysqli_error($conn);
-                }
-
-            //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
-                $sqlupdatequestion1 = "UPDATE question SET question = '$question1' WHERE Id_question = '$q1id'";
-                $resultupdatequestion1 = mysqli_query($conn, $sqlupdatequestion1);
-
-                if (!$resultupdatequestion1) {
-                    echo "Error: " . $sqlupdatequestion1 . "<br>" . mysqli_error($conn);
-                }
-
-                $sqlupdaterep1 = "UPDATE choix SET rep1 = '$q1rep1', rep2 ='$q1rep2', rep3 = '$q1rep3', Bonne_reponse = '$q1bonnerep' WHERE Id_question = '$q1id'";
-                $resultupdaterep1 = mysqli_query($conn, $sqlupdaterep1);
-
-                if (!$resultupdaterep1) {
-                    echo "Error: " . $sqlupdaterep1 . "<br>" . mysqli_error($conn);
-                }
-            //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
-                $sqlupdatequestion2 = "UPDATE question SET question = '$question2' WHERE Id_question = '$q2id'";
-                $resultupdatequestion2 = mysqli_query($conn, $sqlupdatequestion2);
-
-                if (!$resultupdatequestion2) {
-                    echo "Error: " . $sqlupdatequestion2 . "<br>" . mysqli_error($conn);
-                }
-
-                $sqlupdaterep2 = "UPDATE choix SET rep1 = '$q2rep1', rep2 ='$q2rep2', rep3 = '$q2rep3', Bonne_reponse = '$q2bonnerep' WHERE Id_question = '$q2id'";
-                $resultupdaterep2 = mysqli_query($conn, $sqlupdaterep2);
-
-                if (!$resultupdaterep2) {
-                    echo "Error: " . $sqlupdaterep2 . "<br>" . mysqli_error($conn);
-                }
-
-            //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
-                $sqlupdatequestion3 = "UPDATE question SET question = '$question3' WHERE Id_question = '$q3id'";
-                $resultupdatequestion3 = mysqli_query($conn, $sqlupdatequestion3);
-
-                if (!$resultupdatequestion3) {
-                    echo "Error: " . $sqlupdatequestion3 . "<br>" . mysqli_error($conn);
-                }
-
-                $sqlupdaterep3 = "UPDATE choix SET rep1 = '$q3rep1', rep2 ='$q3rep2', rep3 = '$q3rep3', Bonne_reponse = '$q3bonnerep' WHERE Id_question = '$q3id'";
-                $resultupdaterep3 = mysqli_query($conn, $sqlupdaterep3);
-
-                if (!$resultupdaterep3) {
-                    echo "Error: " . $sqlupdaterep3 . "<br>" . mysqli_error($conn);
-                }
-            
-            //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
-                $sqlupdatequestion4 = "UPDATE question SET question = '$question4' WHERE Id_question = '$q4id'";
-                $resultupdatequestion4 = mysqli_query($conn, $sqlupdatequestion4);
-
-                if (!$resultupdatequestion4) {
-                    echo "Error: " . $sqlupdatequestion4 . "<br>" . mysqli_error($conn);
-                }
-
-                $sqlupdaterep4 = "UPDATE choix SET rep1 = '$q4rep1', rep2 ='$q4rep2', rep3 = '$q4rep3', Bonne_reponse = '$q4bonnerep' WHERE Id_question = '$q4id'";
-                $resultupdaterep4 = mysqli_query($conn, $sqlupdaterep4);
-
-                if (!$resultupdaterep4) {
-                    echo "Error: " . $sqlupdaterep4 . "<br>" . mysqli_error($conn);
-                }
-            
-            //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
-                $sqlupdatequestion5 = "UPDATE question SET question = '$question5' WHERE Id_question = '$q5id'";
-                $resultupdatequestion5 = mysqli_query($conn, $sqlupdatequestion5);
-
-                if (!$resultupdatequestion5) {
-                    echo "Error: " . $sqlupdatequestion5 . "<br>" . mysqli_error($conn);
-                }
-
-                $sqlupdaterep5 = "UPDATE choix SET rep1 = '$q5rep1', rep2 ='$q5rep2', rep3 = '$q5rep3', Bonne_reponse = '$q5bonnerep' WHERE Id_question = '$q5id'";
-                $resultupdaterep5 = mysqli_query($conn, $sqlupdaterep5);
-
-                if (!$resultupdaterep5) {
-                    echo "Error: " . $sqlupdaterep5 . "<br>" . mysqli_error($conn);
-                }
-
-            //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
-
-                $sqlupdatequestion6 = "UPDATE question SET question = '$question6' WHERE Id_question = '$q6id'";
-                $resultupdatequestion6 = mysqli_query($conn, $sqlupdatequestion6);
-
-                if (!$resultupdatequestion6) {
-                    echo "Error: " . $sqlupdatequestion6 . "<br>" . mysqli_error($conn);
-                }
-
-                $sqlupdaterep6 = "UPDATE choix SET rep1 = '$q6rep1', rep2 ='$q6rep2', rep3 = '$q6rep3', Bonne_reponse = '$q6bonnerep' WHERE Id_question = '$q6id'";
-                $resultupdaterep6 = mysqli_query($conn, $sqlupdaterep6);
-
-                if (!$resultupdaterep6) {
-                    echo "Error: " . $sqlupdaterep6 . "<br>" . mysqli_error($conn);
-                }
-
-            //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
-
-                $sqlupdatequestion7 = "UPDATE question SET question = '$question7' WHERE Id_question = '$q7id'";
-                $resultupdatequestion7 = mysqli_query($conn, $sqlupdatequestion7);
-
-                if (!$resultupdatequestion7) {
-                    echo "Error: " . $sqlupdatequestion7 . "<br>" . mysqli_error($conn);
-                }
-
-                $sqlupdaterep7 = "UPDATE choix SET rep1 = '$q7rep1', rep2 ='$q7rep2', rep3 = '$q7rep3', Bonne_reponse = '$q7bonnerep' WHERE Id_question = '$q7id'";
-                $resultupdaterep7 = mysqli_query($conn, $sqlupdaterep7);
-
-                if (!$resultupdaterep7) {
-                    echo "Error: " . $sqlupdaterep7 . "<br>" . mysqli_error($conn);
-                }
-
-            //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
-
-                $sqlupdatequestion8 = "UPDATE question SET question = '$question8' WHERE Id_question = '$q8id'";
-                $resultupdatequestion8 = mysqli_query($conn, $sqlupdatequestion8);
-
-                if (!$resultupdatequestion8) {
-                    echo "Error: " . $sqlupdatequestion8 . "<br>" . mysqli_error($conn);
-                }
-
-                $sqlupdaterep8 = "UPDATE choix SET rep1 = '$q8rep1', rep2 ='$q8rep2', rep3 = '$q8rep3', Bonne_reponse = '$q8bonnerep' WHERE Id_question = '$q8id'";
-                $resultupdaterep8 = mysqli_query($conn, $sqlupdaterep8);
-
-                if (!$resultupdaterep8) {
-                    echo "Error: " . $sqlupdaterep8 . "<br>" . mysqli_error($conn);
-                }
-
-            //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
-
-                $sqlupdatequestion9 = "UPDATE question SET question = '$question9' WHERE Id_question = '$q9id'";
-                $resultupdatequestion9 = mysqli_query($conn, $sqlupdatequestion9);
-
-                if (!$resultupdatequestion9) {
-                    echo "Error: " . $sqlupdatequestion9 . "<br>" . mysqli_error($conn);
-                }
-
-
-                $sqlupdaterep9 = "UPDATE choix SET rep1 = '$q9rep1', rep2 ='$q9rep2', rep3 = '$q9rep3', Bonne_reponse = '$q9bonnerep' WHERE Id_question = '$q9id'";
-                $resultupdaterep9 = mysqli_query($conn, $sqlupdaterep9);
-
-                if (!$resultupdaterep9) {
-                    echo "Error: " . $sqlupdaterep9 . "<br>" . mysqli_error($conn);
-                }
-            
-            //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
-                $sqlupdatequestion10 = "UPDATE question SET question = '$question10' WHERE Id_question = '$q10id'";
-                $resultupdatequestion10 = mysqli_query($conn, $sqlupdatequestion10);
-
-                if (!$resultupdatequestion10) {
-                    echo "Error: " . $sqlupdatequestion10 . "<br>" . mysqli_error($conn);
-                }
-
-                $sqlupdaterep10 = "UPDATE choix SET rep1 = '$q10rep1', rep2 ='$q10rep2', rep3 = '$q10rep3', Bonne_reponse = '$q10bonnerep' WHERE Id_question = '$q10id'";
-                $resultupdaterep10 = mysqli_query($conn, $sqlupdaterep10);
-
-                if (!$resultupdaterep10) {
-                    echo "Error: " . $sqlupdaterep10 . "<br>" . mysqli_error($conn);
-                }
-
-            //-------------------------------------------------------------------------------------------------------------------------------------------------------------//
-
-
-            //redirect to the admin page
-            header("Location: admin.php");
-            
-            
-
-            } while (false);
-        }
-    ?>
     <script src="script.js"></script>
     <script>
         $(".arrow").click(function () {
