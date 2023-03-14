@@ -162,11 +162,16 @@ if(isset($_GET['role'])) {
                         $categorie_quizz = $row['Categorie'];
                         $date_quizz = $row['date_creation'];
 
+                        
                         echo "<div class='quiz2'>";
+                        echo "</a>";
                         echo "<a href='deletequiz.php?role=$role&user=$id_user&deletequizz=$id_quiz' onclick=\"return confirm('Êtes-vous sûr de vouloir supprimer ce quiz?')\">";
                         echo "<img class='trash2' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
-                        echo "</a>";                        
+                        
+                        echo "<a href='updatequizz.php?role=$role&user=$id_user&updatequizz=$id_quiz'>";       
                         echo "<h3 class='Name'>$nom_quiz</h3>";
+                        echo "</a>";
+                        
                         
                         switch ($categorie_quizz) {
                             case 'Sport':

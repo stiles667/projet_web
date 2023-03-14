@@ -76,10 +76,6 @@ $q10rep2 ="";
 $q10rep3 ="";
 $q10bonnerep ="";
 
-// $errorMessage = "";
-// $successMessage = "";
-
-
 //------------------------------------------------------------------------------------------------------------------------------
         $sqlquizz = "SELECT * FROM `quizz` WHERE `Id_quizz` = '$id_quizz'";
         $resultquizz = mysqli_query($conn, $sqlquizz);
@@ -90,11 +86,6 @@ $q10bonnerep ="";
                 $difficulte = $row["difficulte"];
                 $categorie = $row["Categorie"];
                 $datequizz = $row["date_creation"];
-
-                echo $titrequizz;
-                echo $difficulte;
-                echo $categorie;
-                echo $datequizz;
             }
         }
 
