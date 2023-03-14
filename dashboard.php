@@ -54,7 +54,7 @@ if(isset($_GET['role'])) {
     <div class="container">
         <div class="onglets">
             <div>
-                <div class="button active" data-onglet="onglet-1">
+                <div class="button active" data-onglet ="onglet-1">
                     <img src="https://img.icons8.com/fluency-systems-regular/256/home.png" alt="home">
                 </div>
                 <div class="button" data-onglet="onglet-2">
@@ -117,7 +117,7 @@ if(isset($_GET['role'])) {
                     </p>
                 </div>
                 <div class="box">
-                    <h3>Total scoreg</h3>
+                    <h3>Total score</h3>
                     <p class="number">
                         <?php 
                             $sqlscore = "SELECT SUM(Score) AS total FROM jouer WHERE Id_utilisateur = '$id_user'";

@@ -182,8 +182,8 @@ header a span:last-child {
 
 .quiz2 .trash2 {
   display: none;
-  width: 2vw;
-  height: 2vw;
+  width: 1.5vw;
+  height: 1.5vw;
   object-fit: cover;
   position: absolute;
   margin: 15px;
@@ -295,7 +295,7 @@ header a span:last-child {
 }
 
 .box .number {
-  font-size: 5vw;
+  font-size: 5.5vw;
 }
 
 .box p {
