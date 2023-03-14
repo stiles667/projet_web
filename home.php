@@ -109,7 +109,7 @@ if(isset($_GET['role'])) {
                         echo "<img src='https://cdn-icons-png.flaticon.com/512/8176/8176142.png' alt='Animal'>";
                         break;
                     case "Anime":
-                        echo "<img src='https://icones8.fr/icon/eWXAiv3hnUkS/adn-anime' alt='Anime'>";
+                        echo "<img src='fantome.png' alt='Anime'>";
                         break;
                     default:
                         echo "<img src='https://icones8.fr/icon/ibngCF4waBaR/quiz' alt='Default'>";
