@@ -1,12 +1,12 @@
 <?php
                             
-require('bdconnexion.php');
+require('bdconnexion.php');         // Connection to the database
 
-if(isset($_GET['user'])) {
+if(isset($_GET['user'])) {          // Get the user id from the url
     $id_user = $_GET['user'];
 }
 
-if(isset($_GET['role'])) {
+if(isset($_GET['role'])) {          // Get the user role from the url
     $role = $_GET['role'];
 }
 
@@ -27,24 +27,24 @@ if(isset($_GET['role'])) {
 
 <body>
     <header>
-        <?php
-            echo "<a class='home' href='home.php?role=$role&user=$id_user'>";
-            echo "<span>Quiz</span><span>zeo.</span>";
+        <?php       //Bouton home
+            echo "<a class='home' href='home.php?role=$role&user=$id_user'>";       // Send the user id and role to the home page
+            echo "<span>Quiz</span><span>zeo.</span>";                       // Logo
             echo "</a>";
         ?>
         <div class="options">
-        <?php 
-                $sqlutilisateur = "SELECT * FROM utilisateur WHERE Id_utilisateur = '$id_user'";
-                $resultutilisateur = mysqli_query($conn, $sqlutilisateur);
+        <?php       //Bouton profil
+                $sqlutilisateur = "SELECT * FROM utilisateur WHERE Id_utilisateur = '$id_user'";        // Get the user information
+                $resultutilisateur = mysqli_query($conn, $sqlutilisateur);      // Execute the query
 
-                $row = mysqli_fetch_assoc($resultutilisateur);
-                $role_user = $row['role_utilisateur'];
-                $pseudo = $row['pseudo'];
-                $email = $row['email'];
-                $id_utilisateur = $row['Id_utilisateur'];
+                $row = mysqli_fetch_assoc($resultutilisateur);      // Get the result
+                $role_user = $row['role_utilisateur'];        // Get the role
+                $pseudo = $row['pseudo'];       // Get the pseudo
+                $email = $row['email'];         // Get the email
+                $id_utilisateur = $row['Id_utilisateur'];       // Get the user id
 
-                echo "<h2>$pseudo</h2>";
-                echo "<a id='profil' href='dashboard.php?role=$role&user=$id_user'>";
+                echo "<h2>$pseudo</h2>";        // Display the pseudo
+                echo "<a id='profil' href='dashboard.php?role=$role&user=$id_user'>";       // Send the user id and role to the dashboard page
                 echo "<img src='https://cdn-icons-png.flaticon.com/512/149/149071.png' alt='Photo de profil'>";
                 echo "</a>";
     
@@ -95,36 +95,36 @@ if(isset($_GET['role'])) {
                 <div class="box">
                     <h3>Dernier quiz</h3>
                     <p>
-                        <?php
-                            $sql = "SELECT * FROM quizz ORDER BY Id_quizz DESC LIMIT 1";
-                            $result = mysqli_query($conn, $sql);
-                            $row = mysqli_fetch_assoc($result);
-                            $nom = $row['Titre'];
-                            echo $nom;
+                        <?php       // Get the last quiz title
+                            $sql = "SELECT * FROM quizz ORDER BY Id_quizz DESC LIMIT 1";        // Get the last quiz
+                            $result = mysqli_query($conn, $sql);        // Execute the query
+                            $row = mysqli_fetch_assoc($result);     // Get the result
+                            $nom = $row['Titre'];       // Get the title
+                            echo $nom;      // Display the title
                         ?>
                     </p>
                 </div>
                 <div class="box">
                     <h3>Quiz joué(s)</h3>
                     <p class="number">
-                        <?php 
-                            $sqltotal = "SELECT COUNT(*) AS total FROM jouer WHERE Id_utilisateur = '$id_user'";
-                            $resulttotal = mysqli_query($conn, $sqltotal);
-                            $row = mysqli_fetch_assoc($resulttotal);
-                            $total = $row['total'];
-                            echo $total;
+                        <?php       // Get the number of quiz played
+                            $sqltotal = "SELECT COUNT(*) AS total FROM jouer WHERE Id_utilisateur = '$id_user'";      // Get the number of quiz played by the user
+                            $resulttotal = mysqli_query($conn, $sqltotal);      // Execute the query
+                            $row = mysqli_fetch_assoc($resulttotal);        // Get the result
+                            $total = $row['total'];     // Get the number
+                            echo $total;        // Display the number
                         ?>
                     </p>
                 </div>
                 <div class="box">
                     <h3>Total score</h3>
                     <p class="number">
-                        <?php 
-                            $sqlscore = "SELECT SUM(Score) AS total FROM jouer WHERE Id_utilisateur = '$id_user'";
-                            $resultscore = mysqli_query($conn, $sqlscore);
-                            $row = mysqli_fetch_assoc($resultscore);
-                            $score = !empty($row['total']) ? $row['total'] : 0;
-                            echo $score;
+                        <?php       // Get the total score
+                            $sqlscore = "SELECT SUM(Score) AS total FROM jouer WHERE Id_utilisateur = '$id_user'";      // Get the total score of the user
+                            $resultscore = mysqli_query($conn, $sqlscore);      // Execute the query
+                            $row = mysqli_fetch_assoc($resultscore);        // Get the result
+                            $score = !empty($row['total']) ? $row['total'] : 0;     // Get the score
+                            echo $score;        // Display the score
                         ?>
                     </p>
                 </div>
@@ -142,38 +142,35 @@ if(isset($_GET['role'])) {
                 <p>Gérer vos quiz</p>
             </div>
             <div class="categories">
-                <?php 
-                    $sqlcreation = "SELECT * FROM creer WHERE Id_utilisateur = '$id_user'";
-                    $resultcreation = mysqli_query($conn, $sqlcreation);
+                <?php       
+                    $sqlcreation = "SELECT * FROM creer WHERE Id_utilisateur = '$id_user'";  // Get the quiz created by the user   
+                    $resultcreation = mysqli_query($conn, $sqlcreation);    
 
-                    //POUR POUVOIR AFFICHER LE SCORE SUR LE TABLEAU DE BORD
-                    // $sqlcreation2 = "SELECT * FROM jouer WHERE Id_utilisateur = '$id_user' AND Id_quizz = '$id_quiz' AND Score = '$score'";
-
-                    while($rowcreation = mysqli_fetch_assoc($resultcreation)) {
-                        $id_quiz = $rowcreation['Id_quizz'];
+                    while($rowcreation = mysqli_fetch_assoc($resultcreation)) {     // Get the result
+                        $id_quiz = $rowcreation['Id_quizz'];        // Get the quiz id
 
 
-                        $sqlquiz = "SELECT * FROM quizz WHERE Id_quizz = '$id_quiz'";
+                        $sqlquiz = "SELECT * FROM quizz WHERE Id_quizz = '$id_quiz'";       // Get the quiz from the quiz id
                         $resultquiz = mysqli_query($conn, $sqlquiz);
 
-                        $row = mysqli_fetch_assoc($resultquiz);
-                        $nom_quiz = $row['Titre'];
-                        $difficulte_quizz = $row['difficulte'];
-                        $categorie_quizz = $row['Categorie'];
-                        $date_quizz = $row['date_creation'];
+                        $row = mysqli_fetch_assoc($resultquiz);     // Get the result
+                        $nom_quiz = $row['Titre'];      // Get the title
+                        $difficulte_quizz = $row['difficulte'];     // Get the difficulty
+                        $categorie_quizz = $row['Categorie'];       // Get the category
+                        $date_quizz = $row['date_creation'];        // Get the date of creation
 
                         
-                        echo "<div class='quiz2'>";
+                        echo "<div class='quiz2'>";     // Display the quiz
                         echo "</a>";
-                        echo "<a href='deletequiz.php?role=$role&user=$id_user&deletequizz=$id_quiz' onclick=\"return confirm('Êtes-vous sûr de vouloir supprimer ce quiz?')\">";
-                        echo "<img class='trash2' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
+                        echo "<a href='deletequiz.php?role=$role&user=$id_user&deletequizz=$id_quiz' onclick=\"return confirm('Êtes-vous sûr de vouloir supprimer ce quiz?')\">";  // Delete the quiz
+                        echo "<img class='trash2' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";      // Display the trash icon
                         
-                        echo "<a href='updatequizz.php?role=$role&user=$id_user&updatequizz=$id_quiz'>";       
-                        echo "<h3 class='Name'>$nom_quiz</h3>";
-                        echo "</a>";
+                        echo "<a href='updatequizz.php?role=$role&user=$id_user&updatequizz=$id_quiz'>";       // Update the quiz
+                        echo "<h3 class='Name'>$nom_quiz</h3>";     // Display the title
+                        echo "</a>";    
                         
                         
-                        switch ($categorie_quizz) {
+                        switch ($categorie_quizz) {         // Display the category icon
                             case 'Sport':
                                 echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4218/4218113.png' alt='Sport'>";
                                 break;
@@ -188,6 +185,11 @@ if(isset($_GET['role'])) {
                                 break;
                             case 'Animal':
                                 echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/8176/8176142.png' alt='Animal'>";
+                                break;
+                            case 'Anime':
+                                echo '<img class="illustration" src="fantome.png" alt="Anime">';
+                                break;
+
                         }
                         echo "</div>";
                     }
