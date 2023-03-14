@@ -54,7 +54,7 @@ if(isset($_GET['role'])) {
     <div class="container">
         <div class="onglets">
             <div>
-                <div class="button active" data-onglet="onglet-1">
+                <div class="button active" data-onglet ="onglet-1">
                     <img src="https://img.icons8.com/fluency-systems-regular/256/home.png" alt="home">
                 </div>
                 <div class="button" data-onglet="onglet-2">
@@ -103,10 +103,9 @@ if(isset($_GET['role'])) {
                             echo $nom;
                         ?>
                     </p>
-                    <h3>Difficulté 3</h3>
                 </div>
                 <div class="box">
-                    <h3>Total quiz</h3>
+                    <h3>Quiz joué(s)</h3>
                     <p class="number">
                         <?php 
                             $sqltotal = "SELECT COUNT(*) AS total FROM jouer WHERE Id_utilisateur = '$id_user'";
@@ -116,10 +115,9 @@ if(isset($_GET['role'])) {
                             echo $total;
                         ?>
                     </p>
-                    <h3>quiz</h3>
                 </div>
                 <div class="box">
-                    <h3>Score</h3>
+                    <h3>Total score</h3>
                     <p class="number">
                         <?php 
                             $sqlscore = "SELECT SUM(Score) AS total FROM jouer WHERE Id_utilisateur = '$id_user'";
@@ -129,17 +127,6 @@ if(isset($_GET['role'])) {
                             echo $score;
                         ?>
                     </p>
-                    <h3>quiz</h3>
-                </div>
-                <div class="box">
-                    <h3>Heure</h3>
-                    <p id="time"></p>
-                    <h3>Changer</h3>
-                </div>
-                <div class="box">
-                    <h3>Date</h3>
-                    <p id="date"><?php echo date("d/m/Y"); ?></p>
-                    <h3>Date</h3>
                 </div>
             </div>
         </div>
@@ -462,7 +449,6 @@ if(isset($_GET['role'])) {
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
     <script>
         if ('<?php echo $id_user ?>' !== '1') {
             $('#onglet-3, #onglet-4, .button[data-onglet="onglet-3"], .button[data-onglet="onglet-4"],hr').remove();
@@ -489,41 +475,46 @@ if(isset($_GET['role'])) {
             $(".search-container").css("width", "220px");
         });
 
-        function updateTime() {
-            var now = new Date();
-            var hours = now.getHours();
-            var minutes = now.getMinutes();
-            var seconds = now.getSeconds();
-            
-            if (hours < 10) { 
-                hours = "0" + hours; 
-            }
-            if (minutes < 10) { 
-                minutes = "0" + minutes; 
-            }
-            if (seconds < 10) { 
-                seconds = "0" + seconds; 
-            }
-            document.getElementById("time").textContent = hours + ":" + minutes + ":" + seconds;
-        }
-        setInterval(updateTime, 1000);
-
-        $(".searchBar").on("input", function () {
+        $(".searchBar").on("input", function() {
             const query = $(this).val().toLowerCase();
-            $(".imgCategorie").each(function() {
-                const title = $(this).data("category").toLowerCase();
-
-                if (title.includes(query)) {
-                    $(this).css("display", "flex");
+            $("tr:not(:first-child)").each(function() {
+                const utilisateur = $(this).find("td:nth-child(2)").text().toLowerCase();
+                const titre = $(this).find("td:nth-child(3)").text().toLowerCase();
+                if (utilisateur.includes(query) || titre.includes(query)) {
+                    $(this).show();
                 } else {
-                    $(this).css("display", "none");
+                    $(this).hide();
                 }
             });
-        }); 
+        });
 
-        $('.searchBar').click(function () {
-            console.log("click")
-        }); 
+
+        // $(".searchBar").on("input", function () {
+        //     const query = $(this).val().toLowerCase();
+        //     $("tr").each(function() {
+        //         const title = $(this).find("td:eq(2)").text().toLowerCase();
+
+        //         if (title.includes(query)) {
+        //             $(this).css("display", "flex");
+        //         } else {
+        //             $(this).css("display", "none");
+        //         }
+        //     });
+        // });
+
+
+        // $(".searchBar").on("input", function () {
+        //     const query = $(this).val().toLowerCase();
+        //     $("tr").each(function() {
+        //         const title = $(this).data("category").toLowerCase();
+
+        //         if (title.includes(query)) {
+        //             $(this).css("display", "flex");
+        //         } else {
+        //             $(this).css("display", "none");
+        //         }
+        //     });
+        // });
 
     </script>
 </body>
