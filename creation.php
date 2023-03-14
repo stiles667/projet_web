@@ -617,7 +617,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <img src="https://img.icons8.com/color/256/add-folder.png">
         </div>
         <div id="pageCreate">
+<<<<<<< HEAD
             <form  method="post" action="">
+=======
+            <form  method="post">
+>>>>>>> 18635e70cc7a6c246bd150d4047c0737ef5eae0f
                 <div class="info-container">
                     <input class="input-quiz" type="text" placeholder="Titre" name="titre" id="titre" maxlength="15" required>
                     <!-- <input class="input-quiz" type="text" placeholder="Titre" maxlength="20" required
