@@ -283,7 +283,7 @@ if(isset($_GET['role'])) {
                                 echo "<td>" .$date_quizz ."</td>";
 
                                 echo "<td>";
-                                echo "<a href='#'>";
+                                echo "<a href='updatequizz.php?role=$role&user=$id_user&updatequizz=$id_quiz'>";
                                 echo "<img class='edit' src='https://cdn-icons-png.flaticon.com/512/5204/5204758.png' alt='Modifier'>";
                                 echo "</a>";
                                 echo "</td>";
