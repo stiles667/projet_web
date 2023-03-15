@@ -454,71 +454,43 @@ if(isset($_GET['role'])) {          // Get the user role from the url
         </div>
     </div>
     <script>
-        if ('<?php echo $id_user ?>' !== '1') {
-            $('#onglet-3, #onglet-4, .button[data-onglet="onglet-3"], .button[data-onglet="onglet-4"],hr').remove();
+        if ('<?php echo $id_user ?>' !== '1') {         // If the user is not the admin
+            $('#onglet-3, #onglet-4, .button[data-onglet="onglet-3"], .button[data-onglet="onglet-4"],hr').remove();     // Remove the button admin and the container
         }
 
-        if ('<?php echo $role ?>' !== 'Administrateur' && '<?php echo $role ?>' !== 'Quizzeur') {
-            $('.button[data-onglet="onglet-2"]').remove();
+        if ('<?php echo $role ?>' !== 'Administrateur' && '<?php echo $role ?>' !== 'Quizzeur') {       // If the user is not the admin or the quizzeur
+            $('.button[data-onglet="onglet-2"]').remove();      // Remove the button quizzeur
         }
 
-        $(".button").click(function () {
-            $(".button").removeClass("active");
-            $(".container-onglet").removeClass("active");
+        $(".button").click(function () {                // When the user click on a button
+            $(".button").removeClass("active");        // We remove the actual the page that we see
+            $(".container-onglet").removeClass("active");       
 
-            $(this).addClass("active");
-            var tab = $(this).data("onglet");
-            $("#" + tab).addClass("active");
+            $(this).addClass("active");             //We add the page that we want to see
+            var tab = $(this).data("onglet");       //We get the id of the page that we want to see
+            $("#" + tab).addClass("active");    //We add the page that we want to see
         });
 
-        $('input[type="search"]').focus(function () {
-            $(".search-container").css("width", "400px");
+        $('input[type="search"]').focus(function () {           // When the user click on the search bar
+            $(".search-container").css("width", "400px");       // We increase the size of the search bar
         });
 
-        $('input[type="search"]').blur(function () {
-            $(".search-container").css("width", "220px");
+        $('input[type="search"]').blur(function () {            // When the user click outside the search bar
+            $(".search-container").css("width", "220px");       // We decrease the size of the search bar
         });
 
-        $(".searchBar").on("input", function() {
-            const query = $(this).val().toLowerCase();
-            $("tr:not(:first-child)").each(function() {
-                const utilisateur = $(this).find("td:nth-child(2)").text().toLowerCase();
+        $(".searchBar").on("input", function() {            // When the user type something in the search bar
+                const query = $(this).val().toLowerCase();
+                $("tr:not(:first-child)").each(function() {     // We get all the rows of the table
+                const utilisateur = $(this).find("td:nth-child(2)").text().toLowerCase();   // We get the name of the user
                 const titre = $(this).find("td:nth-child(3)").text().toLowerCase();
-                if (utilisateur.includes(query) || titre.includes(query)) {
-                    $(this).show();
-                } else {
-                    $(this).hide();
+                if (utilisateur.includes(query) || titre.includes(query)) {     // If the name of the user or the title of the quiz contains the query
+                    $(this).show();     // We show the row
+                } else {        // If not
+                    $(this).hide();     // We hide the row
                 }
             });
         });
-
-
-        // $(".searchBar").on("input", function () {
-        //     const query = $(this).val().toLowerCase();
-        //     $("tr").each(function() {
-        //         const title = $(this).find("td:eq(2)").text().toLowerCase();
-
-        //         if (title.includes(query)) {
-        //             $(this).css("display", "flex");
-        //         } else {
-        //             $(this).css("display", "none");
-        //         }
-        //     });
-        // });
-
-
-        // $(".searchBar").on("input", function () {
-        //     const query = $(this).val().toLowerCase();
-        //     $("tr").each(function() {
-        //         const title = $(this).data("category").toLowerCase();
-
-        //         if (title.includes(query)) {
-        //             $(this).css("display", "flex");
-        //         } else {
-        //             $(this).css("display", "none");
-        //         }
-        //     });
-        // });
 
     </script>
 </body>

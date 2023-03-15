@@ -9,7 +9,7 @@ if(isset($_GET['role'])) {
     $role = $_GET['role'];
 }
 
-$titrequizz ="";
+$titrequizz ="";            //We declare all the variables we will use in the form
 $difficulte ="";
 
 $question1 ="";
@@ -75,7 +75,7 @@ $q10bonnerep ="";
 // $errorMessage = "";
 // $successMessage = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has been submitted, if yes we get all the values from the form
     $titrequizz = $_POST["titre"];
     $difficulte = $_POST["difficulte"];
     $categorie = $_POST["categorie"];
@@ -150,29 +150,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $q10bonnerep = $_POST["q10bonnerep"];
 
 
-    do {
+    do {            //Do while loop to check if there is an error in the form
 
-        $date = date("Y-m-d");
+        $date = date("Y-m-d");              //We get the current date
 //------------------------------------------------------------------------------------------------------------------------------
         $sqlquizz = "INSERT INTO `quizz`(`Titre`, `difficulte`, `date_creation`, `Categorie`) VALUES ('$titrequizz','$difficulte','$date', '$categorie')";
-        $result = mysqli_query($conn, $sqlquizz);
+        $result = mysqli_query($conn, $sqlquizz);       // We insert the quizz in the database and we check if it worked
 
         if (!$result) {
             $errorMessage = "Erreur lors de l'ajout du quizz";
             break;
         }
 
-        $sqlidquizz = "SELECT `Id_quizz` FROM `quizz` WHERE Titre = '$titrequizz'";
+        $sqlidquizz = "SELECT `Id_quizz` FROM `quizz` WHERE Titre = '$titrequizz'";     //We get the id of the quizz we just created
         $resultidquizz = mysqli_query($conn, $sqlidquizz);
 
         if (mysqli_num_rows($resultidquizz) > 0) {
             while ($row = mysqli_fetch_assoc($resultidquizz)) {
-                $id_quizz = $row['Id_quizz'];
+                $id_quizz = $row['Id_quizz'];       
             }
         }
 //------------------------------------------------------------------------------------------------------------------------------
-        $sqlcreer = "INSERT INTO `creer`(`Id_quizz`, `Id_utilisateur`) VALUES ('$id_quizz','$id_user')";
-        $resultcreer = mysqli_query($conn, $sqlcreer);
+        $sqlcreer = "INSERT INTO `creer`(`Id_quizz`, `Id_utilisateur`) VALUES ('$id_quizz','$id_user')";    
+        $resultcreer = mysqli_query($conn, $sqlcreer);     //We insert the quizz in the database and we check if it worked
 
         if (!$resultcreer) {
             echo "Erreur lors de l'ajout de creer";
@@ -181,15 +181,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 //------------------------------------------------------------------------------------------------------------------------------
         $sqlquestion1 = "INSERT INTO `question`(`Id_quizz`, `question`, `difficulte`, `date_creation`) VALUES ('$id_quizz','$question1','$difficulte','$date')";
-        $resultq1 = mysqli_query($conn, $sqlquestion1);
+        $resultq1 = mysqli_query($conn, $sqlquestion1);     // We insert the question in the database and we check if it worked
 
         if (!$resultq1) {
             echo "Erreur lors de l'ajout du question1";
             break;
         }
 
-        $sqlidquestion1 = "SELECT `Id_question` FROM `question` WHERE question = '$question1'";
-        $resultidquestion1 = mysqli_query($conn, $sqlidquestion1);
+        $sqlidquestion1 = "SELECT `Id_question` FROM `question` WHERE question = '$question1'";    //We get the id of the question we just created
+        $resultidquestion1 = mysqli_query($conn, $sqlidquestion1);      
         if (mysqli_num_rows($resultidquestion1) > 0) {
             while ($row2 = mysqli_fetch_assoc($resultidquestion1)) {
                 $id_q1 = $row2['Id_question'];
@@ -197,7 +197,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $sqlrep1 = "INSERT INTO `choix`(`rep1`,`rep2`, `rep3`, `Bonne_reponse`, `Id_question`) VALUES ('$q1rep1','$q1rep2','$q1rep3','$q1bonnerep','$id_q1')";
-        $resultrep1 = mysqli_query($conn, $sqlrep1);
+        $resultrep1 = mysqli_query($conn, $sqlrep1);        // We insert the answers in the database and we check if it worked
 
         if (!$resultrep1) {
             echo "Erreur lors de l'ajout de la reponse1";
@@ -904,15 +904,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     <script src="script.js"></script>
     <script>
-        $(".arrow").click(function () {
+        $(".arrow").click(function () {         //When we click on the arrow, the container answer will appear or disappear
 
-        var $containerAnswer = $(this).closest(".container-question").find(".container-answer");
+        var $containerAnswer = $(this).closest(".container-question").find(".container-answer");        
         var $containerBar = $(this).closest(".container-question").find(".bar");
         
-        if ($containerAnswer.height() > 0) {
+        if ($containerAnswer.height() > 0) {        //If the height of the container answer is greater than 0, it will be set to 0
             $containerAnswer.height(0);
             $containerBar.height(60);
-        } else {
+        } else {                    //If the height of the container answer is equal to 0, it will be set to the scroll height
             $containerAnswer.height(
                 $containerAnswer.prop("scrollHeight") + "px"
             );
@@ -922,7 +922,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         });
 
-        $(".arrow").click(function () {
+        $(".arrow").click(function () {         //When we click on the arrow, the arrow will rotate
             $(this).toggleClass("rotate");
         });
     </script>
