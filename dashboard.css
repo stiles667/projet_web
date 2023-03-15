@@ -164,10 +164,8 @@ header a span:last-child {
 }
 
 .quiz2:last-child {
-  /* padding: 70px; */
-  border: 3px dashed #f1f1f1;
   border-spacing: 40px;
-  background-color: transparent;
+  background-color: #ff5f45;
 }
 
 .quiz2:last-child img:last-child {
