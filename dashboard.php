@@ -491,10 +491,6 @@ if(isset($_GET['role'])) {          // Get the user role from the url
                 }
             });
         });
-<<<<<<< HEAD
-
-=======
->>>>>>> 5b503ec8ecdcef906de38a3967239a296c0d890c
     </script>
 </body>
 
