@@ -3,7 +3,7 @@
 * {
   margin: 0;
   padding: 0;
-  text-decoration: none;
+  text-decoration: none !important;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
@@ -19,7 +19,8 @@ header {
   align-items: center;
   justify-content: space-between;
   color: white;
-  height: 100px;}
+  height: 100px;
+}
 
 .home {
   margin-left: 35px;
@@ -50,6 +51,7 @@ header a span:last-child {
   font-size: 18px;
   font-weight: 500;
   margin-right: 20px;
+  margin-bottom: 0;
 }
 
 .options a {
@@ -74,11 +76,6 @@ header a span:last-child {
   object-fit: cover;
 }
 
-/* .container {
-  height: 829px;
-  width: 100%;
-} */
-
 .icons {
   position: absolute;
 }
@@ -98,7 +95,6 @@ header a span:last-child {
   top: 0;
   left: 90px;
   rotate: 137deg;
-  /* filter: blur(3px); */
 }
 
 .icons img:nth-child(2) {
@@ -107,7 +103,6 @@ header a span:last-child {
   top: -135px;
   left: 260px;
   rotate: -171deg;
-  /* filter: blur(3px); */
   z-index: -1;
 }
 
@@ -202,9 +197,8 @@ header a span:last-child {
   justify-content: center;
   height: 100%;
   width: auto;
-  padding: 12px;
+  padding: 0.8vw;
   cursor: pointer;
-  border-radius: 10px;
   user-select: none;
 }
 
@@ -219,18 +213,19 @@ header a span:last-child {
   height: 100%;
   color: #333333;
   border: none;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 1vw 1vw 0;
   outline: none;
 }
 
 .categories {
   display: grid;
-  /* height: 600px; */
+  height: 30vw;
   grid-template-columns: repeat(8, 1fr);
-  grid-gap: 18px;
+  grid-gap: 1vw;
   color: white;
-  /* overflow-y: scroll; */
-  margin: 18px;
+  padding-right: 15px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .imgCategorie {
@@ -241,10 +236,9 @@ header a span:last-child {
   height: 0;
   padding-bottom: 100%;
   background-color: #1f1f1fbe;
-  border-radius: 15px;
+  border-radius: 1vw;
   cursor: pointer;
   user-select: none;
-  /* padding: 40px 40px 60px 40px; */
 }
 
 .imgCategorie img {
@@ -300,11 +294,27 @@ header a span:last-child {
 .Name {
   position: absolute;
   color: white;
-  bottom: 5px;
-  left: 20px;
+  bottom: 0.15vw;
+  left: 1vw;
   font-size: 1vw;
   font-weight: 500;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar {
+  width: 0.46vw;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #1f1f1fbe;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 1vw;
+  background-color: #444444;
+  border-radius: 10px;
+  background-clip: content-box;
 }
 
 @keyframes move-icon {

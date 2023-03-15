@@ -90,7 +90,7 @@ require ('bdconnexion.php');
                 }
             }
             ?>
-            <form method="post" action="">
+            <form method="post">
                 <input type="text" name="pseudo" placeholder="Nom d'utilisateur" required>
                 <input type="email" name="email" placeholder="E-mail" required>
                 <input type="password" name="password" placeholder="Mot de passe" required>

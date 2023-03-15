@@ -83,7 +83,7 @@ header a span:last-child {
 
 .container {
   display: flex;
-  height: 100%;
+  height: 43vw;
   max-width: 100%;
   padding: 25px;
   box-sizing: border-box;
@@ -103,10 +103,11 @@ header a span:last-child {
 
 .categories {
   display: grid;
-  height: 600px;
-  grid-template-columns: repeat(7, 1fr);
-  grid-gap: 18px;
+  height: 34vw;
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 1vw;
   color: white;
+  padding-right: 15px;
   overflow-y: scroll;
 }
 
@@ -118,7 +119,7 @@ header a span:last-child {
   height: 0;
   padding-bottom: 100%;
   background-color: #1f1f1fbe;
-  border-radius: 15px;
+  border-radius: 1vw;
   cursor: pointer;
   user-select: none;
 }
@@ -202,9 +203,10 @@ header a span:last-child {
 
 .Name {
   position: absolute;
-  bottom: 10px;
-  left: 20px;
-  font-size: 25px;
+  color: white;
+  bottom: 0.5vw;
+  left: 1vw;
+  font-size: 1vw;
   font-weight: 500;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -429,14 +431,14 @@ button {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  height: 40vw;
+  height: 100%;
   margin-right: 20px;
   background-color: #1f1f1fbe;
   border-radius: 15px;
 }
 
 .container-onglet {
-  height: 40vw;
+  height: 100%;
   width: 100%;
   display: none;
   overflow: hidden;
