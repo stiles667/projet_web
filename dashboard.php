@@ -93,7 +93,7 @@ if(isset($_GET['role'])) {          // Get the user role from the url
             </div>
             <div id="statistics">
                 <div class="box">
-                    <h3>Dernier quiz</h3>
+                    <h3>Nouveau quiz</h3>
                     <p>
                         <?php       // Get the last quiz title
                             $sql = "SELECT * FROM quizz ORDER BY Id_quizz DESC LIMIT 1";        // Get the last quiz

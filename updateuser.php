@@ -104,7 +104,8 @@ if (isset($_GET['updateRole'])) {
             $pseudo = $_POST['pseudo'];
             $email = $_POST['email'];
             $role = $_POST['role'];
-            $sql = "UPDATE utilisateur SET pseudo = '$pseudo', email = '$email', role_utilisateur = '$role' WHERE Id_utilisateur = '$updateId'";
+            $password  = $_POST['password'];
+            $sql = "UPDATE utilisateur SET pseudo = '$pseudo', email = '$email', password = '$password', role_utilisateur = '$role' WHERE Id_utilisateur = '$updateId'";
             $result = mysqli_query($conn, $sql);
 
             switch ($roleuser) {

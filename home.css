@@ -241,6 +241,10 @@ header a span:last-child {
   user-select: none;
 }
 
+.imgCategorie a {
+  border-radius: 100%;
+}
+
 .imgCategorie img {
   position: absolute;
   top: 50%;

@@ -223,11 +223,14 @@
             }
 
             isanswered = true;
+
             if (selectedOption === quizz[numquestion].correct) {
                 score++;
             }
+
             numquestion++;
             numberquestion++;
+
             if (numquestion < quizz.length) {
                 resetTimer();
                 _nbquestion.innerHTML = "Question " + numberquestion + "/10";
