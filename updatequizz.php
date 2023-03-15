@@ -84,7 +84,7 @@ $q10bonnerep ="";
             while ($row = mysqli_fetch_assoc($resultquizz)) {
                 $titrequizz = $row["Titre"];
                 $difficulte = $row["difficulte"];
-                $categorie = $row["Categorie"];
+                $url = $row["url"];
                 $datequizz = $row["date_creation"];
             }
         }
@@ -200,7 +200,7 @@ $q10id = $questions[9]["id"];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titrequizz = $_POST["titre"];
     $difficulte = $_POST["difficulte"];
-    $categorie = $_POST["categorie"];
+    $url = $_POST["url"];
     
     $question1 = $_POST["question1"];
     $q1rep1 = $_POST["q1rep1"];
@@ -274,7 +274,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     do {
 
-        $sqlupdatequizz = "UPDATE quizz SET Titre = '$titrequizz', difficulte = '$difficulte', Categorie = '$categorie' WHERE Id_quizz = '$id_quizz'";
+        $sqlupdatequizz = "UPDATE quizz SET Titre = '$titrequizz', difficulte = '$difficulte', Categorie = '$url' WHERE Id_quizz = '$id_quizz'";
         $resultupdatequizz = mysqli_query($conn, $sqlupdatequizz);
 
         if (!$resultupdatequizz) {
@@ -498,7 +498,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <option value="2">2</option>
                         <option value="3">3</option>
                     </select>
-                    <input class="input-quiz" type="text" placeholder="Catégorie" name="categorie" id="categorie" value="<?php echo $categorie?>" maxlength="15" required>
+                    <input class="input-quiz" type="text" placeholder="Catégorie" name="categorie" id="categorie" value="<?php echo $url?>" maxlength="15" required>
                 </div>
                 <div class="container-question">
                     <div class="question">
