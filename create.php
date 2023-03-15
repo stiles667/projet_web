@@ -18,59 +18,88 @@ $role ="";
 $errorMessage = "";
 $successMessage = "";
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pseudo = $_POST["pseudo"];
     $email = $_POST["email"];
     $password = $_POST["password"];
     $role = $_POST["role"];
+    
+    if (empty($pseudo) || empty($email) || empty($password) || empty($role)) {
+        $errorMessage = "Veuillez remplir tous les champs";
+    } else {
+        
+        $conn = mysqli_connect("localhost", "nom_utilisateur", "mot_de_passe", "nom_base_de_donnees");
+        
+        if (!$conn) {
+            $errorMessage = "Erreur de connexion : ".mysqli_connect_error();
+        } else {
+            
+            $pseudo = mysqli_real_escape_string($conn, $pseudo);
+            $email = mysqli_real_escape_string($conn, $email);
+            $password = mysqli_real_escape_string($conn, $password);
+            $role = mysqli_real_escape_string($conn, $role);
+            
+            $sql = "INSERT INTO `utilisateur`(`pseudo`, `email`, `password`, `role_utilisateur`) VALUES ('$pseudo','$email','$password','$role')";
+            $result = mysqli_query($conn, $sql);
+ 
+            if (!$result) {
+                $errorMessage = "Erreur lors de l'ajout de l'utilisateur : ".mysqli_error($conn);
+            } else {
+                
+                $id_user = mysqli_insert_id($conn);
 
-    do {
-        if (empty($pseudo) || empty($email) || empty($password) || empty($role)) {
-            $errorMessage = "Veuillez remplir tous les champs";
-            break;
+                $successMessage = "Utilisateur ajouté avec succès";
+
+                header("Location: dashboard.php?role=$role&user=$id_user");
+                exit;
+            }
+            mysqli_close($conn);
         }
-
-        // Add new user to database
-
-        $sql = "INSERT INTO `utilisateur`(`pseudo`, `email`, `password`, `role_utilisateur`) VALUES ('$pseudo','$email','$password','$role')";
-        $result = mysqli_query($conn, $sql);
-
-        if (!$result) {
-            $errorMessage = "Erreur lors de l'ajout de l'utilisateur";
-            break;
-        }
-
-        $name = "";
-        $email = "";
-        $password = "";
-        $role = "";
-
-        $successMessage = "Utilisateur ajouté avec succès";
-
-        header('Location:dashboard.php?role='.$role.'&user='.$id_user.'');
-        exit;
-
-    } while (false);
+    }
 }
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes Utilisateurs</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="icon" href="https://img.icons8.com/sf-black/64/000000/search.png">
+    <link rel="stylesheet" href="updateuser.css">
+    <title>Quizzeo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
+
 <body>
+    <header>
+        <?php
+        echo "<a class='home' href='home.php?role=$role&user=$id_user'>";
+        echo "<span>Quiz</span><span>zeo.</span>";
+        echo "</a>";
+        ?>
+        <div class="options">
+            <?php
+            $sqlutilisateur = "SELECT * FROM utilisateur WHERE Id_utilisateur = '$id_user'";
+            $resultutilisateur = mysqli_query($conn, $sqlutilisateur);
+
+            $row = mysqli_fetch_assoc($resultutilisateur);
+            $role_user = $row['role_utilisateur'];
+            $pseudo = $row['pseudo'];
+
+            echo "<h2>$pseudo</h2>";
+            echo "<a id='profil' href='dashboard.php?role=$role&user=$id_user'>";
+            echo "<img src='https://cdn-icons-png.flaticon.com/512/149/149071.png' alt='Photo de profil'>";
+            echo "</a>";
+            ?>
+        </div>
+    </header>
     <div class="container my-5">
-        <h2>Nouvel Utilisateur</h2>
+        <h2>Ajout d'un nouvel utilisateur</h2>
 
         <?php 
             if (!empty($errorMessage)) {
@@ -84,39 +113,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ?>
 
         <form method="post">
-
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Pseudo</label>
-                <div class="col-sm-6">
-                    <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" class="form-control" value="<?php echo $pseudo; ?>">
-                </div>
+            <div>
+                <label for='name'>Nom d'utilisateur</label>
+                <input type='text' name='pseudo' id='pseudo' value='<?php echo $pseudo?>' required>
             </div>
-
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Email</label>
-                <div class="col-sm-6">
-                    <input type="email" name="email" id="email" placeholder="Email" class="form-control" value="<?php echo $email; ?>">
-                </div>
+            <div>
+                <label for='Email'>Email</label>
+                <input type='email' name='email' id='email' value='<?php echo $email?>' required>
             </div>
-
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Mot de passe</label>
-                <div class="col-sm-6">
-                    <input type="password" name="password" id="password" placeholder="Mot de passe" class="form-control" value="<?php echo $password; ?>">
-                </div>
+            <div>
+                <label for='password'>Mot de passe</label>
+                <input type='password' name='password' id='password' value='<?php echo $password?>' required>
             </div>
-
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Rôle</label>
-                <div class="col-sm-6">
-                    <select name="role" id="role" class="form-control">
-                        <option value="1">Utilisateur</option>
-                        <option value="2">Quizzeur</option>
-                        <option value="3">Administrateur</option>
-                    </select>
-                </div>
+            <div>
+                <label for='role'>Role</label>
+                <select name='role' id='role'>
+                    <option value='1'>Utilisateur</option>
+                    <option value='2'>Quizzeur</option>
+                    <option value='3'>Administrateur</option>
+                </select>
             </div>
-
+            <div>
+                <input type='submit' name='submit' value="Modifier">
+            </div>
             <?php 
                 if (!empty($successMessage)) {
                     echo "
@@ -127,16 +146,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         ";
                 }
             ?>
-
-            <div class="row mb-3">
-                <div class="offset-sm-3 col-sm-3 d-grid">
-                    <button type="submit" class="btn btn-primary">Ajouter</button>
-                </div>
-                <div class="col-sm-3 d-grid">
-                    <a class="btn btn-outline-primary" href="/" role="button">Annuler</a>
-                </div>
-            </div>
-
         </form>
     </div>
 </body>

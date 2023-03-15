@@ -1,76 +1,76 @@
-<?php 
+<?php
 require('bdconnexion.php');
 
-if(isset($_GET['user'])) {
+if (isset($_GET['user'])) {
     $id_user = $_GET['user'];
 }
 
-if(isset($_GET['role'])) {
+if (isset($_GET['role'])) {
     $role = $_GET['role'];
 }
 
-$titrequizz ="";
-$difficulte ="";
+$titrequizz = "";
+$difficulte = "";
 
-$question1 ="";
-$q1rep1 ="";
-$q1rep2 ="";
-$q1rep3 ="";
-$q1bonnerep ="";
+$question1 = "";
+$q1rep1 = "";
+$q1rep2 = "";
+$q1rep3 = "";
+$q1bonnerep = "";
 
-$question2 ="";
-$q2rep1 ="";
+$question2 = "";
+$q2rep1 = "";
 $q2rep2 = "";
 $q2rep3 = "";
 $q2bonnerep = "";
 
-$question3 ="";
-$q3rep1 ="";
-$q3rep2 ="";
-$q3rep3 ="";
-$q3bonnerep ="";
+$question3 = "";
+$q3rep1 = "";
+$q3rep2 = "";
+$q3rep3 = "";
+$q3bonnerep = "";
 
-$question4 ="";
-$q4rep1 ="";
-$q4rep2 ="";
-$q4rep3 ="";
-$q4bonnerep ="";
+$question4 = "";
+$q4rep1 = "";
+$q4rep2 = "";
+$q4rep3 = "";
+$q4bonnerep = "";
 
-$question5 ="";
-$q5rep1 ="";
-$q5rep2 ="";
-$q5rep3 ="";
-$q5bonnerep ="";
+$question5 = "";
+$q5rep1 = "";
+$q5rep2 = "";
+$q5rep3 = "";
+$q5bonnerep = "";
 
-$question6 ="";
-$q6rep1 ="";
-$q6rep2 ="";
-$q6rep3 ="";
-$q6bonnerep ="";
+$question6 = "";
+$q6rep1 = "";
+$q6rep2 = "";
+$q6rep3 = "";
+$q6bonnerep = "";
 
-$question7 ="";
-$q7rep1 ="";
-$q7rep2 ="";
-$q7rep3 ="";
-$q7bonnerep ="";
+$question7 = "";
+$q7rep1 = "";
+$q7rep2 = "";
+$q7rep3 = "";
+$q7bonnerep = "";
 
-$question8 ="";
-$q8rep1 ="";
-$q8rep2 ="";
-$q8rep3 ="";
-$q8bonnerep ="";
+$question8 = "";
+$q8rep1 = "";
+$q8rep2 = "";
+$q8rep3 = "";
+$q8bonnerep = "";
 
-$question9 ="";
-$q9rep1 ="";
-$q9rep2 ="";
-$q9rep3 ="";
-$q9bonnerep ="";
+$question9 = "";
+$q9rep1 = "";
+$q9rep2 = "";
+$q9rep3 = "";
+$q9bonnerep = "";
 
-$question10 ="";
-$q10rep1 ="";
-$q10rep2 ="";
-$q10rep3 ="";
-$q10bonnerep ="";
+$question10 = "";
+$q10rep1 = "";
+$q10rep2 = "";
+$q10rep3 = "";
+$q10bonnerep = "";
 
 // $errorMessage = "";
 // $successMessage = "";
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titrequizz = $_POST["titre"];
     $difficulte = $_POST["difficulte"];
     $categorie = $_POST["categorie"];
-    
+
     $question1 = $_POST["question1"];
     $q1rep1 = $_POST["q1rep1"];
     $q1rep2 = $_POST["q1rep2"];
@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $q4rep2 = $_POST["q4rep2"];
     $q4rep3 = $_POST["q4rep3"];
     $q4bonnerep = $_POST["q4bonnerep"];
-        
+
 
     $question5 = $_POST["question5"];
     $q5rep1 = $_POST["q5rep1"];
@@ -142,7 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $q9rep3 = $_POST["q9rep3"];
     $q9bonnerep = $_POST["q9bonnerep"];
 
-    
+
     $question10 = $_POST["question10"];
     $q10rep1 = $_POST["q10rep1"];
     $q10rep2 = $_POST["q10rep2"];
@@ -153,7 +153,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     do {
 
         $date = date("Y-m-d");
-//------------------------------------------------------------------------------------------------------------------------------
+        //------------------------------------------------------------------------------------------------------------------------------
         $sqlquizz = "INSERT INTO `quizz`(`Titre`, `difficulte`, `date_creation`, `Categorie`) VALUES ('$titrequizz','$difficulte','$date', '$categorie')";
         $result = mysqli_query($conn, $sqlquizz);
 
@@ -170,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $id_quizz = $row['Id_quizz'];
             }
         }
-//------------------------------------------------------------------------------------------------------------------------------
+        //------------------------------------------------------------------------------------------------------------------------------
         $sqlcreer = "INSERT INTO `creer`(`Id_quizz`, `Id_utilisateur`) VALUES ('$id_quizz','$id_user')";
         $resultcreer = mysqli_query($conn, $sqlcreer);
 
@@ -179,12 +179,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             break;
         }
 
-//------------------------------------------------------------------------------------------------------------------------------
+        //------------------------------------------------------------------------------------------------------------------------------
         $sqlquestion1 = "INSERT INTO `question`(`Id_quizz`, `question`, `difficulte`, `date_creation`) VALUES ('$id_quizz','$question1','$difficulte','$date')";
         $resultq1 = mysqli_query($conn, $sqlquestion1);
 
         if (!$resultq1) {
-            echo "Erreur lors de l'ajout du question1";
+            echo "Erreur lors de l'ajout de la question1";
             break;
         }
 
@@ -204,7 +204,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             break;
         }
 
-    //------------------------------------------------------------------------------------------------------------------------------
+        //------------------------------------------------------------------------------------------------------------------------------
 
         $sqlquestion2 = "INSERT INTO `question`(`Id_quizz`, `question`, `difficulte`, `date_creation`) VALUES ('$id_quizz','$question2','$difficulte','$date')";
         $resultq2 = mysqli_query($conn, $sqlquestion2);
@@ -229,7 +229,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Erreur lors de l'ajout de la reponse2";
             break;
         }
-//------------------------------------------------------------------------------------------------------------------------------
+        //------------------------------------------------------------------------------------------------------------------------------
         $sqlquestion3 = "INSERT INTO `question`(`Id_quizz`, `question`, `difficulte`, `date_creation`) VALUES ('$id_quizz','$question3','$difficulte','$date')";
         $resultq3 = mysqli_query($conn, $sqlquestion3);
 
@@ -254,7 +254,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Erreur lors de l'ajout de la reponse3";
             break;
         }
-//------------------------------------------------------------------------------------------------------------------------------
+        //------------------------------------------------------------------------------------------------------------------------------
 
         $sqlquestion4 = "INSERT INTO `question`(`Id_quizz`, `question`, `difficulte`, `date_creation`) VALUES ('$id_quizz','$question4','$difficulte','$date')";
         $resultq4 = mysqli_query($conn, $sqlquestion4);
@@ -272,7 +272,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $id_q4 = $row5['Id_question'];
             }
         }
-        
+
 
         $sqlrep4 = "INSERT INTO `choix` (`rep1`,`rep2`, `rep3`, `Bonne_reponse`, `Id_question`) VALUES ('$q4rep1','$q4rep2','$q4rep3','$q4bonnerep', '$id_q4')";
         $resultrep4 = mysqli_query($conn, $sqlrep4);
@@ -281,7 +281,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Erreur lors de l'ajout de la reponse4";
             break;
         }
-//------------------------------------------------------------------------------------------------------------------------------
+        //------------------------------------------------------------------------------------------------------------------------------
 
         $sqlquestion5 = "INSERT INTO `question`(`Id_quizz`, `question`, `difficulte`, `date_creation`) VALUES ('$id_quizz','$question5','$difficulte','$date')";
         $resultq5 = mysqli_query($conn, $sqlquestion5);
@@ -308,7 +308,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             break;
         }
 
-//------------------------------------------------------------------------------------------------------------------------------        
+        //------------------------------------------------------------------------------------------------------------------------------        
 
         $sqlquestion6 = "INSERT INTO `question`(`Id_quizz`, `question`, `difficulte`, `date_creation`) VALUES ('$id_quizz','$question6','$difficulte','$date')";
         $resultq6 = mysqli_query($conn, $sqlquestion6);
@@ -335,7 +335,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             break;
         }
 
-//------------------------------------------------------------------------------------------------------------------------------ 
+        //------------------------------------------------------------------------------------------------------------------------------ 
 
         $sqlquestion7 = "INSERT INTO `question`(`Id_quizz`, `question`, `difficulte`, `date_creation`) VALUES ('$id_quizz','$question7','$difficulte','$date')";
         $resultq7 = mysqli_query($conn, $sqlquestion7);
@@ -361,8 +361,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Erreur lors de l'ajout de la reponse7";
             break;
         }
-        
-//------------------------------------------------------------------------------------------------------------------------------ 
+
+        //------------------------------------------------------------------------------------------------------------------------------ 
         $sqlquestion8 = "INSERT INTO `question`(`Id_quizz`, `question`, `difficulte`, `date_creation`) VALUES ('$id_quizz','$question8','$difficulte','$date')";
         $resultq8 = mysqli_query($conn, $sqlquestion8);
 
@@ -388,7 +388,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Erreur lors de l'ajout de la reponse8";
             break;
         }
-//------------------------------------------------------------------------------------------------------------------------------ 
+        //------------------------------------------------------------------------------------------------------------------------------ 
         $sqlquestion9 = "INSERT INTO `question`(`Id_quizz`, `question`, `difficulte`, `date_creation`) VALUES ('$id_quizz','$question9','$difficulte','$date')";
         $resultq9 = mysqli_query($conn, $sqlquestion9);
 
@@ -414,7 +414,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Erreur lors de l'ajout de la reponse9";
             break;
         }
-//------------------------------------------------------------------------------------------------------------------------------ 
+        //------------------------------------------------------------------------------------------------------------------------------ 
         $sqlquestion10 = "INSERT INTO `question`(`Id_quizz`, `question`, `difficulte`, `date_creation`) VALUES ('$id_quizz','$question10','$difficulte','$date')";
         $resultq10 = mysqli_query($conn, $sqlquestion10);
 
@@ -440,9 +440,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Erreur lors de l'ajout de la reponse10";
             break;
         }
-//------------------------------------------------------------------------------------------------------------------------------ 
+        //------------------------------------------------------------------------------------------------------------------------------ 
 
-        header('Location:dashboard.php?role='.$role.'&user='.$id_user.'');
+        header('Location:dashboard.php?role=' . $role . '&user=' . $id_user . '');
         exit;
 
     } while (false);
@@ -467,25 +467,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <header>
         <?php
-            echo "<a class='home' href='home.php?role=$role&user=$id_user'>";
-            echo "<span>Quiz</span><span>zeo.</span>";
-            echo "</a>";
+        echo "<a class='home' href='home.php?role=$role&user=$id_user'>";
+        echo "<span>Quiz</span><span>zeo.</span>";
+        echo "</a>";
         ?>
         <div class="options">
-            <?php 
-                $sqlutilisateur = "SELECT * FROM utilisateur WHERE Id_utilisateur = '$id_user'";
-                $resultutilisateur = mysqli_query($conn, $sqlutilisateur);
+            <?php
+            $sqlutilisateur = "SELECT * FROM utilisateur WHERE Id_utilisateur = '$id_user'";
+            $resultutilisateur = mysqli_query($conn, $sqlutilisateur);
 
-                $row = mysqli_fetch_assoc($resultutilisateur);
-                $role_user = $row['role_utilisateur'];
-                $pseudo = $row['pseudo'];
-                $email = $row['email'];
-                $id_utilisateur = $row['Id_utilisateur'];
+            $row = mysqli_fetch_assoc($resultutilisateur);
+            $role_user = $row['role_utilisateur'];
+            $pseudo = $row['pseudo'];
+            $email = $row['email'];
+            $id_utilisateur = $row['Id_utilisateur'];
 
-                echo "<h2>$pseudo</h2>";
-                echo "<a id='profil' href='dashboard.php?role=$role&user=$id_user'>";
-                echo "<img src='https://cdn-icons-png.flaticon.com/512/149/149071.png' alt='Photo de profil'>";
-                echo "</a>";
+            echo "<h2>$pseudo</h2>";
+            echo "<a id='profil' href='dashboard.php?role=$role&user=$id_user'>";
+            echo "<img src='https://cdn-icons-png.flaticon.com/512/149/149071.png' alt='Photo de profil'>";
+            echo "</a>";
 
             ?>
         </div>
@@ -496,9 +496,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <img src="https://img.icons8.com/color/256/add-folder.png">
         </div>
         <div id="pageCreate">
-            <form  method="post" action="">
+            <form method="post">
                 <div class="info-container">
-                    <input class="input-quiz" type="text" placeholder="Titre" name="titre" id="titre" maxlength="15" required>
+                    <input class="input-quiz" type="text" placeholder="Titre" name="titre" id="titre" maxlength="15"
+                        required>
                     <!-- <input class="input-quiz" type="text" placeholder="Titre" maxlength="20" required
                         oninvalid="this.style.border='2px solid #ff5f45';"> -->
                     <h2>Difficulté</h2>
@@ -507,7 +508,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <option value="2">2</option>
                         <option value="3">3</option>
                     </select>
-                    <input class="input-quiz" type="text" placeholder="Catégorie" name="categorie" id="categorie" maxlength="15" required>
+                    <input class="input-quiz" type="text" placeholder="Catégorie" name="categorie" id="categorie"
+                        maxlength="15" required>
                 </div>
                 <div class="container-question">
                     <div class="question">
@@ -517,7 +519,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <h3>1</h3>
                             </div>
                             <h3>Question</h3>
-                            <input type="text" name="question1" id="question1" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                            <input type="text" name="question1" id="question1"
+                                placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
                         <div class="arrow">
                             <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
@@ -539,7 +542,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="q1bonnerep" id="q1bonnerep" placeholder="Bonne réponse" required>
+                                <input type="text" name="q1bonnerep" id="q1bonnerep" placeholder="Bonne réponse"
+                                    required>
                             </div>
                             <div class="check">
                             </div>
@@ -548,14 +552,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div class="container-question">
-                <div class="question">
+                    <div class="question">
                         <div class="bar"></div>
                         <div class="question2">
                             <div class="number">
                                 <h3>2</h3>
                             </div>
                             <h3>Question</h3>
-                            <input type="text" name="question2" id="question2" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                            <input type="text" name="question2" id="question2"
+                                placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
                         <div class="arrow">
                             <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
@@ -577,7 +582,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="q2bonnerep" id="q2bonnerep" placeholder="Bonne réponse" required>
+                                <input type="text" name="q2bonnerep" id="q2bonnerep" placeholder="Bonne réponse"
+                                    required>
                             </div>
                             <div class="check">
 
@@ -587,14 +593,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div class="container-question">
-                <div class="question">
+                    <div class="question">
                         <div class="bar"></div>
                         <div class="question2">
                             <div class="number">
                                 <h3>3</h3>
                             </div>
                             <h3>Question</h3>
-                            <input type="text" name="question3" id="question3" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                            <input type="text" name="question3" id="question3"
+                                placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
                         <div class="arrow">
                             <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
@@ -616,7 +623,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="q3bonnerep" id="q3bonnerep" placeholder="Bonne réponse" required>
+                                <input type="text" name="q3bonnerep" id="q3bonnerep" placeholder="Bonne réponse"
+                                    required>
                             </div>
                             <div class="check">
 
@@ -626,14 +634,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div class="container-question">
-                <div class="question">
+                    <div class="question">
                         <div class="bar"></div>
                         <div class="question2">
                             <div class="number">
                                 <h3>4</h3>
                             </div>
                             <h3>Question</h3>
-                            <input type="text" name="question4" id="question4" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                            <input type="text" name="question4" id="question4"
+                                placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
                         <div class="arrow">
                             <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
@@ -655,7 +664,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="q4bonnerep" id="q4bonnerep" placeholder="Bonne réponse" required>
+                                <input type="text" name="q4bonnerep" id="q4bonnerep" placeholder="Bonne réponse"
+                                    required>
                             </div>
                             <div class="check">
 
@@ -665,14 +675,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div class="container-question">
-                <div class="question">
+                    <div class="question">
                         <div class="bar"></div>
                         <div class="question2">
                             <div class="number">
                                 <h3>5</h3>
                             </div>
                             <h3>Question</h3>
-                            <input type="text" name="question5" id="question5" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                            <input type="text" name="question5" id="question5"
+                                placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
                         <div class="arrow">
                             <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
@@ -694,7 +705,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="q5bonnerep" id="q5bonnerep" placeholder="Bonne réponse" required>
+                                <input type="text" name="q5bonnerep" id="q5bonnerep" placeholder="Bonne réponse"
+                                    required>
                             </div>
                             <div class="check">
 
@@ -704,14 +716,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div class="container-question">
-                <div class="question">
+                    <div class="question">
                         <div class="bar"></div>
                         <div class="question2">
                             <div class="number">
                                 <h3>6</h3>
                             </div>
                             <h3>Question</h3>
-                            <input type="text" name="question6" id="question6" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                            <input type="text" name="question6" id="question6"
+                                placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
                         <div class="arrow">
                             <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
@@ -733,7 +746,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="q6bonnerep" id="q6bonnerep" placeholder="Bonne réponse" required>
+                                <input type="text" name="q6bonnerep" id="q6bonnerep" placeholder="Bonne réponse"
+                                    required>
                             </div>
                             <div class="check">
 
@@ -743,14 +757,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div class="container-question">
-                <div class="question">
+                    <div class="question">
                         <div class="bar"></div>
                         <div class="question2">
                             <div class="number">
                                 <h3>7</h3>
                             </div>
                             <h3>Question</h3>
-                            <input type="text" name="question7" id="question7" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                            <input type="text" name="question7" id="question7"
+                                placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
                         <div class="arrow">
                             <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
@@ -772,7 +787,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="q7bonnerep" id="q7bonnerep" placeholder="Bonne réponse" required>
+                                <input type="text" name="q7bonnerep" id="q7bonnerep" placeholder="Bonne réponse"
+                                    required>
                             </div>
                             <div class="check">
 
@@ -782,14 +798,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div class="container-question">
-                <div class="question">
+                    <div class="question">
                         <div class="bar"></div>
                         <div class="question2">
                             <div class="number">
                                 <h3>8</h3>
                             </div>
                             <h3>Question</h3>
-                            <input type="text" name="question8" id="question8" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                            <input type="text" name="question8" id="question8"
+                                placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
                         <div class="arrow">
                             <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
@@ -811,10 +828,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="q8bonnerep" id="q8bonnerep" placeholder="Bonne réponse" required>
+                                <input type="text" name="q8bonnerep" id="q8bonnerep" placeholder="Bonne réponse"
+                                    required>
                             </div>
                             <div class="check">
-                  
+
                             </div>
 
                         </div>
@@ -822,14 +840,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div class="container-question">
-                <div class="question">
+                    <div class="question">
                         <div class="bar"></div>
                         <div class="question2">
                             <div class="number">
                                 <h3>9</h3>
                             </div>
                             <h3>Question</h3>
-                            <input type="text" name="question9" id="question9" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                            <input type="text" name="question9" id="question9"
+                                placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
                         <div class="arrow">
                             <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
@@ -851,7 +870,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="q9bonnerep" id="q9bonnerep" placeholder="Bonne réponse" required>
+                                <input type="text" name="q9bonnerep" id="q9bonnerep" placeholder="Bonne réponse"
+                                    required>
                             </div>
                             <div class="check">
 
@@ -861,14 +881,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div class="container-question">
-                <div class="question">
+                    <div class="question">
                         <div class="bar"></div>
                         <div class="question2">
                             <div class="number">
                                 <h3>10</h3>
                             </div>
                             <h3>Question</h3>
-                            <input type="text" name="question10" id="question10" placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
+                            <input type="text" name="question10" id="question10"
+                                placeholder="Quel est la couleur du cheval blanc de Henri IV ?">
                         </div>
                         <div class="arrow">
                             <img src="https://img.icons8.com/fluency-systems-regular/256/expand-arrow.png" alt="arrow">
@@ -890,7 +911,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                             <div>
                                 <label for="answer4" class="letter">D</label>
-                                <input type="text" name="q10bonnerep" id="q10bonnerep" placeholder="Bonne réponse" required>
+                                <input type="text" name="q10bonnerep" id="q10bonnerep" placeholder="Bonne réponse"
+                                    required>
                             </div>
                             <div class="check">
 
@@ -902,24 +924,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
         </div>
     </div>
-    <script src="script.js"></script>
     <script>
         $(".arrow").click(function () {
 
-        var $containerAnswer = $(this).closest(".container-question").find(".container-answer");
-        var $containerBar = $(this).closest(".container-question").find(".bar");
-        
-        if ($containerAnswer.height() > 0) {
-            $containerAnswer.height(0);
-            $containerBar.height(60);
-        } else {
-            $containerAnswer.height(
-                $containerAnswer.prop("scrollHeight") + "px"
-            );
-            $containerBar.height(
-                $containerBar.prop("scrollHeight") + "px"
-            );
-        }
+            var $containerAnswer = $(this).closest(".container-question").find(".container-answer");
+            var $containerBar = $(this).closest(".container-question").find(".bar");
+
+            if ($containerAnswer.height() > 0) {
+                $containerAnswer.height(0);
+                $containerBar.height(60);
+            } else {
+                $containerAnswer.height(
+                    $containerAnswer.prop("scrollHeight") + "px"
+                );
+                $containerBar.height(
+                    $containerBar.prop("scrollHeight") + "px"
+                );
+            }
         });
 
         $(".arrow").click(function () {

@@ -491,35 +491,6 @@ if(isset($_GET['role'])) {          // Get the user role from the url
                 }
             });
         });
-
-
-        // $(".searchBar").on("input", function () {
-        //     const query = $(this).val().toLowerCase();
-        //     $("tr").each(function() {
-        //         const title = $(this).find("td:eq(2)").text().toLowerCase();
-
-        //         if (title.includes(query)) {
-        //             $(this).css("display", "flex");
-        //         } else {
-        //             $(this).css("display", "none");
-        //         }
-        //     });
-        // });
-
-
-        // $(".searchBar").on("input", function () {
-        //     const query = $(this).val().toLowerCase();
-        //     $("tr").each(function() {
-        //         const title = $(this).data("category").toLowerCase();
-
-        //         if (title.includes(query)) {
-        //             $(this).css("display", "flex");
-        //         } else {
-        //             $(this).css("display", "none");
-        //         }
-        //     });
-        // });
-
     </script>
 </body>
 

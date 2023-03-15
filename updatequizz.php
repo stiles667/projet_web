@@ -894,8 +894,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
         </div>
     </div>
-
-    <script src="script.js"></script>
     <script>
         $(".arrow").click(function () {
 
