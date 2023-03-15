@@ -58,7 +58,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $errorMessage = "Erreur lors de l'ajout de l'utilisateur : ".mysqli_error($conn);
             } else {
                 
-                // $id_user = mysqli_insert_id($conn);
 
                 $successMessage = "Utilisateur ajouté avec succès";
 
