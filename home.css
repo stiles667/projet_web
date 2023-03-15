@@ -293,8 +293,8 @@ header a span:last-child {
 .Name {
   position: absolute;
   color: white;
-  bottom: 5px;
-  left: 20px;
+  bottom: 0.15vw;
+  left: 1vw;
   font-size: 1vw;
   font-weight: 500;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
