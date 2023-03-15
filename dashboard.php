@@ -143,34 +143,65 @@ if(isset($_GET['role'])) {          // Get the user role from the url
             </div>
             <div class="categories">
                 <?php       
-                    $sqlcreation = "SELECT * FROM creer WHERE Id_utilisateur = '$id_user'";  
+                    $sqlcreation = "SELECT * FROM creer WHERE Id_utilisateur = '$id_user'";  // Get the quiz created by the user   
                     $resultcreation = mysqli_query($conn, $sqlcreation);    
 
-                    while($rowcreation = mysqli_fetch_assoc($resultcreation)) {
-                        $id_quiz = $rowcreation['Id_quizz'];
+                    while($rowcreation = mysqli_fetch_assoc($resultcreation)) {     // Get the result
+                        $id_quiz = $rowcreation['Id_quizz'];        // Get the quiz id
 
 
-                        $sqlquiz = "SELECT * FROM quizz WHERE Id_quizz = '$id_quiz'";
+                        $sqlquiz = "SELECT * FROM quizz WHERE Id_quizz = '$id_quiz'";       // Get the quiz from the quiz id
                         $resultquiz = mysqli_query($conn, $sqlquiz);
 
-                        $row = mysqli_fetch_assoc($resultquiz);
-                        $nom_quiz = $row['Titre'];
-                        $difficulte_quizz = $row['difficulte'];
-                        $url = $row['url'];
-                        $date_quizz = $row['date_creation'];
+                        $row = mysqli_fetch_assoc($resultquiz);     // Get the result
+                        $nom_quiz = $row['Titre'];      // Get the title
+                        $difficulte_quizz = $row['difficulte'];     // Get the difficulty
+                        $categorie_quizz = $row['Categorie'];       // Get the category
+                        $date_quizz = $row['date_creation'];        // Get the date of creation
 
                         
-                        echo "<div class='quiz2'>";
+                        echo "<div class='quiz2'>";     // Display the quiz
                         echo "</a>";
                         echo "<a href='deletequiz.php?role=$role&user=$id_user&deletequizz=$id_quiz' onclick=\"return confirm('Êtes-vous sûr de vouloir supprimer ce quiz?')\">";  // Delete the quiz
-                        echo "<img class='trash2' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";
+                        echo "<img class='trash2' src='https://cdn-icons-png.flaticon.com/512/7641/7641678.png' alt='Supprimer'>";      // Display the trash icon
                         
-                        echo "<a href='updatequizz.php?role=$role&user=$id_user&updatequizz=$id_quiz'>";
-                        echo "<h3 class='Name'>$nom_quiz</h3>";
+                        echo "<a href='updatequizz.php?role=$role&user=$id_user&updatequizz=$id_quiz'>";       // Update the quiz
+                        echo "<h3 class='Name'>$nom_quiz</h3>";     // Display the title
                         echo "</a>";    
                         
-                        echo "<img class='illustration' src='$url' alt='Sport'>";
                         
+                        switch ($categorie_quizz) {         // Display the category icon
+                            case "Sport":
+                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4218/4218113.png' alt='Sport'>";
+                                break;
+                            case "Cinema":
+                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/5198/5198228.png' alt='Cinéma'>";
+                                break;
+                            case "Geographie":
+                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4218/4218484.png' alt='Géographie'>";
+                                break;
+                            case "Histoire":
+                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4058/4058331.png' alt='Histoire'>";
+                                break;
+                            case "Musique":
+                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/5204/5204758.png' alt='Musique'>";
+                                break;
+                            case "Sciences":
+                                echo "<img class='illustration' src='https://icones8.fr/icon/0lUc5aQ86S3o/articles-de-laboratoire' alt='Sciences'>";
+                                break;
+                            case "Art":
+                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4218/4218478.png' alt='Art'>";
+                                break;
+                            case "Animal":
+                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/8176/8176142.png' alt='Animal'>";
+                                break;
+                            case "Anime":
+                                echo "<img class='illustration' src='fantome.png' alt='Anime'>";
+                                break;
+                            default:
+                                echo "<img class='illustration' src='https://img.icons8.com/external-smashingstocks-flat-smashing-stocks/256/external-Quiz-school-smashingstocks-flat-smashing-stocks.png' alt='Default'>";
+                                break;
+                        }  
                         echo "</div>";
                     }
                     
@@ -234,7 +265,7 @@ if(isset($_GET['role'])) {          // Get the user role from the url
                                 $rowquizz = mysqli_fetch_assoc($resultquizz);
                                 
                                 $nom_quizz = $rowquizz['Titre'];        // Get the title
-                                $url = $rowquizz['url'];      // Get the category
+                                $categorie_quizz = $rowquizz['Categorie'];      // Get the category
                                 $date_quizz = $rowquizz['date_creation'];       // Get the date of creation
                                 $difficulte_quizz = $rowquizz['difficulte'];        // Get the difficulty
                                 

@@ -78,7 +78,7 @@ $q10bonnerep = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has been submitted, if yes we get all the values from the form
     $titrequizz = $_POST["titre"];
     $difficulte = $_POST["difficulte"];
-    $categorie = $_POST["url"];
+    $categorie = $_POST["categorie"];
 
     $question1 = $_POST["question1"];
     $q1rep1 = $_POST["q1rep1"];
@@ -508,7 +508,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has b
                         <option value="2">2</option>
                         <option value="3">3</option>
                     </select>
-                    <input class="input-quiz" type="text" placeholder="Catégorie" name="categorie" id="categorie" required>
+                    <input class="input-quiz" type="text" placeholder="Catégorie" name="categorie" id="categorie"
+                        maxlength="15" required>
                 </div>
                 <div class="container-question">
                     <div class="question">
