@@ -498,7 +498,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <option value="2">2</option>
                         <option value="3">3</option>
                     </select>
-                    <input class="input-quiz" type="text" placeholder="Catégorie" name="categorie" id="categorie" value="<?php echo $url?>" maxlength="15" required>
+                    <input class="input-quiz" type="text" placeholder="Catégorie" name="categorie" id="categorie" value="<?php echo $url?>" required>
                 </div>
                 <div class="container-question">
                     <div class="question">
