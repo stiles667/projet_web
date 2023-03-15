@@ -9,13 +9,8 @@ if (isset($_GET['role'])) {
     $role = $_GET['role'];
 }
 
-<<<<<<< HEAD
 $titrequizz ="";            //We declare all the variables we will use in the form
 $difficulte ="";
-=======
-$titrequizz = "";
-$difficulte = "";
->>>>>>> 5b503ec8ecdcef906de38a3967239a296c0d890c
 
 $question1 = "";
 $q1rep1 = "";
@@ -157,13 +152,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has b
 
     do {            //Do while loop to check if there is an error in the form
 
-<<<<<<< HEAD
         $date = date("Y-m-d");              //We get the current date
 //------------------------------------------------------------------------------------------------------------------------------
-=======
-        $date = date("Y-m-d");
-        //------------------------------------------------------------------------------------------------------------------------------
->>>>>>> 5b503ec8ecdcef906de38a3967239a296c0d890c
         $sqlquizz = "INSERT INTO `quizz`(`Titre`, `difficulte`, `date_creation`, `Categorie`) VALUES ('$titrequizz','$difficulte','$date', '$categorie')";
         $result = mysqli_query($conn, $sqlquizz);       // We insert the quizz in the database and we check if it worked
 
@@ -180,15 +170,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has b
                 $id_quizz = $row['Id_quizz'];       
             }
         }
-<<<<<<< HEAD
 //------------------------------------------------------------------------------------------------------------------------------
         $sqlcreer = "INSERT INTO `creer`(`Id_quizz`, `Id_utilisateur`) VALUES ('$id_quizz','$id_user')";    
         $resultcreer = mysqli_query($conn, $sqlcreer);     //We insert the quizz in the database and we check if it worked
-=======
-        //------------------------------------------------------------------------------------------------------------------------------
-        $sqlcreer = "INSERT INTO `creer`(`Id_quizz`, `Id_utilisateur`) VALUES ('$id_quizz','$id_user')";
-        $resultcreer = mysqli_query($conn, $sqlcreer);
->>>>>>> 5b503ec8ecdcef906de38a3967239a296c0d890c
 
         if (!$resultcreer) {
             echo "Erreur lors de l'ajout de creer";
@@ -943,7 +927,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has b
     <script>
         $(".arrow").click(function () {         //When we click on the arrow, the container answer will appear or disappear
 
-<<<<<<< HEAD
         var $containerAnswer = $(this).closest(".container-question").find(".container-answer");        
         var $containerBar = $(this).closest(".container-question").find(".bar");
         
@@ -958,22 +941,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has b
                 $containerBar.prop("scrollHeight") + "px"
             );
         }
-=======
-            var $containerAnswer = $(this).closest(".container-question").find(".container-answer");
-            var $containerBar = $(this).closest(".container-question").find(".bar");
-
-            if ($containerAnswer.height() > 0) {
-                $containerAnswer.height(0);
-                $containerBar.height(60);
-            } else {
-                $containerAnswer.height(
-                    $containerAnswer.prop("scrollHeight") + "px"
-                );
-                $containerBar.height(
-                    $containerBar.prop("scrollHeight") + "px"
-                );
-            }
->>>>>>> 5b503ec8ecdcef906de38a3967239a296c0d890c
         });
 
         $(".arrow").click(function () {         //When we click on the arrow, the arrow will rotate
