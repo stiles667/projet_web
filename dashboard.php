@@ -169,39 +169,8 @@ if(isset($_GET['role'])) {          // Get the user role from the url
                         echo "<h3 class='Name'>$nom_quiz</h3>";     // Display the title
                         echo "</a>";    
                         
+                        echo "<img class='illustration' src='$categorie_quizz' alt='Sport'>";
                         
-                        switch ($categorie_quizz) {         // Display the category icon
-                            case "Sport":
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4218/4218113.png' alt='Sport'>";
-                                break;
-                            case "Cinema":
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/5198/5198228.png' alt='Cinéma'>";
-                                break;
-                            case "Geographie":
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4218/4218484.png' alt='Géographie'>";
-                                break;
-                            case "Histoire":
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4058/4058331.png' alt='Histoire'>";
-                                break;
-                            case "Musique":
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/5204/5204758.png' alt='Musique'>";
-                                break;
-                            case "Sciences":
-                                echo "<img class='illustration' src='https://icones8.fr/icon/0lUc5aQ86S3o/articles-de-laboratoire' alt='Sciences'>";
-                                break;
-                            case "Art":
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/4218/4218478.png' alt='Art'>";
-                                break;
-                            case "Animal":
-                                echo "<img class='illustration' src='https://cdn-icons-png.flaticon.com/512/8176/8176142.png' alt='Animal'>";
-                                break;
-                            case "Anime":
-                                echo "<img class='illustration' src='fantome.png' alt='Anime'>";
-                                break;
-                            default:
-                                echo "<img class='illustration' src='https://img.icons8.com/external-smashingstocks-flat-smashing-stocks/256/external-Quiz-school-smashingstocks-flat-smashing-stocks.png' alt='Default'>";
-                                break;
-                        }  
                         echo "</div>";
                     }
                     

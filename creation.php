@@ -498,18 +498,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has b
         <div id="pageCreate">
             <form method="post">
                 <div class="info-container">
-                    <input class="input-quiz" type="text" placeholder="Titre" name="titre" id="titre" maxlength="15"
-                        required>
-                    <!-- <input class="input-quiz" type="text" placeholder="Titre" maxlength="20" required
-                        oninvalid="this.style.border='2px solid #ff5f45';"> -->
+                    <input class="input-quiz" type="text" placeholder="Titre" name="titre" id="titre" maxlength="15" required>
                     <h2>Difficulté</h2>
-                    <select name="difficulte" class="input-quiz difficulty" id="difficulte" placeholder="aze" required>
+                    <select name="difficulte" class="input-quiz difficulty" id="difficulte" required>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                     </select>
-                    <input class="input-quiz" type="text" placeholder="Catégorie" name="categorie" id="categorie"
-                        maxlength="15" required>
+                    <input class="input-quiz2" type="text" placeholder="Lien image" name="categorie" id="categorie" required>
                 </div>
                 <div class="container-question">
                     <div class="question">

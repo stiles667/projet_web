@@ -490,15 +490,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <form  method="post">
                 <div class="info-container">
                     <input class="input-quiz" type="text" placeholder="Titre" name="titre" id="titre" value="<?php echo $titrequizz?>" maxlength="15" required>
-                    <!-- <input class="input-quiz" type="text" placeholder="Titre" maxlength="20" required
-                        oninvalid="this.style.border='2px solid #ff5f45';"> -->
                     <h2>Difficulté</h2>
-                    <select name="difficulte" class="input-quiz difficulty" id="difficulte" value="<?php echo $difficulte?>" placeholder="aze" required>
+                    <select name="difficulte" class="input-quiz difficulty" id="difficulte" value="<?php echo $difficulte?>" required>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                     </select>
-                    <input class="input-quiz" type="text" placeholder="Catégorie" name="categorie" id="categorie" value="<?php echo $categorie?>" maxlength="15" required>
+                    <input class="input-quiz2" type="text" placeholder="Lien image" name="categorie" id="categorie" value="<?php echo $categorie?>" required>
                 </div>
                 <div class="container-question">
                     <div class="question">
