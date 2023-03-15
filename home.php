@@ -72,10 +72,10 @@ if(isset($_GET['role'])) {
         </div>
         <div class="categories">
         <?php
-            $sql = "SELECT * FROM quizz";           // Select all quizz
+            $sql = "SELECT * FROM quizz";
             $resultquizz = mysqli_query($conn, $sql);
 
-            while($row=mysqli_fetch_assoc($resultquizz)) {    // For each quizz, create a link to the quiz page
+            while($row=mysqli_fetch_assoc($resultquizz)) {
                 $quizz_title = $row["Titre"];
                 $id_quizz = $row["Id_quizz"];
                 $quizz_category = $row["Categorie"];
@@ -83,7 +83,7 @@ if(isset($_GET['role'])) {
                 echo "<a href='quiz.php?role=$role&user=$id_user&id_quizz=$id_quizz' class='imgCategorie' data-category='$quizz_title' id='$id_quizz'>";
                 echo "<h3 class='Name'>$quizz_title</h3>";
 
-                switch ($quizz_category) {    // Display the category icon
+                switch ($quizz_category) {
                     case "Sport":
                         echo "<img src='https://cdn-icons-png.flaticon.com/512/4218/4218113.png' alt='Sport'>";
                         break;
@@ -112,7 +112,7 @@ if(isset($_GET['role'])) {
                         echo "<img src='fantome.png' alt='Anime'>";
                         break;
                     default:
-                        echo "<img src='https://icones8.fr/icon/ibngCF4waBaR/quiz' alt='Default'>";
+                        echo "<img src='https://img.icons8.com/external-smashingstocks-flat-smashing-stocks/256/external-Quiz-school-smashingstocks-flat-smashing-stocks.png' alt='Default'>";
                         break;
                 }  
                 echo "</a>";              
