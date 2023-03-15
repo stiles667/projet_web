@@ -298,7 +298,7 @@ if(isset($_GET['role'])) {          // Get the user role from the url
                     <div class="buttons">
                         <?php           //Bouton pour ajouter un utilisateur
                             echo "          
-                            <a href='create.php?role=$role_user&user=$id_user'>     
+                            <a href='create.php?role=$role&user=$id_user'>     
                             <input class='button-save' type='submit' value='+ Ajouter'>
                             </a>
                             ";

@@ -7,7 +7,7 @@ if (isset($_GET['user'])) {
 }
 
 if (isset($_GET['role'])) {
-    $role = $_GET['role'];
+    $roleuser = $_GET['role'];
 }
 
 if (isset($_GET['updateId'])) {
@@ -38,7 +38,7 @@ if (isset($_GET['updateRole'])) {
 <body>
     <header>
         <?php
-        echo "<a class='home' href='home.php?role=$role&user=$id_user'>";
+        echo "<a class='home' href='home.php?role=$roleuser&user=$id_user'>";
         echo "<span>Quiz</span><span>zeo.</span>";
         echo "</a>";
         ?>
@@ -52,7 +52,7 @@ if (isset($_GET['updateRole'])) {
             $pseudo = $row['pseudo'];
 
             echo "<h2>$pseudo</h2>";
-            echo "<a id='profil' href='dashboard.php?role=$role&user=$id_user'>";
+            echo "<a id='profil' href='dashboard.php?role=$role_user&user=$id_user'>";
             echo "<img src='https://cdn-icons-png.flaticon.com/512/149/149071.png' alt='Photo de profil'>";
             echo "</a>";
             ?>
@@ -107,8 +107,20 @@ if (isset($_GET['updateRole'])) {
             $sql = "UPDATE utilisateur SET pseudo = '$pseudo', email = '$email', role_utilisateur = '$role' WHERE Id_utilisateur = '$updateId'";
             $result = mysqli_query($conn, $sql);
 
+            switch ($roleuser) {
+                case "1":
+                    $roleuser = "Utilisateur";
+                    break;
+                case "2":
+                    $roleuser = "Quizzeur";
+                    break;
+                case "3":
+                    $roleuser = "Administrateur";
+                    break;
+            }
+
             if ($result) {
-                header('Location: dashboard.php?role='.$role.'&user='.$id_user.'');
+                header('Location: dashboard.php?role='.$roleuser.'&user='.$id_user.'');
             } else {
                 echo "Une erreur est survenue";
             }

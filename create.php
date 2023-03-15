@@ -7,7 +7,19 @@ if(isset($_GET['user'])) {
 }
 
 if(isset($_GET['role'])) {
-    $role = $_GET['role'];
+    $role_user = $_GET['role'];
+}
+
+switch ($role_user) {
+    case "1":
+        $role_user = "Utilisateur";
+        break;
+    case "2":
+        $role_user = "Quizzeur";
+        break;
+    case "3":
+        $role_user = "Administrateur";
+        break;
 }
 
 $pseudo ="";
@@ -29,7 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errorMessage = "Veuillez remplir tous les champs";
     } else {
         
-        $conn = mysqli_connect("localhost", "nom_utilisateur", "mot_de_passe", "nom_base_de_donnees");
         
         if (!$conn) {
             $errorMessage = "Erreur de connexion : ".mysqli_connect_error();
@@ -47,11 +58,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $errorMessage = "Erreur lors de l'ajout de l'utilisateur : ".mysqli_error($conn);
             } else {
                 
-                $id_user = mysqli_insert_id($conn);
+                // $id_user = mysqli_insert_id($conn);
 
                 $successMessage = "Utilisateur ajouté avec succès";
 
-                header("Location: dashboard.php?role=$role&user=$id_user");
+                
+
+                header("Location: dashboard.php?role=$role_user&user=$id_user");
                 exit;
             }
             mysqli_close($conn);
@@ -78,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <header>
         <?php
-        echo "<a class='home' href='home.php?role=$role&user=$id_user'>";
+        echo "<a class='home' href='home.php?role=$role_user&user=$id_user'>";
         echo "<span>Quiz</span><span>zeo.</span>";
         echo "</a>";
         ?>
@@ -92,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $pseudo = $row['pseudo'];
 
             echo "<h2>$pseudo</h2>";
-            echo "<a id='profil' href='dashboard.php?role=$role&user=$id_user'>";
+            echo "<a id='profil' href='dashboard.php?role=$role_user&user=$id_user'>";
             echo "<img src='https://cdn-icons-png.flaticon.com/512/149/149071.png' alt='Photo de profil'>";
             echo "</a>";
             ?>
