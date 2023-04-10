@@ -98,7 +98,7 @@ header a span:last-child {
 
 .categories {
   display: grid;
-  height: 34vw;
+  max-height: 34vw;
   grid-template-columns: repeat(8, 1fr);
   grid-gap: 1vw;
   color: white;

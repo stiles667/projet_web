@@ -222,6 +222,11 @@
                 }
             }
 
+            if (selectedOption === '') {
+                alert('Veuillez sélectionner une réponse');
+                return;
+            }
+
             isanswered = true;
 
             if (selectedOption === quizz[numquestion].correct) {

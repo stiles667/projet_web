@@ -214,12 +214,14 @@ header a span:last-child {
   color: #333333;
   border: none;
   border-radius: 0 1vw 1vw 0;
+  margin-right: 0.8vw;
   outline: none;
 }
 
 .categories {
   display: grid;
-  height: 30vw;
+  height: auto;
+  max-height: 30vw;
   grid-template-columns: repeat(8, 1fr);
   grid-gap: 1vw;
   color: white;

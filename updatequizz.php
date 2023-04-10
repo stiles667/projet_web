@@ -484,7 +484,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <div class="info-container">
             <h1>Création de quiz</h1>
-            <img src="https://img.icons8.com/color/256/add-folder.png">
+            <img src="https://img.icons8.com/fluency/256/likes-folder--v2.png">
         </div>
         <div id="pageCreate">
             <form  method="post">

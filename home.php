@@ -85,7 +85,7 @@ if(isset($_GET['role'])) {
 
                 echo "<img src='$quizz_category' alt='Sport'>";
  
-                echo "</a>";              
+                echo "</a>";       
             }
             
         ?>

@@ -86,7 +86,7 @@ if(isset($_GET['role'])) {          // Get the user role from the url
                 <div class="title">
                     <h2>Bienvenue, <?php echo $pseudo?></h2>
                     <div>
-                        <img src="https://cdn-icons-png.flaticon.com/512/5197/5197842.png" alt="Pouce en l'air">
+                        <img src="https://img.icons8.com/fluency/256/so-so.png" alt="Hello">
                     </div>
                 </div>
                 <p><?php echo $role ?></p>
@@ -281,7 +281,7 @@ if(isset($_GET['role'])) {          // Get the user role from the url
                 <div class="title">
                     <h2>Administrateur</h2>
                     <div>
-                        <img src="https://cdn-icons-png.flaticon.com/512/3962/3962402.png" alt="Bouclier">
+                        <img src="https://img.icons8.com/fluency/256/security-checked.png" alt="admin">
                     </div>
                 </div>
                 <div id="status">
