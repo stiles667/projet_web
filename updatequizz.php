@@ -501,7 +501,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ?>
         </div>
         <div id="pageCreate">
-            <form  method="post">
+            <form method="post">
                 <div class="info-container">
                     <input class="input-quiz" type="text" placeholder="Titre" name="titre" id="titre" value="<?php echo $titrequizz?>" maxlength="15" required>
                     <h2>Difficulté</h2>

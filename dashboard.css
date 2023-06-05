@@ -139,6 +139,13 @@ header a span:last-child {
   transition: all 0.5s ease;
 } */
 
+.icon {
+  height: 90%;
+  width: auto;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
 .quiz2 .illustration, #add {
   position: absolute;
   top: 50%;
@@ -510,7 +517,11 @@ table {
   border-spacing: 0;
 }
 
-#id {
+#th-icon {
+  width: 50px;
+}
+
+#th-id {
   width: 60px;
 }
 

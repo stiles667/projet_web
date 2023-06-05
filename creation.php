@@ -491,9 +491,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has b
         </div>
     </header>
     <div class="container">
-        <div class="info-container">
+    <div class="info-container">
             <h1>Création de quiz</h1>
-            <img src="https://img.icons8.com/fluency/256/likes-folder--v2.png">
+
+            <?php
+            $defaultImage = "https://img.icons8.com/fluency/256/likes-folder--v2.png";
+
+            if (!empty($categorie)) {
+                $imageInfo = @getimagesize($categorie);
+                if ($imageInfo !== false) {
+                    echo '<img src="' . $categorie . '"></a>';
+                } else {
+                    echo '<img src="' . $defaultImage . '"></a>';
+                }
+            } else {
+                echo '<img src="' . $defaultImage . '"></a>';
+            }
+            ?>
         </div>
         <div id="pageCreate">
             <form method="post">
@@ -501,11 +515,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has b
                     <input class="input-quiz" type="text" placeholder="Titre" name="titre" id="titre" maxlength="15" required>
                     <h2>Difficulté</h2>
                     <select name="difficulte" class="input-quiz difficulty" id="difficulte" required>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                        <option value="1">Facile</option>
+                        <option value="2">Moyen</option>
+                        <option value="3">Difficile</option>
                     </select>
-                    <input class="input-quiz2" type="text" placeholder="Lien image" name="categorie" id="categorie" required>
+                    <input class="input-quiz image" type="text" placeholder="Lien image" name="categorie" id="categorie" required>
                 </div>
                 <div class="container-question">
                     <div class="question">
