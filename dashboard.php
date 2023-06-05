@@ -168,8 +168,19 @@ if(isset($_GET['role'])) {          // Get the user role from the url
                         echo "<a href='updatequizz.php?role=$role&user=$id_user&updatequizz=$id_quiz'>";       // Update the quiz
                         echo "<h3 class='Name'>$nom_quiz</h3>";     // Display the title
                         echo "</a>";    
-                        
-                        echo "<img class='illustration' src='$categorie_quizz' alt='Sport'>";
+
+                        $defaultImage = "https://img.icons8.com/fluency/256/likes-folder--v2.png";
+            
+                        if (!empty($categorie_quizz)) {
+                            $imageInfo = @getimagesize($categorie_quizz);
+                            if ($imageInfo !== false) {
+                                echo "<img class='illustration' src='$categorie_quizz' alt='image'>";
+                            } else {
+                                echo "<img class='illustration' src='$defaultImage' alt='image'>";
+                            }
+                        } else {
+                            echo "<img class='illustration' src='$defaultImage' alt='image'>";
+                        }
                         
                         echo "</div>";
                     }
