@@ -72,10 +72,10 @@ if(isset($_GET['role'])) {
         </div>
         <div class="categories">
         <?php
-            $sql = "SELECT * FROM quizz";           // Select all quizz
+            $sql = "SELECT * FROM quizz";
             $resultquizz = mysqli_query($conn, $sql);
 
-            while($row=mysqli_fetch_assoc($resultquizz)) {    // For each quizz, create a link to the quiz page
+            while($row=mysqli_fetch_assoc($resultquizz)) {
                 $quizz_title = $row["Titre"];
                 $id_quizz = $row["Id_quizz"];
                 $quizz_category = $row["Categorie"];
@@ -83,7 +83,31 @@ if(isset($_GET['role'])) {
                 echo "<a href='quiz.php?role=$role&user=$id_user&id_quizz=$id_quizz' class='imgCategorie' data-category='$quizz_title' id='$id_quizz'>";
                 echo "<h3 class='Name'>$quizz_title</h3>";
 
-                echo "<img src='$quizz_category' alt='Sport'>";
+                echo "<img src='$quizz_category' alt='Image'>";
+ 
+                echo "</a>";       
+                echo "<a href='quiz.php?role=$role&user=$id_user&id_quizz=$id_quizz' class='imgCategorie' data-category='$quizz_title' id='$id_quizz'>";
+                echo "<h3 class='Name'>$quizz_title</h3>";
+
+                echo "<img src='$quizz_category' alt='Image'>";
+ 
+                echo "</a>";       
+                echo "<a href='quiz.php?role=$role&user=$id_user&id_quizz=$id_quizz' class='imgCategorie' data-category='$quizz_title' id='$id_quizz'>";
+                echo "<h3 class='Name'>$quizz_title</h3>";
+
+                echo "<img src='$quizz_category' alt='Image'>";
+ 
+                echo "</a>";       
+                echo "<a href='quiz.php?role=$role&user=$id_user&id_quizz=$id_quizz' class='imgCategorie' data-category='$quizz_title' id='$id_quizz'>";
+                echo "<h3 class='Name'>$quizz_title</h3>";
+
+                echo "<img src='$quizz_category' alt='Image'>";
+ 
+                echo "</a>";       
+                echo "<a href='quiz.php?role=$role&user=$id_user&id_quizz=$id_quizz' class='imgCategorie' data-category='$quizz_title' id='$id_quizz'>";
+                echo "<h3 class='Name'>$quizz_title</h3>";
+
+                echo "<img src='$quizz_category' alt='Image'>";
  
                 echo "</a>";       
             }
