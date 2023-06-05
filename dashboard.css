@@ -201,6 +201,27 @@ header a span:last-child {
   right: 0;
 }
 
+.difficulty {
+  height: 10%;
+  width: 10%;
+  border-radius: 100%;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
+
+.easy {
+  background-color: #00ff00;
+}
+
+.medium {
+  background-color: #ffbb00;
+}
+
+.hard {
+  background-color: #ff5f45;
+}
+
 .Name {
   position: absolute;
   color: white;

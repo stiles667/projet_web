@@ -9,7 +9,7 @@ if (isset($_GET['role'])) {
     $role = $_GET['role'];
 }
 
-$titrequizz ="";            //We declare all the variables we will use in the form
+$titrequizz ="";
 $difficulte ="";
 
 $question1 = "";
@@ -552,8 +552,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has b
                             </div>
                             <div>
                                 <label for="answer4" class="letter true"></label>
-                                <input type="text" name="q1bonnerep" id="q1bonnerep" placeholder="Bonne réponse"
-                                    required>
+                                <input type="text" name="q1bonnerep" id="q1bonnerep" required>
                             </div>
                             <div class="check">
                             </div>
@@ -592,8 +591,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has b
                             </div>
                             <div>
                                 <label for="answer4" class="letter true"></label>
-                                <input type="text" name="q2bonnerep" id="q2bonnerep" placeholder="Bonne réponse"
-                                    required>
+                                <input type="text" name="q2bonnerep" id="q2bonnerep" required>
                             </div>
                             <div class="check">
 
@@ -633,8 +631,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has b
                             </div>
                             <div>
                                 <label for="answer4" class="letter true"></label>
-                                <input type="text" name="q3bonnerep" id="q3bonnerep" placeholder="Bonne réponse"
-                                    required>
+                                <input type="text" name="q3bonnerep" id="q3bonnerep" required>
                             </div>
                             <div class="check">
 
@@ -674,8 +671,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has b
                             </div>
                             <div>
                                 <label for="answer4" class="letter true"></label>
-                                <input type="text" name="q4bonnerep" id="q4bonnerep" placeholder="Bonne réponse"
-                                    required>
+                                <input type="text" name="q4bonnerep" id="q4bonnerep" required>
                             </div>
                             <div class="check">
 
@@ -715,8 +711,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has b
                             </div>
                             <div>
                                 <label for="answer4" class="letter true"></label>
-                                <input type="text" name="q5bonnerep" id="q5bonnerep" placeholder="Bonne réponse"
-                                    required>
+                                <input type="text" name="q5bonnerep" id="q5bonnerep" required>
                             </div>
                             <div class="check">
 
@@ -756,8 +751,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has b
                             </div>
                             <div>
                                 <label for="answer4" class="letter true"></label>
-                                <input type="text" name="q6bonnerep" id="q6bonnerep" placeholder="Bonne réponse"
-                                    required>
+                                <input type="text" name="q6bonnerep" id="q6bonnerep" required>
                             </div>
                             <div class="check">
 
@@ -797,8 +791,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has b
                             </div>
                             <div>
                                 <label for="answer4" class="letter true"></label>
-                                <input type="text" name="q7bonnerep" id="q7bonnerep" placeholder="Bonne réponse"
-                                    required>
+                                <input type="text" name="q7bonnerep" id="q7bonnerep" required>
                             </div>
                             <div class="check">
 
@@ -838,8 +831,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has b
                             </div>
                             <div>
                                 <label for="answer4" class="letter true"></label>
-                                <input type="text" name="q8bonnerep" id="q8bonnerep" placeholder="Bonne réponse"
-                                    required>
+                                <input type="text" name="q8bonnerep" id="q8bonnerep" required>
                             </div>
                             <div class="check">
 
@@ -880,8 +872,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has b
                             </div>
                             <div>
                                 <label for="answer4" class="letter true"></label>
-                                <input type="text" name="q9bonnerep" id="q9bonnerep" placeholder="Bonne réponse"
-                                    required>
+                                <input type="text" name="q9bonnerep" id="q9bonnerep" required>
                             </div>
                             <div class="check">
 
@@ -921,8 +912,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {         //We check if the form has b
                             </div>
                             <div>
                                 <label for="answer4" class="letter true"></label>
-                                <input type="text" name="q10bonnerep" id="q10bonnerep" placeholder="Bonne réponse"
-                                    required>
+                                <input type="text" name="q10bonnerep" id="q10bonnerep" required>
                             </div>
                             <div class="check">
 

@@ -541,7 +541,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <input type="text" name="q1rep3" id="q1rep3" value="<?php echo $q1rep3?>" required>
                             </div>
                             <div>
-                                <label for="answer4">Bonne réponse</label>
+                                <label for="answer4" class="letter true"></label>
                                 <input type="text" name="q1bonnerep" id="q1bonnerep" value="<?php echo $q1bonnerep?>" required>
                             </div>
                             <div class="check">
@@ -580,7 +580,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <input type="text" name="q2rep3" id="q2rep3" value="<?php echo $q2rep3?>" required>
                             </div>
                             <div>
-                                <label for="answer4">Bonne réponse</label>
+                                <label for="answer4" class="letter true"></label>
                                 <input type="text" name="q2bonnerep" id="q2bonnerep" value="<?php echo $q2bonnerep?>" required>
                             </div>
                             <div class="check">
@@ -619,7 +619,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <input type="text" name="q3rep3" id="q3rep3" value="<?php echo $q3rep3?>" required>
                             </div>
                             <div>
-                                <label for="answer4">Bonne réponse</label>
+                                <label for="answer4" class="letter true"></label>
                                 <input type="text" name="q3bonnerep" id="q3bonnerep" value="<?php echo $q3bonnerep?>" required>
                             </div>
                             <div class="check">
@@ -658,7 +658,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <input type="text" name="q4rep3" id="q4rep3" value="<?php echo $q4rep3?>" required>
                             </div>
                             <div>
-                                <label for="answer4" >Bonne réponse</label>
+                                <label for="answer4" class="letter true"></label>
                                 <input type="text" name="q4bonnerep" id="q4bonnerep" value="<?php echo $q4bonnerep?>" required>
                             </div>
                             <div class="check">
@@ -697,7 +697,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <input type="text" name="q5rep3" id="q5rep3" value="<?php echo $q5rep3?>" required>
                             </div>
                             <div>
-                                <label for="answer4" >Bonne réponse</label>
+                                <label for="answer4" class="letter true"></label>
                                 <input type="text" name="q5bonnerep" id="q5bonnerep" value="<?php echo $q5bonnerep?>" required>
                             </div>
                             <div class="check">
@@ -736,7 +736,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <input type="text" name="q6rep3" id="q6rep3" value="<?php echo $q6rep3?>" required>
                             </div>
                             <div>
-                                <label for="answer4">Bonne réponse</label>
+                                <label for="answer4" class="letter true"></label>
                                 <input type="text" name="q6bonnerep" id="q6bonnerep" value="<?php echo $q6bonnerep?>" required>
                             </div>
                             <div class="check">
@@ -775,7 +775,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <input type="text" name="q7rep3" id="q7rep3" value="<?php echo $q7rep3 ?>" required>
                             </div>
                             <div>
-                                <label for="answer4">Bonne réponse</label>
+                                <label for="answer4" class="letter true"></label>
                                 <input type="text" name="q7bonnerep" id="q7bonnerep" value="<?php echo $q7bonnerep ?>" required>
                             </div>
                             <div class="check">
@@ -814,7 +814,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <input type="text" name="q8rep3" id="q8rep3" value="<?php echo $q8rep3 ?>" required>
                             </div>
                             <div>
-                                <label for="answer4">Bonne réponse</label>
+                                <label for="answer4" class="letter true"></label>
                                 <input type="text" name="q8bonnerep" id="q8bonnerep" value="<?php echo $q8bonnerep ?>" required>
                             </div>
                             <div class="check">
@@ -854,7 +854,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <input type="text" name="q9rep3" id="q9rep3" value="<?php echo $q9rep3 ?>" required>
                             </div>
                             <div>
-                                <label for="answer4" class="letter">D</label>
+                                <label for="answer4" class="letter true"></label>
                                 <input type="text" name="q9bonnerep" id="q9bonnerep" value="<?php echo $q9bonnerep?>" required>
                             </div>
                             <div class="check">
@@ -893,7 +893,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <input type="text" name="q10rep3" id="q10rep3" value="<?php echo $q10rep3 ?>" required>
                             </div>
                             <div>
-                                <label for="answer4" >Bonne réponse</label>
+                                <label for="answer4" class="letter true"></label>
                                 <input type="text" name="q10bonnerep" id="q10bonnerep" value="<?php echo $q10bonnerep ?>" required>
                             </div>
                             <div class="check">
