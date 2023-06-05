@@ -311,7 +311,7 @@ if(isset($_GET['role'])) {          // Get the user role from the url
                         <?php           //Bouton pour ajouter un utilisateur
                             echo "          
                             <a href='create.php?role=$role&user=$id_user'>     
-                            <input class='button-save' type='submit' value='+ Ajouter'>
+                            <input class='button-save' type='submit' value='+'>
                             </a>
                             ";
                         ?>
@@ -376,7 +376,7 @@ if(isset($_GET['role'])) {          // Get the user role from the url
                             echo "</tr>";
 
                         }
-                    ?>
+                        ?>
                 </table>
             </div>
         </div>
@@ -446,6 +446,18 @@ if(isset($_GET['role'])) {          // Get the user role from the url
         </div>
     </div>
     <script>
+        $(document).ready(function() {
+            $('.button-save').mouseover(function() {
+                $(this).val('+ Ajouter');
+                $(this).css('width', '175px');
+            });
+            
+            $('.button-save').mouseout(function() {
+                $(this).val('+');
+                $(this).css('width', '50px');
+            });
+        });
+
         if ('<?php echo $id_user ?>' !== '1') {         // If the user is not the admin
             $('#onglet-3, #onglet-4, .button[data-onglet="onglet-3"], .button[data-onglet="onglet-4"],hr').remove();     // Remove the button admin and the container
         }
